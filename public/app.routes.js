@@ -8,6 +8,8 @@ appRoutes.$inject = ['$routeProvider'];
 function appRoutes($routeProvider){
   $routeProvider
     .when('/', {
-      templateUrl: 'templates/_home.html'
+      templateUrl: 'templates/_home.html',
+      controller: 'mainCtrl',
+      controllerAs: 'main'
     })
 }
