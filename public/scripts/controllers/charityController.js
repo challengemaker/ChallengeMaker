@@ -5,5 +5,10 @@ angular.module('charityController', [])
   function charityCtrl($http){
     var self = this;
 
-    self.charity = "The Girl Scouts"
+    self.charity = "The Girl Scouts";
+
+    $http.get('/api/charities')
+      .then(function(data){
+        console.log(data);
+      })
   }

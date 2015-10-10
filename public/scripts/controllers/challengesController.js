@@ -11,19 +11,16 @@ angular.module('challengesController', [])
     if (window.location.hash == "#/challenges") {
       $http.get('/api/challenges')
         .then(function(data){
-          console.log(data.data);
           self.allChallenges = data.data;
         })
     }
     else
     {
       var hashArray = window.location.hash.split("/");
-      console.log(hashArray);
-      var challengeId = hashArray[hashArray.length - 1];
-      console.log(challengeId);
-      $http.get('/api/challenges/'+challengeId)
+      var thisName = hashArray[hashArray.length-1];
+
+      $http.get('/api/challenges/'+thisName)
         .then(function(data){
-          console.log(data.data);
           self.singleChallenge = data.data;
         })
 

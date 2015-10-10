@@ -19,8 +19,6 @@ var userSchema = new Schema({
 User = mongoose.model('users', userSchema);
 ///end user model
 ///begin challenges model
-
-////end challenges model
 var challengeSchema = new Schema({
   name: String,
   description: String,
@@ -31,6 +29,18 @@ var challengeSchema = new Schema({
 })
 
 Challenge = mongoose.model('challenges', challengeSchema);
+////end challenges model
+////begin Charities model
+var charitySchema = new Schema({
+  name: String,
+  description: String,
+  url: String,
+  photo: String,
+  challenges: String
+})
+
+Charity = mongoose.model('charities', charitySchema);
+///end Charities model
 ///end temp Models home
 ///////////////////////
 
@@ -38,7 +48,6 @@ module.exports = function(app){
 
   app.get('/api/users', function(req, res){
     User.find({}, function(err, users){
-      // console.log(users);
       if(err){
         res.send(err);
       }
@@ -48,9 +57,7 @@ module.exports = function(app){
 
   app.get('/api/users/:name', function(req, res){
     var name = req.params.name;
-    console.log(name);
     User.findOne({"name":name}, function(err, user){
-      // console.log(user);
       if(err){
         res.send(err);
       }
@@ -65,15 +72,23 @@ module.exports = function(app){
     });
   });
 
-  app.get('/api/challenges/:id', function(req, res){
-    var id = req.params.id;
-    console.log(id);
-    Challenge.findOne(id, function(err, challenge){
-      if(err){console.log(err)}
-      console.log(challenge);
-      res.json(challenge);
+  app.get('/api/challenges/:name', function(req, res){
+    var rawName = req.params.name;
+    var fullName = rawName.split('-').join(' ');
+    Challenge.findOne({"name": fullName}, {}, function(err, challenge){
+      if(err){console.log(err)};
+
+      res.json(challenge)
     })
   });
+
+  app.get('/api/charities', function(req, res, err){
+    if(err){console.log(err);}
+    Charity.find({}, function(data){
+      console.log(data);
+      res.json(data);
+    })
+  })
 
 }
 
