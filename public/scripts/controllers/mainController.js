@@ -11,6 +11,7 @@ angular.module('mainController', [])
 
       .then(function(data){
         console.log(data);
+        self.name = data.data.name;
       })
 
   }
