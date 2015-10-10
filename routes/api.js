@@ -5,11 +5,11 @@ var route = express.Router();
 
 // var User = require('models/user.js')
 
+/////////////////////////////////
 ////temporary home for our models
-
-// User Model
 var Schema   = mongoose.Schema;
 
+// User Model
 var userSchema = new Schema({
   name: String,
   email: String,
@@ -17,7 +17,22 @@ var userSchema = new Schema({
 })
 
 User = mongoose.model('users', userSchema);
+///end user model
+///begin challenges model
+
+////end challenges model
+var challengeSchema = new Schema({
+  name: String,
+  description: String,
+  video_url: String,
+  photo: String,
+  creator: String,//this will be an embed (oneo to one)
+  charities: String//many to many
+})
+
+Challenge = mongoose.model('challenges', challengeSchema);
 ///end temp Models home
+///////////////////////
 
 module.exports = function(app){
 
@@ -42,6 +57,23 @@ module.exports = function(app){
       res.json(user)
     });
   })
+
+  app.get('/api/challenges', function(req, res){
+    Challenge.find({}, function(err, challenges){
+      if(err){res.send(err)}
+      res.json(challenges)
+    });
+  });
+
+  app.get('/api/challenges/:id', function(req, res){
+    var id = req.params.id;
+    console.log(id);
+    Challenge.findOne(id, function(err, challenge){
+      if(err){console.log(err)}
+      console.log(challenge);
+      res.json(challenge);
+    })
+  });
 
 }
 

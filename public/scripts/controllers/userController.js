@@ -6,7 +6,7 @@ angular.module('userController', [])
     var self = this;
 
     ///using if statement to determine if we're looking at an "all users" list or single user's profile page
-    if (window.location.href == "http://localhost:5555/#/users" || window.location.href == "https://challengemaker.herokuapp.com/#/users") {
+    if (window.location.hash == "#/users") {
       ///find all users
       $http.get('/api/users')
       .then(function(data){
@@ -16,8 +16,11 @@ angular.module('userController', [])
       });
     } else {
       // find single User
-      var name = "jack";
-      $http.get('/api/users/'+name)
+      var hashArray = window.location.hash.split("/");
+      console.log(hashArray);
+      var userName =hashArray[hashArray.length-1];
+      console.log(userName);
+      $http.get('/api/users/'+userName)
       .then(function(data){
         console.log(data);
         var thisUser = data.data.name;
