@@ -2,7 +2,7 @@ var express        = require('express');
 var app            = express();
 var http           = require('http');
 var mongoose       = require('mongoose');
-var morgan         = require('mongoose');
+var logger         = require('morgan');
 var path           = require('path');
 var config         = require('./config')
 var bodyParser     = require('body-parser');
@@ -11,6 +11,8 @@ var methodOverride = require('method-override');
 
 // Begin Middleware
 app.use(bodyParser.json());
+
+app.use(logger('dev'));
 
 // parse application/vnd.api+json as json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
