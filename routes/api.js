@@ -83,7 +83,8 @@ module.exports = function(app){
   });
 
   app.get('/api/charities/:name', function(req, res){
-    Charity.findOne({name: req.params.name}, function(err, charity){
+    var name = req.params.name.split('-').join(' ');
+    Charity.findOne({name: name}, function(err, charity){
       if(err){console.log(err)};
       console.log(charity);;
       res.json(charity);
