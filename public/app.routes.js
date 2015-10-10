@@ -12,4 +12,12 @@ function appRoutes($routeProvider){
       controller: 'mainCtrl',
       controllerAs: 'main'
     })
+
+    .when('/challenges', {
+      templateUrl: 'templates/_challenges.html',
+      controller: 'challengesCtrl',
+      controllerAs: 'challenges'
+    })
+
+    .otherwise('/');
 }
