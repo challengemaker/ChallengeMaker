@@ -13,6 +13,15 @@
     <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
     <!-- End Library Links -->
 
+    <!-- Begin Models -->
+    <!-- <script src="./models/user.js" charset="utf-8"></script> -->
+
+    <!-- End Models -->
+
+    <!-- Begin Stylesheets -->
+    <link rel="stylesheet" href="stylesheets/main.css" media="screen" title="no title" charset="utf-8">
+    <!-- End Stylesheets -->
+
 
     <script src="app.routes.js" charset="utf-8"></script>
     <script src="app.js" charset="utf-8"></script>
@@ -27,17 +36,9 @@
     <!-- Begin all other javascripts -->
     <!-- End all other javascripts -->
 
-    <!-- Begin Models -->
-    <script src="./models/user.js" charset="utf-8"></script>
-
-    <!-- End Models -->
-
-    <!-- Begin Stylesheets -->
-    <link rel="stylesheet" href="stylesheets/main.css" media="screen" title="no title" charset="utf-8">
-    <!-- End Stylesheets -->
 
   </head>
-  <body ng-app="challengeMaker">
+  <body ng-app="challengeMaker" ng-controller="mainCtrl">
 
     <!-- Navbar begins here -->
     <div class="navContainer">
