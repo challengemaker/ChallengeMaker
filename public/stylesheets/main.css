@@ -1,0 +1,29 @@
+
+/*Begin pure elements*/
+/*End pure elements*/
+
+/*Begin classes*/
+
+
+.bodyView {
+  display: block;
+  outline: 2px solid gray;
+  margin: 10px 0 10px 0;
+}
+
+.footerContainer {
+  height: 75px;
+  background-color: green;
+  display: block;
+}
+
+.navContainer {
+  height: 200px;
+  background-color: red;
+  display: block;
+}
+
+/*End classes*/
+
+/*Begin ids*/
+/*End ids*/

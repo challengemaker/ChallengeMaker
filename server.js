@@ -1,14 +1,29 @@
 var express        = require('express');
 var app            = express();
+var http           = require('http');
 var mongoose       = require('mongoose');
 var morgan         = require('mongoose');
 var path           = require('path');
 var config         = require('./config')
 var bodyParser     = require('body-parser');
+var config         = require('./config.js');
 var methodOverride = require('method-override');
 
+// Begin Middleware
+app.use(bodyParser.json());
+
+// parse application/vnd.api+json as json
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
+app.use(methodOverride('X-HTTP-Method-Override'));
 
 app.use(express.static(__dirname + '/public'));
+
+// End MiddleWare
 
 ////setting views directory for express, though all routing will go through Angular
 
