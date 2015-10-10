@@ -25,6 +25,25 @@ function appRoutes($routeProvider){
       controllerAs: 'challenges'
     })
 
+    .when('/newchallenge', {
+      templateUrl: 'templates/_new_challenge.html',
+      controller: 'challengesCtrl',
+      controllerAs: 'challenges'
+    })
+
+
+    .when('/youvebeenchallenged', {
+      templateUrl: 'templates/_challenge_received.html',
+      controller: 'challengesCtrl',
+      controllerAs: 'challenges'
+    })
+
+    .when('/acceptchallenge', {
+      templateUrl: 'templates/_accept_challenge.html',
+      controller: 'challengesCtrl',
+      controllerAs: 'challenges'
+    })
+
     .when('/users', {
       templateUrl: 'templates/_users.html',
       controller: 'userCtrl',
@@ -37,10 +56,42 @@ function appRoutes($routeProvider){
       controllerAs: 'user'
     })
 
+    .when('/signup', {
+      templateUrl: 'templates/_signup.html',
+      controller: 'userCtrl',
+      controllerAs: 'user'
+    })
+
+    .when('/newprofile', {
+      templateUrl: 'templates/_newprofile.html',
+      controller: 'userCtrl',
+      controllerAs: 'user'
+    })
+
+    .when('/terms', {
+      templateUrl: 'templates/_terms_of_service.html'
+    })
+
     .when('/charities', {
       templateUrl: 'templates/_charities.html',
       controller: 'charityCtrl',
       controllerAs: 'charity'
+    })
+
+    .when('/contact', {
+      templateUrl: 'templates/_contact.html'
+    })
+
+    .when('/settleup', {
+      templateUrl: 'templates/_settleup.html'
+    })
+
+    .when('/about', {
+      templateUrl: 'templates/_about.html'
+    })
+
+    .when('/cms', {
+      templateUrl: 'templates/_cms.html'
     })
 
     .otherwise('/');
