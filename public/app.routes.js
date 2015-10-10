@@ -72,6 +72,12 @@ function appRoutes($routeProvider){
       templateUrl: 'templates/_terms_of_service.html'
     })
 
+    .when('/charities/:name', {
+      templateUrl: 'templates/_singlecharity.html',
+      controller: 'charityCtrl',
+      controllerAs: 'charity'
+    })
+
     .when('/charities', {
       templateUrl: 'templates/_charities.html',
       controller: 'charityCtrl',

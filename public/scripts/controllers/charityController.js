@@ -5,10 +5,22 @@ angular.module('charityController', [])
   function charityCtrl($http){
     var self = this;
 
-    self.charity = "The Girl Scouts";
+    if(window.location.hash == "#/charities"){
+      console.log('yo');
+      $http.get('/api/charities')
+        .then(function(data){
+          console.log(data);
+          self.charities = data.data;
+        })
+    } else {
+      var charityNameHash = window.location.hash.split('/');
+      var charityName = charityNameHash[charityNameHash.length - 1];
+      $http.get("/api/charities/Unicef")
+        .then(function(data){
+          console.log(data);
+          self.singleCharity = data.data;
+        })
 
-    $http.get('/api/charities')
-      .then(function(data){
-        console.log(data);
-      })
+    }
+
   }

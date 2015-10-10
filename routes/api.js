@@ -82,13 +82,21 @@ module.exports = function(app){
     })
   });
 
-  app.get('/api/charities', function(req, res, err){
-    if(err){console.log(err);}
-    Charity.find({}, function(data){
-      console.log(data);
-      res.json(data);
+  app.get('/api/charities/:name', function(req, res){
+    Charity.findOne({name: req.params.name}, function(err, charity){
+      if(err){console.log(err)};
+      console.log(charity);;
+      res.json(charity);
     })
   })
+
+
+  app.get('/api/charities', function(req, res){
+    Charity.find({}, function(err, charities){
+      if(err){console.log(err)};
+      res.json(charities);
+    })
+  });
 
 }
 
