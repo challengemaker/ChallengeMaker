@@ -32,7 +32,6 @@ module.exports = function(app){
   })
 
   app.get('/api/users/:name', function(req, res){
-    console.log('hi hih ih ih ih ih ih ');
     var name = req.params.name;
     console.log(name);
     User.findOne({"name":name}, function(err, user){
