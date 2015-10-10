@@ -4,8 +4,7 @@ var Schema   = mongoose.Schema
 var userSchema = new Schema({
   name: String,
   email: String,
-  location: String,
-  videosWatched: Array
+  location: String
 })
 
-module.exports('userschema', userSchema);
+module.exports = mongoose.model('userSchema', userSchema);

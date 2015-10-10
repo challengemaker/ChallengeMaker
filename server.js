@@ -23,6 +23,8 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 
 app.use(express.static(__dirname + '/public'));
 
+require('./routes/api')(app);
+
 // End MiddleWare
 
 ////setting views directory for express, though all routing will go through Angular
@@ -40,3 +42,5 @@ app.set('port', (process.env.PORT || 5555))
 app.listen(app.get('port'), function(){
   console.log("Server running smoother than Barry White");
 })
+
+exports = module.exports = app;

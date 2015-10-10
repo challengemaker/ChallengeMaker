@@ -5,6 +5,12 @@ angular.module('mainController', [])
   function mainCtrl($http){
     var self = this;
 
-    self.firstData = "hi there everyone"
+    self.firstData = "hi there everyone";
+
+    $http.get('/api/users')
+
+      .then(function(data){
+        console.log(data);
+      })
 
   }
