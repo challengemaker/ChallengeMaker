@@ -19,5 +19,29 @@ function appRoutes($routeProvider){
       controllerAs: 'challenges'
     })
 
+    .when('/challenges/:id', {
+      templateUrl: 'templates/_singleChallenge.html',
+      controller: 'challengesCtrl',
+      controllerAs: 'challenges'
+    })
+
+    .when('/users', {
+      templateUrl: 'templates/_users.html',
+      controller: 'userCtrl',
+      controllerAs: 'user'
+    })
+
+    .when('/users/:id', {
+      templateUrl: 'templates/_singleUser.html',
+      controller: 'userCtrl',
+      controllerAs: 'user'
+    })
+
+    .when('/charities', {
+      templateUrl: 'templates/_charities.html',
+      controller: 'charityCtrl',
+      controllerAs: 'charity'
+    })
+
     .otherwise('/');
 }
