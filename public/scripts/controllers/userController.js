@@ -2,8 +2,13 @@ angular.module('userController', [])
 
   .controller('userCtrl', userCtrl)
 
-    function userCtrl($http){
-      var self = this;
+  function userCtrl($http){
+    var self = this;
 
-      self.someUser = "Samuel L. Jackson";
+      $http.get('/api/users')
+      .then(function(data){
+        console.log(data);
+        var userList = data.data;
+        self.allUsers = userList;
+      });
     }
