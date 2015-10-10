@@ -6,7 +6,7 @@ angular.module('userController', [])
     var self = this;
 
     ///using if statement to determine if we're looking at an "all users" list or single user's profile page
-    if (window.location.href == "http://localhost:5555/#/users") {
+    if (window.location.href == "http://localhost:5555/#/users" || window.location.href == "https://challengemaker.herokuapp.com/#/users") {
       ///find all users
       $http.get('/api/users')
       .then(function(data){
