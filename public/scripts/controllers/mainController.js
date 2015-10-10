@@ -7,11 +7,4 @@ angular.module('mainController', [])
 
     self.firstData = "hi there everyone";
 
-    // $http.get('/api/users')
-    //
-    //   .then(function(data){
-    //     console.log(data);
-    //     self.name = data.data.name;
-    //   })
-
   }
