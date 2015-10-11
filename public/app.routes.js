@@ -45,7 +45,7 @@ function appRoutes($routeProvider){
     })
 
     .when('/newresponse', {
-      templateUrl: 'templates/_new_response',
+      templateUrl: 'templates/_new_response.html',
       controller: 'responseCtrl',
       controllerAs: 'response'
     })

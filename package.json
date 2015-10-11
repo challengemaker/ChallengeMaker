@@ -25,6 +25,7 @@
   "homepage": "https://github.com/JackConnor/ChallengeMaker#readme",
   "dependencies": {
     "body-parser": "^1.14.1",
+    "bootstrap": "^3.3.5",
     "config": "^1.16.0",
     "express": "^4.13.3",
     "http": "0.0.0",
