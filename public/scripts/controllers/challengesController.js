@@ -6,20 +6,18 @@ angular.module('challengesController', [])
 
   ////begin factory calls
   function testFactory(){
-    var test = {};
-    test.name = 'jack';
-    test.motto = "Tough times don't last, tough people do";
-    return test
+    // var test = {};
+    // test.name = 'jack';
+    // test.motto = "Tough times don't last, tough people do";
+    // console.log(test);
+    // return test;
   }
   /////end factory calls
 
 
-  challengesCtrl.inject = ['$http', 'testFactory'];
-  function challengesCtrl($http, testFactory){
+  challengesCtrl.$inject = ['$http'];
+  function challengesCtrl($http){
     var self = this;
-
-    console.log(testFactory.name);
-    console.log(testFactory.motto);
 
     self.upDog = "What's up dog?"
 
@@ -33,12 +31,14 @@ angular.module('challengesController', [])
           self.allChallenges = data.data;
         })
     } else if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
-      console.log('it worked chkdsjhfk');
       var challenge = window.location.hash.split('/')[2];
       console.log(challenge);
       $http.get('/api/challenges/'+challenge)
         .then(function(data){
           console.log(data);
+          ///begin creating "youve been challenged" data model, which will later go into a factory
+          self.beenChallengedData = data.data;
+          console.log(self.beenChallengedData);
         })
     }
     else

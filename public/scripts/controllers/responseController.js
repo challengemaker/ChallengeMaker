@@ -2,7 +2,7 @@ angular.module('responseController', [])
 
   .controller('responseCtrl', responseCtrl);
 
-  responseCtrl.inject = ['$http'];
+  responseCtrl.$inject = ['$http'];
   function responseCtrl($http){
     var self = this;
     console.log('response controller working');

@@ -19,17 +19,28 @@
   margin-top: -15px;
 }
 
+.challengeCharity {
+  font-size: 40px;
+  font-style: bolder;
+  width: 320px;
+}
+
 .challengeHolder {
-  background-image: url("http://i.huffpost.com/gen/1958759/images/o-ICE-BUCKET-CHALLENGE-facebook.jpg");
+  outline: 2px solid green;
   height: 320px;
   color: white;
   background-size:  100% 320px;
   background-repeat: no-repeat;
-  margin-bottom: 80px;
+  margin: 20px 0 80px 0;
 }
 
 .challengeInfo {
   display: inline-block;
+}
+
+.challengePhoto {
+  position: absolute;
+  z-index: -1;
 }
 
 .detailsButton {
