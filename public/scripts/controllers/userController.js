@@ -2,6 +2,7 @@ angular.module('userController', [])
 
   .controller('userCtrl', userCtrl)
 
+  userCtrl.inject = ['$http'];
   function userCtrl($http){
     var self = this;
 
