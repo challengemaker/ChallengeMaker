@@ -11,9 +11,12 @@
 }
 
 .challengeHolder {
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/d/d7/John_Maino_performs_the_ALS_Ice_Bucket_Challenge.jpg");
+  background-image: url("http://i.huffpost.com/gen/1958759/images/o-ICE-BUCKET-CHALLENGE-facebook.jpg");
   height: 320px;
-  color: white; 
+  color: white;
+  background-size:  100% 320px;
+  background-repeat: no-repeat;
+  margin-bottom: 80px;
 }
 
 .dropdownBarContainer {
