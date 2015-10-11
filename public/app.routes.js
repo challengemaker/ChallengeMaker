@@ -32,7 +32,7 @@ function appRoutes($routeProvider){
     })
 
 
-    .when('/youvebeenchallenged', {
+    .when('/youvebeenchallenged/:name', {
       templateUrl: 'templates/_challenge_received.html',
       controller: 'challengesCtrl',
       controllerAs: 'challenges'
