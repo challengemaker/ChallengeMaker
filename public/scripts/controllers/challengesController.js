@@ -7,6 +7,9 @@ angular.module('challengesController', [])
 
     self.upDog = "What's up dog?"
 
+    $('.acceptButton').on('click', function(){
+      window.location.hash = "#/acceptchallenge"
+    })
 
     if (window.location.hash == "#/challenges") {
       $http.get('/api/challenges')
