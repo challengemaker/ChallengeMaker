@@ -1,7 +1,10 @@
-var express = require('express');
-var config = require('./../config.js');
-var mongoose = require('mongoose');
-var route = express.Router();
+var express        = require('express');
+var config         = require('./../config.js');
+var mongoose       = require('mongoose');
+var bodyParser     = require('body-parser');
+var methodOverride = require('method-override');
+var route          = express.Router();
+
 
 // var User = require('models/user.js')
 
@@ -24,12 +27,24 @@ var challengeSchema = new Schema({
   description: String,
   video_url: String,
   photo: String,
-  creator: String,//this will be an embed (oneo to one)
-  charities: String//many to many
+  creator: String,//One to one
+  charity: Array,//One to One
+  responses: Array//One to many
 })
 
 Challenge = mongoose.model('challenges', challengeSchema);
 ////end challenges model
+////begin responses model
+var responseSchema = new Schema({
+  title: String,
+  description: String,
+  video_url: String,
+  challenge: String,//many-to-one
+})
+
+Response = mongoose.model('responses', responseSchema);
+// console.log(Response);
+////end responses model
 ////begin Charities model
 var charitySchema = new Schema({
   name: String,
@@ -98,6 +113,13 @@ module.exports = function(app){
       res.json(charities);
     })
   });
+
+  app.post('/api/responses', function(req, res){
+    console.log(Response);
+    console.log(req.body);
+    Response.create(req.body);
+    res.json({'posted': req.body});
+  })
 
 }
 

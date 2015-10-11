@@ -44,6 +44,12 @@ function appRoutes($routeProvider){
       controllerAs: 'challenges'
     })
 
+    .when('/newresponse', {
+      templateUrl: 'templates/_new_response',
+      controller: 'responseCtrl',
+      controllerAs: 'response'
+    })
+
     .when('/users', {
       templateUrl: 'templates/_users.html',
       controller: 'userCtrl',
