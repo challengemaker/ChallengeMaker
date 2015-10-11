@@ -31,12 +31,25 @@
   width: 360px;
 }
 
+.challengedDesc {
+  width: 350px;
+  font-size: 18px;
+  font-style: bolder;
+  margin: 0;
+  margin-top: 30px;
+}
+
+.challengedTitle {
+  font-size: 35px;
+  margin-top: -10px;
+}
+
 .challengeHolder {
   height: 320px;
   color: white;
   background-size:  100% 320px;
   background-repeat: no-repeat;
-  margin: 20px 0 80px 0;
+  margin: 20px 0 40px 0;
 }
 
 .challengeInfo {
@@ -55,6 +68,7 @@
   font-style: italic;
   display: block;
   width: 100px;
+  margin-top: -10px;
 }
 
 .detailsButton:hover {
