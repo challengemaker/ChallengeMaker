@@ -5,28 +5,33 @@
 /*Begin classes*/
 
 .acceptButton {
-  outline: 2px solid white;
-  display: inline-block;
+  background-color: white;
+  color: gray;
+  width: 200px;
+  text-align: center;
+  display: block;
+  font-size: 20px;
+  margin: 0 2px;
+  font-weight: bolder;
 }
 .acceptButton:hover {
   background-color: purple;
-  opacity: .25;
+  opacity: .90;
 }
 
 .bodyView {
   display: block;
-  outline: 2px solid gray;
+  height: 100%;
   margin-top: -15px;
 }
 
 .challengeCharity {
-  font-size: 40px;
+  font-size: 55px;
   font-style: bolder;
-  width: 320px;
+  width: 360px;
 }
 
 .challengeHolder {
-  outline: 2px solid green;
   height: 320px;
   color: white;
   background-size:  100% 320px;
@@ -36,21 +41,25 @@
 
 .challengeInfo {
   display: inline-block;
+  margin: 0 0 0 10%;
 }
 
 .challengePhoto {
   position: absolute;
+  width: 100%;
   z-index: -1;
 }
 
 .detailsButton {
-  outline: 2px solid white;
-  display: inline-block;
+  font-size: 25px;
+  font-style: italic;
+  display: block;
+  width: 100px;
 }
 
 .detailsButton:hover {
   background-color: purple;
-  opacity: .25;
+  opacity: .8;
 }
 
 .dropdownBarContainer {
@@ -91,7 +100,8 @@
 .moneyBox {
   display: inline-block;
   float: right;
-  margin: 170px 10px 0 0;
+  margin: 320px 100px 0 0;
+  font-size: 30px;
 }
 
 .navBar {
