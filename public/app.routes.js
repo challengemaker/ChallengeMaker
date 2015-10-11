@@ -19,7 +19,7 @@ function appRoutes($routeProvider){
       controllerAs: 'challenges'
     })
 
-    .when('/challenges/:id', {
+    .when('/challenges/:name', {
       templateUrl: 'templates/_singleChallenge.html',
       controller: 'challengesCtrl',
       controllerAs: 'challenges'

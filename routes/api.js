@@ -23,13 +23,17 @@ User = mongoose.model('users', userSchema);
 ///end user model
 ///begin challenges model
 var challengeSchema = new Schema({
-  name: String,
+  sponsor: String,
+  sponsorIcon: String,
+  title: String,
   description: String,
   video_url: String,
   photo: String,
   creator: String,//One to one
   charity: Array,//One to One
-  responses: Array//One to many
+  responses: Array,//One to many
+  goal: Number,
+  total_raised: Number
 })
 
 Challenge = mongoose.model('challenges', challengeSchema);
@@ -90,7 +94,7 @@ module.exports = function(app){
   app.get('/api/challenges/:name', function(req, res){
     var rawName = req.params.name;
     var fullName = rawName.split('-').join(' ');
-    Challenge.findOne({"name": fullName}, {}, function(err, challenge){
+    Challenge.findOne({"title": fullName}, {}, function(err, challenge){
       if(err){console.log(err)};
 
       res.json(challenge)
