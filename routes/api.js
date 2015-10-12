@@ -118,7 +118,7 @@ module.exports = function(app){
     })
   });
 
-  app.post('/api/responses', function(req, res){
+  app.post('/api/responses/', function(req, res){
     console.log(Response);
     console.log(req.body);
     Response.create(req.body);

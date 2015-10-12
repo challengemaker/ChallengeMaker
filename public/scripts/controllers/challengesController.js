@@ -14,17 +14,16 @@ angular.module('challengesController', [])
   }
   /////end factory calls
 
-
   challengesCtrl.$inject = ['$http'];
   function challengesCtrl($http){
     var self = this;
 
     self.upDog = "What's up dog?"
 
-    $('.acceptButton').on('click', function(){
-      window.location.hash = "#/acceptchallenge"
-    })
+    ////event listener to go start creating new response
+    ///end new response event
 
+    ////begin page if statement, for seperated data
     if (window.location.hash == "#/challenges") {
       $http.get('/api/challenges')
         .then(function(data){
@@ -33,6 +32,11 @@ angular.module('challengesController', [])
     } else if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
       var challenge = window.location.hash.split('/')[2];
       console.log(challenge);
+
+      $('.acceptButton').on('click', function(){
+        window.location.hash = "#/newresponse/"+challenge;
+      })
+      
       $http.get('/api/challenges/'+challenge)
         .then(function(data){
           console.log(data);
@@ -53,5 +57,6 @@ angular.module('challengesController', [])
 
 
     }
+    /////end of the oage-based if statement
 
   }
