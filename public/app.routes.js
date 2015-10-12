@@ -44,7 +44,7 @@ function appRoutes($routeProvider){
       controllerAs: 'challenges'
     })
 
-    .when('/newresponse', {
+    .when('/newresponse/:name', {
       templateUrl: 'templates/_new_response.html',
       controller: 'responseCtrl',
       controllerAs: 'response'
