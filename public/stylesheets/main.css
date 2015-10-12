@@ -25,6 +25,13 @@
   margin-top: -15px;
 }
 
+.challengeBy {
+  margin-top: -68px;
+  text-align: center;
+  width: 100%;
+  color: gray;
+}
+
 .challengeCharity {
   font-size: 55px;
   font-style: bolder;
@@ -129,6 +136,17 @@
   display: block;
 }
 
+.questionHolder {
+  outline: 2px solid green;
+  height: 280px;
+  width: 340px;
+  margin-left: 32%;
+}
+
+.responseContainer {
+  outline: 2px solid blue;
+  height: 400px;
+}
 /*End classes*/
 
 /*Begin ids*/
