@@ -19,10 +19,27 @@
   opacity: .90;
 }
 
+.backButton {
+  height: 40px;
+  width: 90px;
+  font-size: 25px;
+  font-style: bolder;
+  color: gray;
+}
+
+.backButton:hover {
+  background-color: #B8E6E6;
+;
+}
+
 .bodyView {
   display: block;
   height: 100%;
   margin-top: -15px;
+}
+
+.carouselButtonHolder {
+  margin: 30px 0 0 70px;
 }
 
 .challengeBy {
@@ -106,6 +123,18 @@
   display: block;
 }
 
+.forwardButton {
+  height: 40px;
+  width: 90px;
+  font-size: 25px;
+  font-style: bolder;
+  color: gray;
+}
+
+.forwardButton:hover {
+  background-color: #B8E6E6;
+}
+
 .logoContainer {
   height: 130px;
   width: 130px;
@@ -144,8 +173,25 @@
 }
 
 .responseContainer {
-  outline: 2px solid blue;
   height: 400px;
+}
+
+.responseDesc {
+  height: 50px;
+  width: 210px;
+  margin-top: 20px;
+}
+
+.titleDescription {
+  outline: 1px solid gray;
+  margin: 0 0 0 30px;
+}
+
+.titleDescription input {
+  margin-top: 20px;
+  height: 30px;
+  font-size: 20px;
+  color: gray;
 }
 /*End classes*/
 
