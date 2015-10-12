@@ -5,7 +5,6 @@ angular.module('responseController', [])
   responseCtrl.$inject = ['$http'];
   function responseCtrl($http){
     var self = this;
-    console.log('response controller working');
     ////create submit-new-response section
     //////////////////////////////////////
     $('#submitResponse').on('click', function(){
@@ -35,4 +34,17 @@ angular.module('responseController', [])
           console.log(data.data);
         })
     }
+    //////end showing all responses
+    ///////////////////////////////
+
+    /////begin getting all charities (will be a factory)
+    var hash = window.location.hash.split('/');
+    console.log(hash[1]);
+    console.log(hash[2]);
+    if(hash[1] == "newresponse" && hash[2]){
+      console.log('yo yo');
+    }
+    ///end getting all charities
+
+
   }
