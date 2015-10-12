@@ -116,13 +116,20 @@ module.exports = function(app){
       if(err){console.log(err)};
       res.json(charities);
     })
-  });
+  })
 
-  app.post('/api/responses/', function(req, res){
+  app.post('/api/responses', function(req, res){
     console.log(Response);
     console.log(req.body);
     Response.create(req.body);
     res.json({'posted': req.body});
+  })
+
+  app.get('/api/responses', function(req, res){
+    Response.find({}, function(err, responses){
+      res.json(responses);
+    })
+
   })
 
 }
