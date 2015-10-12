@@ -18,11 +18,6 @@ angular.module('challengesController', [])
   function challengesCtrl($http){
     var self = this;
 
-    self.upDog = "What's up dog?"
-
-    ////event listener to go start creating new response
-    ///end new response event
-
     ////begin page if statement, for seperated data
     if (window.location.hash == "#/challenges") {
       $http.get('/api/challenges')
@@ -36,7 +31,7 @@ angular.module('challengesController', [])
       $('.acceptButton').on('click', function(){
         window.location.hash = "#/newresponse/"+challenge;
       })
-      
+
       $http.get('/api/challenges/'+challenge)
         .then(function(data){
           console.log(data);

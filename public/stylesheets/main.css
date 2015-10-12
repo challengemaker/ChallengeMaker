@@ -25,6 +25,13 @@
   margin-top: -15px;
 }
 
+.challengeBy {
+  margin-top: -68px;
+  text-align: center;
+  width: 100%;
+  color: gray;
+}
+
 .challengeCharity {
   font-size: 55px;
   font-style: bolder;
