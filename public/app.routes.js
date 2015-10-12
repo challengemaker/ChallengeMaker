@@ -50,6 +50,12 @@ function appRoutes($routeProvider){
       controllerAs: 'response'
     })
 
+    .when('/responses', {
+      templateUrl: 'templates/_responses.html',
+      controller: 'responseCtrl',
+      controllerAs: 'response'
+    })
+
     .when('/users', {
       templateUrl: 'templates/_users.html',
       controller: 'userCtrl',
