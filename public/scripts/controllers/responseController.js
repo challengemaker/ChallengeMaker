@@ -41,6 +41,10 @@ angular.module('responseController', [])
     /////and creating a new response
     var hash = window.location.hash.split('/');
     if(hash[1] == "newresponse" && hash[2]){
+      $('.responseDesc').val('');
+      $('.responseTitle').on('click', function(){
+        $('.responseTitle').val('');
+      })
       var carouselCounter = 0;
       if (carouselCounter == 0) {
         $('.qDesc').css({
@@ -58,17 +62,11 @@ angular.module('responseController', [])
               marginLeft: 300+"px",
               opacity: .5
             }, 500, function(){
-              $('.question').html(
-                "<input class='qDesc1' value='response name'/>"+
-                "<br>"+
-                "<input class='qDesc1 responseDesc' type='textarea' value='description'/>"
-              );
               $('.qDesc').animate({
                 marginLeft: 0+"px",
                 opacity: 1
               }, 500)
             })
-            $('.questionTitle').html("Add A Title and a short description");
           }
         }
       })
