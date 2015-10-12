@@ -42,6 +42,12 @@ angular.module('responseController', [])
     var hash = window.location.hash.split('/');
     if(hash[1] == "newresponse" && hash[2]){
       var carouselCounter = 0;
+      if (carouselCounter == 0) {
+        $('.qDesc').css({
+          marginLeft: 0+"px",
+          opacity: 1
+        })
+      }
 
       $('.backButton').on('click', function(){
         if(carouselCounter > 0){
@@ -57,11 +63,12 @@ angular.module('responseController', [])
                 "<br>"+
                 "<input class='qDesc1 responseDesc' type='textarea' value='description'/>"
               );
-              $('.qDesc1').animate({
+              $('.qDesc').animate({
                 marginLeft: 0+"px",
                 opacity: 1
               }, 500)
             })
+            $('.questionTitle').html("Add A Title and a short description");
           }
         }
       })
@@ -83,12 +90,13 @@ angular.module('responseController', [])
                 marginLeft: 0+"px",
                 opacity: 1
               }, 700)
+              $('.questionTitle').html("Add the URL to your response video");
             })
 
 
 
 
-            $('.questionTitle').html("Add the URL to your response video");
+
           }
 
         }
