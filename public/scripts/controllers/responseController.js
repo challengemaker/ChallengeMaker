@@ -47,6 +47,22 @@ angular.module('responseController', [])
         if(carouselCounter > 0){
           carouselCounter = carouselCounter -1;
           console.log(carouselCounter);
+          if(carouselCounter == 0 && $(".videoLink")){
+            $('.videoLink').animate({
+              marginLeft: 300+"px",
+              opacity: .5
+            }, 500, function(){
+              $('.question').html(
+                "<input class='qDesc1' value='response name'/>"+
+                "<br>"+
+                "<input class='qDesc1 responseDesc' type='textarea' value='description'/>"
+              );
+              $('.qDesc1').animate({
+                marginLeft: 0+"px",
+                opacity: 1
+              }, 500)
+            })
+          }
         }
       })
       $('.forwardButton').on('click', function(){
@@ -59,7 +75,10 @@ angular.module('responseController', [])
               marginLeft: -300+"px",
               opacity: .5
             }, 700, function(){
-              $('.questionContent').html("<div class='videoLink'><input value='video url' class='addUrl'/></div>");
+              $('.question').html(
+                "<div class='videoLink'>"+
+                "<input value='video url' class='addUrl'/>"+
+                "</div>");
               $('.videoLink').animate({
                 marginLeft: 0+"px",
                 opacity: 1

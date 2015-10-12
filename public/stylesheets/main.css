@@ -217,6 +217,12 @@
   opacity: 0.5;
 }
 
+.qDesc1 {
+  opacity: 0.5;
+  position: relative;
+  margin-left: -400px;
+}
+
 /*End classes*/
 
 /*Begin ids*/
