@@ -1,8 +1,13 @@
 <div class="responseContainer">
   <h2>Respond to this Challenge</h2>
   <div class="questionHolder">
-    <h2 class="questionTitle">{{response.questionTitle}}</h2>
+    <h2 class="questionTitle">Add A Title and a short description</h2>
     <div class="questionContent">
+      <div class='question'>
+        <input class='qDesc' value='response name'/>
+        <br>
+        <input class='qDesc responseDesc' type='textarea' value='description'/>
+      </div>
     </div>
     <div class="carouselButtonHolder">
       <button type="button" class="backButton">Last</button>
@@ -10,8 +15,9 @@
     </div>
   </div>
 </div>
-
-Title <input id="responseTitle" type="text" name="" >
-Description <input id="responseDescription" type="text" name="" >
-video_url <input id="responseVid" type="text" name="" >
-<button type="button" id='submitResponse'>Submit Now</button>
+<div class="testResponseForm">
+  Title <input id="responseTitle" type="text" name="" >
+  Description <input id="responseDescription" type="text" name="" >
+  video_url <input id="responseVid" type="text" name="" >
+  <button type="button" id='submitResponse'>Submit Now</button>
+</div>

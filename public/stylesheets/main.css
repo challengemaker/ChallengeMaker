@@ -19,6 +19,13 @@
   opacity: .90;
 }
 
+.addUrl {
+  height: 40px;
+  width: 80%;
+  margin: 50px 0 0 10%;
+  font-size: 25px;
+}
+
 .backButton {
   height: 40px;
   width: 90px;
@@ -165,9 +172,28 @@
   display: block;
 }
 
+.question {
+  outline: 1px solid gray;
+  margin: 0 0 0 30px;
+  height: 100%;
+}
+
+.question input {
+  margin-top: 20px;
+  height: 30px;
+  font-size: 20px;
+  color: gray;
+}
+
+.questionContent {
+  outline: 2px solid green;
+  height: 180px;
+  overflow: hidden;
+}
+
 .questionHolder {
   outline: 2px solid green;
-  height: 280px;
+  height: 330px;
   width: 340px;
   margin-left: 32%;
 }
@@ -182,17 +208,21 @@
   margin-top: 20px;
 }
 
-.titleDescription {
-  outline: 1px solid gray;
-  margin: 0 0 0 30px;
+.testResponseForm {
+  display: block;
 }
 
-.titleDescription input {
-  margin-top: 20px;
-  height: 30px;
-  font-size: 20px;
-  color: gray;
+.videoLink {
+  margin-left: 400px;
+  opacity: 0.5;
 }
+
+.qDesc {
+  opacity: 0.5;
+  position: relative;
+  margin-left: -400px;
+}
+
 /*End classes*/
 
 /*Begin ids*/

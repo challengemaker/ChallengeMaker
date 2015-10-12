@@ -38,12 +38,69 @@ angular.module('responseController', [])
     ///////////////////////////////
 
     /////begin getting all charities (will be a factory)
+    /////and creating a new response
     var hash = window.location.hash.split('/');
-    console.log(hash[1]);
-    console.log(hash[2]);
     if(hash[1] == "newresponse" && hash[2]){
       var carouselCounter = 0;
+      if (carouselCounter == 0) {
+        $('.qDesc').css({
+          marginLeft: 0+"px",
+          opacity: 1
+        })
+      }
 
+      $('.backButton').on('click', function(){
+        if(carouselCounter > 0){
+          carouselCounter = carouselCounter -1;
+          console.log(carouselCounter);
+          if(carouselCounter == 0 && $(".videoLink")){
+            $('.videoLink').animate({
+              marginLeft: 300+"px",
+              opacity: .5
+            }, 500, function(){
+              $('.question').html(
+                "<input class='qDesc1' value='response name'/>"+
+                "<br>"+
+                "<input class='qDesc1 responseDesc' type='textarea' value='description'/>"
+              );
+              $('.qDesc').animate({
+                marginLeft: 0+"px",
+                opacity: 1
+              }, 500)
+            })
+            $('.questionTitle').html("Add A Title and a short description");
+          }
+        }
+      })
+      $('.forwardButton').on('click', function(){
+        if(carouselCounter < 4){
+          carouselCounter++;
+          console.log(carouselCounter);
+
+          if (carouselCounter == 1) {
+            $('.qDesc').animate({
+              marginLeft: -300+"px",
+              opacity: .5
+            }, 700, function(){
+              $('.question').html(
+                "<div class='videoLink'>"+
+                "<input value='video url' class='addUrl'/>"+
+                "</div>");
+              $('.videoLink').animate({
+                marginLeft: 0+"px",
+                opacity: 1
+              }, 700)
+              $('.questionTitle').html("Add the URL to your response video");
+            })
+
+
+
+
+
+          }
+
+        }
+      })
       console.log('yo yo');
       $http({
         method: "GET",
@@ -58,16 +115,6 @@ angular.module('responseController', [])
       })
     //////begin jquery carousel if statement
     ////////////////////////////////////////
-    if(carouselCounter == 0 ){
-      self.questionTitle = "Add A Title and a short description";
-      console.log($('.questionContent').html(
-        "<div class='titleDescription'>"+
-          "<input value='response name'/>"+
-          "<br>"+
-          "<textarea class='responseDesc' type='textarea' value='response description'/>"+
-        "</div>"
-      ));
-    }
 
     /////end jquery carousel
     ////////////////////////
