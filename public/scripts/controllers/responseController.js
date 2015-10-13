@@ -5,7 +5,7 @@ angular.module('responseController', [])
   responseCtrl.$inject = ['$http'];
   function responseCtrl($http){
     var self = this;
-    self.testing = "testing biatches";
+
     ////create submit-new-response section
     //////////////////////////////////////
     $('#submitResponse').on('click', function(){
@@ -111,59 +111,52 @@ angular.module('responseController', [])
         }
       })
       $('.forwardButton').on('click', function(){
-        self.something = "something";
-        console.log(self);
         self.title = $('.responseTitle').val();
-        console.log(self.title);
         self.description = $('.responseDesc').val();
-        console.log(self.description);
         self.video = $('.videoUrl').val();
+        console.log(self.video);
         self.name = $('.signup2').val();
-        console.log(tunnelMargin);
         if(carouselCounter < 3){
           carouselCounter++;
           if (carouselCounter == 1) {
             tunnelMargin = tunnelMargin-550;
-            console.log(tunnelMargin);
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           } else if (carouselCounter == 2) {
             tunnelMargin = tunnelMargin-550;
-            console.log(tunnelMargin);
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
             $('.carouselButtonHolder').html('')
           } else if (carouselCounter == 3) {
             tunnelMargin = tunnelMargin-550;
-            console.log(tunnelMargin);
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           }
-          console.log(carouselCounter);
         }
       })
-      console.log('yo yo');
       $http({
         method: "GET",
         url: "/api/charities",
         success: function(data){
-          console.log(data);
         }
       })
       .then(function(data){
-        console.log(data);
         self.allCharities = data.data;
       })
     }
 
     $('.reviewResponse').on('click', function(){
       tunnelMargin = tunnelMargin - 550;
-      console.log(self);
       $('.rTitle').text(self.title);
+      /////fill in video
       $('.rVideo').text(self.video);
+      console.log(self.video);
+      ////begin video stuff
+      ///////end video stuff
+      ////end filling in video portion
       $('.rDescription').text(self.description);
       $('.questionTunnel').animate({
         marginLeft: tunnelMargin+"px"
