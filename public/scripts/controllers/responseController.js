@@ -60,28 +60,28 @@ angular.module('responseController', [])
 
           if(carouselCounter == 0){
             console.log(tunnelMargin);
-            tunnelMargin += 348;
+            tunnelMargin += 375;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           }
           else if(carouselCounter == 1){
             console.log(tunnelMargin);
-            tunnelMargin += 348;
+            tunnelMargin += 375;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           }
           else if(carouselCounter == 2){
             console.log(tunnelMargin);
-            tunnelMargin += 348;
+            tunnelMargin += 375;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           }
           else if(carouselCounter == 3){
             console.log(tunnelMargin);
-            tunnelMargin += 348;
+            tunnelMargin += 375;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
@@ -93,19 +93,19 @@ angular.module('responseController', [])
         if(carouselCounter < 4){
           carouselCounter++;
           if (carouselCounter == 1) {
-            tunnelMargin = tunnelMargin-348;
+            tunnelMargin = tunnelMargin-375;
             console.log(tunnelMargin);
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           } else if (carouselCounter == 2) {
-            tunnelMargin = tunnelMargin-348;
+            tunnelMargin = tunnelMargin-375;
             console.log(tunnelMargin);
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           } else if (carouselCounter == 3) {
-            tunnelMargin = tunnelMargin-348;
+            tunnelMargin = tunnelMargin-375;
             console.log(tunnelMargin);
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"

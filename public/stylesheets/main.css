@@ -224,11 +224,10 @@
 
 .questions {
   display: inline-block;
-  width: 320px;
   outline: red;
-  height: 100px;
+  height: 250px;
   outline: 2px solid red;
-  position: relative;margin-left: 15px;
+  position: relative;
 }
 
 .responseContainer {
