@@ -41,15 +41,36 @@ angular.module('responseController', [])
     /////and creating a new response
     var hash = window.location.hash.split('/');
     if(hash[1] == "newresponse" && hash[2]){
-      $('.responseDesc').val('');
+      ///setting all input-clearing
+      $('.signup1').on('click', function(evt){
+        $(".signup1").val('');
+      });
+      $('.signup2').on('click', function(){
+        $('.signup2').val('');
+      });
+      $('.signup3').on('click', function(){
+        $('.signup3').val('');
+      });
+      $('.signup4').on('click', function(){
+        $('.signup4').val('');
+      });
+      $('.videoUrl').on('click', function(){
+        $('.videoUrl').val('');
+      });
+      $('.videoUrl').on('click', function(){
+        $('.videoUrl').val('');
+      });
       $('.responseTitle').on('click', function(){
         $('.responseTitle').val('');
-      })
+      });
+
+      //sizing the questions properly
+
 
       var carouselCounter = 0;
       var tunnelMargin = 0;
       if (carouselCounter == 0) {
-
+        console.log('on the first question');
       }
 
       $('.backButton').on('click', function(){
@@ -60,28 +81,28 @@ angular.module('responseController', [])
 
           if(carouselCounter == 0){
             console.log(tunnelMargin);
-            tunnelMargin += 375;
+            tunnelMargin += 550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           }
           else if(carouselCounter == 1){
             console.log(tunnelMargin);
-            tunnelMargin += 375;
+            tunnelMargin += 550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           }
           else if(carouselCounter == 2){
             console.log(tunnelMargin);
-            tunnelMargin += 375;
+            tunnelMargin += 550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           }
           else if(carouselCounter == 3){
             console.log(tunnelMargin);
-            tunnelMargin += 375;
+            tunnelMargin += 550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
@@ -93,19 +114,19 @@ angular.module('responseController', [])
         if(carouselCounter < 4){
           carouselCounter++;
           if (carouselCounter == 1) {
-            tunnelMargin = tunnelMargin-375;
+            tunnelMargin = tunnelMargin-550;
             console.log(tunnelMargin);
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           } else if (carouselCounter == 2) {
-            tunnelMargin = tunnelMargin-375;
+            tunnelMargin = tunnelMargin-550;
             console.log(tunnelMargin);
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           } else if (carouselCounter == 3) {
-            tunnelMargin = tunnelMargin-375;
+            tunnelMargin = tunnelMargin-550;
             console.log(tunnelMargin);
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
@@ -126,15 +147,32 @@ angular.module('responseController', [])
         console.log(data);
         self.allCharities = data.data;
       })
-    //////begin jquery carousel if statement
-    ////////////////////////////////////////
-
-    /////end jquery carousel
-    ////////////////////////
-
-    ////end create new response
     }
-    ///end getting all charities
-
-
+    $('.createResponse').on('click', function(){
+      console.log('sup');
+      ////this response modelling will be done in a factory later
+      var title = $('.responseTitle').val();
+      console.log(title);
+      var description = $('.responseDesc').val();
+      console.log(description);
+      var video = $('.videoUrl').val();
+      console.log(video);
+      var name = $('.signup2').val();
+      console.log(name);
+      var response = {
+        title: title,
+        description: description,
+        video: video,
+        username: name
+      }
+      $http({
+        method: "POST",
+        url: "api/responses",
+        data: response
+      })
+      .then(function(data){
+        console.log(data);
+      })
+    })
+  ////end controller
   }

@@ -208,15 +208,14 @@
 .questionHolder {
   outline: 5px solid green;
   height: 400px;
-  width: 350px;
-  margin-left: 32%;
-  /*overflow: hidden;*/
+  width: 550px;
+  overflow: hidden;
 }
 
 .questionTunnel {
   height: 90%;
   margin-top: 5%;
-  width: 1500px;
+  width: 2200px;
   outline: 2px solid black;
   position: absolute;
 }
@@ -260,6 +259,16 @@
 .videoLink {
   margin-left: 400px;
   opacity: 0.5;
+}
+
+.videoUrl {
+  height: 50px;
+  width: 70%;
+  margin-left: 15%;
+  font-size: 25px;
+  text-align: center;
+  font-style: bold;
+  color: gray
 }
 
 
