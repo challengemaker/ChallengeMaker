@@ -236,6 +236,7 @@
 .responseTitle {
   text-align: center;
   height: 35px;
+  margin-top: 40px;
   width: 100%;
   font-size: 22px;
   color: gray;
