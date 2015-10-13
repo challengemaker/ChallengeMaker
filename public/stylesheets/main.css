@@ -47,6 +47,8 @@
 
 .carouselButtonHolder {
   margin: 30px 0 0 70px;
+  display: block;
+  outline: 2px solid red;
 }
 
 .challengeBy {
@@ -172,49 +174,21 @@
   display: block;
 }
 
-.question {
-  outline: 1px solid gray;
-  margin: 0 0 0 30px;
+.q1 {
   height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
-.question input {
-  margin-top: 20px;
-  height: 30px;
-  font-size: 20px;
-  color: gray;
+.q2 {
+  margin-left: 600px;
 }
 
-.questionContent {
-  outline: 2px solid green;
+.qContent {
   height: 180px;
-  overflow: hidden;
-}
-
-.questionHolder {
-  outline: 2px solid green;
-  height: 330px;
-  width: 340px;
-  margin-left: 32%;
-}
-
-.responseContainer {
-  height: 400px;
-}
-
-.responseDesc {
-  height: 50px;
-  width: 210px;
-  margin-top: 20px;
-}
-
-.testResponseForm {
   display: block;
-}
-
-.videoLink {
-  margin-left: 400px;
-  opacity: 0.5;
+  position: relative;
+  outline: 2px solid pink;
 }
 
 .qDesc {
@@ -222,6 +196,73 @@
   position: relative;
   margin-left: -400px;
 }
+
+.questionContainer {
+  display: block;
+  outline: 2px solid yellow;
+  height: 70%;
+  /*overflow: visible;*/
+  position: relative;
+}
+
+.questionHolder {
+  outline: 5px solid green;
+  height: 400px;
+  width: 350px;
+  margin-left: 32%;
+  /*overflow: hidden;*/
+}
+
+.questionTunnel {
+  height: 90%;
+  margin-top: 5%;
+  width: 1500px;
+  outline: 2px solid black;
+  position: absolute;
+}
+
+
+.questions {
+  display: inline-block;
+  outline: red;
+  height: 250px;
+  outline: 2px solid red;
+  position: relative;
+}
+
+.responseContainer {
+  height: 400px;
+}
+
+.responseDesc {
+  width: 60%;
+  height: 60px;
+  margin-top: 20px;
+}
+
+.responseTitle {
+  text-align: center;
+  height: 35px;
+  font-size: 22px;
+  color: gray;
+
+}
+
+.testResponseForm {
+  display: block;
+  margin-top: 200px;
+}
+
+.titleDescBox {
+  position: relative;
+}
+
+.videoLink {
+  margin-left: 400px;
+  opacity: 0.5;
+}
+
+
 
 /*End classes*/
 

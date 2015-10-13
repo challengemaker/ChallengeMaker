@@ -1,14 +1,68 @@
 <div class="responseContainer">
   <h2>Respond to this Challenge</h2>
+  <button type="button" name="button" class="btn btn-primary"></button>
   <div class="questionHolder">
-    <h2 class="questionTitle">Add A Title and a short description</h2>
-    <div class="questionContent">
-      <div class='question'>
-        <input class='qDesc' value='response name'/>
-        <br>
-        <input class='qDesc responseDesc' type='textarea' value='description'/>
+    <div class="questionContainer">
+      <div class="questionTunnel row">
+        <div class="questions col-xs-3">
+          <div class="q1">
+            <div class="titleDescBox">
+              <h3>Add a name and description</h3>
+            </div>
+            <div class='qContent'>
+              <input class="responseTitle" type="text" name="name" value="Response Video Title">
+              <input class="responseDesc" type="textarea" name="name" value=""/>
+            </div>
+          </div>
+        </div>
+        <div class="questions col-xs-3" class="q2 col-xs-3">
+          <div class="titleDescBox">
+            <h3>Add your video URL</h3>
+          </div>
+          <div class="qContent">
+
+          </div>
+        </div>
+        <div class="questions col-xs-3" id="q3">
+          <div class="qContent">
+            <div class="titleDescBox">
+              <h3>Would you like to sign up?</h3>
+            </div>
+            <div class="qContent">
+              <input type="text" name="name" value="email">
+              OR
+              <input type="text" name="name" value="new username">
+              <input type="text" name="name" value="password">
+              <input type="text" name="name" value="re-password">
+
+            </div>
+          </div>
+        </div>
+        <div class="questions col-xs-3" id="q4">
+          <div class="qContent">
+
+          </div>
+        </div>
       </div>
     </div>
+    <!-- <h2 class="questionTitle">Add A Title and a short description</h2> -->
+        <!-- Begin all inside response questions -->
+        <!-- <div class="questions" id="q1">
+            <div >
+              <input type="text" name="name" value="">
+              <input type="textarea" name="name" value="">
+            </div>
+        </div>
+        <div class="questions" id="q2">
+
+        </div>
+        <div class="questions" id="q3">
+
+        </div>
+        <div class="questions" id="q4">
+
+        </div> -->
+        <!-- end inside response questions -->
     <div class="carouselButtonHolder">
       <button type="button" class="backButton">Last</button>
       <button type="button" class="forwardButton">Next</button>
@@ -21,3 +75,4 @@
   video_url <input id="responseVid" type="text" name="" >
   <button type="button" id='submitResponse'>Submit Now</button>
 </div>
+id="q1"
