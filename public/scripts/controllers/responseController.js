@@ -125,6 +125,7 @@ angular.module('responseController', [])
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
+            $('.carouselButtonHolder').html('')
           } else if (carouselCounter == 3) {
             tunnelMargin = tunnelMargin-550;
             console.log(tunnelMargin);
@@ -148,8 +149,16 @@ angular.module('responseController', [])
         self.allCharities = data.data;
       })
     }
+
     $('.createResponse').on('click', function(){
       console.log('sup');
+      carouselCounter++;
+      if(carouselCounter == 3){
+        tunnelMargin = tunnelMargin - 550;
+        $('.questionTunnel').animate({
+          marginLeft: tunnelMargin+"px"
+        })
+      }
       ////this response modelling will be done in a factory later
       var title = $('.responseTitle').val();
       console.log(title);
