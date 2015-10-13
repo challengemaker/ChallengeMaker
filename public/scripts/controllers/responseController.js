@@ -45,58 +45,73 @@ angular.module('responseController', [])
       $('.responseTitle').on('click', function(){
         $('.responseTitle').val('');
       })
+
       var carouselCounter = 0;
+      var tunnelMargin = 0;
       if (carouselCounter == 0) {
-        $('.qDesc').css({
-          marginLeft: 0+"px",
-          opacity: 1
-        })
+
       }
 
       $('.backButton').on('click', function(){
         if(carouselCounter > 0){
-          carouselCounter = carouselCounter -1;
           console.log(carouselCounter);
-          if(carouselCounter == 0 && $(".videoLink")){
-            $('.videoLink').animate({
-              marginLeft: 300+"px",
-              opacity: .5
-            }, 500, function(){
-              $('.qDesc').animate({
-                marginLeft: 0+"px",
-                opacity: 1
-              }, 500)
+          carouselCounter--;
+          console.log(carouselCounter);
+
+          if(carouselCounter == 0){
+            console.log(tunnelMargin);
+            tunnelMargin += 348;
+            $('.questionTunnel').animate({
+              marginLeft: tunnelMargin+"px"
+            })
+          }
+          else if(carouselCounter == 1){
+            console.log(tunnelMargin);
+            tunnelMargin += 348;
+            $('.questionTunnel').animate({
+              marginLeft: tunnelMargin+"px"
+            })
+          }
+          else if(carouselCounter == 2){
+            console.log(tunnelMargin);
+            tunnelMargin += 348;
+            $('.questionTunnel').animate({
+              marginLeft: tunnelMargin+"px"
+            })
+          }
+          else if(carouselCounter == 3){
+            console.log(tunnelMargin);
+            tunnelMargin += 348;
+            $('.questionTunnel').animate({
+              marginLeft: tunnelMargin+"px"
             })
           }
         }
       })
       $('.forwardButton').on('click', function(){
+        console.log(tunnelMargin);
         if(carouselCounter < 4){
           carouselCounter++;
-          console.log(carouselCounter);
-
           if (carouselCounter == 1) {
-            $('.qDesc').animate({
-              marginLeft: -300+"px",
-              opacity: .5
-            }, 700, function(){
-              $('.question').html(
-                "<div class='videoLink'>"+
-                "<input value='video url' class='addUrl'/>"+
-                "</div>");
-              $('.videoLink').animate({
-                marginLeft: 0+"px",
-                opacity: 1
-              }, 700)
-              $('.questionTitle').html("Add the URL to your response video");
+            tunnelMargin = tunnelMargin-348;
+            console.log(tunnelMargin);
+            $('.questionTunnel').animate({
+              marginLeft: tunnelMargin+"px"
             })
-
-
-
-
-
+          } else if (carouselCounter == 2) {
+            tunnelMargin = tunnelMargin-348;
+            console.log(tunnelMargin);
+            $('.questionTunnel').animate({
+              marginLeft: tunnelMargin+"px"
+            })
+          } else if (carouselCounter == 3) {
+            tunnelMargin = tunnelMargin-348;
+            console.log(tunnelMargin);
+            $('.questionTunnel').animate({
+              marginLeft: tunnelMargin+"px"
+            })
           }
-
+          console.log(carouselCounter);
         }
       })
       console.log('yo yo');

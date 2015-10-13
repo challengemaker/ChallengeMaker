@@ -201,22 +201,23 @@
   display: block;
   outline: 2px solid yellow;
   height: 70%;
-  overflow: visible;
+  /*overflow: visible;*/
   position: relative;
 }
 
 .questionHolder {
-  outline: 2px solid green;
+  outline: 5px solid green;
   height: 400px;
   width: 350px;
   margin-left: 32%;
+  /*overflow: hidden;*/
 }
 
 .questionTunnel {
   height: 90%;
   margin-top: 5%;
   width: 1500px;
-  outline: 2px solid aqua;
+  outline: 2px solid black;
   position: absolute;
 }
 
@@ -225,7 +226,7 @@
   display: inline-block;
   width: 320px;
   outline: red;
-  height: 250px;
+  height: 100px;
   outline: 2px solid red;
   position: relative;margin-left: 15px;
 }
