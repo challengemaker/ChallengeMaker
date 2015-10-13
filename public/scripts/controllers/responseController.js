@@ -111,7 +111,7 @@ angular.module('responseController', [])
       })
       $('.forwardButton').on('click', function(){
         console.log(tunnelMargin);
-        if(carouselCounter < 4){
+        if(carouselCounter < 3){
           carouselCounter++;
           if (carouselCounter == 1) {
             tunnelMargin = tunnelMargin-550;

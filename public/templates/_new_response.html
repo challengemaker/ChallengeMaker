@@ -1,6 +1,5 @@
 <div class="responseContainer row">
   <h2>Respond to this Challenge</h2>
-  <button type="button" name="button" class="btn btn-primary"></button>
   <div class="questionHolder col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
     <div class="questionContainer">
       <div class="questionTunnel row">
@@ -9,9 +8,11 @@
             <div class="titleDescBox">
               <h3>Add a name and description</h3>
             </div>
-            <div class='qContent'>
-              <input class="responseTitle" type="text" name="name" value="Response Video Title">
-              <input class="responseDesc" type="textarea" name="name" value=""/>
+            <div class='qContent row'>
+              <div class="responseInfo col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1">
+                <input class="responseTitle" type="text" name="name" value="Response Video Title">
+                <input class="responseDesc" type="textarea" name="name" value=""/>
+              </div>
             </div>
           </div>
         </div>
@@ -24,21 +25,24 @@
           </div>
         </div>
         <div class="questions col-xs-3" id="q3">
-          <div class="qContent">
-            <div class="titleDescBox">
-              <h3>Would you like to sign up?</h3>
-            </div>
-            <div class="qContent">
-              <input class="signup1" type="text" name="name" value="email">
-              OR
-              <input class="signup2" type="text" name="name" value="new username">
-              <input class="signup3" type="text" name="name" value="password">
-              <input class="signup4" type="text" name="name" value="re-password">
+          <div class="titleDescBox">
+            <h3>Would you like to sign up?</h3>
+          </div>
+          <div class="qContent row">
+            <div class="signupForm col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+              <input class="signup1" type="text" name="name" value="email"><br><br>
+              OR<br>
+              <input class="signup2" type="text" name="name" value="new username"><br>
+              <input class="signup3" type="text" name="name" value="password"><br>
+              <input class="signup4" type="text" name="name" value="re-password"><br>
               <button type="button" class="createResponse">Create Your Response</button>
             </div>
           </div>
         </div>
         <div class="questions col-xs-3" id="q4">
+          <div class="titleDescBox">
+            <h3>Challenge Friends from the List Below</h3>
+          </div>
           <div class="qContent">
 
           </div>
@@ -63,9 +67,9 @@
 
         </div> -->
         <!-- end inside response questions -->
-    <div class="carouselButtonHolder">
-      <button type="button" class="backButton">Last</button>
-      <button type="button" class="forwardButton">Next</button>
+    <div class="carouselButtonHolder row">
+      <button type="button" class="backButton col-md-3 col-md-offset-3">Last</button>
+      <button type="button" class="forwardButton col-md-3">Next</button>
     </div>
   </div>
 </div>
