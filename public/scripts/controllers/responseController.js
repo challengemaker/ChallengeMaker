@@ -5,6 +5,7 @@ angular.module('responseController', [])
   responseCtrl.$inject = ['$http'];
   function responseCtrl($http){
     var self = this;
+    self.testing = "testing biatches";
     ////create submit-new-response section
     //////////////////////////////////////
     $('#submitResponse').on('click', function(){
@@ -110,6 +111,14 @@ angular.module('responseController', [])
         }
       })
       $('.forwardButton').on('click', function(){
+        self.something = "something";
+        console.log(self);
+        self.title = $('.responseTitle').val();
+        console.log(self.title);
+        self.description = $('.responseDesc').val();
+        console.log(self.description);
+        self.video = $('.videoUrl').val();
+        self.name = $('.signup2').val();
         console.log(tunnelMargin);
         if(carouselCounter < 3){
           carouselCounter++;
@@ -150,9 +159,20 @@ angular.module('responseController', [])
       })
     }
 
+    $('.reviewResponse').on('click', function(){
+      tunnelMargin = tunnelMargin - 550;
+      console.log(self);
+      $('.rTitle').text(self.title);
+      $('.rVideo').text(self.video);
+      $('.rDescription').text(self.description);
+      $('.questionTunnel').animate({
+        marginLeft: tunnelMargin+"px"
+      })
+    })
+
     $('.createResponse').on('click', function(){
-      console.log('sup');
       carouselCounter++;
+
       if(carouselCounter == 3){
         tunnelMargin = tunnelMargin - 550;
         $('.questionTunnel').animate({
@@ -160,19 +180,12 @@ angular.module('responseController', [])
         })
       }
       ////this response modelling will be done in a factory later
-      var title = $('.responseTitle').val();
-      console.log(title);
-      var description = $('.responseDesc').val();
-      console.log(description);
-      var video = $('.videoUrl').val();
-      console.log(video);
-      var name = $('.signup2').val();
-      console.log(name);
+
       var response = {
-        title: title,
-        description: description,
-        video: video,
-        username: name
+        title: self.title,
+        description: self.description,
+        video: self.video,
+        username: self.name
       }
       $http({
         method: "POST",
