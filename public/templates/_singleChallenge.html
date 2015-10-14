@@ -2,10 +2,10 @@
 <div class="challengeContainer">
   <h2>{{challenges.singleChallenge.name}}</h2>
   <div class="row topRowChallenge">
-    <div class="currentChallengeHolder col-sm-6 col-xs-12">
+    <div class="currentChallengeHolder col-sm-7 col-xs-12">
       challenge details go here
     </div>
-    <div class="currentChallengeStats col-sm-6 col-xs-12">
+    <div class="currentChallengeStats col-sm-5 col-xs-12">
       statistical details go here
     </div>
   </div>
@@ -17,12 +17,15 @@
             <div class="miniChallOne col-md-6 col-xs-12">
               <div class="miniTitle">
                 {{row.first.title}}
+                <img ng-src="{{row.first.title}}" alt="" class="responseImage"/>
               </div>
 
             </div>
             <div class="miniChallTwo col-md-6 col-xs-12">
               <div class="miniTitle">
                 {{row.second.title}}
+                <img ng-src="{{row.second.url}}" alt="" class="responseImage"/>
+              </div>
               </div>
 
             </div>
