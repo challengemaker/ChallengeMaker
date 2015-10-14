@@ -2,22 +2,9 @@ angular.module('challengesController', [])
 
   .controller('challengesCtrl', challengesCtrl)
 
-  .factory('testFactory', testFactory)
-
-  ////begin factory calls
-  function testFactory(){
-    // var test = {};
-    // test.name = 'jack';
-    // test.motto = "Tough times don't last, tough people do";
-    // console.log(test);
-    // return test;
-  }
-  /////end factory calls
-
   challengesCtrl.$inject = ['$http'];
   function challengesCtrl($http){
     var self = this;
-
     ////begin page if statement, for seperated data
     if (window.location.hash == "#/challenges") {
       $http.get('/api/challenges')
@@ -52,6 +39,42 @@ angular.module('challengesController', [])
 
 
     }
+    //////this will all be in a factory later
+    $http.get('/api/responses')
+      .then(function(data){
+        var challengeResponses = data.data.reverse();//reversed so newest first
+        console.log(challengeResponses);
+        var arrayLength = challengeResponses.length;
+        console.log(arrayLength);
+        // console.log(arrayLength);
+        ///start creating rows
+        var rowNum = Math.floor((arrayLength/2)+1);
+        console.log(rowNum);
+
+        var justRows = function(){
+          var masterResponseArray = [];
+          console.log('starting loop');
+          console.log(rowNum);
+          for (var i = 0; i < rowNum; i++) {
+            ////now creating each cell
+            console.log('in loop');
+            var cell = {};
+            var mini1 = challengeResponses[0];
+            var mini2 = challengeResponses[1];
+            challengeResponses.shift();
+            challengeResponses.shift();
+            cell.first = mini1;
+            cell.second= mini2;
+            masterResponseArray.push(cell);
+          }
+          console.log(masterResponseArray);
+          return masterResponseArray;
+        }
+        self.justRows = justRows();
+        /////rows now created
+        ///creating data to go inside the rows (will be a factory later)
+        ////end creating row data
+      })
     /////end of the oage-based if statement
 
   }

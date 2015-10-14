@@ -1,5 +1,35 @@
 <h2>Single Challenge Page</h2>
 <div class="challengeContainer">
   <h2>{{challenges.singleChallenge.name}}</h2>
-  <h3>{{challenges.singleChallenge.description}}</h3>
+  <div class="row topRowChallenge">
+    <div class="currentChallengeHolder col-sm-6 col-xs-12">
+      challenge details go here
+    </div>
+    <div class="currentChallengeStats col-sm-6 col-xs-12">
+      statistical details go here
+    </div>
+  </div>
+  <div class="row bottomRowChallenges">
+    <div class="challengeResponseList" ng-repeat="row in challenges.justRows">
+      <div id="challenge{{$index}}" class="row">
+        <div class="smallChallengeHolder col-xs-12">
+          <div class="row">
+            <div class="miniChallOne col-md-6 col-xs-12">
+              <div class="miniTitle">
+                {{row.first.title}}
+              </div>
+
+            </div>
+            <div class="miniChallTwo col-md-6 col-xs-12">
+              <div class="miniTitle">
+                {{row.second.title}}
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>

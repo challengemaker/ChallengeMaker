@@ -2,9 +2,10 @@ angular.module('responseController', [])
 
   .controller('responseCtrl', responseCtrl);
 
-  responseCtrl.$inject = ['$http'];
-  function responseCtrl($http){
+  responseCtrl.$inject = ['$http', "$routeParams"];
+  function responseCtrl($http, $routeParams){
     var self = this;
+    console.log($routeParams);
 
     ////create submit-new-response section
     //////////////////////////////////////
@@ -151,12 +152,7 @@ angular.module('responseController', [])
     $('.reviewResponse').on('click', function(){
       tunnelMargin = tunnelMargin - 550;
       $('.rTitle').text(self.title);
-      /////fill in video
       $('.rVideo').text(self.video);
-      console.log(self.video);
-      ////begin video stuff
-      ///////end video stuff
-      ////end filling in video portion
       $('.rDescription').text(self.description);
       $('.questionTunnel').animate({
         marginLeft: tunnelMargin+"px"
@@ -165,15 +161,7 @@ angular.module('responseController', [])
 
     $('.createResponse').on('click', function(){
       carouselCounter++;
-
-      if(carouselCounter == 3){
-        tunnelMargin = tunnelMargin - 550;
-        $('.questionTunnel').animate({
-          marginLeft: tunnelMargin+"px"
-        })
-      }
       ////this response modelling will be done in a factory later
-
       var response = {
         title: self.title,
         description: self.description,
@@ -187,6 +175,7 @@ angular.module('responseController', [])
       })
       .then(function(data){
         console.log(data);
+        window.location.hash = "#/challenges/"+$routeParams.name
       })
     })
   ////end controller

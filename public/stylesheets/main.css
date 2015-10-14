@@ -4,6 +4,11 @@
 
 /*Begin classes*/
 
+.bodyView {
+  width: 95%;
+  margin-left: 2.5%
+}
+
 .acceptButton {
   background-color: white;
   color: gray;
@@ -95,6 +100,18 @@
   z-index: -1;
 }
 
+.currentChallengeHolder{
+  display: inline-block;
+  outline: 2px solid blue;
+  height: 300px;
+}
+
+.currentChallengeStats {
+  display: inline-block;
+  outline: 2px solid red;
+  height: 300px;
+}
+
 .detailsButton {
   font-size: 25px;
   font-style: italic;
@@ -153,6 +170,16 @@
   max-width: 100%;
   max-height: 100%;
   margin: 10px 0;
+}
+
+.miniChallOne {
+  height: 200px;
+  outline: 3px solid gray;
+}
+
+.miniChallTwo {
+  height: 200px;
+  outline: 3px solid gray;
 }
 
 .moneyBox {
@@ -254,6 +281,12 @@
 
 .signupForm button {
   margin-top: 10px;
+}
+
+.smallChallengeHolder {
+  height: 200px;
+  outline: 2px solid blue;
+  display: inline-block;
 }
 
 .testResponseForm {
