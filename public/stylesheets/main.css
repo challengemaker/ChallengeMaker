@@ -100,16 +100,29 @@
   z-index: -1;
 }
 
+.currentChallengeContainer {
+  outline: 2px solid green;
+}
+
+.currentChallengeImage {
+  width: 100%;
+}
+
+.currentChallengeImage img{
+  max-height: 100%;
+  max-width: 100%;
+}
+
 .currentChallengeHolder{
   display: inline-block;
   outline: 2px solid blue;
-  height: 300px;
+  min-height: 100%;
 }
 
 .currentChallengeStats {
   display: inline-block;
   outline: 2px solid red;
-  height: 300px;
+  height: 100%;
 }
 
 .detailsButton {
@@ -301,6 +314,12 @@
 .titleDescBox {
   position: relative;
   text-align: center;
+}
+
+.topList {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
 }
 
 .videoLink {
