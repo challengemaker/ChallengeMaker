@@ -50,6 +50,7 @@ angular.module('challengesController', [])
         ///start creating rows
         var rowNum = Math.floor((arrayLength/2)+1);
         console.log(rowNum);
+        self.rowNum = rowNum;
 
         var justRows = function(){
           var masterResponseArray = [];
@@ -71,23 +72,23 @@ angular.module('challengesController', [])
           return masterResponseArray;
         }
         self.justRows = justRows();
-
         /////rows now created
-        //////begin making video stuff
-        $('.currImg').on('click', function(){
-          var height = $('.currentChallengeImage').height();
-          var width = $('.currentChallengeImage').width();
-          console.log(height);
-          $('.currentChallengeImage').html('')
-          $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='https://www.youtube.com/embed/TipgAV6hhP8' frameborder='0' allowfullscreen></iframe>")
-          // .then(function(){
-          //   $('.currentChallengeHolder').append(
-          //     "<iframe class='currentVideo' max-width='"+width+"' max-height='"+height+"' src='https://www.youtube.com/embed/TipgAV6hhP8' frameborder='0' allowfullscreen></iframe>"
-          //   )
-          // })
-
-        })
       })
+
+      $('.currImg').on('click', function(){
+        var height = $('.currentChallengeImage').height();
+        var width = $('.currentChallengeImage').width();
+        console.log(height);
+        $('.currentChallengeImage').html('')
+        $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='https://www.youtube.com/embed/TipgAV6hhP8' frameborder='0' allowfullscreen></iframe>")
+      })
+      //////begin making video stuff
+      ////popup video for current image
+
+
+
+      ////end response video popouts
+
     /////end of the oage-based if statement
 
   }

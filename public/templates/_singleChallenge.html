@@ -6,19 +6,38 @@
         <div class="currentChallengeImage">
           <img src="http://i.ytimg.com/vi/yOX6JF9gABU/maxresdefault.jpg" class="currImg" />
         </div>
+        <div class="row currentChallengeInfo">
+          <p class="currentCharity">
+            Unicef + The Red Cross
+          </p>
+          <p class='currentTitle'>
+            "Drought Bucket Chllenge bitchesssss"
+          </p>
+        </div>
+        <div class="row currentChallengeMoney">
+
+        </div>
       </div>
     </div>
     <div class="currentChallengeStats col-sm-5 col-xs-12">
       <button type="button" >Complete Challenge</button><br>
       <button type="button" >Complete by Donating</button>
       <div class="impactStats row">
-        <div class="myImpact col-md-6 col-xs-12">
-          <h3>My Impact</h3>
-          <h2>$1,750</h2><h4> raised in total</h4>
-          <h3>$250</h3><h4> raised this challenge</h4>
-          <h3>3</h3><h4>challenges completed</h4>
+        <div class="myImpact col-sm-6">
+          <p>
+            My Impact
+          </p>
+          <p>
+            $1,750 raised in total
+          </p>
+          <p>
+            $250 raised this challenge
+          </p>
+          <p>
+            3 challenges completed
+          </p>
         </div>
-        <div class="topFundraisers col-md-6 col-xs-12">
+        <div class="topFundraisers col-sm-6">
           <div class="topList">
             <h2>Top Fundraisers</h2>
             <div class="firstFunder">1. James Spader</div>
@@ -36,24 +55,25 @@
       <div id="challenge{{$index}}" class="row">
         <div class="smallChallengeHolder col-xs-12">
           <div class="row">
-            <div class="miniChallOne col-md-6 col-xs-12">
-              <div class="miniTitle">
-                {{row.first.title}}
-                <img ng-src="{{row.first.title}}" alt="" class="responseImage"/>
+            <div class="miniChallOne col-sm-6 col-xs-12">
+              <div class="miniImageContainer">
+                <div class="miniImageHolder" id="imgHolder{{$index}}a">
+                  <img ng-src="{{row.first.url}}" alt="" class="responseImage" id="img{{$index}}a"/>
+                </div>
               </div>
-
             </div>
-            <div class="miniChallTwo col-md-6 col-xs-12">
-              <div class="miniTitle">
-                {{row.second.title}}
-                <img ng-src="{{row.second.url}}" alt="" class="responseImage"/>
+            <div class="miniChallTwo col-sm-6 col-xs-12">
+              <div class="miniImageContainer">
+                <div class="miniImageHolder" id="imgHolder{{$index}}b">
+                  <img ng-src="{{row.second.url}}" alt="" class="responseImage" id="img{{$index}}b"/>
+                </div>
               </div>
-              </div>
-
             </div>
+
           </div>
+         </div>
         </div>
-      </div>
+       </div>
 
     </div>
   </div>

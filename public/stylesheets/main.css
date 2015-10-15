@@ -113,6 +113,12 @@
   max-width: 100%;
 }
 
+.currentChallengeInfo {
+  color: white;
+  position: absolute;
+  margin-top: -250px;
+}
+
 .currentChallengeHolder{
   display: inline-block;
   outline: 2px solid blue;
@@ -122,7 +128,7 @@
 .currentChallengeStats {
   display: inline-block;
   outline: 2px solid red;
-  height: 100%;
+  min-height: 100%;
 }
 
 .currentVideo{
@@ -191,12 +197,12 @@
 }
 
 .miniChallOne {
-  height: 200px;
+  max-height: 100%;
   outline: 3px solid gray;
 }
 
 .miniChallTwo {
-  height: 200px;
+  max-height: 100%;
   outline: 3px solid gray;
 }
 
@@ -205,6 +211,12 @@
   float: right;
   margin: 320px 100px 0 0;
   font-size: 30px;
+}
+
+.myImpact {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 60px;
 }
 
 .navBar {
@@ -280,7 +292,8 @@
 }
 
 .responseImage {
-  height: 200px;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .responseTitle {
@@ -322,7 +335,7 @@
 }
 
 .topList {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   margin-top: 30px;
 }
