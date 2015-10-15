@@ -13,18 +13,15 @@ angular.module('challengesController', [])
         })
     } else if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
       var challenge = window.location.hash.split('/')[2];
-      console.log(challenge);
 
       $('.acceptButton').on('click', function(){
-        window.location.hash = "#/newresponse/"+challenge;
+        window.location.hash = "#/challenges/"+challenge;
       })
 
       $http.get('/api/challenges/'+challenge)
         .then(function(data){
-          console.log(data);
           ///begin creating "youve been challenged" data model, which will later go into a factory
           self.beenChallengedData = data.data;
-          console.log(self.beenChallengedData);
         })
     }
     else
@@ -43,22 +40,16 @@ angular.module('challengesController', [])
     $http.get('/api/responses')
       .then(function(data){
         var challengeResponses = data.data.reverse();//reversed so newest first
-        console.log(challengeResponses);
         var arrayLength = challengeResponses.length;
-        console.log(arrayLength);
         // console.log(arrayLength);
         ///start creating rows
         var rowNum = Math.floor((arrayLength/2)+1);
-        console.log(rowNum);
         self.rowNum = rowNum;
 
         var justRows = function(){
           var masterResponseArray = [];
-          console.log('starting loop');
-          console.log(rowNum);
           for (var i = 0; i < rowNum; i++) {
             ////now creating each cell
-            console.log('in loop');
             var cell = {};
             var mini1 = challengeResponses[0];
             var mini2 = challengeResponses[1];
@@ -68,26 +59,28 @@ angular.module('challengesController', [])
             cell.second= mini2;
             masterResponseArray.push(cell);
           }
-          console.log(masterResponseArray);
           return masterResponseArray;
         }
         self.justRows = justRows();
         /////rows now created
       })
+      //////begin $http call that will be put in a factory later
+      var challengeName = window.location.hash.split('/')[2].split('-').join(' ');
+      console.log(challengeName);
+      $http.get('/api/challenges/'+challengeName)
+        .then(function(data){
+          var url = "https://www.youtube.com/embed/TipgAV6hhP8"
+          console.log(data);
+          self.singleChallenge = data.data;
+          $('.currImg').on('click', function(){
+            var height = $('.currentChallengeImage').height();
+            var width = $('.currentChallengeImage').width();
+            $('.currentChallengeImage').html('')
+            $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
+          })
+        })
 
-      $('.currImg').on('click', function(){
-        var height = $('.currentChallengeImage').height();
-        var width = $('.currentChallengeImage').width();
-        console.log(height);
-        $('.currentChallengeImage').html('')
-        $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='https://www.youtube.com/embed/TipgAV6hhP8' frameborder='0' allowfullscreen></iframe>")
-      })
-      //////begin making video stuff
-      ////popup video for current image
 
-
-
-      ////end response video popouts
 
     /////end of the oage-based if statement
 

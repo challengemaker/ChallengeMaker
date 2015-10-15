@@ -4,18 +4,24 @@
     <div class="currentChallengeHolder col-sm-7 col-xs-12">
       <div class="currentChallengeContainer">
         <div class="currentChallengeImage">
-          <img src="http://i.ytimg.com/vi/yOX6JF9gABU/maxresdefault.jpg" class="currImg" />
+          <img ng-src="{{challenges.singleChallenge.photo}}" class="currImg" />
         </div>
         <div class="row currentChallengeInfo">
-          <p class="currentCharity">
-            Unicef + The Red Cross
-          </p>
-          <p class='currentTitle'>
-            "Drought Bucket Chllenge bitchesssss"
-          </p>
-        </div>
-        <div class="row currentChallengeMoney">
-
+          <div class="currentInfoColumn col-xs-6">
+            <p class="currentCharity">
+              {{challenges.singleChallenge.charity[0]}}
+            </p>
+            <p class='currentTitle'>
+              {{challenges.singleChallenge.title}}
+            </p>
+            <p class="currentDescription">
+              $0 if challenge completed, or donate ${{challenges.singleChallenge.minimumDonation}} to Special Olympics
+            </p>
+          </div>
+          <div class="row currentChallengeMoney col-xs-6">
+            <h2>${{challenges.singleChallenge.totalRaised}} raised</h2>
+            <h3>${{challenges.singleChallenge.goal}} goal</h3>
+          </div>
         </div>
       </div>
     </div>

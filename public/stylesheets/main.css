@@ -104,6 +104,12 @@
   outline: 2px solid green;
 }
 
+.currentChallengeHolder{
+  display: inline-block;
+  outline: 2px solid blue;
+  min-height: 100%;
+}
+
 .currentChallengeImage {
   width: 100%;
 }
@@ -117,12 +123,12 @@
   color: white;
   position: absolute;
   margin-top: -250px;
+  width: 100%;
 }
 
-.currentChallengeHolder{
-  display: inline-block;
-  outline: 2px solid blue;
-  min-height: 100%;
+.currentChallengeMoney {
+  color: white;
+  text-align: center;
 }
 
 .currentChallengeStats {
