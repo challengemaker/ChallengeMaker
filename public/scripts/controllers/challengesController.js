@@ -71,9 +71,22 @@ angular.module('challengesController', [])
           return masterResponseArray;
         }
         self.justRows = justRows();
+
         /////rows now created
-        ///creating data to go inside the rows (will be a factory later)
-        ////end creating row data
+        //////begin making video stuff
+        $('.currImg').on('click', function(){
+          var height = $('.currentChallengeImage').height();
+          var width = $('.currentChallengeImage').width();
+          console.log(height);
+          $('.currentChallengeImage').html('')
+          $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='https://www.youtube.com/embed/TipgAV6hhP8' frameborder='0' allowfullscreen></iframe>")
+          // .then(function(){
+          //   $('.currentChallengeHolder').append(
+          //     "<iframe class='currentVideo' max-width='"+width+"' max-height='"+height+"' src='https://www.youtube.com/embed/TipgAV6hhP8' frameborder='0' allowfullscreen></iframe>"
+          //   )
+          // })
+
+        })
       })
     /////end of the oage-based if statement
 
