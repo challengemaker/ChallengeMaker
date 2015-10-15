@@ -178,5 +178,13 @@ angular.module('responseController', [])
         window.location.hash = "#/challenges/"+$routeParams.name
       })
     })
+    $('.forwardButton').on('click', function(){
+      $('.forwardButton').css('opacity', 0);
+      $('.backButton').css('opacity', 0);
+    })
+
+    $('.finishResponse').on('click', function(){
+      window.location.hash = "#/challenges/"+$routeParams.name
+    })
   ////end controller
   }

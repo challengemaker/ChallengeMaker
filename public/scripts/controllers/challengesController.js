@@ -13,15 +13,23 @@ angular.module('challengesController', [])
         })
     } else if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
       var challenge = window.location.hash.split('/')[2];
-
       $('.acceptButton').on('click', function(){
-        window.location.hash = "#/challenges/"+challenge;
+        window.location.hash = "#/signin/"+challenge;
       })
 
       $http.get('/api/challenges/'+challenge)
         .then(function(data){
+          console.log(data.data);
+          var url = data.data.videoUrl
           ///begin creating "youve been challenged" data model, which will later go into a factory
           self.beenChallengedData = data.data;
+          $('.challengePhoto').on('click', function(){
+            ;
+            var height = $('.challengePhoto').height();
+            var width = $('.challengePhoto').width();
+            $('.challengePhoto').html('')
+            $('.challengePhoto').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
+          })
         })
     }
     else
@@ -75,9 +83,11 @@ angular.module('challengesController', [])
             var height = $('.currentChallengeImage').height();
             var width = $('.currentChallengeImage').width();
             $('.currentChallengeImage').html('')
+            $('.currentChallengeInfo').html(" ")
             $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
           })
         })
+        /////load video in mini response acceptances
         /////stats buttons for donating and completing challenge
         $('.completeChallButton').on('click', function(){
           window.location.hash = "#/newresponse/"+self.nameParam

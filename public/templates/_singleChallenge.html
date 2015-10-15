@@ -73,21 +73,21 @@
             <div class="miniChallOne col-sm-6 col-xs-12">
               <div class="miniImageContainer">
                 <div class="miniImageHolder" id="imgHolder{{$index}}a">
-                  <img ng-src="{{row.first.photo}}" alt="" class="responseImage" id="img{{$index}}a"/>
+                  <img ng-click="challenges.loadVideo2($index)" ng-src="{{row.first.photo}}" alt="" class="responseImage" id="img{{$index}}a"/>
                 </div>
               </div>
               <div class="miniChallInfo col-sm-offset-1 col-sm-8 col-xs-12 col-xs-offset-0">
-                <h2>Obama Takes The Challenge</h2>
+                <h2>{{row.first.title}}</h2>
               </div>
             </div>
             <div class="miniChallTwo col-sm-6 col-xs-12">
               <div class="miniImageContainer">
-                <div class="miniImageHolder" id="imgHolder{{$index}}b">
-                  <img ng-src="{{row.second.photo}}" alt="" class="responseImage" id="img{{$index}}b"/>
+                <div class="miniImageHolder"  id="imgHolder{{$index}}b">
+                  <img ng-click="challenges.loadVideo()" ng-src="{{row.second.photo}}" alt="" class="responseImage" id="img{{$index}}b"/>
                 </div>
               </div>
               <div class="miniChallInfo col-sm-offset-1 col-sm-8 col-xs-12 col-xs-offset-0">
-                <h2>Obama Takes The Challenge</h2>
+                <h2>{{row.second.title}}</h2>
               </div>
             </div>
 
