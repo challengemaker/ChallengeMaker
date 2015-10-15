@@ -69,7 +69,7 @@ angular.module('challengesController', [])
       console.log(challengeName);
       $http.get('/api/challenges/'+challengeName)
         .then(function(data){
-          var url = "https://www.youtube.com/embed/TipgAV6hhP8"
+          var url = "https://www.youtube.com/embed/TipgAV6hhP8?autoplay=1"
           console.log(data);
           self.singleChallenge = data.data;
           $('.currImg').on('click', function(){
