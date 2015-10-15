@@ -24,6 +24,10 @@
   opacity: .90;
 }
 
+.acceptedVideos {
+  font-size: 18px;
+}
+
 .addUrl {
   height: 40px;
   width: 80%;
@@ -41,13 +45,16 @@
 
 .backButton:hover {
   background-color: #B8E6E6;
-;
 }
 
 .bodyView {
   display: block;
   height: 100%;
   margin-top: -15px;
+}
+
+.bottomRowChallenges {
+  margin-top: 15px;
 }
 
 .carouselButtonHolder {
@@ -101,12 +108,12 @@
 }
 
 .currentChallengeContainer {
-  outline: 2px solid green;
+  /*outline: 2px solid green;*/
 }
 
 .currentChallengeHolder{
   display: inline-block;
-  outline: 2px solid blue;
+  /*outline: 2px solid blue;*/
   min-height: 100%;
 }
 
@@ -122,8 +129,9 @@
 .currentChallengeInfo {
   color: white;
   position: absolute;
-  margin-top: -330px;
-  width: 100%;
+  margin-top: -350px;
+  width: 94%;
+  margin-left: 3%;
 }
 
 .currentChallengeMoney {
@@ -134,8 +142,9 @@
 
 .currentChallengeStats {
   display: inline-block;
-  outline: 2px solid red;
+  background-color: #E6E6E6;
   min-height: 100%;
+  padding-bottom: 51px;
 }
 
 .currentCharity {
@@ -145,13 +154,15 @@
 }
 
 .currentDescription {
-  font-size: 26px;
+  font-size: 20px;
 
 }
 
 .currentTitle {
   font-size: 32px;
   font-weight: bolder;
+  height: 50px;
+  display: inline-block;
 }
 
 .currentVideo{
@@ -207,6 +218,37 @@
   background-color: #B8E6E6;
 }
 
+.impactChallenged{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.impactCompleted {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.impactTitle {
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.impactTotal {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.impactRaised {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.impactReached {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .logoContainer {
   height: 130px;
   width: 130px;
@@ -219,14 +261,28 @@
   margin-top: -20px;
 }
 
+.miniChallInfo {
+  color: white;
+  position: absolute;
+  margin-top: -340px;
+}
+
 .miniChallOne {
   max-height: 100%;
-  outline: 3px solid gray;
+  padding-left: 5px;
+  padding-right: 5px;
+  /*outline: 3px solid gray;*/
 }
 
 .miniChallTwo {
   max-height: 100%;
-  outline: 3px solid gray;
+  padding-left: 5px;
+  padding-right: 5px;
+  /*outline: 3px solid gray;*/
+}
+
+.miniImageContainer {
+  margin-top: 5px;
 }
 
 .moneyBox {
@@ -237,8 +293,6 @@
 }
 
 .myImpact {
-  font-size: 17px;
-  font-weight: bold;
   margin-top: 60px;
 }
 
@@ -283,7 +337,7 @@
 }
 
 .questionHolder {
-  outline: 5px solid green;
+  /*outline: 5px solid green;*/
   height: 480px;
   width: 550px;
   overflow: hidden;
@@ -343,7 +397,7 @@
 
 .smallChallengeHolder {
   min-height: 100%;
-  outline: 2px solid blue;
+  /*outline: 2px solid blue;*/
   display: inline-block;
 }
 
@@ -357,10 +411,24 @@
   text-align: center;
 }
 
+.topFunders {
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.topFundraisers {
+  margin-top: 32px;
+}
+
 .topList {
   font-size: 16px;
   font-weight: bold;
   margin-top: 30px;
+}
+
+.topRowChallenge {
+  background-color: #E6E6E6;
 }
 
 .videoLink {

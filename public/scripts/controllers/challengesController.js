@@ -28,13 +28,12 @@ angular.module('challengesController', [])
     {
       var hashArray = window.location.hash.split("/");
       var thisName = hashArray[hashArray.length-1];
+      self.nameParam = thisName;
 
       $http.get('/api/challenges/'+thisName)
         .then(function(data){
           self.singleChallenge = data.data;
         })
-
-
     }
     //////this will all be in a factory later
     $http.get('/api/responses')
@@ -43,7 +42,7 @@ angular.module('challengesController', [])
         var arrayLength = challengeResponses.length;
         // console.log(arrayLength);
         ///start creating rows
-        var rowNum = Math.floor((arrayLength/2)+1);
+        var rowNum = Math.floor((arrayLength/2));
         self.rowNum = rowNum;
 
         var justRows = function(){
@@ -61,7 +60,7 @@ angular.module('challengesController', [])
           }
           return masterResponseArray;
         }
-        self.justRows = justRows();
+        self.justRows = justRows().slice(0,3);
         /////rows now created
       })
       //////begin $http call that will be put in a factory later
@@ -78,6 +77,10 @@ angular.module('challengesController', [])
             $('.currentChallengeImage').html('')
             $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
           })
+        })
+        /////stats buttons for donating and completing challenge
+        $('.completeChallButton').on('click', function(){
+          window.location.hash = "#/newresponse/"+self.nameParam
         })
 
 

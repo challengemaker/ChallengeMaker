@@ -26,26 +26,34 @@
       </div>
     </div>
     <div class="currentChallengeStats col-sm-5 col-xs-12">
-      <button type="button" >Complete Challenge</button><br>
+      <button type="button" class='completeChallButton'>Complete Challenge</button><br>
       <button type="button" >Complete by Donating</button>
       <div class="impactStats row">
         <div class="myImpact col-sm-6">
-          <p>
+          <p class="impactTitle">
             My Impact
           </p>
           <p>
-            $1,750 raised in total
+            <span class='impactTotal'>$1,750</span> raised in total
           </p>
           <p>
-            $250 raised this challenge
+            <span class="impactRaised">$250</span> raised this challenge
           </p>
           <p>
-            3 challenges completed
+            <span class="impactCompleted">3</span> challenges completed
+          </p>
+          <p>
+            <span class="impactChallenged">18</span> people challenged
+          </p>
+          <p>
+            <span class="impactReached">32</span> people reached
           </p>
         </div>
         <div class="topFundraisers col-sm-6">
           <div class="topList">
-            <h2>Top Fundraisers</h2>
+            <p class="topFunders">
+              Top Fundraisers
+            </p>
             <div class="firstFunder">1. James Spader</div>
             <div class="secondFunder">2. Carlee O'Brian</div>
             <div class="thirdFunder">3. Tyler Smith</div>
@@ -57,6 +65,7 @@
     </div>
   </div>
   <div class="row bottomRowChallenges">
+    <span class="acceptedVideos">Videos from people who accepted this challenge</span>
     <div class="challengeResponseList" ng-repeat="row in challenges.justRows">
       <div id="challenge{{$index}}" class="row">
         <div class="smallChallengeHolder col-xs-12">
@@ -64,15 +73,21 @@
             <div class="miniChallOne col-sm-6 col-xs-12">
               <div class="miniImageContainer">
                 <div class="miniImageHolder" id="imgHolder{{$index}}a">
-                  <img ng-src="{{row.first.url}}" alt="" class="responseImage" id="img{{$index}}a"/>
+                  <img ng-src="{{row.first.photo}}" alt="" class="responseImage" id="img{{$index}}a"/>
                 </div>
+              </div>
+              <div class="miniChallInfo col-sm-offset-1 col-sm-8 col-xs-12 col-xs-offset-0">
+                <h2>Obama Takes The Challenge</h2>
               </div>
             </div>
             <div class="miniChallTwo col-sm-6 col-xs-12">
               <div class="miniImageContainer">
                 <div class="miniImageHolder" id="imgHolder{{$index}}b">
-                  <img ng-src="{{row.second.url}}" alt="" class="responseImage" id="img{{$index}}b"/>
+                  <img ng-src="{{row.second.photo}}" alt="" class="responseImage" id="img{{$index}}b"/>
                 </div>
+              </div>
+              <div class="miniChallInfo col-sm-offset-1 col-sm-8 col-xs-12 col-xs-offset-0">
+                <h2>Obama Takes The Challenge</h2>
               </div>
             </div>
 
