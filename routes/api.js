@@ -75,6 +75,11 @@ module.exports = function(app, passport){
     res.json({'posted': req.body});
   })
 
+  app.post('/api/users', function(req, res){
+    User.create(req.body);
+
+  })
+
   app.get('/api/responses', function(req, res){
 
 
@@ -82,13 +87,10 @@ module.exports = function(app, passport){
 
 
   //////begin login and authentication and all that shit
-  app.get('/login', function(req, res){
 
-  });
-
-  app.post('/signup', passport.authenticate('local-signup', {
+  app.post('/signin', passport.authenticate('local-signup', {
     successRedirect: '/profile',
-    failureRedirect: '/signup',
+    failureRedirect: '/signin',
     failureFlash: true
   }));
 
@@ -96,6 +98,12 @@ module.exports = function(app, passport){
     req.logout();
     res.redirect('/');
   });
+
+  app.post('/signup', passport.authenticate('local-signup', {
+    successRedirect: '/#/',
+    failureRedirect: '/#/https://challengemaker.herokuapp.com/#/signin/Drought-Bucket-Challenge',
+    failureFlash:    true,
+  }))
 
   function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){

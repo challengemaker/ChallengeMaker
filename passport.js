@@ -4,9 +4,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('./models/user.js');
 
-  console.log('lindsat lohan');
 module.exports = function(passport){
-  console.log('in here');
 
   passport.serializeUser(function(user, done) {
     done(null, user.id);
@@ -20,15 +18,16 @@ module.exports = function(passport){
   console.log('in here 3');
 
   //////local signup stuff
-  var thisUser = {
+
+  passport.use(
+
+    'local-signup', new LocalStrategy({
+    usernameField: "name",
     passwordField: 'password',
     passReqToCallback: true
-  }
-
-  passport.use('local-signup', new LocalStrategy(thisUser,
+  },
   function(req, email, password, done){
     console.log('well at least I got this far');
-
     process.nextTick(function(){
 
       User.findOne({ 'local.email': email }, function(err, user){
@@ -52,6 +51,6 @@ module.exports = function(passport){
     }
   );
 
-  }
-));
+  })
+);
 }
