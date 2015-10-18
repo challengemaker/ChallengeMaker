@@ -5,15 +5,18 @@ angular.module('challengesController', [])
   challengesCtrl.$inject = ['$http'];
   function challengesCtrl($http){
     var self = this;
-    ////begin page if statement, for seperated data
-    if (window.location.hash == "#/challenges") {
-      $http.get('/api/challenges')
+
+		$http.get('/api/challenges')
         .then(function(data){
           self.allChallenges = data.data;
           console.log('hi');
           console.log(data.data);
           console.log('there');
         })
+
+    ////begin page if statement, for seperated data
+    if (window.location.hash == "#/challenges") {
+
     } else if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
       var challenge = window.location.hash.split('/')[2];
       $('.acceptButton').on('click', function(){
@@ -75,21 +78,21 @@ angular.module('challengesController', [])
         /////rows now created
       })
       //////begin $http call that will be put in a factory later
-      var challengeName = window.location.hash.split('/')[2].split('-').join(' ');
-      console.log(challengeName);
-      $http.get('/api/challenges/'+challengeName)
-        .then(function(data){
-          var url = "https://www.youtube.com/embed/TipgAV6hhP8?autoplay=1"
-          console.log(data);
-          self.singleChallenge = data.data;
-          $('.currImg').on('click', function(){
-            var height = $('.currentChallengeImage').height();
-            var width = $('.currentChallengeImage').width();
-            $('.currentChallengeImage').html('')
-            $('.currentChallengeInfo').html(" ")
-            $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
-          })
-        })
+      // var challengeName = window.location.hash.split('/')[2].split('-').join(' ');
+      // console.log(challengeName);
+      // $http.get('/api/challenges/'+challengeName)
+      //   .then(function(data){
+      //     var url = "https://www.youtube.com/embed/TipgAV6hhP8?autoplay=1"
+      //     console.log(data);
+      //     self.singleChallenge = data.data;
+      //     $('.currImg').on('click', function(){
+      //       var height = $('.currentChallengeImage').height();
+      //       var width = $('.currentChallengeImage').width();
+      //       $('.currentChallengeImage').html('')
+      //       $('.currentChallengeInfo').html(" ")
+      //       $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
+      //     })
+      //   })
         /////load video in mini response acceptances
         /////stats buttons for donating and completing challenge
         $('.completeChallButton').on('click', function(){

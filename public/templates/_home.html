@@ -1,3 +1,13 @@
 <h1>ChallengeMaker Home Page bitches</h1>
 <h2>{{main.firstData}}</h2>
 <h2>{{main.name}}</h2>
+<div id="blocked-out" style= "height: 100px; width: 100px">
+	Text
+</div>
+<!-- Repeat images from here down -->
+{{2 + 2}}
+<div ng-repeat="challenge in challenges.allChallenges">
+	<image ng-if="!challenge.isClicked" ng-click="challenge.isClicked = !challenge.isClicked" src="{{challenge.photo}}" class="challengePhoto col-6 col-sm-3"/>
+	<div>This is here {{challenge.videoUrl}}</div>
+	<iframe ng-if="challenge.isClicked"  src="https://www.youtube.com/embed/jh-WjOL42ig" class="challengePhoto col-6"></iframe>
+</div>
