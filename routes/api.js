@@ -1,69 +1,22 @@
 var express        = require('express');
 var config         = require('./../config.js');
 var mongoose       = require('mongoose');
+var bcrypt         = require('bcrypt-nodejs');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var route          = express.Router();
 
+////////   ----- Models ------- //////////
+/////// This is a "Model" Home  //////////
+var User      = require('../models/user.js');//
+var Challenge = require('../models/challenge.js');
+var Response  = require('../models/response.js');
+var Charity   = require('../models/charity.js');
+/////////end model imports ///////////////
+//////////////////////////////////////////
 
-// var User = require('models/user.js')
 
-/////////////////////////////////
-////temporary home for our models
-var Schema   = mongoose.Schema;
-
-// User Model
-var userSchema = new Schema({
-  name: String,
-  email: String,
-  location: String
-})
-
-User = mongoose.model('users', userSchema);
-///end user model
-///begin challenges model
-var challengeSchema = new Schema({
-  sponsor: String,
-  sponsorIcon: String,
-  title: String,
-  description: String,
-  video_url: String,
-  photo: String,
-  creator: String,//One to one
-  charity: Array,//One to One
-  responses: Array,//One to many
-  goal: Number,
-  total_raised: Number
-})
-
-Challenge = mongoose.model('challenges', challengeSchema);
-////end challenges model
-////begin responses model
-var responseSchema = new Schema({
-  title: String,
-  description: String,
-  video_url: String,
-  challenge: String,//many-to-one
-})
-
-Response = mongoose.model('responses', responseSchema);
-// console.log(Response);
-////end responses model
-////begin Charities model
-var charitySchema = new Schema({
-  name: String,
-  description: String,
-  url: String,
-  photo: String,
-  challenges: String
-})
-
-Charity = mongoose.model('charities', charitySchema);
-///end Charities model
-///end temp Models home
-///////////////////////
-
-module.exports = function(app){
+module.exports = function(app, passport){
 
   app.get('/api/users', function(req, res){
     User.find({}, function(err, users){
@@ -105,7 +58,6 @@ module.exports = function(app){
     var name = req.params.name.split('-').join(' ');
     Charity.findOne({name: name}, function(err, charity){
       if(err){console.log(err)};
-      console.log(charity);;
       res.json(charity);
     })
   })
@@ -119,19 +71,45 @@ module.exports = function(app){
   })
 
   app.post('/api/responses', function(req, res){
-    console.log(Response);
-    console.log(req.body);
     Response.create(req.body);
     res.json({'posted': req.body});
   })
 
   app.get('/api/responses', function(req, res){
-    Response.find({}, function(err, responses){
-      res.json(responses);
-    })
+
 
   })
 
-}
 
-mongoose.connect("mongodb://jackconnor:Skateboard1@ds031581.mongolab.com:31581/challenge_maker")
+  //////begin login and authentication and all that shit
+  app.get('/login', function(req, res){
+
+  });
+
+  app.post('/signup', passport.authenticate('local-signup', {
+    successRedirect: '/profile',
+    failureRedirect: '/signup',
+    failureFlash: true
+  }));
+
+  app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+  });
+
+  function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+      return next();
+    } else {
+      res.redirect('/')
+    }
+  }
+
+};
+
+var db = require('../db.js');
+console.log(db);
+var url = db.url;
+console.log(url);
+
+mongoose.connect(url);
