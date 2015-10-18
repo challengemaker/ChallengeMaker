@@ -218,10 +218,16 @@
   background-color: #B8E6E6;
 }
 
-.highlightChallenge {
-  height: 300px;
+.highlightContainer {
+
+}
+
+.highlightImage {
   width: 100%;
-  outline: 2px solid black;
+}
+
+.hContainer {
+  width: 100%;
 }
 
 .impactChallenged{
