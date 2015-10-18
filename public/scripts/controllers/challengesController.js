@@ -10,6 +10,9 @@ angular.module('challengesController', [])
       $http.get('/api/challenges')
         .then(function(data){
           self.allChallenges = data.data;
+          console.log('hi');
+          console.log(data.data);
+          console.log('there');
         })
     } else if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
       var challenge = window.location.hash.split('/')[2];
