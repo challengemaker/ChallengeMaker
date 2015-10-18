@@ -5,15 +5,16 @@ angular.module('challengesController', [])
   challengesCtrl.$inject = ['$http'];
   function challengesCtrl($http){
     var self = this;
-    ////begin page if statement, for seperated data
 
-    $http.get('/api/challenges')
+		$http.get('/api/challenges')
         .then(function(data){
           self.allChallenges = data.data;
           console.log('hi');
           console.log(data.data);
           console.log('there');
         })
+
+
     ////begin page if statement, for seperated data
     if (window.location.hash == "#/challenges") {
 
@@ -78,8 +79,9 @@ angular.module('challengesController', [])
         /////rows now created
       })
       //////begin $http call that will be put in a factory later
+
       if(window.location.hash = "#/") {
-        
+
 
       }
       if (window.location.hash != '#/'){
@@ -98,6 +100,7 @@ angular.module('challengesController', [])
             $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
           })
         })
+
       // var challengeName = window.location.hash.split('/')[2].split('-').join(' ');
       // console.log(challengeName);
       // $http.get('/api/challenges/'+challengeName)
