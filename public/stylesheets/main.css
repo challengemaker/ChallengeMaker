@@ -218,6 +218,12 @@
   background-color: #B8E6E6;
 }
 
+.highlightChallenge {
+  height: 300px;
+  width: 100%;
+  outline: 2px solid black;
+}
+
 .impactChallenged{
   font-size: 18px;
   font-weight: bold;

@@ -6,7 +6,7 @@ angular.module('challengesController', [])
   function challengesCtrl($http){
     var self = this;
     ////begin page if statement, for seperated data
-    if (window.location.hash == "#/challenges") {
+    if (window.location.hash == ("#/challenges"  || 'test')) {
       $http.get('/api/challenges')
         .then(function(data){
           self.allChallenges = data.data;
@@ -14,7 +14,7 @@ angular.module('challengesController', [])
           console.log(data.data);
           console.log('there');
         })
-    } else if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
+    } else if(window.location.hash.split('/')[1] == ('youvebeenchallenged' || 'test')){
       var challenge = window.location.hash.split('/')[2];
       $('.acceptButton').on('click', function(){
         window.location.hash = "#/signin/"+challenge;
@@ -27,7 +27,7 @@ angular.module('challengesController', [])
           ///begin creating "youve been challenged" data model, which will later go into a factory
           self.beenChallengedData = data.data;
           $('.challengePhoto').on('click', function(){
-            ;
+
             var height = $('.challengePhoto').height();
             var width = $('.challengePhoto').width();
             $('.challengePhoto').html('')
@@ -75,6 +75,7 @@ angular.module('challengesController', [])
         /////rows now created
       })
       //////begin $http call that will be put in a factory later
+      if (window.location.hash != '#/test'){
       var challengeName = window.location.hash.split('/')[2].split('-').join(' ');
       console.log(challengeName);
       $http.get('/api/challenges/'+challengeName)
@@ -95,6 +96,7 @@ angular.module('challengesController', [])
         $('.completeChallButton').on('click', function(){
           window.location.hash = "#/newresponse/"+self.nameParam
         })
+      }
 
 
 
