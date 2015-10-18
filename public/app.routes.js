@@ -9,8 +9,8 @@ function appRoutes($routeProvider){
   $routeProvider
     .when('/', {
       templateUrl: 'templates/_home.html',
-      controller: 'mainCtrl',
-      controllerAs: 'main'
+      controller: 'challengesCtrl',
+      controllerAs: 'challenges'
     })
 
     .when('/challenges', {

@@ -13,11 +13,6 @@ var config         = require('./config.js');
 var methodOverride = require('method-override');
 var session        = require('express-session');
 
-var passport = require('./passport.js')(passport);
-console.log('hi h h ih ihi hi hi hi ');
-console.log(passport);
-console.log('beybyebyebyebeybeybeybe');
-
 // Begin Middleware
 app.use(bodyParser.json());
 
@@ -33,6 +28,9 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+require('./passport.js')(passport);
 app.use(flash()); //note: if flash end up being unnecessary, we're pulling that shit out
 
 // parse application/vnd.api+json as json
@@ -56,7 +54,8 @@ app.set('views', __dirname + 'views/pages');
 app.set('view engine', 'ejs');
 
 ////route that goes straight to our public/ angular file
-app.get('*', function(req, res){
+app.get('/', function(req, res){
+  res.json({message: 'success'});
   res.sendFile('./public/index.html')
 })
 
