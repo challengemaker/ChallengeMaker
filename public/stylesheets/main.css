@@ -228,6 +228,29 @@
 
 .hContainer {
   width: 100%;
+  min-height: 100%;
+  display: block;
+}
+
+.hImage {
+  background-color: green;
+}
+
+.hImage img {
+  width: 100%;
+}
+
+.hMediaHolder {
+  margin-top: 20px;
+  width: 90%;
+  margin-left: 5%;
+  min-height: 100%;
+  outline: 2px solid green;
+}
+
+.hVideo {
+  width: 100%;
+  background-color: blue;
 }
 
 .impactChallenged{
@@ -259,6 +282,10 @@
 .impactReached {
   font-size: 18px;
   font-weight: bold;
+}
+
+.listContainer {
+  display: block;
 }
 
 .logoContainer {

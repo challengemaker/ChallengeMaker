@@ -81,6 +81,21 @@ angular.module('challengesController', [])
       //////begin $http call that will be put in a factory later
 
       if(window.location.hash = "#/") {
+        self.highlightOn = true;
+
+
+        self.hToggle = function(){
+          self.width = $('.hMediaHolder').width();
+          console.log(self.width);
+          self.height = $('.hMediaHolder').height();
+          console.log(self.height);
+          console.log('youyoyoy');
+          console.log(self.highlightOn);
+          self.highlightOn = !self.highlightOn;
+          console.log(self.highlightOn);
+        }
+
+
 
 
       }

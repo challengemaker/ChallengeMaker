@@ -1,11 +1,19 @@
 
 
-<div id="blocked-out" style= "height: 100px; width: 100px">
-	Text
+<div class="hContainer col-xs-12" >
+  <div class="hMediaHolder" ng-click="challenges.hToggle()">
+    <div class="hImage" ng-if="challenges.highlightOn">
+      <img src="{{challenges.allChallenges[0].photo}}" alt="" />
+    </div>
+    <div class="hVideo" ng-if="!challenges.highlightOn">
+      <iframe width="{{challenges.width}}" height="{{challenges.height}}" src="https://www.youtube.com/embed/4wvxoiNV2iA" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
 </div>
 <!-- Repeat images from here down -->
 {{2 + 2}}
-<div ng-repeat="challenge in challenges.allChallenges">
+<div ng-repeat="challenge in challenges.allChallenges" class="listContainer">
 
 <div class="highlightContainer col-sm-6 col-12-xs">
   <image ng-if="!challenge.isClicked" ng-click="challenge.isClicked = !challenge.isClicked" src="{{challenge.photo}}" class="highlightImage"/>
