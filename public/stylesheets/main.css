@@ -485,7 +485,8 @@
 
 .texttext {
   text-align: center;
-  outline: 4px solid white;
+  /*outline: 4px solid white;*/
+	color: white;
   height: 90%;
   margin-top: 5%;
 }
@@ -544,6 +545,30 @@
 }
 
 
+/* Greg made these end three for
+text on challenges page */
+.challengeCharityText {
+	  text-align: left;
+    font-size: 20px;
+}
+
+.challengeDonationext {
+	  text-align: left;
+    font-size: 15px;
+}
+
+.challengeAccept {
+	  text-align: left;
+    margin-bottom: 0px;
+    background-color: darkgray;
+    width: 50px;
+    padding: .5px;
+}
+
+.challengeDeats {
+	  text-align: left;
+    margin-bottom: 0px;
+}
 
 /*End classes*/
 
