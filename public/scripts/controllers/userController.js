@@ -85,13 +85,13 @@ angular.module('userController', [])
       })
     } else {
       // find single User
-      // var hashArray = window.location.hash.split("/");
-      // var userName =hashArray[hashArray.length-1];
-      // $http.get('/api/users/'+userName)
-      // .then(function(data){
-      //   var thisUser = data.data.name;
-      //   self.singleUser = thisUser;
-      //   console.log('This is the data returned:', data);
-      // });
+      var hashArray = window.location.hash.split("/");
+      var userName =hashArray[hashArray.length-1];
+      $http.get('/api/users/'+userName)
+      .then(function(data){
+        var thisUser = data.data.name;
+        self.singleUser = thisUser;
+        console.log('This is the data returned:', data);
+      });
     }
   }

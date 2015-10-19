@@ -50,18 +50,16 @@
     <!-- Navbar begins here -->
     <div class="navContainer">
       <div class="navBar row">
-        <div class="logoContainer col-sm-6 col-xs-12">
-          <img src="/assets/challengeMaker_logo.svg" alt="" class="logo"/>
+        <div class="logoContainer col-sm-8 col-xs-12">
+          <img src="/assets/cmlogo.png" alt="" class="logo"/>
         </div>
-        <div class="dropdownBarContainer col-sm-4 col-sm-offset-2 col-xs-12 col-xs-offset-0">
-          <button type="button" class='logout btn btn-primary'>Logout</button>
-          <div class="signinHolder">
-            <h3>{{main.userSesh}}</h3>
-          </div>
+        <div class="signinHolder col-sm-2 col-xs-12">
+          <h3>{{main.userSesh}}</h3>
+        </div>
+        <div class="dropdownBarContainer col-sm-2 col-xs-12">
           <div class="dropdownIcon">
             <img class="dropdownIconImage" ng-click="main.dropDown()" src="assets/dropdown.png"/>
           </div>
-
         </div>
       </div>
     </div>

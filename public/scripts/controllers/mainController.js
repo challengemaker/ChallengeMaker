@@ -42,6 +42,7 @@ angular.module('mainController', [])
             "<div class='dropItem' id='dropHelp'>Help</div>"+
             "<div class='dropItem' id='dropFaq'>Faq</div>"+
             "<div class='dropItem' id='dropTerms'>Terms</div>"+
+            "<div class='dropItem' id='dropLogout'>Logout</div>"+
           "</div>"
         )
         $('#dropHome').on('click', function(){
@@ -53,6 +54,16 @@ angular.module('mainController', [])
         $('#dropHome').on('click', function(){
           window.location.hash = "#/"
         });
+
+        $('#dropLogout').on('click', function(){
+          console.log('logging out');
+          self.userSesh = "Sign in";
+          console.log(self.userSesh);
+          window.localStorage.sessionToken = "none"
+          window.localStorage.sessionUser = "none"
+          console.log(window.localStorage);
+          window.location.reload()
+        })
 
       } else if(dropdownCounter%2 == 0){
         console.log(dropdownCounter);
