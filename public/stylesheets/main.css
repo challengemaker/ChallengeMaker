@@ -535,7 +535,7 @@
 }
 
 .topChallenges {
-  background-color: #D8D8D8;
+  background-color: #f1f1f1;
   min-height: 327px;
   height: 100%;
 }
@@ -561,13 +561,13 @@
 }
 
 .userChallenges {
-  background-color: #B8B8B8;
+  background-color: #d4d4d4;
   min-height: 327px;
   height: 100%;
 }
 
 .userInfo {
-  background-color: #888888;
+  background-color: #b6b6b6;
   height: 100%;
 }
 
