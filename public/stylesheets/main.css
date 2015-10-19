@@ -425,7 +425,7 @@
 
 .singleuserContainer {
   margin-top: 15px;
-  height: 300px;
+  height: 100%;
   background-color: red;
 }
 
@@ -433,6 +433,11 @@
   min-height: 100%;
   /*outline: 2px solid blue;*/
   display: inline-block;
+}
+
+ table tr td{
+   padding:3px !important;
+   border-top: none !important;
 }
 
 .testResponseForm {
@@ -447,7 +452,8 @@
 
 .topChallenges {
   background-color: #D8D8D8;
-  height: 300px;
+  min-height: 327px;
+  height: 100%;
 }
 
 .topFunders {
@@ -472,12 +478,13 @@
 
 .userChallenges {
   background-color: #B8B8B8;
-  height: 300px;
+  min-height: 327px;
+  height: 100%;
 }
 
 .userInfo {
   background-color: #888888;
-  height: 300px;
+  height: 100%;
 }
 
 .userInfoData {
@@ -489,42 +496,47 @@
 }
 
 #usertotraised {
-  font-size: 17px;
-  margin-top: 10px;
+  font-size: 18px;
+  vertical-align: middle;
 }
 
 #usertotraisedval {
   font-size: 26px;
+  font-weight: bolder;
+  text-align: right;
 }
 
 #userchalcomp {
-  font-size: 14px;
-  margin-top: 7px;
+  font-size: 13px;
+  vertical-align: middle;
 }
 
 #userchalcompval {
   font-size: 20px;
-  margin-left: 58px;
+  font-weight: bolder;
+  text-align: right;
 }
 
 #userpeopchal {
-  font-size: 14px;
-  margin-top: 7px;
+  font-size: 13px;
+  vertical-align: middle;
 }
 
 #userpeopchalval {
   font-size: 20px;
-  margin-left: 47px;
+  font-weight: bolder;
+  text-align: right;
 }
 
 #userpeopreach {
-  font-size: 14px;
-  margin-top: 7px;
+  font-size: 13px;
+  vertical-align: middle;
 }
 
 #userpeopreachval {
   font-size: 20px;
-  margin-left: 47px;
+  font-weight: bolder;
+  text-align: right;
 }
 
 .videoLink {
