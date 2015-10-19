@@ -43,6 +43,7 @@ angular.module('userController', [])
       .then(function(data){
         var thisUser = data.data.name;
         self.singleUser = thisUser;
+        console.log('This is the data returned:', data);
       });
     }
   }
