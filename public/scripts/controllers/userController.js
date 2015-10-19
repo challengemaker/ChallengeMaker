@@ -29,27 +29,19 @@ angular.module('userController', [])
         })
         .then(function(data){
           console.log(data);
-          window.location.hash = "/profile";
-        })
-      }
-    }
-
-    if(window.location.hash == "#/login"){
-      console.log('yo');
-      $(".submitNew").on('click', submitNew);
-      function submitNew(){
-        console.log('hi');
-        var email = $('.signInput1').val();
-        var password = $('.signInput2').val();
-        $http({
-          data: {email: email, password: password},
-          method: 'POST',
-          url: '/login'
-        })
-        .then(function(data){
-          console.log('heyyyyy');
-          console.log(data);
-          window.location.hash = "#/challenges";
+          $http({
+            data: {email: email, password: password},
+            method: 'POST',
+            url: '/login'
+          }).
+          then(function(data){
+            window.localStorage.sessionToken = data.data.token;
+            window.localStorage.sessionUser = data.data.user.email;
+            self.userSesh = window.localStorage.sessionUser;
+            console.log('user email is:',self.userSesh);
+            window.location.reload();
+          })
+          // window.location.hash = "/profile";
         })
       }
     }
@@ -85,8 +77,11 @@ angular.module('userController', [])
           console.log(data);
           window.localStorage.sessionToken = data.data.token;
           window.localStorage.sessionUser = data.data.user.email;
+          self.userSesh = email;
+          console.log('user email is:',self.userSesh);
+          window.location.reload();
+
         })
-        window.location.hash = "#/challenges/"
       })
     } else {
       // find single User

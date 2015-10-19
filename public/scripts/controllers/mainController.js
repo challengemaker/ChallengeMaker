@@ -19,10 +19,12 @@ angular.module('mainController', [])
 
     $('.logout').on('click', function(){
       console.log('logging out');
+      self.userSesh = "Sign in";
+      console.log(self.userSesh);
       window.localStorage.sessionToken = "none"
       window.localStorage.sessionUser = "none"
       console.log(window.localStorage);
-      window.location.hash = "#/"
+      window.location.reload()
     })
 
   }
