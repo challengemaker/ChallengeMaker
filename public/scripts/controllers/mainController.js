@@ -36,14 +36,24 @@ angular.module('mainController', [])
         console.log(dropdownCounter);
         $('.dropdownIcon').append(
           "<div class='dropdownContainer'>"+
-            "<div class='dropItem'>Home</div>"+
-            "<div class='dropItem'>About</div>"+
-            "<div class='dropItem'>What we do</div>"+
-            "<div class='dropItem'>Help</div>"+
-            "<div class='dropItem'>Faq</div>"+
-            "<div class='dropItem'>Terms</div>"+
+            "<div class='dropItem' id='dropHome'>Home</div>"+
+            "<div class='dropItem' id='dropAbout'>About</div>"+
+            "<div class='dropItem' id='dropWhat'>What we do</div>"+
+            "<div class='dropItem' id='dropHelp'>Help</div>"+
+            "<div class='dropItem' id='dropFaq'>Faq</div>"+
+            "<div class='dropItem' id='dropTerms'>Terms</div>"+
           "</div>"
         )
+        $('#dropHome').on('click', function(){
+          window.location.hash = "#/"
+        });
+        $('#dropAbout').on('click', function(){
+          window.location.hash = "#/about"
+        });
+        $('#dropHome').on('click', function(){
+          window.location.hash = "#/"
+        });
+
       } else if(dropdownCounter%2 == 0){
         console.log(dropdownCounter);
         $('.dropdownContainer').remove();
@@ -52,6 +62,8 @@ angular.module('mainController', [])
       }
 
     }
+
+
 
     /////end dropdown menu//////
     ////////////////////////
