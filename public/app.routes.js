@@ -37,7 +37,7 @@ function appRoutes($routeProvider){
       controllerAs: "challenges"
     })
 
-    .when('/signin/:name', {
+    .when('/signin', {
       templateUrl: 'templates/_signin.html',
       controller: 'userCtrl',
       controllerAs: 'user'

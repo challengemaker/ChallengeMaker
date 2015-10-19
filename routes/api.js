@@ -5,6 +5,7 @@ var bcrypt         = require('bcrypt-nodejs');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var route          = express.Router();
+var ignore         = require('./../.gitignore');
 
 ////////   ----- Models ------- //////////
 /////// This is a "Model" Home  //////////
@@ -99,7 +100,7 @@ module.exports = function(app, passport){
     res.redirect('/');
   });
 
-  
+
 
   function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
@@ -112,8 +113,6 @@ module.exports = function(app, passport){
 };
 
 var db = require('../db.js');
-console.log(db);
 var url = db.url;
-console.log(url);
 
-mongoose.connect(url);
+mongoose.connect(ignore.dbUrl);

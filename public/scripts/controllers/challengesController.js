@@ -6,6 +6,7 @@ angular.module('challengesController', [])
   function challengesCtrl($http){
     var self = this;
 
+
 		$http.get('/api/challenges')
         .then(function(data){
           self.allChallenges = data.data;
@@ -115,24 +116,6 @@ angular.module('challengesController', [])
             $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
           })
         })
-
-      // var challengeName = window.location.hash.split('/')[2].split('-').join(' ');
-      // console.log(challengeName);
-      // $http.get('/api/challenges/'+challengeName)
-      //   .then(function(data){
-      //     var url = "https://www.youtube.com/embed/TipgAV6hhP8?autoplay=1"
-      //     console.log(data);
-      //     self.singleChallenge = data.data;
-      //     $('.currImg').on('click', function(){
-      //       var height = $('.currentChallengeImage').height();
-      //       var width = $('.currentChallengeImage').width();
-      //       $('.currentChallengeImage').html('')
-      //       $('.currentChallengeInfo').html(" ")
-      //       $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
-      //     })
-      //   })
-        /////load video in mini response acceptances
-        /////stats buttons for donating and completing challenge
         $('.completeChallButton').on('click', function(){
           window.location.hash = "#/newresponse/"+self.nameParam
         })

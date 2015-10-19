@@ -16,7 +16,6 @@ var jwt            = require('jwt-simple');
 // var User           = mongoose.model('User')
 var User           = require('./models/user');
 var ignore         = require('./.gitignore')
-console.log(ignore.tokenSecret);
 
 var message = {message: "jack is cool"}
 var secret = "punkrock"
@@ -121,7 +120,8 @@ app.post( '/login', function( req, res ) {
 			console.log("User found!")
 			console.log( user.validPassword( req.body.password ) )
 			//AUTHENTICATE USER HERE
-			res.json( user )
+      var gift = {user: user, token: token}
+			res.json( gift )
 		}
 	} )
 })
