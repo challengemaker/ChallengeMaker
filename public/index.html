@@ -45,14 +45,16 @@
 
 
   </head>
-  <body ng-app="challengeMaker" ng-controller="mainCtrl">
+  <body ng-app="challengeMaker" ng-controller="mainCtrl as main">
 
     <!-- Navbar begins here -->
     <div class="navContainer">
       <div class="navBar">
         <div class="logoContainer">
           <img src="/assets/challengeMaker_logo.svg" alt="" class="logo"/>
+
         </div>
+
         <!-- <div class="dropdownBarContainer">
           <img class="dropdownIcon" src="https://www.tricitiesdialysis.com/wp-content/themes/tricitydialysis/images/nav-icon.png"/>
         </div> -->
@@ -62,17 +64,12 @@
 
     <!-- Begin body -->
     <div class="bodyView">
+      <button type="button" class='logout btn btn-primary'>Logout</button>
+      <h1 class="userSesh">{{main.userSesh}}</h1>
       <section ng-view></section>
     </div>
-    <!-- End Body -->
-
-    <!-- Begin Footer -->
-    <!-- <div class="footerContainer">
-      <div class="footer"> -->
-    <!-- End Footer -->
 
       </div>
     </div>
-
   </body>
 </html>

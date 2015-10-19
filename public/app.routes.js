@@ -7,6 +7,7 @@ appRoutes.$inject = ['$routeProvider'];
 
 function appRoutes($routeProvider){
   $routeProvider
+
     .when('/', {
       templateUrl: 'templates/_home.html',
       controller: 'challengesCtrl',

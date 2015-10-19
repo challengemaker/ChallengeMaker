@@ -93,15 +93,16 @@ app.post('/signup', function( req, res ) {
 
 } )
 
-app.get( '/signup', function( req, res ) {
-	User.find( function( err, users ) {
-		if ( err )  { throw err }
-		else {
-			console.log( users )
-			res.json( users )
-		}
-	} )
-})
+////I don't think we use this, since signup is on frontend/angular side
+// app.get( '/signup', function( req, res ) {
+// 	User.find( function( err, users ) {
+// 		if ( err )  { throw err }
+// 		else {
+// 			console.log( users )
+// 			res.json( users )
+// 		}
+// 	} )
+// })
 
 //=================================================================
 
@@ -126,6 +127,11 @@ app.post( '/login', function( req, res ) {
 			res.json( gift )
 		}
 	} )
+})
+
+app.post('/logout', function(req, res){
+
+
 })
 
 

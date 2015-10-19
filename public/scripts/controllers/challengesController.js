@@ -120,8 +120,5 @@ angular.module('challengesController', [])
           window.location.hash = "#/newresponse/"+self.nameParam
         })
       }
-
-
     /////end of the oage-based if statement
-
   }
