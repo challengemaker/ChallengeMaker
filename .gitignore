@@ -1,0 +1,4 @@
+module.exports = {
+dbUrl: "hello",
+tokenSecret: "stephanJanoski"
+}
