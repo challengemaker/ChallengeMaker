@@ -16,6 +16,15 @@ var jwt            = require('jwt-simple');
 // var User           = mongoose.model('User')
 var User           = require('./models/user');
 
+var message = {message: "jack is cool"}
+var secret = "punkrock"
+//
+var token = jwt.encode(message, secret);
+console.log(token);
+
+var detoken = jwt.decode(token, secret);
+console.log(detoken);
+
 // Begin Middleware
 app.use(bodyParser.json());
 
