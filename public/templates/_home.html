@@ -6,7 +6,7 @@
       <img src="{{challenges.allChallenges[0].photo}}" alt="" />
     </div>
     <div class="hVideo" ng-if="!challenges.highlightOn">
-      <iframe width="{{challenges.width}}" height="{{challenges.height}}" src="https://www.youtube.com/embed/4wvxoiNV2iA" frameborder="0" allowfullscreen></iframe>
+      <iframe width="100%" height="{{challenges.height}}" src="https://www.youtube.com/embed/4wvxoiNV2iA" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -15,9 +15,16 @@
 {{2 + 2}}
 <div ng-repeat="challenge in challenges.allChallenges" class="listContainer">
 
-<div class="highlightContainer col-sm-6 col-12-xs">
-  <image ng-if="!challenge.isClicked" ng-click="challenge.isClicked = !challenge.isClicked" src="{{challenge.photo}}" class="highlightImage"/>
-	<iframe ng-if="challenge.isClicked" class="highlightVideo" src="https://www.youtube.com/embed/jh-WjOL42ig" class="challengePhoto col-6"></iframe>
+  <div class="highlightContainer col-sm-6 col-12-xs">
+    <div class="listText">
+      <div class=" texttext col-xs-8">hi there</div>
+
+      <div class="texttext col-xs-4">hi there</div>
+    </div>
+    <image ng-if="!challenge.isClicked" ng-click="challenge.isClicked = !challenge.isClicked" src="{{challenge.photo}}" class="highlightImage"/>
+  	<iframe ng-if="challenge.isClicked" class="highlightVideo" src="https://www.youtube.com/embed/jh-WjOL42ig" class="challengePhoto col-6"></iframe>
+  </div>
 </div>
+
 
 </div>
