@@ -12,9 +12,9 @@ var bodyParser     = require('body-parser');
 var config         = require('./config.js');
 var methodOverride = require('method-override');
 var session        = require('express-session');
-var jwt            = require('jwt')
+var jwt            = require('jwt-simple');
 // var User           = mongoose.model('User')
-var User           = require('./models/user')
+var User           = require('./models/user');
 
 // Begin Middleware
 app.use(bodyParser.json());
@@ -63,23 +63,41 @@ app.post('/signup', function( req, res ) {
 		} else {
 			console.log('user being made')
 			var newUser = new User();
+
 			newUser.email = req.body.email
-			newUser.password = newUser.generateHash( req.body.password );
+			newUser.password = newUser.generateHash( req.body.password )
+			newUser.local.email = req.body.email
 			newUser.save( function( err, user ) {
-				if ( err ) { throw err}
+				console.log("inside user save")
+				console.log( newUser)
+				if ( err ) { throw err }
+				console.log("User saved")
+				console.log( newUser )
 				//AUTHENTICATE USER HERE
-				res.json(user);
+				res.json(newUser)
 			})
 		}
 	})
 
 } )
 
+app.get( '/signup', function( req, res ) {
+	User.find( function( err, users ) {
+		if ( err )  { throw err }
+		else {
+			console.log( users )
+			res.json( users )
+		}
+	} )
+})
+
 //=================================================================
 
 app.post( '/login', function( req, res ) {
 	console.log("In login page")
 	console.log(req.body)
+  var email = req.body.email;
+  console.log(email);
 	User.findOne( { email: req.body.email }, function( err, user) {
 		console.log( "User is:")
 		console.log(user )
@@ -96,12 +114,13 @@ app.post( '/login', function( req, res ) {
 		}
 	} )
 })
-//
-// app.post('/signup', passport.authenticate('local-signup', {
-//     successRedirect: 'http://reddit.com',
-//     failureRedirect: 'http://www.google.com',
-//     failureFlash:    true,
-//   }))
+
+
+app.post('/signup', passport.authenticate('local-signup', {
+    successRedirect: 'http://reddit.com',
+    failureRedirect: 'http://www.google.com',
+    failureFlash:    true,
+  }))
 
 // define routes
 require('./routes/api')(app, passport);
