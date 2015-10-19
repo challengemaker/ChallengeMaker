@@ -447,6 +447,7 @@
 
 .topChallenges {
   background-color: #D8D8D8;
+  height: 300px;
 }
 
 .topFunders {
@@ -471,10 +472,59 @@
 
 .userChallenges {
   background-color: #B8B8B8;
+  height: 300px;
 }
 
 .userInfo {
   background-color: #888888;
+  height: 300px;
+}
+
+.userInfoData {
+
+}
+
+#username {
+  font-size: 30px;
+}
+
+#usertotraised {
+  font-size: 17px;
+  margin-top: 10px;
+}
+
+#usertotraisedval {
+  font-size: 26px;
+}
+
+#userchalcomp {
+  font-size: 14px;
+  margin-top: 7px;
+}
+
+#userchalcompval {
+  font-size: 20px;
+  margin-left: 58px;
+}
+
+#userpeopchal {
+  font-size: 14px;
+  margin-top: 7px;
+}
+
+#userpeopchalval {
+  font-size: 20px;
+  margin-left: 47px;
+}
+
+#userpeopreach {
+  font-size: 14px;
+  margin-top: 7px;
+}
+
+#userpeopreachval {
+  font-size: 20px;
+  margin-left: 47px;
 }
 
 .videoLink {
