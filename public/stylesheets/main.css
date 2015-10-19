@@ -226,6 +226,14 @@
   width: 100%;
 }
 
+.highlightText {
+  outline: 2px solid green;
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  z-index: 10;
+}
+
 .hContainer {
   width: 100%;
   min-height: 100%;
