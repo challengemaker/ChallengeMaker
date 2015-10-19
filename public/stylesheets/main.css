@@ -190,13 +190,14 @@
 }
 
 .dropdownContainer {
-  width: 150px;
+  width: 163px;
   height: 100%;
   margin-top: 40px;
   outline: 2px solid blue;
   position: fixed;
   z-index: 200;
-  background-color: #003D5C;
+  background-color: #33647D;
+  opacity: 0.85;
 }
 
 .dropdownIcon {
@@ -204,7 +205,8 @@
   height: 40px;
   position: relative;
   margin-top: 20px;
-  margin-left: 110px;
+  float: right;
+  margin-right: 110px;
   display: inline-block;
 }
 

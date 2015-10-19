@@ -5,6 +5,7 @@ angular.module('mainController', [])
   mainCtrl.$inject = ['$http'];
   function mainCtrl($http){
     var self = this;
+    var dropdownCounter = 0;
 
     var sessionUser = window.localStorage.sessionUser;
     console.log(sessionUser);
@@ -30,17 +31,26 @@ angular.module('mainController', [])
     /////dropdown menu stuff///////
     ///////////////////////////////
     self.dropDown = function dropDown(){
-      console.log('dropping down our menu');
-      $('.dropdownIcon').append(
-        "<div class='dropdownContainer'>"+
-          "<div class='dropItem'>Home</div>"+
-          "<div class='dropItem'>About</div>"+
-          "<div class='dropItem'>What we do</div>"+
-          "<div class='dropItem'>Help</div>"+
-          "<div class='dropItem'>Faq</div>"+
-          "<div class='dropItem'>Terms</div>"+
-        "</div>"
-      )
+      dropdownCounter++;
+      if(dropdownCounter%2 == 1){
+        console.log(dropdownCounter);
+        $('.dropdownIcon').append(
+          "<div class='dropdownContainer'>"+
+            "<div class='dropItem'>Home</div>"+
+            "<div class='dropItem'>About</div>"+
+            "<div class='dropItem'>What we do</div>"+
+            "<div class='dropItem'>Help</div>"+
+            "<div class='dropItem'>Faq</div>"+
+            "<div class='dropItem'>Terms</div>"+
+          "</div>"
+        )
+      } else if(dropdownCounter%2 == 0){
+        console.log(dropdownCounter);
+        $('.dropdownContainer').remove();
+      } else {
+        console.log('your dropdown counter is broken');
+      }
+
     }
 
     /////end dropdown menu//////
