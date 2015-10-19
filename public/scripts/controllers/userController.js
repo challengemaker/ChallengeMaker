@@ -15,6 +15,45 @@ angular.module('userController', [])
     console.log(userFactory);
 
     ///using if statement to determine if we're looking at an "all users" list or single user's profile page
+    if(window.location.hash == "#/signup"){
+      console.log('yo');
+      $(".submitNew").on('click', submitNew);
+      function submitNew(){
+        console.log('hi');
+        var email = $('.signupEmail').val();
+        var password = $('.signupPw').val();
+        $http({
+          data: {email: email, password: password},
+          method: 'POST',
+          url: '/signup'
+        })
+        .then(function(data){
+          console.log(data);
+          window.location.hash = "/profile";
+        })
+      }
+    }
+
+    if(window.location.hash == "#/login"){
+      console.log('yo');
+      $(".submitNew").on('click', submitNew);
+      function submitNew(){
+        console.log('hi');
+        var email = $('.signInput1').val();
+        var password = $('.signInput2').val();
+        $http({
+          data: {email: email, password: password},
+          method: 'POST',
+          url: '/login'
+        })
+        .then(function(data){
+          console.log('heyyyyy');
+          console.log(data);
+          window.location.hash = "#/challenges";
+        })
+      }
+    }
+
     if (window.location.hash == "#/users") {
       ///find all users
       $http.get('/api/users')
@@ -26,24 +65,38 @@ angular.module('userController', [])
     } else if(window.location.hash.split('/')[1] == "signin"){
       $(".signInput1").on('click', function(){
         $(".signInput1").val('')
-      })
+      });
       $(".signInput2").on('click', function(){
         $(".signInput2").val('')
-        $(".signInput2")[0].type('password');
-      })
+      });
+
+
       $('.signinSubmit').on('click', function(){
-        var challenge = window.location.hash.split('/')[2];
-        window.location.hash = "#/challenges/"+challenge;
+        var email = $(".signInput1").val();
+        var password = $(".signInput2").val();
+        var data = {email: email, password: password}
+        $http({
+          method: "POST",
+          data: data,
+          url: "/login"
+        })
+        .then(function(data){
+          console.log('in here');
+          console.log(data);
+          window.localStorage.sessionToken = data.data.token;
+          window.localStorage.sessionUser = data.data.user.email;
+        })
+        window.location.hash = "#/challenges/"
       })
     } else {
       // find single User
-      var hashArray = window.location.hash.split("/");
-      var userName =hashArray[hashArray.length-1];
-      $http.get('/api/users/'+userName)
-      .then(function(data){
-        var thisUser = data.data.name;
-        self.singleUser = thisUser;
-        console.log('This is the data returned:', data);
-      });
+      // var hashArray = window.location.hash.split("/");
+      // var userName =hashArray[hashArray.length-1];
+      // $http.get('/api/users/'+userName)
+      // .then(function(data){
+      //   var thisUser = data.data.name;
+      //   self.singleUser = thisUser;
+      //   console.log('This is the data returned:', data);
+      // });
     }
   }

@@ -12,19 +12,20 @@ var bodyParser     = require('body-parser');
 var config         = require('./config.js');
 var methodOverride = require('method-override');
 var session        = require('express-session');
-var jwt            = require('jwt-simple');
+var jwt            = require('jsonwebtoken');
 // var User           = mongoose.model('User')
 var User           = require('./models/user');
 var ignore         = require('./.gitignore')
-console.log(ignore.tokenSecret);
 
 var message = {message: "jack is cool"}
 var secret = "punkrock"
 //
-var token = jwt.encode(message, secret);
+var token = jwt.sign(message, secret, { expiresInMinutes: 1 });
 console.log(token);
 
-var detoken = jwt.decode(token, secret);
+var detoken = jwt.verify(token, secret, function(err, decoded){
+  console.log(decoded);
+});
 console.log(detoken);
 
 // Begin Middleware
@@ -121,7 +122,8 @@ app.post( '/login', function( req, res ) {
 			console.log("User found!")
 			console.log( user.validPassword( req.body.password ) )
 			//AUTHENTICATE USER HERE
-			res.json( user )
+      var gift = {user: user, token: token}
+			res.json( gift )
 		}
 	} )
 })
