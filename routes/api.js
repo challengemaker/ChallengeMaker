@@ -99,11 +99,7 @@ module.exports = function(app, passport){
     res.redirect('/');
   });
 
-  app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/#/',
-    failureRedirect: '/#/https://challengemaker.herokuapp.com/#/signin/Drought-Bucket-Challenge',
-    failureFlash:    true,
-  }))
+  
 
   function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){

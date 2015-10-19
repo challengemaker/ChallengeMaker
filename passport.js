@@ -20,7 +20,6 @@ module.exports = function(passport){
   //////local signup stuff
 
   passport.use(
-
     'local-signup', new LocalStrategy({
     usernameField: "name",
     passwordField: 'password',

@@ -5,16 +5,9 @@ var Schema      = mongoose.Schema;
 
 // User Model
 var userSchema = new Schema({
-  local         : {
-    email       : String,
+
+    email       : { type: String, required: true, unique: true },
     password    : String,
-  },
-  facebook      : {
-    id          : String,
-    token       : String,
-    email       : String,
-    name        : String
-  }
 })
 
 userSchema.methods.generateHash = function(password) {
@@ -22,7 +15,9 @@ userSchema.methods.generateHash = function(password) {
 };
 
 userSchema.methods.validPassword = function(password) {
-  return bcrypt.compareSync(password, this.local.password)
+	console.log("In pass check")
+	console.log(this)
+  return bcrypt.compareSync(password, this.password)
 }
 
 module.exports = mongoose.model('User', userSchema);
