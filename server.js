@@ -65,17 +65,31 @@ app.post('/signup', function( req, res ) {
 
 			newUser.email = req.body.email
 			newUser.password = newUser.generateHash( req.body.password )
+			newUser.local.email = req.body.email
 			newUser.save( function( err, user ) {
 				console.log("inside user save")
+				console.log( newUser)
 				if ( err ) { throw err }
 				console.log("User saved")
+				console.log( newUser )
 				//AUTHENTICATE USER HERE
-				res.json(user)
+				res.json(newUser)
 			})
 		}
 	})
 
 } )
+
+app.get( '/signup', function( req, res ) {
+	User.find( function( err, users ) {
+		if ( err )  { throw err }
+		else {
+			console.log( users )
+			res.json( users )
+		}
+	} )
+})
+
 
 //=================================================================
 
