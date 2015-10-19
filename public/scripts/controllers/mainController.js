@@ -27,4 +27,24 @@ angular.module('mainController', [])
       window.location.reload()
     })
 
+    /////dropdown menu stuff///////
+    ///////////////////////////////
+    self.dropDown = function dropDown(){
+      console.log('dropping down our menu');
+      $('.dropdownIcon').append(
+        "<div class='dropdownContainer'>"+
+          "<div class='dropItem'>Home</div>"+
+          "<div class='dropItem'>About</div>"+
+          "<div class='dropItem'>What we do</div>"+
+          "<div class='dropItem'>Help</div>"+
+          "<div class='dropItem'>Faq</div>"+
+          "<div class='dropItem'>Terms</div>"+
+        "</div>"
+      )
+    }
+
+    /////end dropdown menu//////
+    ////////////////////////
+
+
   }

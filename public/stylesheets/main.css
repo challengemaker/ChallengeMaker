@@ -189,14 +189,40 @@
   outline: 2px solid purple;
 }
 
+.dropdownContainer {
+  width: 150px;
+  height: 100%;
+  margin-top: 40px;
+  outline: 2px solid blue;
+  position: fixed;
+  z-index: 200;
+  background-color: #003D5C;
+}
+
 .dropdownIcon {
   width: 40px;
   height: 40px;
+  position: relative;
+  margin-top: 20px;
+  margin-left: 110px;
+  display: inline-block;
+}
+
+.dropdownIcon img {
+  width: 100%;
+  height: 100%;
   position: absolute;
 }
 
-.dropdownIcon:hover {
-  opacity: .75
+.dropdownIconImage:hover {
+  opacity: .4;
+}
+
+.dropItem {
+  font-size: 20px;
+  margin-top: 5px;
+  border-bottom: 3px dotted gray;
+  color: white;
 }
 
 .footerContainer {
