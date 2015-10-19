@@ -15,13 +15,18 @@
 {{2 + 2}}
 <div ng-repeat="challenge in challenges.allChallenges" class="listContainer">
 
-  <div class="highlightContainer col-sm-6 col-12-xs">
-    <div class="listText">
-      <div class=" texttext col-xs-8">hi there</div>
+  <div class="highlightContainer col-sm-6 col-12-xs"  ng-click="challenge.isClicked = !challenge.isClicked" >
+    <div ng-if="!challenge.isClicked" class="listText">
+      <div class="texttext col-xs-8">
+		  <p class="challengeCharityText">{{challenge.charity[0]}}</p></br>
+		  <p class="challengeDonationext">$0 if completed or donate $30 to {{challenge.charity[0]}}</p></br>
+		  <p class="challengeAccept" ng-click="challenge.accept()">Accept</p>
+		  <p class="challengeDeats" ng-clicl="challenge.details()">Details</p>
+	  </div>
 
-      <div class="texttext col-xs-4">hi there</div>
+      <div class="texttext col-xs-4">Money stuff</div>
     </div>
-    <image ng-if="!challenge.isClicked" ng-click="challenge.isClicked = !challenge.isClicked" src="{{challenge.photo}}" class="highlightImage"/>
+    <image ng-if="!challenge.isClicked" src="{{challenge.photo}}" class="highlightImage"/>
   	<iframe ng-if="challenge.isClicked" class="highlightVideo" src="https://www.youtube.com/embed/jh-WjOL42ig" class="challengePhoto col-6"></iframe>
   </div>
 </div>

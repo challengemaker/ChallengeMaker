@@ -12,6 +12,8 @@ var bodyParser     = require('body-parser');
 var config         = require('./config.js');
 var methodOverride = require('method-override');
 var session        = require('express-session');
+// var User           = mongoose.model('User')
+var User           = require('./models/user')
 
 // Begin Middleware
 app.use(bodyParser.json());
@@ -43,8 +45,69 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/public'));
 
+
+//User signup
+//===========================================================
+app.post('/signup', function( req, res ) {
+	console.log( "Starting user check")
+	User.findOne( { email: req.body.email }, function(err, user){
+		console.log("Inside user")
+		if (err ) {
+				console.log("error thrown")
+				res.json( err )
+		} else if ( user ) {
+			console.log(user)
+			console.log("User ofund")
+			res.redirect( '/login')
+		} else {
+			console.log('user being made')
+			var newUser = new User();
+
+			newUser.email = req.body.email
+			newUser.password = newUser.generateHash( req.body.password )
+			newUser.save( function( err, user ) {
+				console.log("inside user save")
+				if ( err ) { throw err }
+				console.log("User saved")
+				//AUTHENTICATE USER HERE
+				res.json(user)
+			})
+		}
+	})
+
+} )
+
+//=================================================================
+
+app.post( '/login', function( req, res ) {
+	console.log("In login page")
+	console.log(req.body)
+	User.findOne( { email: req.body.email }, function( err, user) {
+		console.log( "User is:")
+		console.log(user )
+		if ( err ) {
+			console.log(err)
+			res.json( err )
+		} else if ( !user ) {
+			res.json( "No user found" )
+		} else {
+			console.log("User found!")
+			console.log( user.validPassword( req.body.password ) )
+			//AUTHENTICATE USER HERE
+			res.json( user )
+		}
+	} )
+})
+
+app.post('/signup', passport.authenticate('local-signup', {
+    successRedirect: 'http://reddit.com',
+    failureRedirect: 'http://www.google.com',
+    failureFlash:    true,
+  }))
+
 // define routes
 require('./routes/api')(app, passport);
+
 
 // End MiddleWare
 
