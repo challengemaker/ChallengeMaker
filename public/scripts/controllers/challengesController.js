@@ -2,7 +2,7 @@ angular.module('challengesController', [])
 
   .controller('challengesCtrl', challengesCtrl)
 
-  challengesCtrl.$inject = ['$http', "$sce"];
+  challengesCtrl.$inject = ['$http', '$sce'];
   function challengesCtrl($http, $sce){
     var self = this;
 		$http.get('/api/challenges')
@@ -15,12 +15,37 @@ angular.module('challengesController', [])
           for (var i = 0; i < allChallenges.length; i++) {
             allChallenges[i].isPhoto = true;
             console.log(allChallenges[i].videoUrl);
-            // var video = $sce.trustedAsResourceUrl(allChallenges[i].videoUrl)
+            url = "https://www.youtube.com/embed/ccYg5HN0mDU";
+            self.video = url.split('').slice(8, url.length-1).join('');
+            console.log(self.video);
           }
           ////////////
           self.allChallenges = allChallenges;
           console.log(self.allChallenges);
       })
+
+      self.swap = function swap(index){
+        var height = $(".lImageImg").height();
+        var videoHeight = $(".lVideo").height();
+        var url = self.allChallenges[index].videoUrl+"?autoplay=1";
+        console.log(url);
+        console.log(height);
+        console.log($('.lVideo'+index));
+        if(height > 0) {
+          $('.lVideo'+index).append(
+            "<iframe class='listVid"+index+
+            " listVid{{$index}}' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+            "</iframe>"
+          )
+          $('.lImage'+index).css('height', "0px")
+          $('.lImageimg'+index).css('height', "0px")
+        } else {
+          $('.listVid'+index).remove();
+          $('.lImage'+index).css('height', videoHeight)
+          $('.lImageimg'+index).css('height', videoHeight)
+        }
+      }
+
 
       self.seeChallenge = function(name){
         var challTitle = name.split(' ').join("-");
