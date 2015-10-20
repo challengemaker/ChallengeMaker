@@ -1,7 +1,7 @@
 
 
 <div class="hContainer col-xs-12" >
-  <div class="hMediaHolder" ng-click="challenges.hToggle()">
+  <div class="hMediaHolder" ng-click="challenges.swapSpecial()">
     <div class="highlightText">
       <div class="texttext col-xs-8">
         <div class="highlightTextHolder">
@@ -25,11 +25,11 @@
         </div>
       </div>
     </div>
-    <div class="hImage" ng-if="challenges.highlightOn">
-      <img src="{{challenges.allChallenges[0].photo}}" alt="" />
+    <div class="hImage">
+      <img class = "hImageImg" src="{{challenges.allChallenges[0].photo}}" alt="" />
     </div>
-    <div class="hVideo" ng-if="!challenges.highlightOn">
-      <iframe width="100%" height="{{challenges.height}}" ng-src="{{challenge.videoUrl}}" frameborder="0" allowfullscreen></iframe>
+    <div class="hVideo" >
+      <!-- <iframe width="100%" height="{{challenges.height}}" ng-src="{{challenge.videoUrl}}" frameborder="0" allowfullscreen></iframe> -->
     </div>
   </div>
 </div>

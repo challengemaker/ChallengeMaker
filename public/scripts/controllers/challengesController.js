@@ -26,6 +26,7 @@ angular.module('challengesController', [])
 
       self.swap = function swap(index){
         var height = $(".lImageImg").height();
+        var width = $(".lImageImg").width();
         var videoHeight = $(".lVideo").height();
         var url = self.allChallenges[index].videoUrl+"?autoplay=1";
         console.log(url);
@@ -43,6 +44,27 @@ angular.module('challengesController', [])
           $('.listVid'+index).remove();
           $('.lImage'+index).css('height', videoHeight)
           $('.lImageimg'+index).css('height', videoHeight)
+        }
+      }
+
+      self.swapSpecial = function swapSpecial(){
+        var height = $(".hImage").height();
+        var videoHeight = $(".hVideo").height();
+        var url = self.specialChallenge.videoUrl+"?autoplay=1";
+        console.log(url);
+        console.log(height);
+        if(height > 0) {
+          $('.hVideo').append(
+            "<iframe class='specialVid"+
+            "'width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+            "</iframe>"
+          )
+          $('.hImage').css('height', "0px")
+          $('.hImageImg').css('height', "0px")
+        } else {
+          $('.specialVid').remove();
+          $('.hImage').css('height', videoHeight)
+          $('.hImageImg').css('height', videoHeight)
         }
       }
 
