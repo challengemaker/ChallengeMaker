@@ -108,6 +108,24 @@
   z-index: -1;
 }
 
+.comp-chal-button {
+  font-size: 30px;
+  background-color: #b6b6b6;
+  margin: 15px 30px 10px 2px;
+  height:80px;
+  width:100%;
+  vertical-align: middle;
+}
+
+.comp-donate-button {
+  font-size: 30px;
+  background-color: #d4d4d4;
+  margin: 5px 30px 10px 2px;
+  height:80px;
+  width:100%;
+  vertical-align: middle;
+}
+
 .currentChallengeContainer {
 
 }
@@ -142,9 +160,9 @@
 
 .currentChallengeStats {
   display: inline-block;
-  background-color: #E6E6E6;
+  background-color: #f1f1f1;
   min-height: 100%;
-  padding-bottom: 51px;
+  padding-bottom: 0px;
 }
 
 .currentCharity {
@@ -267,6 +285,18 @@
 
 .forwardButton:hover {
   background-color: #B8E6E6;
+}
+
+.glyphicon-facetime-video {
+  font-size: 40px;
+  color: #f25d1e;
+  vertical-align: middle;
+}
+
+.glyphicon-heart {
+  font-size: 40px;
+  color: #C31C85;
+  vertical-align: middle;
 }
 
 .highlightContainer {
@@ -650,7 +680,7 @@
 }
 
 .topRowChallenge {
-  background-color: #E6E6E6;
+  background-color: #f1f1f1;
 }
 
 .userChallenges {
