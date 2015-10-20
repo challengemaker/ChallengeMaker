@@ -117,9 +117,9 @@ angular.module('challengesController', [])
           self.listHeight = listCont[0].height();
         }
         self.lToggle = function(){
-          self.listWidth = ($('.lImageImg').width();
+          self.listWidth = $('.lImageImg').width();
           self.listHeight = $('.lImageImg').height();
-          self.listWidth1 = ($('.lImage').width();
+          self.listWidth1 = $('.lImage').width();
           self.listHeight1 = $('.lImage').height();
           console.log(self.listWidth);
           console.log(self.listHeight);
