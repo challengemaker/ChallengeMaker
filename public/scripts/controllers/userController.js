@@ -86,12 +86,16 @@ angular.module('userController', [])
     } else {
       // find single User
       var hashArray = window.location.hash.split("/");
-      var userName =hashArray[hashArray.length-1];
-      $http.get('/api/users/'+userName)
-      .then(function(data){
-        var thisUser = data.data.name;
-        self.singleUser = thisUser;
-        console.log('This is the data returned:', data);
-      });
+      var userId =hashArray[hashArray.length-1];
+      console.log(userId);
+      $http({
+        url: '/api/users/'+userId,
+        method: "GET"
+      })
+        .then(function(data){
+          console.log(data);
+          self.singleUser = data.data.user.local.email;
+          console.log(self.singleUser);
+        })
     }
   }
