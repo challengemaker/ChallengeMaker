@@ -9,7 +9,13 @@ angular.module('challengesController', [])
 		$http.get('/api/challenges')
         .then(function(data){
           self.specialChallenge = data.data[0];
-          self.allChallenges = data.data.slice(1, data.data.length - 1);
+          var allChallenges = data.data.slice(1, data.data.length - 1);
+          console.log(allChallenges);
+          for (var i = 0; i < allChallenges.length; i++) {
+            allChallenges[i].isPhoto = true;
+          }
+          self.allChallenges = allChallenges;
+          console.log(self.allChallenges);
       })
 
       self.seeChallenge = function(name){
@@ -37,7 +43,7 @@ angular.module('challengesController', [])
             var height = $('.challengePhoto').height();
             var width = $('.challengePhoto').width();
             $('.challengePhoto').html('')
-            $('.challengePhoto').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
+            $('.challengePhoto').html("<iframe class='currentVideo' min-width='"+width+"' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
           })
         })
     }
@@ -103,19 +109,44 @@ angular.module('challengesController', [])
       }
       else if(window.location.hash.length == 2) {
         self.highlightOn = true;
-        console.log('this worked');
-
-
         self.hToggle = function(){
           self.width = $('.hMediaHolder').width();
-          console.log(self.width);
           self.height = $('.hMediaHolder').height();
-          console.log(self.height);
-          console.log('youyoyoy');
-          console.log(self.highlightOn);
           self.highlightOn = !self.highlightOn;
-          console.log(self.highlightOn);
+          self.listWidth = listCont[0].width();
+          self.listHeight = listCont[0].height();
         }
+        self.lToggle = function(){
+          self.listWidth = ($('.lImageImg').width();
+          self.listHeight = $('.lImageImg').height();
+          self.listWidth1 = ($('.lImage').width();
+          self.listHeight1 = $('.lImage').height();
+          console.log(self.listWidth);
+          console.log(self.listHeight);
+        }
+
+
+        self.showDetails = function(elId){
+          $("#"+elId).append(
+            "<div class='detailsCont' id='cont"+elId+"'>"+
+              "<h3>"+self.specialChallenge.description+"</h3>"+
+            "</div>"
+          )
+        }
+        self.showDetailsList = function(elId){
+          $("#"+elId).append(
+            "<div class='detailsContList' id='list"+elId+"'>"+
+              "<p>"+self.allChallenges[elId].description+"</p>"+
+            "</div>"
+          )
+        }
+        self.removeDetails = function(elId){
+          $('.detailsCont').remove();
+        }
+        self.removeDetailsList = function(elId){
+          $('.detailsContList').remove();
+        }
+        ///end homepage
       }
     /////end of the oage-based if statement
   }

@@ -18,6 +18,7 @@
   font-size: 20px;
   margin: 0 2px;
   font-weight: bolder;
+  opacity: 0.5;
 }
 .acceptButton:hover {
   background-color: purple;
@@ -108,12 +109,11 @@
 }
 
 .currentChallengeContainer {
-  /*outline: 2px solid green;*/
+
 }
 
 .currentChallengeHolder{
   display: inline-block;
-  /*outline: 2px solid blue;*/
   min-height: 100%;
 }
 
@@ -175,7 +175,7 @@
   font-style: italic;
   display: block;
   width: 100px;
-  margin-top: -10px;
+  text-align: center;
 }
 
 .detailsButton:hover {
@@ -185,6 +185,31 @@
 
 .dropdownBarContainer {
   height: 100%;
+}
+
+.detailsCont {
+  position: absolute;
+  width: 100%;
+  outline: 4px solid gray;
+  background-color: #000066;
+  opacity: 0.65;
+}
+
+.detailsCont h3{
+  position: relative;
+  background-color: "#31007A";
+}
+
+.detailsContList {
+  font-size: 14px;
+  width: 250px;
+  position: absolute;
+}
+
+.detailsContList p{
+  font-size: 20px;
+  position: relative;
+  background-color: "#31007A";
 }
 
 .dropdownContainer {
@@ -253,11 +278,21 @@
 }
 
 .highlightText {
-  outline: 2px solid green;
   width: 90%;
   height: 90%;
   position: absolute;
   z-index: 10;
+}
+
+.highlightTextHolder {
+  width: 60%;
+  margin-left: 10%;
+  text-align: left;
+}
+
+.highlightTextHolder h1{
+  font-size: 52px;
+  font-weight: bolder;
 }
 
 .hContainer {
@@ -278,7 +313,6 @@
   margin-top: 5px;
   width: 100%;
   min-height: 100%;
-  outline: 2px solid green;
 }
 
 .hVideo {
@@ -317,16 +351,60 @@
   font-weight: bold;
 }
 
-.listContainer {
+.lContainer {
+  width: 100%;
+  min-height: 100%;
   display: block;
 }
 
-.listText {
-  outline: 2px solid green;
+.lImage {
+
+}
+
+.lImage img {
+  width: 100%;
+}
+
+.lVideo {
+  width: 100%;
+  background-color: blue;
+}
+
+.lMediaHolder {
+  margin-top: 5px;
+  width: 100%;
+  min-height: 100%;
+}
+
+.lText {
   width: 90%;
   height: 90%;
   position: absolute;
   z-index: 10;
+}
+
+.listContainer {
+  display: block;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.listText {
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  z-index: 10;
+}
+
+.listTextHolder {
+  width: 60%;
+  margin-left: 10%;
+  text-align: left;
+}
+
+.listTextHolder h1{
+  font-size: 25px;
+  font-weight: bolder;
 }
 
 .logoContainer {
@@ -419,7 +497,6 @@
 }
 
 .questionHolder {
-  /*outline: 5px solid green;*/
   height: 480px;
   width: 550px;
   overflow: hidden;
@@ -501,13 +578,30 @@
 .singleuserContainer {
   margin-top: 3px;
   height: 100%;
-  /*background-color: red;*/
 }
 
 .smallChallengeHolder {
   min-height: 100%;
   /*outline: 2px solid blue;*/
   display: inline-block;
+}
+
+.specialGoal {
+  font-size: 30px;
+}
+
+.specialMoneyBox {
+  margin-top: 75%;
+}
+
+.specialMoneyBox p{
+  font-size: 25px;
+}
+
+.specialRaised {
+  font-size: 35px;
+  font-weight: bolder
+
 }
 
  table tr td{

@@ -3,14 +3,27 @@
 <div class="hContainer col-xs-12" >
   <div class="hMediaHolder" ng-click="challenges.hToggle()">
     <div class="highlightText">
-      <div class=" texttext col-xs-8">
-        <h1>{{challenges.specialChallenge.charity[0]}}</h1>
-        <h1>{{challenges.specialChallenge.title}}</h1>
-        <h3>{{challenges.specialChallenge.title}}</h3>
-        <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title}}">Accept</button>
-        <button type="button" class="detailsButton">details</button>
+      <div class="texttext col-xs-8">
+        <div class="highlightTextHolder">
+          <h1>{{challenges.specialChallenge.charity[0]}}</h1>
+          <h1>{{challenges.specialChallenge.title}}</h1>
+          <p>$0 if completed or donate ${{challenges.specialChallenge.minimumDonation}} to {{challenges.specialChallenge.charity[0]}}</p>
+          <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}">Accept</button>
+          <div class="detailsButton" id="{{challenges.specialChallenge._id}}" ng-mouseEnter="challenges.showDetails(challenges.specialChallenge._id)" ng-mouseLeave="challenges.removeDetails(challenges.specialChallenge._id)
+          ">details</div>
+        </div>
       </div>
-      <div class="texttext col-xs-4">hi there</div>
+      <div class="texttext col-xs-4">
+
+        <div class="specialMoneyBox">
+          <p>
+            <span class="specialRaised">${{challenges.specialChallenge.totalRaised}} </span>raised
+          </p>
+          <p>
+            <span class="specialGoal">${{challenges.specialChallenge.goal}}</span> goal
+          </p>
+        </div>
+      </div>
     </div>
     <div class="hImage" ng-if="challenges.highlightOn">
       <img src="{{challenges.allChallenges[0].photo}}" alt="" />
@@ -19,25 +32,39 @@
       <iframe width="100%" height="{{challenges.height}}" src="https://www.youtube.com/embed/4wvxoiNV2iA" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
-
 </div>
+
 <!-- Repeat images from here down -->
-{{2 + 2}}
-<div ng-repeat="challenge in challenges.allChallenges" class="listContainer">
-
-  <div class="highlightContainer col-sm-6 col-12-xs"  ng-click="challenge.isClicked = !challenge.isClicked" >
-    <div ng-if="!challenge.isClicked" class="listText">
+<div ng-repeat="challenge in challenges.allChallenges" class="listContainer col-sm-6 col-12-xs">
+  <div class="lMediaHolder" ng-click = "challenges.lToggle()">
+    <div class="listText">
       <div class="texttext col-xs-8">
-		  <p class="challengeCharityText">{{challenge.charity[0]}}</p></br>
-		  <p class="challengeDonationext">$0 if completed or donate $30 to {{challenge.charity[0]}}</p></br>
-		  <p class="challengeAccept" ng-click="challenge.accept()">Accept</p>
-		  <p class="challengeDeats" ng-clicl="challenge.details()">Details</p>
-	  </div>
+        <div class="listTextHolder">
+          <h1>{{}}</h1>
+          <h1>{{}}</h1>
+          <p>$0 if completed or donate ${{}} to {{}}</p>
+          <button type="button" class="acceptButton" ng-click="" id="{{}}">Accept</button>
+          <div class="detailsButton" id="{{}}" ng-mouseEnter="" ng-mouseLeave="">details</div>
+        </div>
+      </div>
+      <div class="texttext col-xs-4">
 
-      <div class="texttext col-xs-4">Money stuff</div>
+        <div class="listMoneyBox">
+          <p>
+            <span class="listRaised">${{}} </span>raised
+          </p>
+          <p>
+            <span class="listGoal">${{}}</span> goal
+          </p>
+        </div>
+      </div>
     </div>
-    <image ng-if="!challenge.isClicked" src="{{challenge.photo}}" class="highlightImage"/>
-  	<iframe ng-if="challenge.isClicked" class="highlightVideo" src="https://www.youtube.com/embed/jh-WjOL42ig" class="challengePhoto col-6"></iframe>
+    <div class="lImage" ng-if="challenge.isPhoto" ng-click="challenge.isPhoto = !challenge.isPhoto">
+      <img class="lImageImg" src="{{challenge.photo}}" alt="" />
+    </div>
+    <div class="lVideo" ng-if="!challenge.isPhoto" ng-click="challenge.isPhoto = !challenge.isPhoto">
+      <iframe width="100%" height="{{challenges.listHeight}}" src="https://www.youtube.com/embed/TipgAV6hhP8?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    </div>
   </div>
 </div>
 
