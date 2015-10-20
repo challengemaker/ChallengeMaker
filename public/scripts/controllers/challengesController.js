@@ -13,6 +13,10 @@ angular.module('challengesController', [])
           console.log(allChallenges);
           for (var i = 0; i < allChallenges.length; i++) {
             allChallenges[i].isPhoto = true;
+            var vid = allChallenges[i].videoUrl;
+            console.log(vid);
+            allChallenges[i].videoUrl = vid;
+
           }
           self.allChallenges = allChallenges;
           console.log(self.allChallenges);

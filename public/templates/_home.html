@@ -29,7 +29,7 @@
       <img src="{{challenges.allChallenges[0].photo}}" alt="" />
     </div>
     <div class="hVideo" ng-if="!challenges.highlightOn">
-      <iframe width="100%" height="{{challenges.height}}" src="https://www.youtube.com/embed/4wvxoiNV2iA" frameborder="0" allowfullscreen></iframe>
+      <iframe width="100%" height="{{challenges.height}}" ng-src="{{challenge.videoUrl}}" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 </div>
@@ -63,7 +63,7 @@
       <img class="lImageImg" src="{{challenge.photo}}" alt="" />
     </div>
     <div class="lVideo" ng-if="!challenge.isPhoto" ng-click="challenge.isPhoto = !challenge.isPhoto">
-      <iframe width="100%" height="{{challenges.listHeight}}" src="https://www.youtube.com/embed/TipgAV6hhP8?autoplay=1" frameborder="0" allowfullscreen></iframe>
+      <iframe width="100%" height="{{challenges.listHeight}}" ng-src="{{trust(challenge.videoUrl)}}" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 </div>
