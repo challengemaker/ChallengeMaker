@@ -8,8 +8,15 @@ angular.module('challengesController', [])
 
 		$http.get('/api/challenges')
         .then(function(data){
-          self.allChallenges = data.data;
-        })
+          self.specialChallenge = data.data[0];
+          self.allChallenges = data.data.slice(1, data.data.length - 1);
+      })
+
+      self.seeChallenge = function(name){
+        var challTitle = name.split(' ').join("-");
+        console.log(challTitle);
+        window.location.hash = "#/challenges/"+challTitle;
+      }
 
 
     ////begin page if statement, for seperated data
@@ -74,21 +81,6 @@ angular.module('challengesController', [])
         /////rows now created
       })
       //////begin $http call that will be put in a factory later
-      // if(window.location.hash = "#/") {
-      //   self.highlightOn = true;
-      //   console.log('this worked');
-      //
-      //   self.hToggle = function(){
-      //     self.width = $('.hMediaHolder').width();
-      //     console.log(self.width);
-      //     self.height = $('.hMediaHolder').height();
-      //     console.log(self.height);
-      //     console.log('youyoyoy');
-      //     console.log(self.highlightOn);
-      //     self.highlightOn = !self.highlightOn;
-      //     console.log(self.highlightOn);
-      //   }
-      // }
       if (window.location.hash.length > 3 ){
       var challengeName = window.location.hash.split('/')[2].split('-').join(' ');
       console.log(challengeName);
@@ -112,6 +104,7 @@ angular.module('challengesController', [])
       else if(window.location.hash.length == 2) {
         self.highlightOn = true;
         console.log('this worked');
+
 
         self.hToggle = function(){
           self.width = $('.hMediaHolder').width();
