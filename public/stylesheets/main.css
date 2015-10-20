@@ -500,7 +500,7 @@
 }
 
 .singleuserContainer {
-  margin-top: 15px;
+  margin-top: 3px;
   height: 100%;
   /*background-color: red;*/
 }
@@ -576,7 +576,7 @@
 }
 
 #username {
-  font-size: 30px;
+  font-size: 33px;
 }
 
 #usertotraised {
@@ -633,6 +633,20 @@
 
 #usertopfund {
   font-size: 22px;
+}
+
+#usermychalcurr {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#usermychalcomp {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.usermychalval {
+  font-size: 11px;
 }
 
 .videoLink {
