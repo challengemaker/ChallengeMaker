@@ -5,7 +5,6 @@ angular.module('challengesController', [])
   challengesCtrl.$inject = ['$http'];
   function challengesCtrl($http){
     var self = this;
-
 		$http.get('/api/challenges')
         .then(function(data){
           self.specialChallenge = data.data[0];
@@ -16,7 +15,7 @@ angular.module('challengesController', [])
             var vid = allChallenges[i].videoUrl;
             console.log(vid);
             allChallenges[i].videoUrl = vid;
-
+            $('.listVid'+i).src = vid;
           }
           self.allChallenges = allChallenges;
           console.log(self.allChallenges);
