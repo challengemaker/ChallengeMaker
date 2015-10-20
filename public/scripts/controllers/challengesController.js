@@ -80,10 +80,9 @@ angular.module('challengesController', [])
         /////rows now created
       })
       //////begin $http call that will be put in a factory later
-
       if(window.location.hash = "#/") {
         self.highlightOn = true;
-
+        console.log('this worked');
 
         self.hToggle = function(){
           self.width = $('.hMediaHolder').width();
