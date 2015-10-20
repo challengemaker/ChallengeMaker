@@ -275,9 +275,8 @@
 }
 
 .hMediaHolder {
-  margin-top: 20px;
-  width: 90%;
-  margin-left: 5%;
+  margin-top: 5px;
+  width: 100%;
   min-height: 100%;
   outline: 2px solid green;
 }

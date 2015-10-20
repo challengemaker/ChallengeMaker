@@ -8,14 +8,8 @@ appRoutes.$inject = ['$routeProvider'];
 function appRoutes($routeProvider){
   $routeProvider
 
-    .when('/', {
-      templateUrl: 'templates/_home.html',
-      controller: 'challengesCtrl',
-      controllerAs: 'challenges'
-    })
-
     .when('/challenges', {
-      templateUrl: 'templates/_challenges.html',
+      templateUrl: 'templates/_home.html',
       controller: 'challengesCtrl',
       controllerAs: 'challenges'
     })
@@ -122,6 +116,13 @@ function appRoutes($routeProvider){
 
     .when('/cms', {
       templateUrl: 'templates/_cms.html'
+    })
+
+
+    .when('/', {
+      templateUrl: 'templates/_home.html',
+      controller: 'challengesCtrl',
+      controllerAs: 'challenges'
     })
 
     .otherwise('/');

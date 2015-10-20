@@ -6,20 +6,21 @@ angular.module('challengesController', [])
   function challengesCtrl($http){
     var self = this;
 
-
 		$http.get('/api/challenges')
         .then(function(data){
-          self.allChallenges = data.data;
-          console.log('hi');
-          console.log(data.data);
-          console.log('there');
-        })
+          self.specialChallenge = data.data[0];
+          self.allChallenges = data.data.slice(1, data.data.length - 1);
+      })
+
+      self.seeChallenge = function(name){
+        var challTitle = name.split(' ').join("-");
+        console.log(challTitle);
+        window.location.hash = "#/challenges/"+challTitle;
+      }
 
 
     ////begin page if statement, for seperated data
-    if (window.location.hash == "#/challenges") {
-
-    } else if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
+    if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
       var challenge = window.location.hash.split('/')[2];
       $('.acceptButton').on('click', function(){
         window.location.hash = "#/signin/"+challenge;
@@ -80,27 +81,7 @@ angular.module('challengesController', [])
         /////rows now created
       })
       //////begin $http call that will be put in a factory later
-
-      if(window.location.hash = "#/") {
-        self.highlightOn = true;
-
-
-        self.hToggle = function(){
-          self.width = $('.hMediaHolder').width();
-          console.log(self.width);
-          self.height = $('.hMediaHolder').height();
-          console.log(self.height);
-          console.log('youyoyoy');
-          console.log(self.highlightOn);
-          self.highlightOn = !self.highlightOn;
-          console.log(self.highlightOn);
-        }
-
-
-
-
-      }
-      if (window.location.hash != '#/'){
+      if (window.location.hash.length > 3 ){
       var challengeName = window.location.hash.split('/')[2].split('-').join(' ');
       console.log(challengeName);
       $http.get('/api/challenges/'+challengeName)
@@ -119,6 +100,22 @@ angular.module('challengesController', [])
         $('.completeChallButton').on('click', function(){
           window.location.hash = "#/newresponse/"+self.nameParam
         })
+      }
+      else if(window.location.hash.length == 2) {
+        self.highlightOn = true;
+        console.log('this worked');
+
+
+        self.hToggle = function(){
+          self.width = $('.hMediaHolder').width();
+          console.log(self.width);
+          self.height = $('.hMediaHolder').height();
+          console.log(self.height);
+          console.log('youyoyoy');
+          console.log(self.highlightOn);
+          self.highlightOn = !self.highlightOn;
+          console.log(self.highlightOn);
+        }
       }
     /////end of the oage-based if statement
   }
