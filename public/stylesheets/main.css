@@ -338,6 +338,7 @@
 .logo {
   height: 100%;
   vertical-align: bottom;
+  padding: 5px 0;
 }
 
 .logout {

@@ -28,13 +28,15 @@ module.exports = function(app, passport){
     });
   })
 
-  app.get('/api/users/:name', function(req, res){
-    var name = req.params.name;
-    User.findOne({"name":name}, function(err, user){
+  app.get('/api/users/:id', function(req, res){
+    var id = req.params.id;
+    console.log(id);
+    User.findOne('ObjectId("'+id+'")', function(err, user){
       if(err){
         res.send(err);
       }
-      res.json(user)
+      console.log(user);
+      res.json({user: user})
     });
   })
 
