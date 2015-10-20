@@ -74,7 +74,7 @@ function appRoutes($routeProvider){
       controllerAs: 'user'
     })
 
-    .when('/users/:name', {
+    .when('/users/:id', {
       templateUrl: 'templates/_singleUser.html',
       controller: 'userCtrl',
       controllerAs: 'user'
