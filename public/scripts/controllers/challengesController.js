@@ -2,21 +2,22 @@ angular.module('challengesController', [])
 
   .controller('challengesCtrl', challengesCtrl)
 
-  challengesCtrl.$inject = ['$http'];
-  function challengesCtrl($http){
+  challengesCtrl.$inject = ['$http', "$sce"];
+  function challengesCtrl($http, $sce){
     var self = this;
 		$http.get('/api/challenges')
         .then(function(data){
           self.specialChallenge = data.data[0];
           var allChallenges = data.data.slice(1, data.data.length - 1);
           console.log(allChallenges);
+
+          /////clean up  repeat  data
           for (var i = 0; i < allChallenges.length; i++) {
             allChallenges[i].isPhoto = true;
-            var vid = allChallenges[i].videoUrl;
-            console.log(vid);
-            allChallenges[i].videoUrl = vid;
-            $('.listVid'+i).src = vid;
+            console.log(allChallenges[i].videoUrl);
+            // var video = $sce.trustedAsResourceUrl(allChallenges[i].videoUrl)
           }
+          ////////////
           self.allChallenges = allChallenges;
           console.log(self.allChallenges);
       })
@@ -116,8 +117,6 @@ angular.module('challengesController', [])
           self.width = $('.hMediaHolder').width();
           self.height = $('.hMediaHolder').height();
           self.highlightOn = !self.highlightOn;
-          self.listWidth = listCont[0].width();
-          self.listHeight = listCont[0].height();
         }
         self.lToggle = function(){
           self.listWidth = $('.lImageImg').width();
