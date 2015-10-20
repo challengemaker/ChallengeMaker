@@ -29,12 +29,14 @@ module.exports = function(app, passport){
   })
 
   app.get('/api/users/:name', function(req, res){
-    var name = req.params.name;
-    User.findOne({"name":name}, function(err, user){
+    var name = req.params.email;
+    console.log(name);
+    User.findOne({"email":email}, function(err, user){
       if(err){
         res.send(err);
       }
-      res.json(user)
+      console.log(user);
+      res.json({user: user})
     });
   })
 
