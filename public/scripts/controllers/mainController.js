@@ -48,11 +48,41 @@ angular.module('mainController', [])
         $('#dropHome').on('click', function(){
           window.location.hash = "#/"
         });
+        $('#dropHome').on('mouseenter', function(){
+          $('#dropHome').css({
+            backgroundColor: "#5A668D"
+          })
+        });
+        $('#dropHome').on('mouseleave', function(){
+          $('#dropHome').css({
+            backgroundColor: "transparent"
+          })
+        });
         $('#dropAbout').on('click', function(){
           window.location.hash = "#/about"
         });
+        $('#dropAbout').on('mouseenter', function(){
+          $('#dropAbout').css({
+            backgroundColor: "#5A668D"
+          })
+        });
+        $('#dropAbout').on('mouseleave', function(){
+          $('#dropAbout').css({
+            backgroundColor: "transparent"
+          })
+        });
         $('#dropHome').on('click', function(){
           window.location.hash = "#/"
+        });
+        $('#dropHome').on('mouseenter', function(){
+          $('#dropHome').css({
+            backgroundColor: "#5A668D"
+          })
+        });
+        $('#dropHome').on('mouseleave', function(){
+          $('#dropHome').css({
+            backgroundColor: "transparent"
+          })
         });
 
         $('#dropLogout').on('click', function(){
@@ -64,6 +94,57 @@ angular.module('mainController', [])
           console.log(window.localStorage);
           window.location.reload()
         })
+
+        $('#dropLogout').on('mouseenter', function(){
+          $('#dropLogout').css({
+            backgroundColor: "#5A668D"
+          })
+        });
+        $('#dropLogout').on('mouseleave', function(){
+          $('#dropLogout').css({
+            backgroundColor: "transparent"
+          })
+        });
+        $('#dropWhat').on('mouseenter', function(){
+          $('#dropWhat').css({
+            backgroundColor: "#5A668D"
+          })
+        });
+        $('#dropWhat').on('mouseleave', function(){
+          $('#dropWhat').css({
+            backgroundColor: "transparent"
+          })
+        });
+        $('#dropHelp').on('mouseenter', function(){
+          $('#dropHelp').css({
+            backgroundColor: "#5A668D"
+          })
+        });
+        $('#dropHelp').on('mouseleave', function(){
+          $('#dropHelp').css({
+            backgroundColor: "transparent"
+          })
+        });
+        $('#dropFaq').on('mouseenter', function(){
+          $('#dropFaq').css({
+            backgroundColor: "#5A668D"
+          })
+        });
+        $('#dropFaq').on('mouseleave', function(){
+          $('#dropFaq').css({
+            backgroundColor: "transparent"
+          })
+        });
+        $('#dropTerms').on('mouseenter', function(){
+          $('#dropTerms').css({
+            backgroundColor: "#5A668D"
+          })
+        });
+        $('#dropTerms').on('mouseleave', function(){
+          $('#dropTerms').css({
+            backgroundColor: "transparent"
+          })
+        });
 
       } else if(dropdownCounter%2 == 0){
         console.log(dropdownCounter);
