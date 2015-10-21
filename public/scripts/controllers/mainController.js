@@ -38,15 +38,19 @@ angular.module('mainController', [])
           "<div class='dropdownContainer'>"+
             "<div class='dropItem' id='dropHome'>Home</div>"+
             "<div class='dropItem' id='dropAbout'>About</div>"+
-            "<div class='dropItem' id='dropWhat'>What we do</div>"+
-            "<div class='dropItem' id='dropHelp'>Help</div>"+
-            "<div class='dropItem' id='dropFaq'>Faq</div>"+
+            // "<div class='dropItem' id='dropWhat'>What we do</div>"+
+            "<div class='dropItem' id='dropContact'>Contact</div>"+
+            "<div class='dropItem' id='dropPrivacy'>Privacy</div>"+
             "<div class='dropItem' id='dropTerms'>Terms</div>"+
+            "<div class='dropItem' id='dropSignup'>Signup</div>"+
             "<div class='dropItem' id='dropLogout'>Logout</div>"+
           "</div>"
         )
         $('#dropHome').on('click', function(){
           window.location.hash = "#/"
+        });
+        $('#dropSignup').on('click', function(){
+          window.location.hash = "#/signup"
         });
         $('#dropHome').on('mouseenter', function(){
           $('#dropHome').css({
@@ -55,6 +59,16 @@ angular.module('mainController', [])
         });
         $('#dropHome').on('mouseleave', function(){
           $('#dropHome').css({
+            backgroundColor: "transparent"
+          })
+        });
+        $('#dropSignup').on('mouseenter', function(){
+          $('#dropSignup').css({
+            backgroundColor: "#5A668D"
+          })
+        });
+        $('#dropSignup').on('mouseleave', function(){
+          $('#dropSignup').css({
             backgroundColor: "transparent"
           })
         });
@@ -105,33 +119,33 @@ angular.module('mainController', [])
             backgroundColor: "transparent"
           })
         });
-        $('#dropWhat').on('mouseenter', function(){
-          $('#dropWhat').css({
+        // $('#dropWhat').on('mouseenter', function(){
+        //   $('#dropWhat').css({
+        //     backgroundColor: "#5A668D"
+        //   })
+        // });
+        // $('#dropWhat').on('mouseleave', function(){
+        //   $('#dropWhat').css({
+        //     backgroundColor: "transparent"
+        //   })
+        // });
+        $('#dropContact').on('mouseenter', function(){
+          $('#dropContact').css({
             backgroundColor: "#5A668D"
           })
         });
-        $('#dropWhat').on('mouseleave', function(){
-          $('#dropWhat').css({
+        $('#dropContact').on('mouseleave', function(){
+          $('#dropContact').css({
             backgroundColor: "transparent"
           })
         });
-        $('#dropHelp').on('mouseenter', function(){
-          $('#dropHelp').css({
+        $('#dropPrivacy').on('mouseenter', function(){
+          $('#dropPrivacy').css({
             backgroundColor: "#5A668D"
           })
         });
-        $('#dropHelp').on('mouseleave', function(){
-          $('#dropHelp').css({
-            backgroundColor: "transparent"
-          })
-        });
-        $('#dropFaq').on('mouseenter', function(){
-          $('#dropFaq').css({
-            backgroundColor: "#5A668D"
-          })
-        });
-        $('#dropFaq').on('mouseleave', function(){
-          $('#dropFaq').css({
+        $('#dropPrivacy').on('mouseleave', function(){
+          $('#dropPrivacy').css({
             backgroundColor: "transparent"
           })
         });

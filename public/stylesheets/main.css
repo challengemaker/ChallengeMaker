@@ -98,6 +98,17 @@
   margin-top: -10px;
 }
 
+.challengeFriends {
+  height: 40px;
+  width: 70%;
+  margin-top: 10px;
+  margin-left: 15%;
+  font-size: 25px;
+  text-align: center;
+  font-style: bold;
+  color: gray
+}
+
 .challengeHolder {
   height: 320px;
   color: white;
@@ -236,6 +247,22 @@
   font-size: 20px;
   position: relative;
   background-color: "#31007A";
+}
+
+.donationButtons {
+  display: block;
+}
+
+.donationsButtons button {
+}
+
+.donationButtons button{
+  text-align: center;
+  height: 40px;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 2px;
+  display: block;
 }
 
 .dropdownContainer {
@@ -547,8 +574,10 @@
 .questionContainer {
   display: block;
   height: 70%;
+  outline: 4px solid gray;
   /*overflow: visible;*/
   position: relative;
+  margin-top: 20px;
 }
 
 .questionHolder {
@@ -563,6 +592,7 @@
   margin-top: 5%;
   width: 2200px;
   position: absolute;
+  /*outline: 3px solid blue;*/
 }
 
 
@@ -571,6 +601,7 @@
   height: 250px;
   position: relative;
 }
+
 
 .responseContainer {
   height: 400px;
@@ -588,11 +619,10 @@
 }
 
 .responseTitle {
+  margin-top: 45px;
+  height: 45px;
   text-align: center;
-  height: 35px;
-  margin-top: 40px;
   width: 100%;
-  font-size: 22px;
   color: gray;
 }
 
@@ -624,10 +654,6 @@
   font-size: 20px;
   color: gray;
   margin-top: 15px;
-}
-
-.signupForm button {
-  margin-top: 10px;
 }
 
 .singleuserContainer {
@@ -801,18 +827,6 @@
   margin-left: 400px;
   opacity: 0.5;
 }
-
-.videoUrl {
-  height: 50px;
-  width: 70%;
-  margin-top: 60px;
-  margin-left: 15%;
-  font-size: 25px;
-  text-align: center;
-  font-style: bold;
-  color: gray
-}
-
 
 /* Greg made these end three for
 text on challenges page */

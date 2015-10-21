@@ -1,14 +1,14 @@
 
 
 <div class="hContainer col-xs-12" >
-  <div class="hMediaHolder" ng-click="challenges.hToggle()">
+  <div class="hMediaHolder" ng-click="challenges.swapSpecial()">
     <div class="highlightText">
       <div class="texttext col-xs-8">
         <div class="highlightTextHolder">
           <h1>{{challenges.specialChallenge.charity[0]}}</h1>
           <h1>{{challenges.specialChallenge.title}}</h1>
           <p>$0 if completed or donate ${{challenges.specialChallenge.minimumDonation}} to {{challenges.specialChallenge.charity[0]}}</p>
-          <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}">Accept</button>
+          <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}">Learn More</button>
           <div class="detailsButton" id="{{challenges.specialChallenge._id}}" ng-mouseEnter="challenges.showDetails(challenges.specialChallenge._id)" ng-mouseLeave="challenges.removeDetails(challenges.specialChallenge._id)
           ">details</div>
         </div>
@@ -25,18 +25,18 @@
         </div>
       </div>
     </div>
-    <div class="hImage" ng-if="challenges.highlightOn">
-      <img src="{{challenges.allChallenges[0].photo}}" alt="" />
+    <div class="hImage">
+      <img class = "hImageImg" src="{{challenges.allChallenges[0].photo}}" alt="" />
     </div>
-    <div class="hVideo" ng-if="!challenges.highlightOn">
-      <iframe width="100%" height="{{challenges.height}}" ng-src="{{challenge.videoUrl}}" frameborder="0" allowfullscreen></iframe>
+    <div class="hVideo" >
+      <!-- <iframe width="100%" height="{{challenges.height}}" ng-src="{{challenge.videoUrl}}" frameborder="0" allowfullscreen></iframe> -->
     </div>
   </div>
 </div>
 
 <!-- Repeat images from here down -->
 <div ng-repeat="challenge in challenges.allChallenges" class="listContainer col-sm-6 col-12-xs">
-  <div class="lMediaHolder" ng-click = "challenges.lToggle()">
+  <div class="lMediaHolder" ng-click="challenges.swap($index)">
     <div class="listText">
       <div class="texttext col-xs-8">
         <div class="listTextHolder">
@@ -59,11 +59,12 @@
         </div>
       </div>
     </div>
-    <div class="lImage" ng-if="challenge.isPhoto" ng-click="challenge.isPhoto = !challenge.isPhoto">
-      <img class="lImageImg" src="{{challenge.photo}}" alt="" />
+    <div class="lImage lImage{{$index}}" ng-if="challenge.isPhoto" >
+      <img class="lImageImg lImageimg{{$index}}" src="{{challenge.photo}}" alt="" />
     </div>
-    <div class="lVideo" ng-if="!challenge.isPhoto" ng-click="challenge.isPhoto = !challenge.isPhoto">
-      <iframe class="listVid{{$index}}" width="100%" height="{{challenges.listHeight}}" src="player.vimeo.com/30055196?portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <div class="lVideo lVideo{{$index}}">
+      <!-- <iframe class="listVid{{$index}}" width="100%" height="{{challenges.listHeight}}" src="{{}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+      </iframe> -->
     </div>
   </div>
 </div>

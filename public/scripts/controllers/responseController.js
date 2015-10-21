@@ -56,11 +56,17 @@ angular.module('responseController', [])
       $('.signup4').on('click', function(){
         $('.signup4').val('');
       });
-      $('.videoUrl').on('click', function(){
-        $('.videoUrl').val('');
+      $('#email1').on('click', function(){
+        $('#email1').val('');
       });
-      $('.videoUrl').on('click', function(){
-        $('.videoUrl').val('');
+      $('#email2').on('click', function(){
+        $('#email2').val('');
+      });
+      $('#email3').on('click', function(){
+        $('#email3').val('');
+      });
+      $('#email4').on('click', function(){
+        $('#email4').val('');
       });
       $('.responseTitle').on('click', function(){
         $('.responseTitle').val('');
@@ -72,7 +78,7 @@ angular.module('responseController', [])
       var carouselCounter = 0;
       var tunnelMargin = 0;
       if (carouselCounter == 0) {
-        console.log('on the first question');
+
       }
 
       $('.backButton').on('click', function(){
@@ -102,13 +108,13 @@ angular.module('responseController', [])
               marginLeft: tunnelMargin+"px"
             })
           }
-          else if(carouselCounter == 3){
-            console.log(tunnelMargin);
-            tunnelMargin += 550;
-            $('.questionTunnel').animate({
-              marginLeft: tunnelMargin+"px"
-            })
-          }
+          // else if(carouselCounter == 3){
+          //   console.log(tunnelMargin);
+          //   tunnelMargin += 550;
+          //   $('.questionTunnel').animate({
+          //     marginLeft: tunnelMargin+"px"
+          //   })
+          // }
         }
       })
       $('.forwardButton').on('click', function(){
@@ -129,13 +135,13 @@ angular.module('responseController', [])
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
-            $('.carouselButtonHolder').html('')
-          } else if (carouselCounter == 3) {
-            tunnelMargin = tunnelMargin-550;
-            $('.questionTunnel').animate({
-              marginLeft: tunnelMargin+"px"
-            })
           }
+          // else if (carouselCounter == 3) {
+          //   tunnelMargin = tunnelMargin-550;
+          //   $('.questionTunnel').animate({
+          //     marginLeft: tunnelMargin+"px"
+          //   })
+          // }
         }
       })
       $http({
@@ -149,15 +155,15 @@ angular.module('responseController', [])
       })
     }
 
-    $('.reviewResponse').on('click', function(){
-      tunnelMargin = tunnelMargin - 550;
-      $('.rTitle').text(self.title);
-      $('.rVideo').text(self.video);
-      $('.rDescription').text(self.description);
-      $('.questionTunnel').animate({
-        marginLeft: tunnelMargin+"px"
-      })
-    })
+    // $('.reviewResponse').on('click', function(){
+    //   tunnelMargin = tunnelMargin - 550;
+    //   $('.rTitle').text(self.title);
+    //   $('.rVideo').text(self.video);
+    //   $('.rDescription').text(self.description);
+    //   $('.questionTunnel').animate({
+    //     marginLeft: tunnelMargin+"px"
+    //   })
+    // })
 
     $('.createResponse').on('click', function(){
       carouselCounter++;
@@ -178,10 +184,10 @@ angular.module('responseController', [])
         window.location.hash = "#/challenges/"+$routeParams.name
       })
     })
-    $('.forwardButton').on('click', function(){
-      $('.forwardButton').css('opacity', 0);
-      $('.backButton').css('opacity', 0);
-    })
+    // $('.forwardButton').on('click', function(){
+    //   $('.forwardButton').css('opacity', 0);
+    //   $('.backButton').css('opacity', 0);
+    // })
 
     $('.finishResponse').on('click', function(){
       window.location.hash = "#/challenges/"+$routeParams.name
