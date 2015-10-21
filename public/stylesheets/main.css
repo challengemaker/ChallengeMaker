@@ -565,7 +565,6 @@
 .questionContainer {
   display: block;
   height: 70%;
-  outline: 4px solid gray;
   /*overflow: visible;*/
   position: relative;
   margin-top: 20px;
@@ -576,6 +575,7 @@
   width: 550px;
   overflow: hidden;
   margin-top: 30px;
+  outline: 4px solid gray;
 }
 
 .questionTunnel {
