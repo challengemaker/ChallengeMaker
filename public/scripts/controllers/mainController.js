@@ -66,6 +66,8 @@ angular.module('mainController', [])
             "<div class='dropItem' id='dropTerms'>Terms</div>"+
             "<div class='dropItem' id='dropSignup'>Signup</div>"+
             "<div class='dropItem' id='dropLogout'>Logout</div>"+
+            "<div class='dropItem' id='dropFacebook'>Facebook</div>"+
+            "<div class='dropItem' id='dropTwitter'>Twitter</div>"+
           "</div>"
         )
         $('#dropHome').on('click', function(){
@@ -120,6 +122,35 @@ angular.module('mainController', [])
             backgroundColor: "transparent"
           })
         });
+        $('#dropFacebook').on('mouseenter', function(){
+          $('#dropFacebook').css({
+            backgroundColor: "#5A668D"
+          })
+        });
+        $('#dropFacebook').on('mouseleave', function(){
+          $('#dropFacebook').css({
+            backgroundColor: "transparent"
+          })
+        });
+
+        $('#dropFacebook').on('click', function(){
+          window.open("https://www.facebook.com/WeAreChallengeMaker", target="blank")
+        })
+
+        $('#dropTwitter').on('mouseenter', function(){
+          $('#dropTwitter').css({
+            backgroundColor: "#5A668D"
+          })
+        });
+        $('#dropTwitter').on('mouseleave', function(){
+          $('#dropFacebook').css({
+            backgroundColor: "transparent"
+          })
+        });
+
+        $('#dropTwitter').on('click', function(){
+          window.open("https://twitter.com/challengemaker1", '_blank')
+        })
 
         $('#dropLogout').on('click', function(){
           console.log('logging out');
