@@ -31,6 +31,10 @@ angular.module('responseController', [])
       }
     })
 
+    $(".goToLogin").on('click', function(){
+      window.location.hash = "#/login"
+    })
+
     $(".backToSite").on('click', function(){
       window.location.hash = "#/"
     })

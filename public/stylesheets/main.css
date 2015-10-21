@@ -346,6 +346,16 @@
   vertical-align: middle;
 }
 
+.goToLogin {
+  height: 40px;
+  width: 35%;
+  margin-left: 32.5%;
+  margin-top: 8px;
+  font-size: 22px;
+  text-align: center;
+  display: block;
+}
+
 .highlightContainer {
 
 }
@@ -702,6 +712,7 @@
   width: 35%;
   margin-left: 32.5%;
   margin-top: 30px;
+  margin-bottom: 5px;
   font-size: 22px;
   text-align: center;
 }
