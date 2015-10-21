@@ -49,6 +49,26 @@ angular.module('challengesController', [])
         }
       }
 
+      self.swapResponse = function swap(index){
+        var height = $(".lImageImg").height();
+        var width = $(".lImageImg").width();
+        var videoHeight = $(".lVideo").height();
+        var url = self.allResponses[index].videoUrl+"?autoplay=1";
+        if(height > 0) {
+          $('.lVideo'+index).append(
+            "<iframe class='listVid"+index+
+            " listVid{{$index}}' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+            "</iframe>"
+          )
+          $('.lImage'+index).css('height', "0px")
+          $('.lImageimg'+index).css('height', "0px")
+        } else {
+          $('.listVid'+index).remove();
+          $('.lImage'+index).css('height', videoHeight)
+          $('.lImageimg'+index).css('height', videoHeight)
+        }
+      }
+
       self.swapSpecial = function swapSpecial(){
         var height = $(".hImage").height();
         var videoHeight = $(".hVideo").height();
