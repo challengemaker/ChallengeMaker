@@ -9,19 +9,26 @@ angular.module('challengesController', [])
         .then(function(data){
           self.specialChallenge = data.data[0];
           var allChallenges = data.data.slice(1, data.data.length - 1);
-          console.log(allChallenges);
 
           /////clean up  repeat  data
+          // var dataArray = []
           for (var i = 0; i < allChallenges.length; i++) {
             allChallenges[i].isPhoto = true;
             console.log(allChallenges[i].videoUrl);
             url = "https://www.youtube.com/embed/ccYg5HN0mDU";
             self.video = url.split('').slice(8, url.length-1).join('');
-            console.log(self.video);
           }
           ////////////
           self.allChallenges = allChallenges;
           console.log(self.allChallenges);
+
+          self.goTo = function goTo(index){
+            console.log('yo');
+            var elem = self.allChallenges[index];
+            var parsedElem = elem.title.split(' ').join('-');
+            console.log(parsedElem);
+            window.location.hash = "#/challenges/"+parsedElem
+          }
       })
 
       self.swap = function swap(index){
@@ -71,7 +78,6 @@ angular.module('challengesController', [])
 
       self.seeChallenge = function(name){
         var challTitle = name.split(' ').join("-");
-        console.log(challTitle);
         window.location.hash = "#/challenges/"+challTitle;
       }
 
@@ -140,7 +146,6 @@ angular.module('challengesController', [])
       //////begin $http call that will be put in a factory later
       if (window.location.hash.length > 3 ){
       var challengeName = window.location.hash.split('/')[2].split('-').join(' ');
-      console.log(challengeName);
       $http.get('/api/challenges/'+challengeName)
         .then(function(data){
           var url = "https://www.youtube.com/embed/TipgAV6hhP8?autoplay=1"
@@ -170,8 +175,6 @@ angular.module('challengesController', [])
           self.listHeight = $('.lImageImg').height();
           self.listWidth1 = $('.lImage').width();
           self.listHeight1 = $('.lImage').height();
-          console.log(self.listWidth);
-          console.log(self.listHeight);
         }
 
 
