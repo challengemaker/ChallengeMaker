@@ -28,6 +28,11 @@ angular.module('mainController', [])
       window.location.reload()
     })
 
+    ///make the signin button clickable
+    $(".signIn").on("click", function(){
+      window.location.hash = "#/signup"
+    })
+
     /////dropdown menu stuff///////
     ///////////////////////////////
     self.dropDown = function dropDown(){

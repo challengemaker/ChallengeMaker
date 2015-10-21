@@ -14,6 +14,14 @@ angular.module('userController', [])
 
     console.log(userFactory);
 
+    $('.goToSignup').on("click", function(){
+      window.location.hash = "#/signup"
+    })
+
+    $('.goToLogin').on("click", function(){
+      window.location.hash = "#/signin"
+    })
+
     ///using if statement to determine if we're looking at an "all users" list or single user's profile page
     if(window.location.hash == "#/signup"){
       console.log('yo');
