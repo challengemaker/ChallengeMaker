@@ -58,6 +58,15 @@
   margin-top: 15px;
 }
 
+.caro-button {
+  font-size: 20px;
+  /*font-weight: bold;*/
+  background-color: #d4d4d4;
+  height:50px;
+  width:110px;
+  vertical-align: middle;
+}
+
 .carouselButtonHolder {
   margin: 30px 0 0 70px;
   display: block;
@@ -173,7 +182,6 @@
 
 .currentDescription {
   font-size: 20px;
-
 }
 
 .currentTitle {
@@ -285,6 +293,24 @@
 
 .forwardButton:hover {
   background-color: #B8E6E6;
+}
+
+.glyphicon-check {
+  font-size: 40px;
+  color: #C31C85;
+  vertical-align: middle;
+}
+
+.glyphicon-chevron-left {
+  font-size: 24px;
+  color: #999999;
+  vertical-align: top;
+}
+
+.glyphicon-chevron-right {
+  font-size: 24px;
+  color: #999999;
+  vertical-align: top;
 }
 
 .glyphicon-facetime-video {
@@ -492,7 +518,6 @@
 }
 
 .navContainer {
-
   border-bottom: 3px solid gray;
   display: block;
 }
