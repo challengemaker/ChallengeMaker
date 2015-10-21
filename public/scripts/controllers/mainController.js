@@ -30,9 +30,12 @@ angular.module('mainController', [])
 
     ///make the signin button clickable
     $(".signIn").on("click", function(){
-      window.location.hash = "#/signup"
+      window.location.hash = "#/signin"
     })
 
+    $(".logo").on('click', function(){
+      window.location.hash = "#/"
+    })
 
     $('.signIn').on("mouseenter", function(){
       console.log('moused');
