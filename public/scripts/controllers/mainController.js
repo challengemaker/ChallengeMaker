@@ -96,9 +96,9 @@ angular.module('mainController', [])
             backgroundColor: "transparent"
           })
         });
-        $('#dropAbout').on('click', function(){
-          window.location.hash = "#/about"
-        });
+        // $('#dropAbout').on('click', function(){
+        //   window.location.hash = "#/about"
+        // });
         $('#dropAbout').on('mouseenter', function(){
           $('#dropAbout').css({
             backgroundColor: "#5A668D"
