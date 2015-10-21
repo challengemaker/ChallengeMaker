@@ -17,6 +17,7 @@ angular.module('challengesController', [])
             console.log(allChallenges[i].videoUrl);
             url = "https://www.youtube.com/embed/ccYg5HN0mDU";
             self.video = url.split('').slice(8, url.length-1).join('');
+
           }
           ////////////
           self.allChallenges = allChallenges;
@@ -112,30 +113,45 @@ angular.module('challengesController', [])
     $http.get('/api/responses')
       .then(function(data){
         var challengeResponses = data.data.reverse();//reversed so newest first
+        function addThumbToResponse(){
+          for (var i = 0; i < challengeResponses.length; i++) {
+            console.log(challengeResponses[i]);
+            var videoLink = challengeResponses[i].videoUrl;
+            console.log(videoLink);
+            var tubeKey = videoLink.split('/')[4];
+            console.log(tubeKey);
+            var thumbUrl = "img.youtube.com/vi/"+tubeKey+"/0.jpg";
+            console.log(thumbUrl);
+            challengeResponses[i].tubeKey = tubeKey;
+            challengeResponses[i].thumb = thumbUrl;
+          }
+          self.allResponses = challengeResponses;
+          console.log(self.allResponses);
+        }
+        addThumbToResponse();
+        console.log(self.allResponses);
+
         var arrayLength = challengeResponses.length;
         ///start creating rows
         var rowNum = Math.floor((arrayLength/2));
         self.rowNum = rowNum;
 
-        var justRows = function(){
-          var masterResponseArray = [];
-          for (var i = 0; i < rowNum; i++) {
-            ////now creating each cell
-            var cell = {};
-            var mini1 = challengeResponses[0];
-            var mini2 = challengeResponses[1];
-            challengeResponses.shift();
-            challengeResponses.shift();
-            cell.first = mini1;
-            cell.second= mini2;
-            masterResponseArray.push(cell);
-          }
-          return masterResponseArray;
-        }
-        function hiThere(){
-          console.log('hi there');
-        }
-        self.justRows = justRows().slice(0,3);
+        // var justRows = function(){
+        //   var masterResponseArray = [];
+        //   for (var i = 0; i < rowNum; i++) {
+        //     ////now creating each cell
+        //     var cell = {};
+        //     var mini1 = challengeResponses[0];
+        //     var mini2 = challengeResponses[1];
+        //     challengeResponses.shift();
+        //     challengeResponses.shift();
+        //     cell.first = mini1;
+        //     cell.second= mini2;
+        //     masterResponseArray.push(cell);
+        //   }
+        //   return masterResponseArray;
+        // }
+        // self.justRows = justRows().slice(0,3);
         /////rows now created
       })
       //////begin $http call that will be put in a factory later
