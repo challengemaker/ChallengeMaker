@@ -40,10 +40,10 @@
     <div class="listText">
       <div class="texttext col-xs-8">
         <div class="listTextHolder">
-          <h1>{{}}</h1>
-          <h1>{{}}</h1>
-          <p>$0 if completed or donate ${{}} to {{}}</p>
-          <button type="button" class="acceptButton" ng-click="" id="{{}}">Accept</button>
+          <h2>{{challenge.charity[0]}}</h2>
+          <h3 class="listTitle">{{challenge.title}}</h3>
+          <p>$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
+          <button type="button" class="acceptButton" ng-click="challenges.goTo($index)" id="{{$index}}btn">Learn More</button>
           <!-- <div class="detailsButton" id="{{}}" ng-mouseEnter="" ng-mouseLeave="">details</div> -->
         </div>
       </div>

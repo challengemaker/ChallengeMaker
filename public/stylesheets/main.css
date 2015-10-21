@@ -65,7 +65,7 @@
 }
 
 .carouselButtonHolder {
-  margin: 0;
+  margin: 0 0 0 30px;
   display: block;
   height: 150px;
 }
@@ -342,7 +342,7 @@
 
 .footerContainer {
   height: 75px;
-  background-color: green;
+  /*background-color: green;*/
   display: block;
 }
 
@@ -427,7 +427,7 @@
 }
 
 .hImage {
-  background-color: green;
+  /*background-color: green;*/
 }
 
 .hImage img {
@@ -532,6 +532,10 @@
   font-weight: bolder;
 }
 
+.listTitle {
+  margin-top: -8px;
+}
+
 .logoContainer {
   height: 100%;
 }
@@ -624,8 +628,9 @@
   height: 480px;
   width: 550px;
   overflow: hidden;
-  margin-top: 30px;
-  outline: 4px solid gray;
+  margin-top: 40px;
+  margin-left: 50%;
+  outline: 5px solid gray;
 }
 
 .questionTunnel {
@@ -646,6 +651,8 @@
 
 .responseContainer {
   height: 400px;
+  width: 90%;
+  margin-left: 5%;
 }
 
 .responseDesc {

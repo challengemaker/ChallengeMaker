@@ -74,6 +74,7 @@ module.exports = function(app, passport){
   })
 
   app.post('/api/responses', function(req, res){
+    console.log(req.body);
     Response.create(req.body);
     res.json({'posted': req.body});
   })
