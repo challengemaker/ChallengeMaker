@@ -38,6 +38,7 @@
 
 .backButton {
   display: inline-block;
+  margin-top: 5px;
 }
 
 .backButton:hover {
@@ -64,8 +65,9 @@
 }
 
 .carouselButtonHolder {
-  margin: 30px 0 0 70px;
+  margin: 0;
   display: block;
+  height: 150px;
 }
 
 .challengeBy {
@@ -307,7 +309,7 @@
 }
 
 .forwardButton {
-
+  margin-left: 10px;
 }
 
 .forwardButton:hover {
@@ -674,6 +676,10 @@
   font-size: 35px;
   font-weight: bolder
 
+}
+
+.submitDon {
+  font-size: 20px;
 }
 
  table tr td{
