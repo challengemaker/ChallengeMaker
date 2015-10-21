@@ -159,7 +159,7 @@ app.get('*', function(req, res){
 })
 
 ////setting ports for local and remote, and listening
-app.set('port', (process.env.PORT || 5555))
+app.set('port', (process.env.PORT || 5556))
 
 app.listen(app.get('port'), function(){
   console.log("Server running smoother than Barry White");
