@@ -20,13 +20,10 @@ angular.module('challengesController', [])
           }
           ////////////
           self.allChallenges = allChallenges;
-          console.log(self.allChallenges);
 
           self.goTo = function goTo(index){
-            console.log('yo');
             var elem = self.allChallenges[index];
             var parsedElem = elem.title.split(' ').join('-');
-            console.log(parsedElem);
             window.location.hash = "#/challenges/"+parsedElem
           }
       })
@@ -36,9 +33,6 @@ angular.module('challengesController', [])
         var width = $(".lImageImg").width();
         var videoHeight = $(".lVideo").height();
         var url = self.allChallenges[index].videoUrl+"?autoplay=1";
-        console.log(url);
-        console.log(height);
-        console.log($('.lVideo'+index));
         if(height > 0) {
           $('.lVideo'+index).append(
             "<iframe class='listVid"+index+
@@ -58,8 +52,7 @@ angular.module('challengesController', [])
         var height = $(".hImage").height();
         var videoHeight = $(".hVideo").height();
         var url = self.specialChallenge.videoUrl+"?autoplay=1";
-        console.log(url);
-        console.log(height);
+
         if(height > 0) {
           $('.hVideo').append(
             "<iframe class='specialVid"+
@@ -91,7 +84,6 @@ angular.module('challengesController', [])
 
       $http.get('/api/challenges/'+challenge)
         .then(function(data){
-          console.log(data.data);
           var url = data.data.videoUrl
           ///begin creating "youve been challenged" data model, which will later go into a factory
           self.beenChallengedData = data.data;
@@ -115,12 +107,13 @@ angular.module('challengesController', [])
           self.singleChallenge = data.data;
         })
     }
+    console.log('testing testing');
     //////this will all be in a factory later
     $http.get('/api/responses')
       .then(function(data){
+        console.log(data);
         var challengeResponses = data.data.reverse();//reversed so newest first
         var arrayLength = challengeResponses.length;
-        // console.log(arrayLength);
         ///start creating rows
         var rowNum = Math.floor((arrayLength/2));
         self.rowNum = rowNum;
@@ -141,6 +134,7 @@ angular.module('challengesController', [])
           return masterResponseArray;
         }
         self.justRows = justRows().slice(0,3);
+        console.log("just rows is: "+self.justRows);
         /////rows now created
       })
       //////begin $http call that will be put in a factory later
@@ -149,7 +143,6 @@ angular.module('challengesController', [])
       $http.get('/api/challenges/'+challengeName)
         .then(function(data){
           var url = "https://www.youtube.com/embed/TipgAV6hhP8?autoplay=1"
-          console.log(data);
           self.singleChallenge = data.data;
           $('.currImg').on('click', function(){
             var height = $('.currentChallengeImage').height();

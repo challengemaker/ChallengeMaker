@@ -85,7 +85,11 @@ module.exports = function(app, passport){
   })
 
   app.get('/api/responses', function(req, res){
-
+    Response.find({}, function(err, responses){
+      if(err){console.log(err)}
+      console.log(req.body);
+      res.json(responses)
+    })
 
   })
 
