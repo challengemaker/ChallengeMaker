@@ -26,6 +26,10 @@ angular.module('responseController', [])
     $('.submitDon').on("click", function(){
       window.location.hash = "#/"
     })
+
+    $(".backToSite").on('click', function(){
+      window.location.hash = "#/"
+    })
     ////////////////////////////
     ///end creating new response
 
