@@ -33,6 +33,20 @@ angular.module('mainController', [])
       window.location.hash = "#/signup"
     })
 
+
+    $('.signIn').on("mouseenter", function(){
+      console.log('moused');
+      $(".signIn").css({
+        backgroundColor: "#85ADAD"
+      })
+    })
+    $('.signIn').on("mouseleave", function(){
+      console.log('moused');
+      $(".signIn").css({
+        backgroundColor: "transparent"
+      })
+    })
+
     /////dropdown menu stuff///////
     ///////////////////////////////
     self.dropDown = function dropDown(){
