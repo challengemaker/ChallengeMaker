@@ -52,7 +52,9 @@
 }
 
 .bottomRowChallenges {
-  margin-top: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+  display: block;
 }
 
 .caro-button {
@@ -783,6 +785,11 @@
 .testResponseForm {
   display: block;
   margin-top: 200px;
+}
+
+.testRepeat {
+  background-color: blue;
+  height: 200px;
 }
 
 .texttext {
