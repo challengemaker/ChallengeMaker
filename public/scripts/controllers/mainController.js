@@ -172,46 +172,50 @@ angular.module('mainController', [])
             backgroundColor: "transparent"
           })
         });
-        // $('#dropWhat').on('mouseenter', function(){
-        //   $('#dropWhat').css({
-        //     backgroundColor: "#5A668D"
-        //   })
-        // });
-        // $('#dropWhat').on('mouseleave', function(){
-        //   $('#dropWhat').css({
-        //     backgroundColor: "transparent"
-        //   })
-        // });
+
         $('#dropContact').on('mouseenter', function(){
           $('#dropContact').css({
             backgroundColor: "#5A668D"
           })
         });
+
         $('#dropContact').on('mouseleave', function(){
           $('#dropContact').css({
             backgroundColor: "transparent"
           })
         });
+
         $('#dropPrivacy').on('mouseenter', function(){
           $('#dropPrivacy').css({
             backgroundColor: "#5A668D"
           })
         });
+
         $('#dropPrivacy').on('mouseleave', function(){
           $('#dropPrivacy').css({
             backgroundColor: "transparent"
           })
         });
+
         $('#dropTerms').on('mouseenter', function(){
           $('#dropTerms').css({
             backgroundColor: "#5A668D"
           })
         });
+
         $('#dropTerms').on('mouseleave', function(){
           $('#dropTerms').css({
             backgroundColor: "transparent"
           })
         });
+
+        $('.dropdownContainer').on('mouseleave', function(){
+          $('.dropdownContainer').remove();
+        })
+
+        $('.dropdownIconImage').on('mouseleave', function(){
+          $('.dropdownContainer').remove();
+        })
 
       } else if(dropdownCounter%2 == 0){
         console.log(dropdownCounter);
