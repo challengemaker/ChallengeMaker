@@ -8,7 +8,7 @@
           <h1>{{challenges.specialChallenge.charity[0]}}</h1>
           <h1>{{challenges.specialChallenge.title}}</h1>
           <p>$0 if completed or donate ${{challenges.specialChallenge.minimumDonation}} to {{challenges.specialChallenge.charity[0]}}</p>
-          <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}">Accept</button>
+          <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}">Learn More</button>
           <div class="detailsButton" id="{{challenges.specialChallenge._id}}" ng-mouseEnter="challenges.showDetails(challenges.specialChallenge._id)" ng-mouseLeave="challenges.removeDetails(challenges.specialChallenge._id)
           ">details</div>
         </div>
