@@ -215,6 +215,7 @@
 }
 
 .currentSuppDiv {
+  height: 100%;
   margin-top: 25px;
 }
 
@@ -230,6 +231,11 @@
   text-align: center;
   font-weight: bold;
   height: 40px;
+}
+
+.currentTitle3 {
+  margin: 5px 5px 5px 5px;
+  height: 100%;
 }
 
 .currentVideo{
