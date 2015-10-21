@@ -19,98 +19,42 @@
             </p>
           </div>
           <div class="row currentChallengeMoney col-xs-6">
-            <h2>${{challenges.singleChallenge.totalRaised}} raised</h2>
-            <h3>${{challenges.singleChallenge.goal}} goal</h3>
+            <!-- <h2>${{challenges.singleChallenge.totalRaised}} raised</h2>
+            <h3>${{challenges.singleChallenge.goal}} goal</h3> -->
           </div>
         </div>
       </div>
     </div>
     <div class="currentChallengeStats col-sm-5 col-xs-12">
-      <button type="button" class="completeChallButton comp-chal-button btn btn-lg btn-block"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Complete the Challenge!</button>
-      <button type="button" class="comp-donate-button btn btn-lg btn-block"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Complete it by Donating!</button>
+      <button type="button" class="completeChallButton comp-chal-button btn btn-lg btn-block"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Complete this Challenge!</button>
+      <!-- <button type="button" class="comp-donate-button btn btn-lg btn-block"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Complete it by Donating!</button> -->
 
-      <table class="table">
-        <tbody>
-          <tr>
-            <td id=""></td>
-          </tr>
-          <tr>
-            <td id="usermychal">my impact</td>
-            <td id="usertopfund">top fundraisers</td>
-          </tr>
-          <tr>
-            <td id=""></td>
-          </tr>
-          <tr>
-            <td id="">7 Days of Healthy Eating</td>
-            <td id="">Mike Davis</td>
-            <td id="">$8,200</td>
-          </tr>
-          <tr>
-            <td class="usermychalval">$17,420</td>
-            <td id="">Gabby Garcia</td>
-            <td id="">$4,458</td>
-          </tr>
-          <tr>
-            <td id="">Vegetarian Week</td>
-            <td id="">Mohmad Aziz</td>
-            <td id="">$3,580</td>
-          </tr>
-          <tr>
-            <td class="usermychalval">$7,100</td>
-            <td id="">Eva Cohen</td>
-            <td id="">$3,545</td>
-          </tr>
-          <tr>
-            <td id="">Yogaway Today</td>
-            <td id="">Henry Smith</td>
-            <td id="">$1,950</td>
-          </tr>
-          <tr>
-            <td class="usermychalval">$2,000</td>
-            <td id="">Michael Weisman</td>
-            <td id="">$1,880</td>
-          </tr>
-
-        </tbody>
-      </table>
-
-
-
-      <!-- <div class="impactStats row">
-        <div class="myImpact col-sm-6">
-          <p class="impactTitle">
-            My Impact
-          </p>
-          <p>
-            <span class='impactTotal'>$1,750</span> raised in total
-          </p>
-          <p>
-            <span class="impactRaised">$250</span> raised this challenge
-          </p>
-          <p>
-            <span class="impactCompleted">3</span> challenges completed
-          </p>
-          <p>
-            <span class="impactChallenged">18</span> people challenged
-          </p>
-          <p>
-            <span class="impactReached">32</span> people reached
+      <div class="currentSuppDiv">
+        <div class="">
+          <p class="currentTitle2">
+            {{challenges.singleChallenge.title}}
           </p>
         </div>
-        <div class="topFundraisers col-sm-6">
-          <div class="topList">
-            <p class="topFunders">
-              Top Fundraisers
-            </p>
-            <div class="firstFunder">1. James Spader</div>
-            <div class="secondFunder">2. Carlee O'Brian</div>
-            <div class="thirdFunder">3. Tyler Smith</div>
-            <div class="fourthFunder">4. Chris Timms</div>
-            <div class="fifthFunder">4. Julia Roberts</div>
-          </div>
+
+        <div class="currentCharityDiv">
+          <p class="currentCharityBene">
+            benefitting
+          </p>
         </div>
-      </div> -->
+
+        <div class="">
+          <p class="currentCharity2">
+            {{challenges.singleChallenge.charity[0]}}
+          </p>
+        </div>
+      </div>
+
+      <div class="currentDescDiv">
+        <p class="currentDescription">
+          {{challenges.singleChallenge.description}}
+        </p>
+      </div>
+
     </div>
   </div>
   <div class="row bottomRowChallenges">
