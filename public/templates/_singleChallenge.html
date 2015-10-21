@@ -49,36 +49,40 @@
     </div>
   </div>
   <div class="row bottomRowChallenges">
-    <span class="acceptedVideos">Videos from people who accepted this challenge</span>
-    <div class="challengeResponseList" ng-repeat="row in challenges.justRows">
-      <div id="challenge{{$index}}" class="row">
-        <div class="smallChallengeHolder col-xs-12">
-          <div class="row">
-            <div class="miniChallOne col-sm-6 col-xs-12">
-              <div class="miniImageContainer">
-                <div class="miniImageHolder" id="imgHolder{{$index}}a">
-                  <!-- <img ng-click="challenges.loadVideo2($index)" ng-src="{{row.first.photo}}" alt="" class="responseImage" id="img{{$index}}a"/> -->
-                </div>
-              </div>
-              <div class="miniChallInfo col-sm-offset-1 col-sm-8 col-xs-12 col-xs-offset-0">
-                <h2>{{row.first.title}}</h2>
-              </div>
+    <div ng-repeat="challenge in challenges.allResponses" class="listContainer col-sm-6 col-12-xs">
+      <div class="lMediaHolder" ng-click="challenges.swap($index)">
+        <div class="listText">
+          <div class="texttext col-xs-8">
+            <div class="listTextHolder">
+              <h2>{{challenge.charity[0]}}</h2>
+              <h3 class="listTitle">{{challenge.title}}</h3>
+              <p>$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
+              <button type="button" class="acceptButton" ng-click="challenges.goTo($index)" id="{{$index}}btn">Learn More</button>
+              <!-- <div class="detailsButton" id="{{}}" ng-mouseEnter="" ng-mouseLeave="">details</div> -->
             </div>
-            <div class="miniChallTwo col-sm-6 col-xs-12">
-              <div class="miniImageContainer">
-                <div class="miniImageHolder"  id="imgHolder{{$index}}b">
-                  <img ng-click="challenges.loadVideo()" ng-src="{{row.second.photo}}" alt="" class="responseImage" id="img{{$index}}b"/>
-                </div>
-              </div>
-              <div class="miniChallInfo col-sm-offset-1 col-sm-8 col-xs-12 col-xs-offset-0">
-                <h2>{{row.second.title}}</h2>
-              </div>
-            </div>
-
           </div>
-         </div>
+          <div class="texttext col-xs-4">
+
+            <!-- <div class="listMoneyBox">
+              <p>
+                <span class="listRaised">${{}} </span>raised
+              </p>
+              <p>
+                <span class="listGoal">${{}}</span> goal
+              </p>
+            </div> -->
+          </div>
         </div>
-       </div>
+        <div class="lImage lImage{{$index}}">
+          <!-- <img class="lImageImg lImageimg{{$index}}" src="{{challenge.thumb}}" alt="" /> -->
+        </div>
+        <div class="lVideo lVideo{{$index}}">
+          <!-- <iframe class="listVid{{$index}}" width="100%" height="{{challenges.listHeight}}" src="{{}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+          </iframe> -->
+        </div>
+      </div>
+    </div>
+
 
     </div>
   </div>

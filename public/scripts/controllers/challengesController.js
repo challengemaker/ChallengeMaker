@@ -17,6 +17,7 @@ angular.module('challengesController', [])
             console.log(allChallenges[i].videoUrl);
             url = "https://www.youtube.com/embed/ccYg5HN0mDU";
             self.video = url.split('').slice(8, url.length-1).join('');
+
           }
           ////////////
           self.allChallenges = allChallenges;
@@ -112,6 +113,32 @@ angular.module('challengesController', [])
     $http.get('/api/responses')
       .then(function(data){
         var challengeResponses = data.data.reverse();//reversed so newest first
+
+        function addThumbToResponse(){
+          for (var i = 0; i < challengeResponses.length; i++) {
+            console.log(challengeResponses[i]);
+            var videoLink = challengeResponses[i].videoUrl;
+            console.log(videoLink);
+            var tubeKey = videoLink.split('/')[4];
+            console.log(tubeKey);
+            var thumbUrl = "img.youtube.com/vi/"+tubeKey+"/0.jpg";
+            console.log(thumbUrl);
+
+            challengeResponses[i].thumb = thumbUrl;
+          }
+          self.allResponses = challengeResponses;
+          for (var i = 0; i < challengeResponses.length; i++) {
+            // challengeResponses[i]
+            var elem = $('.lImage'+i);
+            console.log(elem);
+            $('.lImage'+i).append(
+              "<div>hi thereererere</div>"
+            )
+          }
+        }
+        addThumbToResponse();
+        console.log(self.allResponses);
+
         var arrayLength = challengeResponses.length;
         ///start creating rows
         var rowNum = Math.floor((arrayLength/2));
@@ -135,6 +162,7 @@ angular.module('challengesController', [])
         function hiThere(){
           console.log('hi there');
         }
+        hiThere();
         self.justRows = justRows().slice(0,3);
         /////rows now created
       })
@@ -194,5 +222,7 @@ angular.module('challengesController', [])
         }
         ///end homepage
       }
+      var elem = document.querySelector('.lImage0');
+      console.log(elem);
     /////end of the oage-based if statement
   }
