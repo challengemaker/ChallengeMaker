@@ -213,9 +213,9 @@ angular.module('mainController', [])
           $('.dropdownContainer').remove();
         })
 
-        $('.dropdownIconImage').on('mouseleave', function(){
-          $('.dropdownContainer').remove();
-        })
+        // $('.dropdownIconImage').on('mouseleave', function(){
+        //   $('.dropdownContainer').remove();
+        // })
 
       } else if(dropdownCounter%2 == 0){
         console.log(dropdownCounter);

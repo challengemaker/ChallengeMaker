@@ -3,9 +3,8 @@ var mongoose    = require('mongoose');
 var Schema   = mongoose.Schema;
 
 var responseSchema = new Schema({
-  title: String,
-  description: String,
-  video_url: String,
+  videoUrl: String,
+  emails: Array,
   challenge: String,//many-to-one
 })
 

@@ -7,27 +7,53 @@ angular.module('responseController', [])
     var self = this;
     console.log($routeParams);
 
+    setInterval(function(){
+      var contMargin = ((window.innerWidth/2) - 280)+"px";
+      console.log(contMargin);
+      $('.questionHolder').css({marginLeft: contMargin})
+    }, 50)
     ////create submit-new-response section
     //////////////////////////////////////
-    $('#submitResponse').on('click', function(){
-      var title = $('#responseTitle').val();
-      var description = $('#responseDescription').val();
-      var video = $('#responseVid').val();
+    $('.submitDon').on('click', function(){
+      window.open("http://youthmentoring.org/get-involved/donate/", target="_blank")
+      var videoUrl = $('.responseTitle').val();
+      var emails = function(){
+        var emailList = [];
+        var rawList = $('.challengeFriends');
+        console.log(rawList);
+        for (var i = 0; i < rawList.length; i++) {
+          var length = rawList[i].value.length;
+          if(length > 2){
+            emailList.push(rawList[i].value)
+            console.log(rawList[i].value);
+          }
+          else{
+            console.log("not pushing this one");
+          }
+        }
+        console.log(rawList);
+        var delivery = {videoUrl: videoUrl, emails: emailList}
+        return delivery;
+      }
+      var emailsL = emails();
+      console.log(emailsL);
+
       $http({
         method: "POST",
         url: "api/responses",
-        data: {title: title, description: description, video_url: video},
-        success: function(){
-          console.log('I think it worked');
-        }
+        data: emailsL,
+      })
+      .then(function(data){
+        console.log('lol callback');
+        console.log(data);
       })
     })
 
     $('.submitDon').on("click", function(){
       if (window.localStorage.sessionUser && window.localStorage.sessionUser != "none") {
-      window.location.hash = "#/"
+      // window.location.hash = "#/"
     } else {
-        window.location.hash = "#/signup"
+        // window.location.hash = "#/signup"
       }
     })
 
