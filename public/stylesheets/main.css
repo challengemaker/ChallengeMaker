@@ -65,7 +65,7 @@
 }
 
 .carouselButtonHolder {
-  margin: 0;
+  margin: 0 0 0 30px;
   display: block;
   height: 150px;
 }
@@ -624,7 +624,7 @@
   overflow: hidden;
   margin-top: 40px;
   margin-left: 50%;
-  outline: 4px solid gray;
+  outline: 5px solid gray;
 }
 
 .questionTunnel {

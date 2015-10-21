@@ -51,9 +51,9 @@ angular.module('responseController', [])
 
     $('.submitDon').on("click", function(){
       if (window.localStorage.sessionUser && window.localStorage.sessionUser != "none") {
-      // window.location.hash = "#/"
+      window.location.hash = "#/"
     } else {
-        // window.location.hash = "#/signup"
+        window.location.hash = "#/signup"
       }
     })
 
