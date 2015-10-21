@@ -526,6 +526,10 @@
   font-weight: bolder;
 }
 
+.listTitle {
+  margin-top: -8px;
+}
+
 .logoContainer {
   height: 100%;
 }
