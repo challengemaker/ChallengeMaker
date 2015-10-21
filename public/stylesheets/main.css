@@ -336,7 +336,7 @@
 
 .footerContainer {
   height: 75px;
-  background-color: green;
+  /*background-color: green;*/
   display: block;
 }
 
@@ -421,7 +421,7 @@
 }
 
 .hImage {
-  background-color: green;
+  /*background-color: green;*/
 }
 
 .hImage img {
