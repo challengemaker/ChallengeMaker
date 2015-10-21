@@ -37,11 +37,7 @@
 }
 
 .backButton {
-  height: 40px;
-  width: 90px;
-  font-size: 25px;
-  font-style: bolder;
-  color: gray;
+  display: inline-block;
 }
 
 .backButton:hover {
@@ -311,11 +307,7 @@
 }
 
 .forwardButton {
-  height: 40px;
-  width: 90px;
-  font-size: 25px;
-  font-style: bolder;
-  color: gray;
+
 }
 
 .forwardButton:hover {
