@@ -142,7 +142,7 @@
   background-color: #d4d4d4;
   margin: 5px 30px 10px 2px;
   height:80px;
-  width:100%;
+  width:90%;
   vertical-align: middle;
 }
 
@@ -180,6 +180,7 @@
 
 .currentChallengeStats {
   display: inline-block;
+  margin: 5px 5px 5px 5px
   background-color: #f1f1f1;
   min-height: 100%;
   padding-bottom: 0px;
@@ -188,11 +189,35 @@
 .currentCharity {
   font-size: 40px;
   font-weight: bolder;
-  margin-bottom: -5px;
+}
+
+.currentCharity2 {
+  font-size: 25px;
+  color: #999999;
+  text-align: center;
+  font-weight: bold;
+}
+
+.currentCharityBene {
+  font-size: 15px;
+  font-style: italic;
+  text-align: center;
+}
+
+.currentCharityDiv {
+  margin: 5px 0px 5px 0px;
 }
 
 .currentDescription {
   font-size: 20px;
+}
+
+.currentDescDiv {
+  margin-top: 25px;
+}
+
+.currentSuppDiv {
+  margin-top: 25px;
 }
 
 .currentTitle {
@@ -200,6 +225,13 @@
   font-weight: bolder;
   height: 50px;
   display: inline-block;
+}
+
+.currentTitle2 {
+  font-size: 35px;
+  text-align: center;
+  font-weight: bold;
+  height: 40px;
 }
 
 .currentVideo{
