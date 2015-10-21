@@ -111,7 +111,6 @@ angular.module('challengesController', [])
     //////this will all be in a factory later
     $http.get('/api/responses')
       .then(function(data){
-        console.log(data);
         var challengeResponses = data.data.reverse();//reversed so newest first
         var arrayLength = challengeResponses.length;
         ///start creating rows
@@ -133,8 +132,10 @@ angular.module('challengesController', [])
           }
           return masterResponseArray;
         }
+        function hiThere(){
+          console.log('hi there');
+        }
         self.justRows = justRows().slice(0,3);
-        console.log("just rows is: "+self.justRows);
         /////rows now created
       })
       //////begin $http call that will be put in a factory later

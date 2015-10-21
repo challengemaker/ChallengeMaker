@@ -574,6 +574,11 @@
   margin-top: 5px;
 }
 
+.miniImageHolder {
+    height: 300px;
+    outline: 2px solid blue;
+}
+
 .moneyBox {
   display: inline-block;
   float: right;
