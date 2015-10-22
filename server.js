@@ -70,12 +70,11 @@ app.post('/signup', function( req, res ) {
 				res.json( err )
 		} else if ( user ) {
 			console.log(user)
-			console.log("User ofund")
+			console.log("There's already somebody names that")
 			res.redirect( '/login')
 		} else {
 			console.log('user being made')
 			var newUser = new User();
-
 			newUser.email = req.body.email
 			newUser.password = newUser.generateHash( req.body.password )
 			newUser.local.email = req.body.email
@@ -159,7 +158,7 @@ app.get('*', function(req, res){
 })
 
 ////setting ports for local and remote, and listening
-app.set('port', (process.env.PORT || 5556))
+app.set('port', (process.env.PORT || 5555))
 
 app.listen(app.get('port'), function(){
   console.log("Server running smoother than Barry White");

@@ -7,17 +7,18 @@ angular.module('challengesController', [])
     var self = this;
 		$http.get('/api/challenges')
         .then(function(data){
-          self.specialChallenge = data.data[0];
+
           var allChallenges = data.data;
           console.log(allChallenges);
+          self.specialChallenge = allChallenges[3]
 
           /////clean up  repeat  data
           // var dataArray = []
           for (var i = 0; i < allChallenges.length; i++) {
             allChallenges[i].isPhoto = true;
             console.log(allChallenges[i].videoUrl);
-            url = "https://www.youtube.com/embed/ccYg5HN0mDU";
-            self.video = url.split('').slice(8, url.length-1).join('');
+            // url = "https://www.youtube.com/embed/ccYg5HN0mDU";
+            // self.video = url.split('').slice(8, url.length-1).join('');
 
           }
           ////////////
