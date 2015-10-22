@@ -81,14 +81,17 @@ angular.module('userController', [])
           url: "/login"
         })
         .then(function(data){
-          console.log('in here');
-          console.log(data);
-          window.localStorage.sessionToken = data.data.token;
-          window.localStorage.sessionUser = data.data.user.email;
-          self.userSesh = email;
-          console.log('user email is:',self.userSesh);
-          window.location.reload();
-
+          if(data.data != "No user found"){
+            console.log('in here');
+            console.log(data);
+            window.localStorage.sessionToken = data.data.token;
+            window.localStorage.sessionUser = data.data.user.email;
+            self.userSesh = email;
+            console.log('user email is:',self.userSesh);
+            window.location.reload();
+          } else {
+            window.location.hash = "#/signup"
+          }
         })
       })
     } else {
