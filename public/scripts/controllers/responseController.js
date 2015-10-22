@@ -9,7 +9,6 @@ angular.module('responseController', [])
 
     setInterval(function(){
       var contMargin = ((window.innerWidth/2) - 280)+"px";
-      console.log(contMargin);
       $('.questionHolder').css({marginLeft: contMargin})
     }, 50)
     ////create submit-new-response section
