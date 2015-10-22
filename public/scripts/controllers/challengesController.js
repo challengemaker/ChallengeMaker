@@ -7,11 +7,17 @@ angular.module('challengesController', [])
     var self = this;
 		$http.get('/api/challenges')
         .then(function(data){
+<<<<<<< HEAD
 
           var allChallenges = data.data;
           console.log(allChallenges);
           self.specialChallenge = allChallenges[3]
 
+=======
+          self.specialChallenge = data.data[0];
+          var allChallenges = data.data;
+          console.log(allChallenges);
+>>>>>>> 1f5bb1249ba1809177dea0645c663ae9bb5d78d0
 
           /////clean up  repeat  data
           // var dataArray = []
