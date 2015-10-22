@@ -338,11 +338,10 @@
   width: 163px;
   height: 100%;
   margin-top: 65px;
-  outline: 2px solid blue;
   position: fixed;
   z-index: 200;
-  background-color: #33647D;
-  opacity: 0.85;
+  background-color: #585858;
+  opacity: 0.45;
   text-align: left;
 }
 
