@@ -70,7 +70,7 @@ app.post('/signup', function( req, res ) {
 				res.json( err )
 		} else if ( user ) {
 			console.log(user)
-			console.log("User ofund")
+			console.log("There's already somebody names that")
 			res.redirect( '/login')
 		} else {
 			console.log('user being made')
