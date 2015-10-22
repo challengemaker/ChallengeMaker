@@ -75,7 +75,6 @@ app.post('/signup', function( req, res ) {
 		} else {
 			console.log('user being made')
 			var newUser = new User();
-
 			newUser.email = req.body.email
 			newUser.password = newUser.generateHash( req.body.password )
 			newUser.local.email = req.body.email
