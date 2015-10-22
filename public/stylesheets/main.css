@@ -45,6 +45,17 @@
   background-color: #B8E6E6;
 }
 
+.blackLayer{
+  width: 100%;
+  height: 100%;
+  margin-top: -53%;
+  background-color: black;
+  opacity: .1;
+  z-index: 2;
+  position: absolute;
+
+}
+
 .bodyView {
   display: block;
   height: 100%;
