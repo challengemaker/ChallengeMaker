@@ -65,6 +65,17 @@
   position: absolute;
 }
 
+.blackLayerSingleHighlight {
+  width: 103%;
+  height: 245%;
+  margin-top: -14%;
+  margin-left: -3%;
+  background-color: black;
+  opacity: .1;
+  z-index: 0;
+  position: absolute;
+}
+
 .bodyView {
   display: block;
   height: 100%;
