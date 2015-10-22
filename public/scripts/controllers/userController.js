@@ -73,7 +73,9 @@ angular.module('userController', [])
 
       $('.signinSubmit').on('click', function(){
         var email = $(".signInput1").val();
+        console.log(email);
         var password = $(".signInput2").val();
+        console.log(password);
         var data = {email: email, password: password}
         $http({
           method: "POST",
@@ -81,29 +83,32 @@ angular.module('userController', [])
           url: "/login"
         })
         .then(function(data){
-          console.log('in here');
-          console.log(data);
-          window.localStorage.sessionToken = data.data.token;
-          window.localStorage.sessionUser = data.data.user.email;
-          self.userSesh = email;
-          console.log('user email is:',self.userSesh);
-          window.location.reload();
-
+          if (data.data != "No user found") {
+            console.log('in here');
+            console.log(data);
+            window.localStorage.sessionToken = data.data.token;
+            window.localStorage.sessionUser = data.data.user.email;
+            self.userSesh = email;
+            console.log('user email is:',self.userSesh);
+            window.location.reload();
+          } else {
+            window.location.hash = "#/signup"
+          }
         })
       })
     } else {
       // find single User
-      var hashArray = window.location.hash.split("/");
-      var userId =hashArray[hashArray.length-1];
-      console.log(userId);
-      $http({
-        url: '/api/users/'+userId,
-        method: "GET"
-      })
-        .then(function(data){
-          console.log(data);
-          self.singleUser = data.data.user.local.email;
-          console.log(self.singleUser);
-        })
+      // var hashArray = window.location.hash.split("/");
+      // var userId =hashArray[hashArray.length-1];
+      // console.log(userId);
+      // $http({
+      //   url: '/api/users/'+userId,
+      //   method: "GET"
+      // })
+      //   .then(function(data){
+      //     console.log(data);
+      //     self.singleUser = data.data.user.local.email;
+      //     console.log(self.singleUser);
+      //   })
     }
   }
