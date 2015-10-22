@@ -8,9 +8,9 @@ angular.module('challengesController', [])
 		$http.get('/api/challenges')
         .then(function(data){
 
-          var allChallenges = data.data.reverse();
+          var allChallenges = data.data;
           console.log(allChallenges);
-          self.specialChallenge = allChallenges[3]
+          self.specialChallenge = allChallenges[0]
 
 
           /////clean up  repeat  data
