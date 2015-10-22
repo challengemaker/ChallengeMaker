@@ -59,11 +59,11 @@ angular.module('mainController', [])
         $('.dropdownIcon').append(
           "<div class='dropdownContainer'>"+
             "<div class='dropItem' id='dropHome'>Home</div>"+
-            "<div class='dropItem' id='dropAbout'>About</div>"+
-            // "<div class='dropItem' id='dropWhat'>What we do</div>"+
-            "<div class='dropItem' id='dropContact'>Contact</div>"+
-            "<div class='dropItem' id='dropPrivacy'>Privacy</div>"+
-            "<div class='dropItem' id='dropTerms'>Terms</div>"+
+            // "<div class='dropItem' id='dropAbout'>About</div>"+
+            // // "<div class='dropItem' id='dropWhat'>What we do</div>"+
+            // "<div class='dropItem' id='dropContact'>Contact</div>"+
+            // "<div class='dropItem' id='dropPrivacy'>Privacy</div>"+
+            // "<div class='dropItem' id='dropTerms'>Terms</div>"+
             "<div class='dropItem' id='dropSignup'>Signup</div>"+
             "<div class='dropItem' id='dropLogout'>Logout</div>"+
             "<div class='dropItem' id='dropFacebook'>Facebook</div>"+
