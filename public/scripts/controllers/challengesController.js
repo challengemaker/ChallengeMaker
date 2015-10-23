@@ -95,6 +95,24 @@ angular.module('challengesController', [])
         window.location.hash = "#/challenges/"+challTitle;
       }
 
+      function makeFit(){
+        var windowSize = $(window).width();
+        console.log(windowSize);
+        if(windowSize < 1024){
+          $('.listSectionRemove').html("");
+        } else {
+          $('.listSectionRemove').html(
+            "<p class=listSectionRemove>$0 if completed or"+ "donate to this charity</p>"
+          );
+        }
+      }
+      makeFit()
+
+      $(window).resize(function(){
+        makeFit()
+      })
+      // $('.listSectionRemove').on
+
 
     ////begin page if statement, for seperated data
     if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
