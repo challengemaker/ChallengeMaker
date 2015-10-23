@@ -483,6 +483,8 @@ body {
   margin-top: 5px;
   width: 100%;
   min-height: 100%;
+  overflow: auto;
+  position: relative;
 }
 
 .hVideo {
@@ -561,7 +563,7 @@ body {
 
 .listText {
   width: 90%;
-  height: 90%;
+  max-height: 300px;
   position: absolute;
   z-index: 10;
 }
@@ -846,6 +848,7 @@ body {
 	color: white;
   height: 90%;
   margin-top: 5%;
+  position: relative;
 }
 
 .titleDescBox {
