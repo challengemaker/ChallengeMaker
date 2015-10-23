@@ -226,22 +226,22 @@ angular.module('mainController', [])
 
     }
 
-    $http.get('/client_token')
-
-      .then(function(data){
-
-        console.log(data);
-        self.clientToken = data;
-        console.log("token", self.clientToken);
-        console.log(braintree.setup);
-
-        braintree.setup(
-          self.clientToken,
-          "dropin", {
-            container: "payment-form"
-          });
-
-      })
+    // $http.get('/client_token')
+    //
+    //   .then(function(data){
+    //
+    //     console.log(data);
+    //     self.clientToken = data;
+    //     console.log("token", self.clientToken);
+    //     console.log(braintree.setup);
+    //
+    //     braintree.setup(
+    //       self.clientToken,
+    //       "dropin", {
+    //         container: "payment-form"
+    //       });
+    //
+    //   })
 
 
 
