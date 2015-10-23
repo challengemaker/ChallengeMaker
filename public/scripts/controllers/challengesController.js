@@ -97,7 +97,6 @@ angular.module('challengesController', [])
 
       function makeFit(){
         var windowSize = $(window).width();
-        console.log(windowSize);
         if(windowSize < 1024){
           $('.listSectionRemove').html("");
         } else {
@@ -110,9 +109,18 @@ angular.module('challengesController', [])
 
       $(window).resize(function(){
         makeFit()
+        fixSpacing()
       })
       // $('.listSectionRemove').on
 
+      //////function to make first list item not jet up info to top box, this will go in the box resizing
+      function fixSpacing(){
+        var elem = $('.listText0');
+        console.log(elem.height());
+        $('.listText0').css({
+          bottom: 0
+        })
+      }
 
     ////begin page if statement, for seperated data
     if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){

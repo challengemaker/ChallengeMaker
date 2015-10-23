@@ -40,7 +40,7 @@
 <!-- Repeat images from here down -->
 <div ng-repeat="challenge in challenges.allChallenges" class="listContainer col-sm-6 col-12-xs">
   <div class="lMediaHolder" ng-click="challenges.swap($index)">
-    <div class="listText">
+    <div class="listText listText{{$index}}">
       <div class="texttext col-xs-8">
         <div class="listTextHolder">
           <h2>{{challenge.charity[0]}}</h2>
