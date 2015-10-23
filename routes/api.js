@@ -5,6 +5,7 @@ var bcrypt         = require('bcrypt-nodejs');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var route          = express.Router();
+var braintree      = require('braintree');
 var ignore         = require('./../.gitignore');
 
 ////////   ----- Models ------- //////////
@@ -93,9 +94,36 @@ module.exports = function(app, passport){
 
   })
 
+  /////////////////begin braintree routing/////
+  ////////////////////////////////////////////
+  var gateway = braintree.connect({
+    environment: braintree.Environment.Sandbox,
+    merchantId: ignore.merchantId,
+    publicKey: ignore.publicKey,
+    privateKey: ignore.privateKey
+  })
+
+  // console.log(gateway);
+  // console.log(ignore.merchantId);
+  // console.log(ignore.publicKey);
+
+  app.get("/client_token", function(req, res){
+    gateway.clientToken.generate({}, function(err, response){
+      console.log(err);
+      console.log(response);
+      res.json(response.clientToken);
+    })
+  })
+
+  app.post('/checkout', function(req, res){
+    var nonce = req.body.payment_method_nonce;
+  });
+
+  ///////////end braintree routing/////////
+  /////////////////////////////////////////
+
 
   //////begin login and authentication and all that shit
-
   app.post('/signin', passport.authenticate('local-signup', {
     successRedirect: '/profile',
     failureRedirect: '/signin',

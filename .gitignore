@@ -1,4 +1,7 @@
 module.exports = {
-dbUrl: "mongodb://jackconnor:Skateboard1@ds031581.mongolab.com:31581/challenge_maker",
-tokenSecret: "stephanJanoski"
+  dbUrl: "mongodb://jackconnor:Skateboard1@ds031581.mongolab.com:31581/challenge_maker",
+  tokenSecret: "stephanJanoski",
+  merchantId: "7py6xp6bvy4zbdt2",
+  publicKey: "pd3mrbmz2ps4b4gp",
+  privateKey: "73425deda384637576f7a4ec30fa458b"
 }

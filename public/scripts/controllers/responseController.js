@@ -5,7 +5,54 @@ angular.module('responseController', [])
   responseCtrl.$inject = ['$http', "$routeParams"];
   function responseCtrl($http, $routeParams){
     var self = this;
-    console.log($routeParams);
+
+    self.checkYoutube = function checkYoutube(){
+      //////////parse the link on each keyup to make sure it's getting a proper youtube reading
+      var currUrl = $('.responseTitle').val();
+
+      var urlFunc = function(){
+        var urlArr = currUrl.split("/");
+        var httpCheck = urlArr[0].slice(0, 6);
+        console.log(httpCheck);
+        if(httpCheck == "https:" && urlArr.join("").length != 6){
+          console.log('its an http');
+          urlArr.shift();
+          urlArr.shift();
+          if(urlArr.join("").length > 5){
+            var shortUrl1 = urlArr.join("").slice(0, 9);
+            var shortUrl2 = urlArr.join("").slice(0, 5);
+          }else {
+            var shortUrl1 = "blah";
+            var shortUrl2 = "blah";
+          }
+        } else {
+          console.log('notan http');
+          var shortUrl1 = urlArr.join("").slice(0, 9);
+          var shortUrl2 = urlArr.join("").slice(0, 5);
+        }
+        if(shortUrl1 == "www.youtu" || shortUrl2 == "youtu"){
+          console.log('looks right');
+          $('.responseTitle').css({
+            backgroundColor: "#D8F9FF"
+          })
+        } else {
+          console.log("what the fuck!");
+          $('.responseTitle').css({
+            backgroundColor: "#FFCCE0"
+          })
+        }
+
+        // if()
+      }
+      urlFunc();
+      /////end parsing the url for youtubability
+
+      if(currUrl){
+        console.log(currUrl);
+      } else{
+        console.log('boooo');
+      }
+    }
 
     setInterval(function(){
       var contMargin = ((window.innerWidth/2) - 280)+"px";
@@ -19,23 +66,18 @@ angular.module('responseController', [])
       var emails = function(){
         var emailList = [];
         var rawList = $('.challengeFriends');
-        console.log(rawList);
         for (var i = 0; i < rawList.length; i++) {
           var length = rawList[i].value.length;
           if(length > 2){
             emailList.push(rawList[i].value)
-            console.log(rawList[i].value);
           }
           else{
-            console.log("not pushing this one");
           }
         }
-        console.log(rawList);
         var delivery = {videoUrl: videoUrl, emails: emailList}
         return delivery;
       }
       var emailsL = emails();
-      console.log(emailsL);
 
       $http({
         method: "POST",
@@ -43,8 +85,6 @@ angular.module('responseController', [])
         data: emailsL,
       })
       .then(function(data){
-        console.log('lol callback');
-        console.log(data);
       })
     })
 
@@ -74,7 +114,6 @@ angular.module('responseController', [])
       })
         .then(function(data){
           self.allResponses = data.data;
-          console.log(data.data);
         })
     }
     //////end showing all responses
@@ -124,33 +163,27 @@ angular.module('responseController', [])
 
       $('.backButton').on('click', function(){
         if(carouselCounter > 0){
-          console.log(carouselCounter);
           carouselCounter--;
-          console.log(carouselCounter);
 
           if(carouselCounter == 0){
-            console.log(tunnelMargin);
             tunnelMargin += 550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           }
           else if(carouselCounter == 1){
-            console.log(tunnelMargin);
             tunnelMargin += 550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           }
           else if(carouselCounter == 2){
-            console.log(tunnelMargin);
             tunnelMargin += 550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           }
           // else if(carouselCounter == 3){
-          //   console.log(tunnelMargin);
           //   tunnelMargin += 550;
           //   $('.questionTunnel').animate({
           //     marginLeft: tunnelMargin+"px"
@@ -162,7 +195,6 @@ angular.module('responseController', [])
         self.title = $('.responseTitle').val();
         self.description = $('.responseDesc').val();
         self.video = $('.videoUrl').val();
-        console.log(self.video);
         self.name = $('.signup2').val();
         if(carouselCounter < 3){
           carouselCounter++;
@@ -221,7 +253,6 @@ angular.module('responseController', [])
         data: response
       })
       .then(function(data){
-        console.log(data);
         window.location.hash = "#/challenges/"+$routeParams.name
       })
     })
