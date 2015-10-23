@@ -61,7 +61,7 @@ angular.module('mainController', [])
             "<div class='dropItem' id='dropHome'>Home</div>"+
             // "<div class='dropItem' id='dropAbout'>About</div>"+
             // // "<div class='dropItem' id='dropWhat'>What we do</div>"+
-            // "<div class='dropItem' id='dropContact'>Contact</div>"+
+            "<div class='dropItem' id='dropContact'>Contact</div>"+
             // "<div class='dropItem' id='dropPrivacy'>Privacy</div>"+
             // "<div class='dropItem' id='dropTerms'>Terms</div>"+
             "<div class='dropItem' id='dropSignup'>Signup</div>"+
@@ -167,6 +167,7 @@ angular.module('mainController', [])
             backgroundColor: "#5A668D"
           })
         });
+
         $('#dropLogout').on('mouseleave', function(){
           $('#dropLogout').css({
             backgroundColor: "transparent"
@@ -184,6 +185,10 @@ angular.module('mainController', [])
             backgroundColor: "transparent"
           })
         });
+
+        $('#dropContact').on('click', function(){
+          window.location.hash = "#/contact"
+        })
 
         $('#dropPrivacy').on('mouseenter', function(){
           $('#dropPrivacy').css({
