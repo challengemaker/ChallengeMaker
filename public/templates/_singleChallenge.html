@@ -1,7 +1,7 @@
 <div class="challengeContainer">
   <h2>{{challenges.singleChallenge.name}}</h2>
   <div class="row topRowChallenge">
-    <div class="currentChallengeHolder col-sm-7 col-xs-12">
+    <div class="currentChallengeHolder col-md-7 col-xs-12">
       <div class="currentChallengeContainer">
         <div class="currentChallengeImage">
           <img ng-src="{{challenges.singleChallenge.photo}}" class="currImg" />
@@ -10,6 +10,25 @@
           <div class="blackLayerSingleHighlight">
 
           </div>
+
+          <!-- <table class="table">
+            <tbody>
+              <tr>
+                <td id="currentCharity">{{challenges.singleChallenge.charity[0]}}</td>
+              </tr>
+
+              <tr>
+                <td id="currentTitle">{{challenges.singleChallenge.title}}</td>
+              </tr>
+
+              <tr>
+                <td id="currentDescription">$0 if challenge completed, or donate ${{challenges.singleChallenge.minimumDonation}} to Special Olympics</td>
+              </tr>
+
+            </tbody>
+          </table> -->
+
+
           <div class="currentInfoColumn col-xs-6">
             <p class="currentCharity">
               {{challenges.singleChallenge.charity[0]}}
@@ -21,6 +40,8 @@
               $0 if challenge completed, or donate ${{challenges.singleChallenge.minimumDonation}} to Special Olympics
             </p>
           </div>
+
+
           <div class="row currentChallengeMoney col-xs-6">
             <!-- <h2>${{challenges.singleChallenge.totalRaised}} raised</h2>
             <h3>${{challenges.singleChallenge.goal}} goal</h3> -->
@@ -28,7 +49,7 @@
         </div>
       </div>
     </div>
-    <div class="currentChallengeStats col-sm-5 col-xs-12">
+    <div class="currentChallengeStats col-md-5 col-xs-12">
       <button type="button" class="completeChallButton comp-chal-button btn btn-lg btn-block"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Complete this Challenge!</button>
       <!-- <button type="button" class="comp-donate-button btn btn-lg btn-block"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Complete it by Donating!</button> -->
 
