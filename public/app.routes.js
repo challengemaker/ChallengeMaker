@@ -26,6 +26,10 @@ function appRoutes($routeProvider){
       controllerAs: 'challenges'
     })
 
+    .when('/payments', {
+      templateUrl: 'templates/_payments.html'
+    })
+
     .when('/test', {
       templateUrl: "templates/_testStuff.html",
       controller: 'challengesCtrl',

@@ -153,8 +153,8 @@ app.set('view engine', 'ejs');
 
 ////route that goes straight to our public/ angular file
 app.get('*', function(req, res){
-  res.json({message: 'success'});
-  res.sendFile('./public/index.html')
+
+  res.sendFile( __dirname + '/public/index.html')
 })
 
 ////setting ports for local and remote, and listening

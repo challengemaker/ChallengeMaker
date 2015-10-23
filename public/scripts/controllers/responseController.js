@@ -7,13 +7,15 @@ angular.module('responseController', [])
     var self = this;
 
     self.checkYoutube = function checkYoutube(){
-      console.log('hello');
       //////////parse the link on each keyup to make sure it's getting a proper youtube reading
       var currUrl = $('.responseTitle').val();
+
       var urlFunc = function(){
         var urlArr = currUrl.split("/");
-        console.log(urlArr);
-        if(urlArr[0] = "https:" && urlArr.join("").length != 6){
+        var httpCheck = urlArr[0].slice(0, 6);
+        console.log(httpCheck);
+        if(httpCheck == "https:" && urlArr.join("").length != 6){
+          console.log('its an http');
           urlArr.shift();
           urlArr.shift();
           if(urlArr.join("").length > 5){
@@ -23,10 +25,11 @@ angular.module('responseController', [])
             var shortUrl1 = "blah";
             var shortUrl2 = "blah";
           }
+        } else {
+          console.log('notan http');
+          var shortUrl1 = urlArr.join("").slice(0, 9);
+          var shortUrl2 = urlArr.join("").slice(0, 5);
         }
-        console.log(urlArr);
-        console.log(shortUrl1);
-        console.log(shortUrl2);
         if(shortUrl1 == "www.youtu" || shortUrl2 == "youtu"){
           console.log('looks right');
           $('.responseTitle').css({

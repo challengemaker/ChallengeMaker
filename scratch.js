@@ -24,3 +24,12 @@
 
 //
 // "title" : "4LITERSCHALLENGE", "description" : "We challenge you to live one day in water poverty. For 24 hours, use just #4Liters of water for everything you do and change the way you think about water forever more info at 4liters.org. ", "videoUrl" : "https://www.youtube.com/embed/dNs8s2t1yWg", "photo" : "http://s13.postimg.org/60u6qnyuf/Screen_Shot_2015_10_21_at_4_39_23_PM.png", "createdBy" : [ { "name" : "Jason", "userId" : 101010103 } ], "charity" : "4Liters.org", "responses" : [ ], "goal" : 10000, "minimumDonation" : 50, "totalRaised" : 0 }
+
+
+//
+//
+// MIIBCgKCAQEAufPYYS1x1b2lz+hfIeCzQb0vp763X9PwvolWyPsnoXy3/ansEgJcTSX7A2HNtrH6El8uXZNTP2xASB7YLpNMTPmRTiLSKdYx6uLRIjI2AsEJcgSLGKCm2fU19J6O20/O7h/Djc85cxp4teh/Q2NCIT2gOeJ+BLEzWc2r1EItDFMq05jmTjqheCoGaPy45oiTorR1rWPH+2MZ4pbC6JVnwHECwVD/GKgaHm19AcA+QOHWEpPEtTHNGdhStZDMxVlZuuWrTq5W4GLSA8KTEPzDOaHJWnfJmGiVpKRgfLIHUuC+niaWz4VpDDDXgHAzQKB7GXUPPsoIXXJyMKW5O07YWwIDAQAB
+// 
+// pd3mrbmz2ps4b4gp
+//
+// 73425deda384637576f7a4ec30fa458b
