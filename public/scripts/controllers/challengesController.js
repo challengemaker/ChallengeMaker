@@ -103,10 +103,16 @@ angular.module('challengesController', [])
           fixSpacing();
           $('.listSectionRemove').html("");
           $('.hRemoveDescription').html("");
+          $('.titleCont').css({
+            fontSize: "30px"
+          })
         } else {
           $('.listSectionRemove').html(
             "<p class=listSectionRemove>$0 if completed or"+ "donate to this charity</p>"
           );
+          $('.titleCont').css({
+            fontSize: "52px"
+          })
         }
       }
 
