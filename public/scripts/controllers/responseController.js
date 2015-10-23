@@ -6,6 +6,22 @@ angular.module('responseController', [])
   function responseCtrl($http, $routeParams){
     var self = this;
 
+    var url = window.location.hash.split('/');
+    if( url[1] = "newresponse"){
+      console.log('yoyoyoyoyoyoyoyoy');
+      console.log(url[2]);
+      // var challengeName = url[2].split('-').join(' ');
+      // console.log(challengeName);
+      $http.get('api/challenges/'+url[2])
+        .then(function(data){
+          console.log(data);
+          self.charityLink = data.data.charityLink;
+          console.log(self.charityLink);
+          $('.submitDon').on('click', function(){
+            window.open(self.charityLink, target="_blank")
+          })
+        })
+      }
     self.checkYoutube = function checkYoutube(){
       //////////parse the link on each keyup to make sure it's getting a proper youtube reading
       var currUrl = $('.responseTitle').val();
@@ -61,7 +77,6 @@ angular.module('responseController', [])
     ////create submit-new-response section
     //////////////////////////////////////
     $('.submitDon').on('click', function(){
-      window.open("http://youthmentoring.org/get-involved/donate/", target="_blank")
       var videoUrl = $('.responseTitle').val();
       var emails = function(){
         var emailList = [];
