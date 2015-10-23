@@ -95,30 +95,35 @@ angular.module('challengesController', [])
         window.location.hash = "#/challenges/"+challTitle;
       }
 
+      ////////begin all font resizing work
+      /////////////////////////////////////
       function makeFit(){
         var windowSize = $(window).width();
         if(windowSize < 1024){
           fixSpacing();
           $('.listSectionRemove').html("");
+          $('.hRemoveDescription').html("");
         } else {
           $('.listSectionRemove').html(
             "<p class=listSectionRemove>$0 if completed or"+ "donate to this charity</p>"
           );
         }
       }
-      makeFit();
 
       $(window).resize(function(){
         makeFit()
       })
-      // $('.listSectionRemove').on
+
+      makeFit();
 
       //////function to make first list item not jet up info to top box, this will go in the box resizing
       function fixSpacing(){
         $('.listText0').css({
-          bottom: 0
+          bottom: 40
         })
       }
+      ////////begin all font resizing work
+      /////////////////////////////////////
 
     ////begin page if statement, for seperated data
     if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
