@@ -9,6 +9,10 @@
   min-width: 100%;
 }
 
+body {
+  padding-top: 78px;
+}
+
 .acceptButton {
   background-color: white;
   color: gray;
@@ -346,19 +350,18 @@
 }
 
 .dropdownIcon {
-  margin-top: 5px;
-  margin-right: 85px;
+  margin-top: 2px;
   width: 65px;
   height: 65px;
-  position: relative;
-  float: right;
-  display: inline-block;
+  /*position: relative;*/
+  /*float: right;*/
+  /*display: inline-block;*/
 }
 
 .dropdownIcon img {
   width: 100%;
   height: 100%;
-  position: absolute;
+  /*position: absolute;*/
 }
 
 .dropdownIconImage:hover {
@@ -384,6 +387,12 @@
 
 .forwardButton:hover {
   background-color: #B8E6E6;
+}
+
+.glyphicon-play-circle {
+  color: yellow;
+  font-size: 250px;
+  margin: 0% 0% 0% 0%;
 }
 
 .glyphicon-check {
@@ -572,10 +581,10 @@
   height: 100%;
 }
 
-.logo {
-  height: 100%;
-  vertical-align: bottom;
-  padding: 5px 0;
+.logo img{
+  margin-top: -10px;
+  height:61px;
+  width:284px;
 }
 
 .logout {
@@ -628,7 +637,11 @@
 }
 
 .navContainer {
-  display: block;
+  background-color: white;
+}
+
+#nav-search {
+  margin-top: 7px;
 }
 
 .q1 {
