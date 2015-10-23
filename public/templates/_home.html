@@ -40,6 +40,9 @@
 <!-- Repeat images from here down -->
 <div ng-repeat="challenge in challenges.allChallenges" class="listContainer col-sm-6 col-12-xs">
 <div class="row">
+  <div class="blackLayerList">
+    <!-- <h3 style="color: white">Play Now</h3> -->
+  </div>
   <div class="lMediaHolder" ng-click="challenges.swap($index)">
     <div class="listText listText{{$index}}">
         <div class="texttext col-md-8 col-xs-12">
@@ -65,9 +68,6 @@
     </div>
     <div class="lImage lImage{{$index}}" ng-if="challenge.isPhoto" >
       <img class="lImageImg lImageimg{{$index}}" src="{{challenge.photo}}" alt="" />
-    </div>
-    <div class="blackLayerList">
-      <!-- <h3 style="color: white">Play Now</h3> -->
     </div>
     <div class="lVideo lVideo{{$index}}">
       <!-- <iframe class="listVid{{$index}}" width="100%" height="{{challenges.listHeight}}" src="{{}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
