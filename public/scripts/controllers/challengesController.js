@@ -9,14 +9,12 @@ angular.module('challengesController', [])
         .then(function(data){
 
           var allChallenges = data.data;
-          console.log(allChallenges);
           self.specialChallenge = allChallenges[3]
 
           /////clean up  repeat  data
           // var dataArray = []
           for (var i = 0; i < allChallenges.length; i++) {
             allChallenges[i].isPhoto = true;
-            console.log(allChallenges[i].videoUrl);
             // url = "https://www.youtube.com/embed/ccYg5HN0mDU";
             // self.video = url.split('').slice(8, url.length-1).join('');
 
@@ -130,28 +128,21 @@ angular.module('challengesController', [])
           self.singleChallenge = data.data;
         })
     }
-    console.log('testing testing');
     //////this will all be in a factory later
     $http.get('/api/responses')
       .then(function(data){
         var challengeResponses = data.data.reverse();//reversed so newest first
         function addThumbToResponse(){
           for (var i = 0; i < challengeResponses.length; i++) {
-            console.log(challengeResponses[i]);
             var videoLink = challengeResponses[i].videoUrl;
-            console.log(videoLink);
             var tubeKey = videoLink.split('/')[4];
-            console.log(tubeKey);
             var thumbUrl = "img.youtube.com/vi/"+tubeKey+"/0.jpg";
-            console.log(thumbUrl);
             challengeResponses[i].tubeKey = tubeKey;
             challengeResponses[i].thumb = thumbUrl;
           }
           self.allResponses = challengeResponses;
-          console.log(self.allResponses);
         }
         addThumbToResponse();
-        console.log(self.allResponses);
 
         var arrayLength = challengeResponses.length;
         ///start creating rows
