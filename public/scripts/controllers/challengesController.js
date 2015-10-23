@@ -98,6 +98,7 @@ angular.module('challengesController', [])
       function makeFit(){
         var windowSize = $(window).width();
         if(windowSize < 1024){
+          fixSpacing();
           $('.listSectionRemove').html("");
         } else {
           $('.listSectionRemove').html(
@@ -105,18 +106,15 @@ angular.module('challengesController', [])
           );
         }
       }
-      makeFit()
+      makeFit();
 
       $(window).resize(function(){
         makeFit()
-        fixSpacing()
       })
       // $('.listSectionRemove').on
 
       //////function to make first list item not jet up info to top box, this will go in the box resizing
       function fixSpacing(){
-        var elem = $('.listText0');
-        console.log(elem.height());
         $('.listText0').css({
           bottom: 0
         })
