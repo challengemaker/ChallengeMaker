@@ -91,7 +91,7 @@ function appRoutes($routeProvider){
     })
 
     .when('/terms', {
-      templateUrl: 'templates/_terms_of_service.html'
+      templateUrl: 'templates/_terms.html'
     })
 
     .when('/charities/:name', {
@@ -108,6 +108,10 @@ function appRoutes($routeProvider){
 
     .when('/contact', {
       templateUrl: 'templates/_contact.html'
+    })
+
+    .when('/privacy', {
+      templateUrl: 'templates/_privacy.html'
     })
 
     .when('/settleup', {
