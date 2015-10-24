@@ -1,6 +1,7 @@
-angular.module('challengesController', [])
+var app = angular.module('challengesController', [])
 
   .controller('challengesCtrl', challengesCtrl)
+
 
   challengesCtrl.$inject = ['$http', '$sce'];
   function challengesCtrl($http, $sce){

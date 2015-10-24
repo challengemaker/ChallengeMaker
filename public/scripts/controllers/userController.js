@@ -28,10 +28,11 @@ angular.module('userController', [])
       $(".submitNew").on('click', submitNew);
       function submitNew(){
         console.log('hi');
+        var name = $('.signupName').val();
         var email = $('.signupEmail').val();
         var password = $('.signupPw').val();
         $http({
-          data: {email: email, password: password},
+          data: {name: name, email: email, password: password},
           method: 'POST',
           url: '/signup'
         })

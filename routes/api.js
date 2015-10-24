@@ -81,8 +81,16 @@ module.exports = function(app, passport){
   })
 
   app.post('/api/users', function(req, res){
+    // if(req.body.emailTest){
+    //   User.update("")
+    // }
     User.create(req.body);
-
+    res.json({"posted": req.body})
+  })
+  //
+  app.patch('/api/users', function(req, res){
+    User.update({email: req.body.email}, {email:'smarty@smarty', name: 'jack the mack'})
+    res.json({"posted": "I hope"})
   })
 
   app.get('/api/responses', function(req, res){
