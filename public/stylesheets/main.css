@@ -354,9 +354,11 @@ body {
 }
 
 .dropdownIcon {
-  margin-top: 2px;
+  margin-top: 10%;
   width: 65px;
   height: 65px;
+  margin-right: 98px;
+  display: inline-block;
   /*position: relative;*/
   /*float: right;*/
   /*display: inline-block;*/
@@ -365,6 +367,7 @@ body {
 .dropdownIcon img {
   width: 100%;
   height: 100%;
+  float: right;
   /*position: absolute;*/
 }
 
@@ -645,6 +648,7 @@ body {
 
 .navContainer {
   background-color: white;
+  display: inline-block;
 }
 
 #nav-search {
