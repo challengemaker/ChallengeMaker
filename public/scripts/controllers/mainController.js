@@ -35,6 +35,7 @@ angular.module('mainController', [])
 
     $(".logo").on('click', function(){
       window.location.hash = "#/"
+      location.reload()
     });
 
     $('.signIn').on("mouseenter", function(){
