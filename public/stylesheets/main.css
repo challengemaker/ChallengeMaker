@@ -340,8 +340,9 @@ body {
 
 .dropdownContainer {
   width: 163px;
+  margin-left: -98px;
   height: 100%;
-  margin-top: 65px;
+  margin-top: 69px;
   position: fixed;
   z-index: 200;
   background-color: #585858;
@@ -353,7 +354,7 @@ body {
   margin-top: 10%;
   width: 65px;
   height: 65px;
-  margin-right: 98px;
+  /*margin-right: 98px;*/
   display: inline-block;
   /*position: relative;*/
   /*float: right;*/
