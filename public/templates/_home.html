@@ -17,15 +17,6 @@
         </div>
       </div>
       <div class="texttext col-xs-4">
-
-        <!-- <div class="specialMoneyBox">
-          <p>
-            <span class="specialRaised">${{challenges.specialChallenge.totalRaised}} </span>raised
-          </p>
-          <p>
-            <span class="specialGoal">${{challenges.specialChallenge.goal}}</span> goal
-          </p>
-        </div> -->
       </div>
     </div>
     <div class="hImage">
@@ -39,40 +30,27 @@
 
 <!-- Repeat images from here down -->
 <div ng-repeat="challenge in challenges.allChallenges" class="listContainer col-sm-6 col-12-xs">
-<div class="row">
-  <div class="blackLayerList">
-    <span class="glyphicon glyphicon-play-circle playButtonL"></span>
-  </div>
-  <div class="lMediaHolder" ng-click="challenges.swap($index)">
-    <div class="listText listText{{$index}}">
-        <div class="texttext col-md-10 col-xs-12">
-          <div class="listTextHolder">
-            <h2>{{challenge.charity[0]}}</h2>
-            <h3 class="listTitle">{{challenge.title}}</h3>
-            <p class="listSectionRemove">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
-            <button type="button" class="acceptButton" ng-click="challenges.goTo($index)" id="{{$index}}btn">Learn More</button>
-            <!-- <div class="detailsButton" id="{{}}" ng-mouseEnter="" ng-mouseLeave="">details</div> -->
+  <div style="margin: 0px" class="row">
+    <div style="margin: 0px" class="blackLayerList">
+      <span class="glyphicon glyphicon-play-circle playButtonL"></span>
+    </div>
+    <div class="lMediaHolder" ng-click="challenges.swap($index)">
+      <div class="listText listText{{$index}}">
+          <div class="texttext col-md-10 col-xs-12">
+            <div class="listTextHolder">
+              <h2>{{challenge.charity[0]}}</h2>
+              <h3 class="listTitle">{{challenge.title}}</h3>
+              <p class="listSectionRemove">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
+              <button type="button" class="acceptButton" ng-click="challenges.goTo($index)" id="{{$index}}btn">Learn More</button>
+              <!-- <div class="detailsButton" id="{{}}" ng-mouseEnter="" ng-mouseLeave="">details</div> -->
+            </div>
           </div>
-        </div>
-      <!-- <div class="texttext col-xs-4">
-
-         <div class="listMoneyBox">
-          <p>
-            <span class="listRaised">${{}} </span>raised
-          </p>
-          <p>
-            <span class="listGoal">${{}}</span> goal
-          </p>
-        </div>
-      </div> -->
-    </div>
-    <div class="lImage lImage{{$index}}" ng-if="challenge.isPhoto" >
-      <img class="lImageImg lImageimg{{$index}}" src="{{challenge.photo}}" alt="" />
-    </div>
-    <div class="lVideo lVideo{{$index}}">
-      <!-- <iframe class="listVid{{$index}}" width="100%" height="{{challenges.listHeight}}" src="{{}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
-      </iframe> -->
+      </div>
+      <div class="lImage lImage{{$index}}" ng-if="challenge.isPhoto" >
+        <img class="lImageImg lImageimg{{$index}}" src="{{challenge.photo}}" alt="" />
+      </div>
+      <div class="lVideo lVideo{{$index}}">
+      </div>
     </div>
   </div>
-</div>
 </div>

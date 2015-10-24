@@ -59,7 +59,7 @@ body {
 }
 
 .blackLayerList {
-  width: 100%;
+  width: 99%;
   height: 98.5%;
   margin-top: 1%;
   background-color: black;
@@ -821,9 +821,6 @@ body {
   font-size: 30px;
 }
 
-.specialMoneyBox {
-  margin-top: 75%;
-}
 
 .specialMoneyBox p{
   font-size: 25px;
