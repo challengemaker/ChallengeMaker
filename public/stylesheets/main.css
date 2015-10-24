@@ -182,7 +182,7 @@ body {
 }
 
 .contact-send {
-  
+
 }
 
 .currentChallengeContainer {
@@ -344,8 +344,9 @@ body {
 
 .dropdownContainer {
   width: 163px;
+  margin-left: -98px;
   height: 100%;
-  margin-top: 65px;
+  margin-top: 69px;
   position: fixed;
   z-index: 200;
   background-color: #585858;
@@ -354,9 +355,11 @@ body {
 }
 
 .dropdownIcon {
-  margin-top: 2px;
+  margin-top: 10%;
   width: 65px;
   height: 65px;
+  /*margin-right: 98px;*/
+  display: inline-block;
   /*position: relative;*/
   /*float: right;*/
   /*display: inline-block;*/
@@ -365,6 +368,7 @@ body {
 .dropdownIcon img {
   width: 100%;
   height: 100%;
+  float: right;
   /*position: absolute;*/
 }
 
@@ -645,6 +649,7 @@ body {
 
 .navContainer {
   background-color: white;
+  display: inline-block;
 }
 
 #nav-search {
@@ -729,7 +734,7 @@ body {
   text-align: center;
   width: 100%;
   color: gray;
-  font-size: 25px;
+  font-size: 18px;
 }
 
 .signIn {
