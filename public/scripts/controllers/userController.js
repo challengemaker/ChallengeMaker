@@ -36,16 +36,16 @@ angular.module('userController', [])
           method: 'POST',
           url: '/signup'
         })
-        .then(function(data){
+        .then(function(moreData){
           console.log(data);
           $http({
-            data: {email: email, password: password},
+            moreData: {email: email, password: password},
             method: 'POST',
             url: '/login'
           }).
-          then(function(data){
-            window.localStorage.sessionToken = data.data.token;
-            window.localStorage.sessionUser = data.data.user.email;
+          then(function(evenMoreData){
+            window.localStorage.sessionToken = evenMoreData.data.token;
+            window.localStorage.sessionUser = evenMoreData.data.user.email;
             self.userSesh = window.localStorage.sessionUser;
             console.log('user email is:',self.userSesh);
             window.location.reload();

@@ -81,7 +81,7 @@ app.post('/signup', function( req, res ) {
 			newUser.save( function( err, user ) {
 				console.log("inside user save")
 				console.log( newUser)
-				if ( err ) { throw err }
+				if ( err ) { console.log(err) }
 				console.log("User saved")
 				console.log( newUser )
 				//AUTHENTICATE USER HERE
