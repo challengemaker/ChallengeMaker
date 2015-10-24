@@ -593,9 +593,10 @@ body {
 }
 
 .logo img{
-  margin-top: -10px;
-  height:61px;
-  width:284px;
+  margin-top: -5px;
+  margin-left: -10px;
+  height:58px;
+  width:270px;
 }
 
 .logout {
