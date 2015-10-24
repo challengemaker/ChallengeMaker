@@ -72,7 +72,7 @@
     <!-- Ben's Bootstrap navbar begins-->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
-        <div class="navbar-header navContainer">
+        <div style="{width:100%}" class=" navContainer">
           <!-- <a id="nav-logo" class="navbar-brand" href="#">challengemaker</a> -->
           <div class="navbar-brand">
             <a href="/" class="logo"><img src="/assets/challengemaker_logo.png" alt=""></a>
@@ -92,12 +92,11 @@
             </div>
           </div> -->
 
-          <div class="nav navbar-right pull-right">
-            <div class="dropdownIcon pull-right">
-              <img class="dropdownIconImage" ng-click="main.dropDown()" src="assets/dropdown.png"/>
-            </div>
+        </div>
+        <div class="nav navbar-right pull-right">
+          <div class="dropdownIcon">
+            <img class="dropdownIconImage" ng-click="main.dropDown()" src="assets/dropdown.png"/>
           </div>
-
         </div>
       </div>
 
