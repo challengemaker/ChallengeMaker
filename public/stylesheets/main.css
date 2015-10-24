@@ -664,6 +664,14 @@ body {
   text-align: center;
 }
 
+.playButtonL {
+  width: 100%;
+  font-size: 90px;
+  color: white;
+  margin-top: 20%;
+  text-align: center;
+}
+
 .q1 {
   height: 100%;
   width: 100%;
