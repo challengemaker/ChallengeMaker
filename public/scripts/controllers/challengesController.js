@@ -5,6 +5,17 @@ var app = angular.module('challengesController', [])
 
   challengesCtrl.$inject = ['$http', '$sce'];
   function challengesCtrl($http, $sce){
+
+    ///some quick blacklayer stuff
+    function adjustHighlightBlack(){
+      var imgHeight = $(".hImage").height();
+      // console.log(imgHeight);
+      $('.blackLayer').css({
+        height: imgHeight
+      })
+    }
+    setInterval(adjustHighlightBlack, 30);
+
     var self = this;
 		$http.get('/api/challenges')
         .then(function(data){
@@ -28,6 +39,7 @@ var app = angular.module('challengesController', [])
             var parsedElem = elem.title.split(' ').join('-');
             window.location.hash = "#/challenges/"+parsedElem
           }
+
       })
 
       self.swap = function swap(index){
