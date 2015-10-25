@@ -8,13 +8,26 @@ var app = angular.module('challengesController', [])
 
     ///some quick blacklayer stuff
     function adjustHighlightBlack(){
-      var imgHeight = $(".hImage").height();
+      var imgHeight = $(".currImage").height();
+      var width = $('.currImage')
       // console.log(imgHeight);
       $('.blackLayer').css({
         height: imgHeight
+        ,width: width
       })
     }
     setInterval(adjustHighlightBlack, 30);
+
+    function adjustSingleBlack(){
+      var imgHeight = $(".currImg").height();
+      console.log(imgHeight);
+      console.log($('.blackLayerSingleHighlight').height());
+      $('.blackLayerSingleHighlight').css({
+        height: imgHeight
+      })
+      console.log($('.blackLayerSingleHighlight').height());
+    }
+    setInterval(adjustSingleBlack, 30);
 
     var self = this;
 		$http.get('/api/challenges')

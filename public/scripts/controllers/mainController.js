@@ -67,7 +67,6 @@ angular.module('mainController', [])
           else{
             window.location.hash = "#/signin"
           }
-
         });
 
         $('#dropHome').on('mouseenter', function(){
