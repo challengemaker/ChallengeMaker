@@ -492,6 +492,11 @@ body {
   position: relative;
 }
 
+.homeRepeat {
+  display: block;
+  /*position: relative;*/
+}
+
 .hVideo {
   width: 100%;
   background-color: blue;
@@ -538,32 +543,21 @@ body {
 
 }
 
-.lImage img {
+.lImageImg {
   width: 100%;
+  /*height: 100%;*/
+  position: relative;
 }
 
-.lVideo {
+.lImageCont {
   width: 100%;
-  background-color: blue;
-}
-
-.lMediaHolder {
-  margin-top: 5px;
-  width: 100%;
-  min-height: 100%;
-}
-
-.lText {
-  width: 90%;
-  height: 90%;
-  position: absolute;
-  z-index: 10;
+  /*outline: 2px solid yellow;*/
 }
 
 .listContainer {
-  display: block;
-  padding-left: 3px;
-  padding-right: 3px;
+  /*outline: 2px solid black;*/
+  position: relative;
+  padding: 0px;
 }
 
 .listText {
@@ -574,7 +568,7 @@ body {
 }
 
 .listTextHolder {
-  width: 60%;
+  width: 80%;
   margin-left: 10%;
   text-align: left;
 }
@@ -586,6 +580,12 @@ body {
 
 .listTitle {
   margin-top: -8px;
+}
+
+.lMediaHolder {
+  margin-top: 5px;
+  width: 100%;
+  min-height: 100%;
 }
 
 .logoContainer {
@@ -601,6 +601,18 @@ body {
 
 .logout {
   display: inline-block;
+}
+
+.lText {
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  z-index: 10;
+}
+
+.lVideo {
+  width: 100%;
+  background-color: blue;
 }
 
 .miniChallInfo {
