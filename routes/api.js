@@ -101,7 +101,7 @@ module.exports = function(app, passport){
   //
   app.post('/api/users/update', function(req, res){
     // var updateAttr = req.updateAttr;
-    User.findOne({"name": "charger"}, function(err, user){
+    User.findOne(req.body.search, function(err, user){
       if(err){console.log(err)};
       if(req.body.email){
         user.email = req.body.email;
@@ -109,7 +109,9 @@ module.exports = function(app, passport){
       if(req.body.name){
         user.name = req.body.name;
       }
-      user.save();
+      user.save(function(data){
+        res.json(data);
+      });
     })
   })
 

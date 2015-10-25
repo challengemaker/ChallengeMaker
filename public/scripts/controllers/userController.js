@@ -25,6 +25,9 @@ angular.module('userController', [])
     //////begin profile section
     ///////////////////////////
     ///////////////////////////
+    var thisUser = window.location.hash.split("/")[2];
+    console.log(thisUser);
+    self.thisUser = thisUser
 
     ////create editor popup thingy
     self.profileCounter = true;
@@ -40,6 +43,7 @@ angular.module('userController', [])
 
     /////set the value
     function saveEdits(){
+      var oldName = self.thisUser;
       var newName = $('#usernameEdit').val();
       console.log(newName);
       $('#nameEditor').html("");
@@ -48,6 +52,18 @@ angular.module('userController', [])
       );
       $('#username').on('click', editProfile)
       self.profileCounter = !self.profileCounter;
+      ///set up and send the http request to the db
+      var request = {search: {name: oldName}, name: newName}
+      $http({
+        method: "POST"
+        ,url: "/api/users/update"
+        ,data: request
+      })
+      .then(function(){
+        console.log(newName);
+        var newUrlName = newName.split(' ').join("-");
+        window.location.hash = "#/users/"+newUrlName
+      })
     }
 
     // if(self.profileCounter == true){
@@ -158,6 +174,7 @@ angular.module('userController', [])
             window.localStorage.sessionUser = data.data.user.email;
             self.userSesh = email;
             console.log('user email is:',self.userSesh);
+            window.location.hash = "#/"
             window.location.reload();
           } else {
             window.location.hash = "#/signup"

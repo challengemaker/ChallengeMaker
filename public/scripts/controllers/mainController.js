@@ -66,6 +66,7 @@ angular.module('mainController', [])
             "<div class='dropItem' id='dropContact'>Contact</div>"+
             "<div class='dropItem' id='dropPrivacy'>Privacy</div>"+
             "<div class='dropItem' id='dropTerms'>Terms</div>"+
+            "<div class='dropItem' id='dropProfile'>Profile</div>"+
             "<div class='dropItem' id='dropSignup'>Signup</div>"+
             "<div class='dropItem' id='dropLogout'>Logout</div>"+
             "<div class='dropItem' id='dropFacebook'>Facebook</div>"+
@@ -121,21 +122,25 @@ angular.module('mainController', [])
           });
         });
 
-        $('#dropHome').on('click', function(){
-          window.location.hash = "#/"
-        });
-
-        $('#dropHome').on('mouseenter', function(){
-          $('#dropHome').css({
+        $('#dropProfile').on('mouseenter', function(){
+          $('#dropProfile').css({
             backgroundColor: "#5A668D"
           });
         });
 
-        $('#dropHome').on('mouseleave', function(){
-          $('#dropHome').css({
+        $('#dropProfile').on('mouseleave', function(){
+          $('#dropProfile').css({
             backgroundColor: "transparent"
           });
         });
+
+        $('#dropProfile').on('click', function(){
+          var currUser = window.localStorage.sessionUser;
+          if(currUser && currUser != "none"){
+             window.location.hash = "#/users/"+currUser;
+          }
+
+        })
 
         $('#dropFacebook').on('mouseenter', function(){
           $('#dropFacebook').css({

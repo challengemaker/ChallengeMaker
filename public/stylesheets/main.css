@@ -938,12 +938,14 @@ body {
   font-size: 33px;
   width: 90%;
   text-align: center;
+  z-index: 2;
 }
 
 #usernameEdit {
   font-size: 33px;
   width: 90%;
   text-align: center;
+  z-index: 2;
 }
 
 #usertotraised {
