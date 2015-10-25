@@ -26,24 +26,38 @@ angular.module('userController', [])
     ///////////////////////////
     ///////////////////////////
 
+    ////create editor popup thingy
     self.profileCounter = true;
     function editProfile(){
-      console.log('sup');
+      var currentName = $('#username').text();
+      $('#nameEditor').html("");
+      $('#nameEditor').html(
+        "<input id='usernameEdit' type='text' value='"+currentName+"'>"
+      );
+      self.profileCounter = !self.profileCounter;
+      console.log(self.profileCounter);
+    }
 
-      if(self.profileCounter == true){
-        var currentName = $('#username').text();
-        console.log(currentName);
-        $('#nameEditor').html("");
-        $('#nameEditor').html(
-          "<input id='usernameEdit' type='text' value='"+currentName+"'>"
-        );
-      }
-
-
+    /////set the value
+    function saveEdits(){
+      var newName = $('#usernameEdit').val();
+      console.log(newName);
+      $('#nameEditor').html("");
+      $('#nameEditor').html(
+        "<td id='username'>"+newName+"</td>"
+      );
+      $('#username').on('click', editProfile)
       self.profileCounter = !self.profileCounter;
     }
 
+    // if(self.profileCounter == true){
     $('#username').on('click', editProfile)
+    // }
+    // else if(self.profileCounter == false){
+    $('#profileImage').on('click', saveEdits)
+    // }
+
+
 
     /////////end profile section ///////////
     ////////////////////////////////////////
