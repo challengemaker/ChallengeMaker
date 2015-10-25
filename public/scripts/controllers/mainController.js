@@ -47,7 +47,7 @@ angular.module('mainController', [])
             "<div class='dropItem' id='dropContact'>Contact</div>"+
             "<div class='dropItem' id='dropPrivacy'>Privacy</div>"+
             "<div class='dropItem' id='dropTerms'>Terms</div>"+
-            "<div class='dropItem' id='dropProfile'>Profile</div>"+
+            // "<div class='dropItem' id='dropProfile'>Profile</div>"+
             "<div class='dropItem' id='dropSignin'>Signin</div>"+
             "<div class='dropItem' id='dropLogout'>Logout</div>"+
             "<div class='dropItem' id='dropFacebook'>Facebook</div>"+
