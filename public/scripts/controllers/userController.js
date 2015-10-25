@@ -67,11 +67,12 @@ angular.module('userController', [])
               })
               .then(function(data){
                 console.log(data);
-                // window.localStorage.sessionToken = data.data.token;
-                // window.localStorage.sessionUser = data.data.user.email;
-                // self.userSesh = window.localStorage.sessionUser;
-                // console.log('user email is:',self.userSesh);
-                // window.location.reload();
+                window.localStorage.sessionToken = data.data.token;
+                window.localStorage.sessionUser = data.data.user.email;
+                self.userSesh = window.localStorage.sessionUser;
+                console.log('user email is:',self.userSesh);
+                window.location.hash = "#/"
+                window.location.reload();
               })
               // window.location.hash = "/profile";
             })
