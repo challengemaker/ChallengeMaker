@@ -97,11 +97,21 @@ module.exports = function(app, passport){
       res.json(user)
     });
   })
+
   //
-  // app.patch('/api/users', function(req, res){
-  //   User.update({email: req.body.email}, {email:'smarty@smarty', name: 'jack the mack'})
-  //   res.json({"posted": "I hope"})
-  // })
+  app.post('/api/users/update', function(req, res){
+    // var updateAttr = req.updateAttr;
+    User.findOne({"name": "charger"}, function(err, user){
+      if(err){console.log(err)};
+      if(req.body.email){
+        user.email = req.body.email;
+      }
+      if(req.body.name){
+        user.name = req.body.name;
+      }
+      user.save();
+    })
+  })
 
   app.get('/api/responses', function(req, res){
     Response.find({}, function(err, responses){

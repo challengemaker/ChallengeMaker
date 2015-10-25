@@ -22,6 +22,33 @@ angular.module('userController', [])
       window.location.hash = "#/signin"
     })
 
+    //////begin profile section
+    ///////////////////////////
+    ///////////////////////////
+
+    self.profileCounter = true;
+    function editProfile(){
+      console.log('sup');
+
+      if(self.profileCounter == true){
+        var currentName = $('#username').text();
+        console.log(currentName);
+        $('#nameEditor').html("");
+        $('#nameEditor').html(
+          "<input id='usernameEdit' type='text' value='"+currentName+"'>"
+        );
+      }
+
+
+      self.profileCounter = !self.profileCounter;
+    }
+
+    $('#username').on('click', editProfile)
+
+    /////////end profile section ///////////
+    ////////////////////////////////////////
+    ////////////////////////////////////////
+
     ///using if statement to determine if we're looking at an "all users" list or single user's profile page
     if(window.location.hash == "#/signup"){
       console.log('yo');
