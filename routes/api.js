@@ -80,18 +80,28 @@ module.exports = function(app, passport){
     res.json({'posted': req.body});
   })
 
+
+  app.get('/api/users', function(req, res){
+    User.find({}, function(err, users){
+      if(err){console.log(err)};
+      res.json(users);
+    });
+  })
+
   app.post('/api/users', function(req, res){
-    // if(req.body.emailTest){
-    //   User.update("")
-    // }
-    User.create(req.body);
-    res.json({"posted": req.body})
+    console.log(req.body);
+    var password = req.body.password;
+    console.log(password);
+    User.create(req.body, function(err, user){
+      console.log(err);
+      res.json(user)
+    });
   })
   //
-  app.patch('/api/users', function(req, res){
-    User.update({email: req.body.email}, {email:'smarty@smarty', name: 'jack the mack'})
-    res.json({"posted": "I hope"})
-  })
+  // app.patch('/api/users', function(req, res){
+  //   User.update({email: req.body.email}, {email:'smarty@smarty', name: 'jack the mack'})
+  //   res.json({"posted": "I hope"})
+  // })
 
   app.get('/api/responses', function(req, res){
     Response.find({}, function(err, responses){
@@ -132,11 +142,23 @@ module.exports = function(app, passport){
 
 
   //////begin login and authentication and all that shit
-  app.post('/signin', passport.authenticate('local-signup', {
-    successRedirect: '/profile',
-    failureRedirect: '/signin',
-    failureFlash: true
-  }));
+  app.post('/signup', passport.authenticate('local-signup',
+  //  {
+  //   successRedirect: '/profile',
+  //   failureRedirect: '/signin',
+  //   failureFlash: true
+  // }
+  function(data){
+    console.log(data);
+    res.json(data);
+  }
+));
+
+  app.post("/login", function(req, res){
+    console.log(req);
+    // User.find({email: req.body.data.email})
+    res.json({message: "success", token: "user", sessionUser: "Dildo"})
+  })
 
   app.get('/logout', function(req, res){
     req.logout();
