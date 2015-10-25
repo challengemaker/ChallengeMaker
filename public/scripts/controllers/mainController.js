@@ -28,28 +28,9 @@ angular.module('mainController', [])
       window.location.reload()
     });
 
-    ///make the signin button clickable
-    $(".signIn").on("click", function(){
-      window.location.hash = "#/signin"
-    });
-
     $(".logo").on('click', function(){
       window.location.hash = "#/"
       location.reload()
-    });
-
-    $('.signIn').on("mouseenter", function(){
-      console.log('moused');
-      $(".signIn").css({
-        backgroundColor: "#85ADAD"
-      });
-    });
-
-    $('.signIn').on("mouseleave", function(){
-      console.log('moused');
-      $(".signIn").css({
-        backgroundColor: "transparent"
-      });
     });
 
     /////dropdown menu stuff///////
@@ -67,7 +48,7 @@ angular.module('mainController', [])
             "<div class='dropItem' id='dropPrivacy'>Privacy</div>"+
             "<div class='dropItem' id='dropTerms'>Terms</div>"+
             "<div class='dropItem' id='dropProfile'>Profile</div>"+
-            "<div class='dropItem' id='dropSignup'>Signup</div>"+
+            "<div class='dropItem' id='dropSignin'>Signin</div>"+
             "<div class='dropItem' id='dropLogout'>Logout</div>"+
             "<div class='dropItem' id='dropFacebook'>Facebook</div>"+
             "<div class='dropItem' id='dropTwitter'>Twitter</div>"+
@@ -78,8 +59,15 @@ angular.module('mainController', [])
           window.location.hash = "#/"
         });
 
-        $('#dropSignup').on('click', function(){
-          window.location.hash = "#/signup"
+        $('#dropSignin').on('click', function(){
+          var tokenCheck = window.localStorage.sessionToken;
+          if(tokenCheck && tokenCheck != "none"){
+            window.location.hash = "#/"
+          }
+          else{
+            window.location.hash = "#/signin"
+          }
+
         });
 
         $('#dropHome').on('mouseenter', function(){
@@ -94,14 +82,14 @@ angular.module('mainController', [])
           });
         });
 
-        $('#dropSignup').on('mouseenter', function(){
-          $('#dropSignup').css({
+        $('#dropSignin').on('mouseenter', function(){
+          $('#dropSignin').css({
             backgroundColor: "#5A668D"
           });
         });
 
-        $('#dropSignup').on('mouseleave', function(){
-          $('#dropSignup').css({
+        $('#dropSignin').on('mouseleave', function(){
+          $('#dropSignin').css({
             backgroundColor: "transparent"
           });
         });
