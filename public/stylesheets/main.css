@@ -788,6 +788,11 @@ body {
   padding-bottom: 20px;
 }
 
+.signupBoxHead {
+  text-align: center;
+  padding-top: 20px;
+}
+
 .signupBoxInput {
   display: block;
   height: 35px;
