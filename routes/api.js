@@ -142,17 +142,11 @@ module.exports = function(app, passport){
 
 
   //////begin login and authentication and all that shit
-  app.post('/signup', passport.authenticate('local-signup',
-  //  {
-  //   successRedirect: '/profile',
-  //   failureRedirect: '/signin',
-  //   failureFlash: true
-  // }
-  function(data){
+  app.post('/signup', passport.authenticate('local-signup', function(data){
     console.log(data);
     res.json(data);
-  }
-));
+    })
+  );
 
   app.post("/login", function(req, res){
     console.log(req);
