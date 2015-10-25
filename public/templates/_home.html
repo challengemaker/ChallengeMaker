@@ -1,5 +1,4 @@
 
-
 <div class="hContainer" >
   <div class="blackLayer" ng-click="challenges.swapSpecial()">
     <span class="glyphicon glyphicon-play-circle playButtonH"></span>
@@ -11,7 +10,7 @@
           <h1 class="titleCont">{{challenges.specialChallenge.charity[0]}}</h1>
           <h1 class="titleCont">{{challenges.specialChallenge.title}}</h1>
           <p class="hRemoveDescription">$0 if completed or donate ${{challenges.specialChallenge.minimumDonation}} to {{challenges.specialChallenge.charity[0]}}</p>
-          <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}">Learn More</button>
+          <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}">Accept Challenge</button>
           <!-- <div class="detailsButton" id="{{challenges.specialChallenge._id}}" ng-mouseEnter="challenges.showDetails(challenges.specialChallenge._id)" ng-mouseLeave="challenges.removeDetails(challenges.specialChallenge._id)
           ">details</div> -->
         </div>
@@ -42,7 +41,7 @@
                 <h2>{{challenge.charity[0]}}</h2>
                 <h3 class="listTitle">{{challenge.title}}</h3>
                 <p class="listSectionRemove">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
-                <button type="button" class="acceptButton" ng-click="challenges.goTo($index)" id="{{$index}}btn">Learn More</button>
+                <button type="button" class="acceptButton" ng-click="challenges.goTo($index)" id="{{$index}}btn">Accept Challenge</button>
                <!-- <div class="detailsButton" id="{{}}" ng-mouseEnter="" ng-mouseLeave="">details</div> -->
               </div>
             </div>
