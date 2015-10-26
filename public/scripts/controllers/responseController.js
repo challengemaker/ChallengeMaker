@@ -28,13 +28,16 @@ angular.module('responseController', [])
         //////this callback has all the users (signed in user's) information
         responsePackage.userId = data.data.user._id;
         // console.log(responsePackage);
-        ////$http call to post the challenge to friends
+        ////$http call to post the friendschallenge to friends
         $http({
           method: "POST"
           ,url: "/api/challengeFriends"
           ,data: {
             senderId: responsePackage.userId,
-            sendeeEmail: responsePackage.emails, friendVideoUrl: responsePackage.video
+            senderName: responsePackage.responseCreator,
+            sendeeEmail: responsePackage.emails,
+            friendVideoUrl: responsePackage.video,
+            challenge: responsePackage.challenge
           }
         })
         .then(function(data){
@@ -123,7 +126,18 @@ angular.module('responseController', [])
     }, 50)
     ////create submit-new-response section
     //////////////////////////////////////
-    $('.submitDon').on('click', submitChallenge())
+
+    $('.submitDon').on('click', function(){
+      var checkUrl = $('.responseTitle').val();
+      console.log(checkUrl);
+      if(checkUrl == "dynamo"){
+        console.log('its working');
+        submitChallenge()
+      }
+      else {
+        console.log('not a proper url');
+      }
+    });
 
     $('.goToDonation').on("click", function(){
       if (window.localStorage.sessionUser && window.localStorage.sessionUser != "none") {
@@ -241,14 +255,40 @@ angular.module('responseController', [])
           carouselCounter++;
           if (carouselCounter == 1) {
             $('.forwardButton').text("SUBMIT!");
+            $('.forwardButton').addClass("submitDon");
+            $('.submitDon').on('click', function(){
+
+              ////begin checking to make sure that the response is actually a youtube link
+              var check = /[\b(youtu(be))\b]/;
+              var checkUrl = $('.responseTitle').val();
+              
+              if(check.test(checkUrl)){
+                console.log('test worked');
+                submitChallenge()
+              } else {
+                console.log('try agin');
+              }
+            })
+            /////end checking youtube url and running https
+            /////////////////////////////
 
             tunnelMargin = tunnelMargin-550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           } else if (carouselCounter == 2) {
-            $('.forwardButton').addClass("submitDon");
-            $('.submitDon').on('click', submitChallenge())
+            // $('.forwardButton').addClass("submitDon");
+            // $('.submitDon').on('click', function(){
+            //   var checkUrl = $('.responseTitle').val();
+            //   console.log(checkUrl);
+            //   if(checkUrl == "dynamo"){
+            //     console.log('its working');
+            //     submitChallenge()
+            //   }
+            //   else {
+            //     console.log('not a proper url');
+            //   }
+            // });
             tunnelMargin = tunnelMargin-550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"

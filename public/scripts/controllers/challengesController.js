@@ -5,7 +5,6 @@ var app = angular.module('challengesController', [])
 
   challengesCtrl.$inject = ['$http', '$sce'];
   function challengesCtrl($http, $sce){
-
     ///some quick blacklayer stuff
     function adjustHighlightBlack(){
       var imgHeight = $(".hImage").height();
@@ -15,6 +14,7 @@ var app = angular.module('challengesController', [])
       })
     }
     setInterval(adjustHighlightBlack, 30);
+
 
     if(window.location.hash.split('/')[1] == "challenges"){
       function adjustSingleBlack(){
