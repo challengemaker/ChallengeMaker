@@ -119,7 +119,25 @@ var app = angular.module('challengesController', [])
           )
           $('.hImage').css('height', "0px")
           $('.hImageImg').css('height', "0px")
+          $('.titleCont').css({
+            opacity: 0
+          })
+          $('.hRemoveDescription').css({
+            opacity: 0
+          })
+          $('.blackLayer').css({
+            width: "0px"
+          })
         } else {
+          $('.titleCont').css({
+            opacity: 1
+          })
+          $('.hRemoveDescription').css({
+            opacity: 1
+          })
+          $('.blackLayer').css({
+            width: "100%"
+          })
           $('.specialVid').remove();
           $('.hImage').css('height', videoHeight)
           $('.hImageImg').css('height', videoHeight)
