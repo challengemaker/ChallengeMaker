@@ -54,25 +54,21 @@ angular.module('responseController', [])
           })
           .then(function(data){
             console.log(data);
+            var url = window.location.hash.split('/');
+            $http.get('api/challenges/'+url[2])
+              .then(function(data){
+                // console.log(data);
+                self.charityLink = data.data.charityLink;
+                // console.log(self.charityLink);
+                $('.goToDonation').on('click', function(){
+                  window.open(self.charityLink, target="_blank");
+                  window.location.hash = "#/challenges/"+url[2];
+                })
+              })
           })
         })
       })
     }
-
-    var url = window.location.hash.split('/');
-    if( url[1] = "newresponse"){
-
-      $http.get('api/challenges/'+url[2])
-        .then(function(data){
-          // console.log(data);
-          self.charityLink = data.data.charityLink;
-          // console.log(self.charityLink);
-          $('.submitDon').on('click', function(){
-            // window.open(self.charityLink, target="_blank");
-            submitChallenge();
-          })
-        })
-      }
     self.checkYoutube = function checkYoutube(){
       //////////parse the link on each keyup to make sure it's getting a proper youtube reading
       var currUrl = $('.responseTitle').val();
@@ -129,10 +125,10 @@ angular.module('responseController', [])
     //////////////////////////////////////
     $('.submitDon').on('click', submitChallenge())
 
-    $('.submitDon').on("click", function(){
+    $('.goToDonation').on("click", function(){
       if (window.localStorage.sessionUser && window.localStorage.sessionUser != "none") {
-      // window.location.hash = "#/"
-    } else {
+        window.location.hash = "#/challenges/"+window.location.hash.split('/')[2]
+      } else {
         window.location.hash = "#/signup"
       }
     })
@@ -277,16 +273,6 @@ angular.module('responseController', [])
         self.allCharities = data.data;
       })
     }
-
-    // $('.reviewResponse').on('click', function(){
-    //   tunnelMargin = tunnelMargin - 550;
-    //   $('.rTitle').text(self.title);
-    //   $('.rVideo').text(self.video);
-    //   $('.rDescription').text(self.description);
-    //   $('.questionTunnel').animate({
-    //     marginLeft: tunnelMargin+"px"
-    //   })
-    // })
 
     $('.createResponse').on('click', function(){
       carouselCounter++;
