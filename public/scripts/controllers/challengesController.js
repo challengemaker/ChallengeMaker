@@ -55,7 +55,7 @@ var app = angular.module('challengesController', [])
       })
 
       self.swap = function swap(index){
-        var height = $(".lImageImg").height();
+        var height = ($(".lImageImg").height()-5);
         var width = $(".lImageImg").width();
         var videoHeight = $(".lVideo").height();
         var url = self.allChallenges[index].videoUrl+"?autoplay=1";
@@ -75,7 +75,7 @@ var app = angular.module('challengesController', [])
       }
 
       self.swapResponse = function swap(index){
-        var height = ($(".lImageImg").height() - 5);
+        var height = ($(".lImageImg").height()-5);
         console.log(height);
         var width = $(".lImageImg").width();
         var videoHeight = $(".lVideo").height() + 5;
@@ -96,7 +96,7 @@ var app = angular.module('challengesController', [])
       }
 
       self.swapSpecial = function swapSpecial(){
-        var height = $(".hImage").height();
+        var height = ($(".hImage").height()-5);
         var videoHeight = $(".hVideo").height();
         var url = self.specialChallenge.videoUrl+"?autoplay=1";
 
