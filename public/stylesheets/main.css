@@ -231,7 +231,8 @@ body {
 
 .currentChallengeStats {
   display: inline-block;
-  margin: 5px 5px 5px 5px;
+  margin:0;
+  padding-right: 5px;
   background-color: #f1f1f1;
   min-height: 100%;
   padding-bottom: 0px;
