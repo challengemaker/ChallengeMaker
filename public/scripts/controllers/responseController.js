@@ -57,29 +57,6 @@ angular.module('responseController', [])
           })
         })
       })
-      //   $http({
-      //     method: "POST",
-      //     url: "/api/responses",
-      //     data: delivery,
-      //   })
-      //   .then(function(data){
-      //     // if(err){console.log(err)};
-      //     var vidUrl = data.data.posted.videoUrl;
-      //     var name = window.localStorage.sessionUser;
-      //     $http.get('/api/users/'+name)
-      //       .then(function(userInfo){
-      //         var idOfUser = userInfo.data.user._id;
-      //         var challengeFriendsCapture = {senderId: idOfUser, sendeeEmail: emails(), friendVideoUrl: vidUrl}
-      //         $http.post({
-      //           method: "POST"
-      //           ,url: "/api/challengefriends"
-      //           ,data: ""
-      //         })
-      //       })
-      //   })
-      // }
-      // var emailsL = emails();////this is a list of all the emails from this response
-      ////submit the challenge capture information to the database
     }
 
     var url = window.location.hash.split('/');
@@ -268,13 +245,14 @@ angular.module('responseController', [])
           carouselCounter++;
           if (carouselCounter == 1) {
             $('.forwardButton').text("SUBMIT!");
-            $('.forwardButton').addClass("submitDon");
 
             tunnelMargin = tunnelMargin-550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           } else if (carouselCounter == 2) {
+            $('.forwardButton').addClass("submitDon");
+            $('.submitDon').on('click', submitChallenge())
             tunnelMargin = tunnelMargin-550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
