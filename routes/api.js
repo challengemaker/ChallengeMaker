@@ -15,7 +15,7 @@ var Challenge       = require('../models/challenge.js');
 var Response        = require('../models/response.js');
 var Charity         = require('../models/charity.js');
 var Message         = require('../models/messages.js');
-var ChallengeFriend = require('../models/ChallengeFriend.js');
+var ChallengeFriend = require('../models/challengeFriend.js');
 /////////end model imports ///////////////
 //////////////////////////////////////////
 
