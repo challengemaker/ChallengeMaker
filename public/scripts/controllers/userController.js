@@ -19,7 +19,7 @@ angular.module('userController', [])
     })
 
     $('.goToSignupChallenge').on("click", function(){
-      window.location.hash = "#/signup/"+window.location.hash.split("/").join(' ')[2];
+      window.location.hash = "#/signup/"+window.location.hash.split("/")[2];
     })
 
     $('.goToLogin').on("click", function(){
@@ -139,8 +139,9 @@ angular.module('userController', [])
                 self.userSesh = window.localStorage.sessionUser;
                 console.log('user email is:',self.userSesh);
                 var responseUrl = window.location.hash.split('/')[2];
+                console.log(responseUrl);
                 if(responseUrl){
-                  window.location.hash = "#/newresponse/"+url
+                  window.location.hash = "#/newresponse/"+responseUrl
                 }
                 else{
                   window.location.hash = "#/"
