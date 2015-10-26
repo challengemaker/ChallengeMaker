@@ -54,6 +54,12 @@ function appRoutes($routeProvider){
       controllerAs: 'challenges'
     })
 
+    .when("/list/friendschallenges", {
+      templateUrl: 'templates/_challenges_all_jack.html',
+      controller: 'analyticsCtrl',
+      controllerAs: 'analytics'
+    })
+
     .when('/acceptchallenge', {
       templateUrl: 'templates/_accept_challenge.html',
       controller: 'challengesCtrl',

@@ -28,13 +28,16 @@ angular.module('responseController', [])
         //////this callback has all the users (signed in user's) information
         responsePackage.userId = data.data.user._id;
         // console.log(responsePackage);
-        ////$http call to post the challenge to friends
+        ////$http call to post the friendschallenge to friends
         $http({
           method: "POST"
           ,url: "/api/challengeFriends"
           ,data: {
             senderId: responsePackage.userId,
-            sendeeEmail: responsePackage.emails, friendVideoUrl: responsePackage.video
+            senderName: responsePackage.responseCreator,
+            sendeeEmail: responsePackage.emails,
+            friendVideoUrl: responsePackage.video,
+            challenge: responsePackage.challenge
           }
         })
         .then(function(data){
