@@ -36,6 +36,12 @@ function appRoutes($routeProvider){
       controllerAs: "challenges"
     })
 
+    .when('/signin/:name', {
+      templateUrl: 'templates/_signin_challenge.html',
+      controller: 'userCtrl',
+      controllerAs: 'user'
+    })
+
     .when('/signin', {
       templateUrl: 'templates/_signin.html',
       controller: 'userCtrl',
@@ -80,6 +86,12 @@ function appRoutes($routeProvider){
 
     .when('/signup', {
       templateUrl: 'templates/_signup.html',
+      controller: 'userCtrl',
+      controllerAs: 'user'
+    })
+
+    .when('/signup/:name', {
+      templateUrl: 'templates/_signup_challenge.html',
       controller: 'userCtrl',
       controllerAs: 'user'
     })

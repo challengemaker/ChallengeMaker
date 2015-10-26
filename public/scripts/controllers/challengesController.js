@@ -19,7 +19,7 @@ var app = angular.module('challengesController', [])
     if(window.location.hash.split('/')[1] == "challenges"){
       function adjustSingleBlack(){
         var imgHeight = $(".currImg").height();
-        console.log(imgHeight);
+        // console.log(imgHeight);
         $('.blackLayerSingleHighlight').css({
           height: imgHeight
         })
@@ -243,7 +243,16 @@ var app = angular.module('challengesController', [])
           })
         })
         $('.completeChallButton').on('click', function(){
-          window.location.hash = "#/newresponse/"+self.nameParam
+          var yesToken = window.localStorage.sessionToken;
+          console.log(yesToken);
+          var url = window.location.hash.split('/')[2];
+          console.log(url);
+          if(yesToken && yesToken != "none") {
+            window.location.hash = "#/newresponse/"+url
+          }
+          else {
+            window.location.hash = "#/signin/"+url;
+          }
         })
       }
       else if(window.location.hash.length == 2) {
