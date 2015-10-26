@@ -294,10 +294,6 @@ body {
   opacity: .8;
 }
 
-.dropdownBarContainer {
-  height: 100%;
-}
-
 .detailsCont {
   position: absolute;
   width: 100%;
@@ -339,15 +335,19 @@ body {
   display: block;
 }
 
+.dropdownBarContainer {
+  height: 100%;
+}
+
 .dropdownContainer {
   width: 163px;
   margin-left: -98px;
   height: 100%;
-  margin-top: 69px;
+  margin-top: 47px;
   position: fixed;
   z-index: 200;
   background-color: #585858;
-  opacity: 0.7;
+  opacity: 0.8;
   text-align: left;
 }
 

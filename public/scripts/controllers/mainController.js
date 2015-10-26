@@ -14,13 +14,13 @@ angular.module('mainController', [])
       self.userSesh = sessionUser;
     }
     else{
-      self.userSesh = "Sign in"
+      self.userSesh = "Sign In"
     }
 
 
     $('.logout').on('click', function(){
       console.log('logging out');
-      self.userSesh = "Sign in";
+      self.userSesh = "Sign In";
       console.log(self.userSesh);
       window.localStorage.sessionToken = "none"
       window.localStorage.sessionUser = "none"
@@ -48,7 +48,7 @@ angular.module('mainController', [])
             "<div class='dropItem' id='dropPrivacy'>Privacy</div>"+
             "<div class='dropItem' id='dropTerms'>Terms</div>"+
             // "<div class='dropItem' id='dropProfile'>Profile</div>"+
-            "<div class='dropItem' id='dropSignin'>Signin</div>"+
+            "<div class='dropItem' id='dropSignin'>Sign In</div>"+
             "<div class='dropItem' id='dropLogout'>Logout</div>"+
             "<div class='dropItem' id='dropFacebook'>Facebook</div>"+
             "<div class='dropItem' id='dropTwitter'>Twitter</div>"+
