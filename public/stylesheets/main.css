@@ -781,6 +781,10 @@ body {
   max-width: 100%;
 }
 
+.responseName {
+  margin-top: 20%;
+}
+
 .responseTitle {
   margin-top: 45px;
   height: 45px;

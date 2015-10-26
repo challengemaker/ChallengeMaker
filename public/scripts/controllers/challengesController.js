@@ -203,6 +203,7 @@ var app = angular.module('challengesController', [])
             challengeResponses[i].thumb = thumbUrl;
           }
           self.allResponses = challengeResponses;
+          console.log(self.allResponses);
         }
         addThumbToResponse();
 
