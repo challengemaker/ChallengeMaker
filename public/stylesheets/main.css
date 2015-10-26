@@ -49,6 +49,10 @@ body {
   background-color: #B8E6E6;
 }
 
+.backToSite {
+  font-size: 25px;
+}
+
 .blackLayer{
   width: 100%;
   height: 100%;
@@ -331,7 +335,7 @@ body {
   height: 40px;
   width: 80%;
   margin-left: 10%;
-  margin-top: 2px;
+  margin-top: 15px;
   display: block;
 }
 

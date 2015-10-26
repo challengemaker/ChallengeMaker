@@ -218,7 +218,6 @@ angular.module('responseController', [])
         if(carouselCounter < 3){
           carouselCounter++;
           if (carouselCounter == 1) {
-            console.log('yoyoyoyoyoyoy');
             $('.forwardButton').text("SUBMIT!");
             tunnelMargin = tunnelMargin-550;
             $('.questionTunnel').animate({
@@ -229,6 +228,7 @@ angular.module('responseController', [])
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
+            $('.carouselButtonHolder').html('');
           }
           // else if (carouselCounter == 3) {
           //   tunnelMargin = tunnelMargin-550;
