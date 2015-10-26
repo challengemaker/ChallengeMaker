@@ -181,6 +181,10 @@ angular.module('responseController', [])
           carouselCounter--;
 
           if(carouselCounter == 0){
+            $('.forwardButton').html(
+              "<p>NEXT</p>"+
+               "<span class='glyphicon"+ "glyphicon-chevron-right'"+ "aria-hidden='true'></span>"
+            );
             tunnelMargin += 550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
