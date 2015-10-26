@@ -135,9 +135,8 @@ angular.module('userController', [])
               .then(function(data){
                 console.log(data);
                 window.localStorage.sessionToken = data.data.token;
-                window.localStorage.sessionUser = data.data.user.email;
+                window.localStorage.sessionUser = data.data.user.name;
                 self.userSesh = window.localStorage.sessionUser;
-                console.log('user email is:',self.userSesh);
                 var responseUrl = window.location.hash.split('/')[2];
                 console.log(responseUrl);
                 if(responseUrl){
