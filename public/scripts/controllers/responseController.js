@@ -6,19 +6,93 @@ angular.module('responseController', [])
   function responseCtrl($http, $routeParams){
     var self = this;
 
-    var url = window.location.hash.split('/');
-    if( url[1] = "newresponse"){
-      console.log('yoyoyoyoyoyoyoyoy');
-      console.log(url[2]);
-      // var challengeName = url[2].split('-').join(' ');
-      // console.log(challengeName);
-      $http.get('api/challenges/'+url[2])
+    var submitChallenge = function(){
+      /////collecting all data we'll need for
+      var userName = window.localStorage.sessionUser;
+      var videoUrl = $('.responseTitle').val();
+      var cName = window.location.hash.split('/')[2].split("/").join(" ");
+      ///////collect all email and push into "emailList"
+      var emailList = [];
+      var rawList = $('.challengeFriends');
+      // console.log(rawList);
+      for (var i = 0; i < rawList.length; i++) {
+        emailList.push(rawList[i].value);
+      }
+      var responsePackage = {responseCreator: userName, emails: emailList, video: videoUrl, challenge: cName }
+      ///////lets chain our https in order: search id, post challenge friends, post response
+      $http({
+        method: "GET"
+        ,url: "/api/users/"+userName
+      })
+      .then(function(data){
+        //////this callback has all the users (signed in user's) information
+        responsePackage.userId = data.data.user._id;
+        // console.log(responsePackage);
+        ////$http call to post the challenge to friends
+        $http({
+          method: "POST"
+          ,url: "/api/challengeFriends"
+          ,data: {
+            senderId: responsePackage.userId,
+            sendeeEmail: responsePackage.emails, friendVideoUrl: responsePackage.video
+          }
+        })
         .then(function(data){
           console.log(data);
+          /////this should be the data response from the post request, and we now post the challenge info to db
+          console.log(responsePackage);
+          $http({
+            method: "Post"
+            ,url: "/api/responses"
+            ,data: {
+              creator: responsePackage.responseCreator,
+              creatorId: responsePackage.userId,
+              videoUrl: responsePackage.video,
+              challenge: responsePackage.cName,
+              emails: responsePackage.emails
+            }
+          })
+          .then(function(data){
+            console.log(data);
+          })
+        })
+      })
+      //   $http({
+      //     method: "POST",
+      //     url: "/api/responses",
+      //     data: delivery,
+      //   })
+      //   .then(function(data){
+      //     // if(err){console.log(err)};
+      //     var vidUrl = data.data.posted.videoUrl;
+      //     var name = window.localStorage.sessionUser;
+      //     $http.get('/api/users/'+name)
+      //       .then(function(userInfo){
+      //         var idOfUser = userInfo.data.user._id;
+      //         var challengeFriendsCapture = {senderId: idOfUser, sendeeEmail: emails(), friendVideoUrl: vidUrl}
+      //         $http.post({
+      //           method: "POST"
+      //           ,url: "/api/challengefriends"
+      //           ,data: ""
+      //         })
+      //       })
+      //   })
+      // }
+      // var emailsL = emails();////this is a list of all the emails from this response
+      ////submit the challenge capture information to the database
+    }
+
+    var url = window.location.hash.split('/');
+    if( url[1] = "newresponse"){
+
+      $http.get('api/challenges/'+url[2])
+        .then(function(data){
+          // console.log(data);
           self.charityLink = data.data.charityLink;
-          console.log(self.charityLink);
+          // console.log(self.charityLink);
           $('.submitDon').on('click', function(){
-            window.open(self.charityLink, target="_blank")
+            // window.open(self.charityLink, target="_blank");
+            submitChallenge();
           })
         })
       }
@@ -29,9 +103,9 @@ angular.module('responseController', [])
       var urlFunc = function(){
         var urlArr = currUrl.split("/");
         var httpCheck = urlArr[0].slice(0, 6);
-        console.log(httpCheck);
+        // console.log(httpCheck);
         if(httpCheck == "https:" && urlArr.join("").length != 6){
-          console.log('its an http');
+          // console.log('its an http');
           urlArr.shift();
           urlArr.shift();
           if(urlArr.join("").length > 5){
@@ -42,17 +116,17 @@ angular.module('responseController', [])
             var shortUrl2 = "blah";
           }
         } else {
-          console.log('notan http');
+          // console.log('notan http');
           var shortUrl1 = urlArr.join("").slice(0, 9);
           var shortUrl2 = urlArr.join("").slice(0, 5);
         }
         if(shortUrl1 == "www.youtu" || shortUrl2 == "youtu"){
-          console.log('looks right');
+          // console.log('looks right');
           $('.responseTitle').css({
             backgroundColor: "#D8F9FF"
           })
         } else {
-          console.log("what the fuck!");
+          // console.log("what the fuck!");
           $('.responseTitle').css({
             backgroundColor: "#FFCCE0"
           })
@@ -64,9 +138,9 @@ angular.module('responseController', [])
       /////end parsing the url for youtubability
 
       if(currUrl){
-        console.log(currUrl);
+        // console.log(currUrl);
       } else{
-        console.log('boooo');
+        // console.log('boooo');
       }
     }
 
@@ -76,36 +150,11 @@ angular.module('responseController', [])
     }, 50)
     ////create submit-new-response section
     //////////////////////////////////////
-    $('.submitDon').on('click', function(){
-      var videoUrl = $('.responseTitle').val();
-      var emails = function(){
-        var emailList = [];
-        var rawList = $('.challengeFriends');
-        for (var i = 0; i < rawList.length; i++) {
-          var length = rawList[i].value.length;
-          if(length > 2){
-            emailList.push(rawList[i].value)
-          }
-          else{
-          }
-        }
-        var delivery = {videoUrl: videoUrl, emails: emailList}
-        return delivery;
-      }
-      var emailsL = emails();
-
-      $http({
-        method: "POST",
-        url: "api/responses",
-        data: emailsL,
-      })
-      .then(function(data){
-      })
-    })
+    $('.submitDon').on('click', submitChallenge())
 
     $('.submitDon').on("click", function(){
       if (window.localStorage.sessionUser && window.localStorage.sessionUser != "none") {
-      window.location.hash = "#/"
+      // window.location.hash = "#/"
     } else {
         window.location.hash = "#/signup"
       }
@@ -219,6 +268,8 @@ angular.module('responseController', [])
           carouselCounter++;
           if (carouselCounter == 1) {
             $('.forwardButton').text("SUBMIT!");
+            $('.forwardButton').addClass("submitDon");
+
             tunnelMargin = tunnelMargin-550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
