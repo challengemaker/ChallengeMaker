@@ -18,8 +18,18 @@ angular.module('userController', [])
       window.location.hash = "#/signup"
     })
 
+    $('.goToSignupChallenge').on("click", function(){
+      window.location.hash = "#/signup/"+window.location.hash.split("/")[2];
+    })
+
     $('.goToLogin').on("click", function(){
       window.location.hash = "#/signin"
+    })
+
+    $('.goToSigninChallenge').on('click', function(){
+      var respondChallenge = window.location.hash.split('/')[2];
+      console.log(respondChallenge);
+      window.location.hash = "#/newresponse/"+respondChallenge
     })
 
     //////begin profile section
@@ -80,7 +90,7 @@ angular.module('userController', [])
     ////////////////////////////////////////
 
     ///using if statement to determine if we're looking at an "all users" list or single user's profile page
-    if(window.location.hash == "#/signup"){
+    if(window.location.hash.split('/')[1] == "signup"){
       console.log('yo');
       $(".submitNew").on('click', submitNew);
       function submitNew(){
@@ -125,11 +135,17 @@ angular.module('userController', [])
               .then(function(data){
                 console.log(data);
                 window.localStorage.sessionToken = data.data.token;
-                window.localStorage.sessionUser = data.data.user.email;
+                window.localStorage.sessionUser = data.data.user.name;
                 self.userSesh = window.localStorage.sessionUser;
-                console.log('user email is:',self.userSesh);
-                window.location.hash = "#/"
-                window.location.reload();
+                var responseUrl = window.location.hash.split('/')[2];
+                console.log(responseUrl);
+                if(responseUrl){
+                  window.location.hash = "#/newresponse/"+responseUrl
+                }
+                else{
+                  window.location.hash = "#/"
+                  window.location.reload();
+                }
               })
               // window.location.hash = "/profile";
             })
@@ -174,8 +190,17 @@ angular.module('userController', [])
             window.localStorage.sessionUser = data.data.user.email;
             self.userSesh = email;
             console.log('user email is:',self.userSesh);
-            window.location.hash = "#/"
-            window.location.reload();
+            var url = window.location.hash.split('/').join(" ")[2];
+            console.log(url);
+            if(url){
+              window.location.hash = '#/newresponse/'+url;
+              window.location.reload();
+            }
+            else {
+              window.location.hash = "#/";
+              window.location.reload();
+            }
+
           } else {
             window.location.hash = "#/signup"
           }

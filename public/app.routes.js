@@ -36,6 +36,12 @@ function appRoutes($routeProvider){
       controllerAs: "challenges"
     })
 
+    .when('/signin/:name', {
+      templateUrl: 'templates/_signin_challenge.html',
+      controller: 'userCtrl',
+      controllerAs: 'user'
+    })
+
     .when('/signin', {
       templateUrl: 'templates/_signin.html',
       controller: 'userCtrl',
@@ -46,6 +52,12 @@ function appRoutes($routeProvider){
       templateUrl: 'templates/_challenge_received.html',
       controller: 'challengesCtrl',
       controllerAs: 'challenges'
+    })
+
+    .when("/list/friendschallenges", {
+      templateUrl: 'templates/_challenges_all_jack.html',
+      controller: 'analyticsCtrl',
+      controllerAs: 'analytics'
     })
 
     .when('/acceptchallenge', {
@@ -80,6 +92,12 @@ function appRoutes($routeProvider){
 
     .when('/signup', {
       templateUrl: 'templates/_signup.html',
+      controller: 'userCtrl',
+      controllerAs: 'user'
+    })
+
+    .when('/signup/:name', {
+      templateUrl: 'templates/_signup_challenge.html',
       controller: 'userCtrl',
       controllerAs: 'user'
     })
