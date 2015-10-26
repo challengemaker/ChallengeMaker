@@ -75,9 +75,9 @@ var app = angular.module('challengesController', [])
       }
 
       self.swapResponse = function swap(index){
-        var height = ($(".lImageImg").height()-5);
+        var height = ($(".lImageimg" +index).height()-5);
         console.log(height);
-        var width = $(".lImageImg").width();
+        var width = $(".lImageimg"+index).width();
         var videoHeight = $(".lVideo").height();
         var url = self.allResponses[index].videoUrl+"?autoplay=1";
         if(height > 0) {
