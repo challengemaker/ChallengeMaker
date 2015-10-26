@@ -683,6 +683,20 @@ body {
   text-align: center;
 }
 
+.pwAttempt {
+  margin-top: 40px;
+  width: 30%;
+  margin-left: 35%;
+  height: 40px;
+  font-size: 22px;
+}
+
+.pwChecker {
+  margin-left: 35%;
+  height: 40px;
+  font-size: 22px;
+}
+
 .q1 {
   height: 100%;
   width: 100%;

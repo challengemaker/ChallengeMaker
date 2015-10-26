@@ -143,6 +143,14 @@ module.exports = function(app, passport){
     })
   })
 
+  app.post('/api/password', function(req, res){
+    if(req.body.password == "kickflip"){
+      res.json({valid: true})
+    } else {
+      res.json({valid: false})
+    }
+  })
+
   /////////////////begin braintree routing/////
   ////////////////////////////////////////////
   var gateway = braintree.connect({
