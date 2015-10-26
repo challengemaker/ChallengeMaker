@@ -10,7 +10,7 @@
 }
 
 body {
-  padding-top: 66px;
+  padding-top: 64px;
 }
 
 .acceptButton {
@@ -343,11 +343,11 @@ body {
   width: 163px;
   margin-left: -98px;
   height: 100%;
-  margin-top: 69px;
+  margin-top: 47px;
   position: fixed;
   z-index: 200;
   background-color: #585858;
-  opacity: 0.45;
+  opacity: 0.75;
   text-align: left;
 }
 
