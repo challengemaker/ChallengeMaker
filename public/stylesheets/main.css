@@ -441,6 +441,13 @@ body {
   display: block;
 }
 
+.hContainer {
+  width: 100%;
+  min-height: 100%;
+  display: block;
+  padding: 0px;
+}
+
 .highlightContainer {
 
 }
@@ -465,13 +472,6 @@ body {
 .highlightTextHolder h1{
   font-size: 52px;
   font-weight: bolder;
-}
-
-.hContainer {
-  width: 100%;
-  min-height: 100%;
-  display: block;
-  padding: 0px;
 }
 
 .hImage {
@@ -719,6 +719,27 @@ body {
   margin-left: -400px;
 }
 
+.questionBackgroundContainer {
+
+}
+
+.questionBackgroundImage {
+  margin-top: -32px;
+  width:100%;
+  height:100%;
+  z-index: 2;
+  opacity: .8;
+  position: absolute;
+}
+
+.questionBackgroundImage img{
+  -webkit-filter: blur(10px);
+  width:100%;
+  height:100%;
+  z-index: 2;
+  position: absolute;
+}
+
 .questionContainer {
   display: block;
   height: 70%;
@@ -730,6 +751,8 @@ body {
 .questionHolder {
   height: 480px;
   width: 550px;
+  position: absolute;
+  z-index: 10;
   overflow: hidden;
   margin-top: 40px;
   margin-left: 50%;
