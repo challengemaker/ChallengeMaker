@@ -2,33 +2,13 @@
   <h2>{{challenges.singleChallenge.name}}</h2>
   <div class="row topRowChallenge">
     <div class="currentChallengeHolder col-md-7 col-xs-12">
-      <div class="blackLayerSingleHighlight">
-
-      </div>
-      <div class="currentChallengeContainer">
+      <div class="blackLayerSingleHighlight" ng-click="challenges.swapHighlightSingle()"></div>
+      <div class="currentChallengeContainer" ng-click="challenges.swapHighlightSingle()">
         <div class="currentChallengeImage">
           <img ng-src="{{challenges.singleChallenge.photo}}" class="currImg" />
         </div>
+        <div class="shVideo" ng-click="challenges.swapHighlightSingle()"></div>
         <div class="row currentChallengeInfo">
-
-          <!-- <table class="table">
-            <tbody>
-              <tr>
-                <td id="currentCharity">{{challenges.singleChallenge.charity[0]}}</td>
-              </tr>
-
-              <tr>
-                <td id="currentTitle">{{challenges.singleChallenge.title}}</td>
-              </tr>
-
-              <tr>
-                <td id="currentDescription">$0 if challenge completed, or donate ${{challenges.singleChallenge.minimumDonation}} to Special Olympics</td>
-              </tr>
-
-            </tbody>
-          </table> -->
-
-
           <div class="currentInfoColumn col-xs-6">
             <p class="currentCharity">
               {{challenges.singleChallenge.charity[0]}}
@@ -39,12 +19,6 @@
             <p class="currentDescription">
               $0 if challenge completed, or donate ${{challenges.singleChallenge.minimumDonation}} to Special Olympics
             </p>
-          </div>
-
-
-          <div class="row currentChallengeMoney col-xs-6">
-            <!-- <h2>${{challenges.singleChallenge.totalRaised}} raised</h2>
-            <h3>${{challenges.singleChallenge.goal}} goal</h3> -->
           </div>
         </div>
       </div>
@@ -105,10 +79,7 @@
         <div class="lImage lImage{{$index}}">
           <img class="lImageImg lImageimg{{$index}}" src="https://img.youtube.com/vi/{{response.tubeKey}}/0.jpg" alt="" />
         </div>
-        <div class="lVideo lVideo{{$index}}">
-           <!-- <iframe class="listVid{{$index}}" width="100%" height="{{challenges.listHeight}}" src="http://www.youtube.com/embed/{{}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
-          </iframe> -->
-        </div>
+        <div class="lVideo lVideo{{$index}}"></div>
       </div>
     </div>
   </div>

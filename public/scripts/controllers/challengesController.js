@@ -144,6 +144,46 @@ var app = angular.module('challengesController', [])
         }
       }
 
+      //////under construction function to create signlehightight swap
+      self.swapHighlightSingle = function(){
+        var height = ($(".currentChallengeImage").height()-5);
+        var videoHeight = $(".shVideo").height();
+        var url = self.singleChallenge.videoUrl+"?autoplay=1";
+
+        if(height > 0) {
+          $('.shVideo').append(
+            "<iframe class='singleVid"+
+            "'width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+            "</iframe>"
+          )
+          $('.currentChallengeImage').css('height', "0px")
+          $('.currImg').css('height', "0px")
+          $('.titleCont').css({
+            opacity: 0
+          })
+          $('.currentInfoColumn').css({
+            opacity: 0
+          })
+          $('.blackLayerSingleHighlight').css({
+            width: "0px"
+          })
+        } else {
+          $('.singleVid').remove()
+          $('.titleCont').css({
+            opacity: 1
+          })
+          $('.currentInfoColumn').css({
+            opacity: 1
+          })
+          $('.blackLayerSingleHighlight').css({
+            width: "100%"
+          })
+          $('.singelVid').remove();
+          $('.currentChallengeImage').css('height', videoHeight)
+          $('.currImg').css('height', videoHeight)
+        }
+      }
+
 
       self.seeChallenge = function(name){
         var challTitle = name.split(' ').join("-");
@@ -217,6 +257,7 @@ var app = angular.module('challengesController', [])
       $http.get('/api/challenges/'+thisName)
         .then(function(data){
           self.singleChallenge = data.data;
+          console.log(self.singleChallenge);
         })
     }
     //////this will all be in a factory later
