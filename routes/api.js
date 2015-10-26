@@ -10,11 +10,12 @@ var ignore         = require('./../.gitignore');
 
 ////////   ----- Models ------- //////////
 /////// This is a "Model" Home  //////////
-var User      = require('../models/user.js');//
-var Challenge = require('../models/challenge.js');
-var Response  = require('../models/response.js');
-var Charity   = require('../models/charity.js');
-var Message   = require('../models/messages.js');
+var User            = require('../models/user.js');//
+var Challenge       = require('../models/challenge.js');
+var Response        = require('../models/response.js');
+var Charity         = require('../models/charity.js');
+var Message         = require('../models/messages.js');
+var ChallengeFriend = require('../models/ChallengeFriend.js');
 /////////end model imports ///////////////
 //////////////////////////////////////////
 
@@ -30,10 +31,10 @@ module.exports = function(app, passport){
     });
   })
 
-  app.get('/api/users/:id', function(req, res){
-    var id = req.params.id;
-    console.log(id);
-    User.findOne('ObjectId("'+id+'")', function(err, user){
+  app.get('/api/users/:name', function(req, res){
+    var name = req.params.name;
+    console.log(name);
+    User.findOne({name: name}, function(err, user){
       if(err){
         res.send(err);
       }
@@ -75,13 +76,6 @@ module.exports = function(app, passport){
     })
   })
 
-  app.post('/api/responses', function(req, res){
-    console.log(req.body);
-    Response.create(req.body);
-    res.json({'posted': req.body});
-  })
-
-
   app.get('/api/users', function(req, res){
     User.find({}, function(err, users){
       if(err){console.log(err)};
@@ -122,7 +116,31 @@ module.exports = function(app, passport){
       console.log(req.body);
       res.json(responses)
     })
+  })
 
+
+  app.post('/api/responses', function(req, res){
+    console.log(req.body);
+    Response.create(req.body, function(err, response){
+      if(err){console.log(err)}
+      console.log(response);
+      res.json({'posted': response});
+    });
+  })
+
+  app.get('/api/challengefriends', function(req, res){
+    ChallengeFriend.find({}, function(err, friendChallenges){
+      if(err){console.log(err)}
+      res.json(friendChallenges);
+    })
+  })
+
+  app.post('/api/challengefriends', function(req, res){
+    console.log(req.body);
+    ChallengeFriend.create(req.body, function(err, friendChallenges){
+      if(err){console.log(err)}
+      res.json(friendChallenges);
+    })
   })
 
   /////////////////begin braintree routing/////
