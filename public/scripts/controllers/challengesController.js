@@ -67,7 +67,13 @@ var app = angular.module('challengesController', [])
           )
           $('.lImage'+index).css('height', "0px")
           $('.lImageimg'+index).css('height', "0px")
+          $(".listRemove"+index).css({
+            opacity: 0
+          })
         } else {
+          $(".listRemove"+index).css({
+            opacity: 1
+          })
           $('.listVid'+index).remove();
           $('.lImage'+index).css('height', videoHeight)
           $('.lImageimg'+index).css('height', videoHeight)
@@ -92,7 +98,7 @@ var app = angular.module('challengesController', [])
             "</iframe>"
           )
           $('.lImage'+index).css('height', "0px")
-          $('.lImageimg'+index).css('height', "0px")
+          $('.lImageimg'+index).css('height', "0px");
         } else {
           $('.listVid'+index).remove();
           $('.lImage'+index).css('height', videoHeight)
