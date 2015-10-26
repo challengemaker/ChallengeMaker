@@ -55,8 +55,8 @@ var app = angular.module('challengesController', [])
       })
 
       self.swap = function swap(index){
-        var height = $(".lImageImg").height();
-        var width = $(".lImageImg").width();
+        var height = ($(".lImageimg"+index).height()-5);
+        var width = $(".lImageimg"+index).width();
         var videoHeight = $(".lVideo").height();
         var url = self.allChallenges[index].videoUrl+"?autoplay=1";
         if(height > 0) {
@@ -75,11 +75,17 @@ var app = angular.module('challengesController', [])
       }
 
       self.swapResponse = function swap(index){
-        var height = $(".lImageImg").height();
+        var height = ($(".lImageImg").height()-5);
+        console.log(height);
         var width = $(".lImageImg").width();
         var videoHeight = $(".lVideo").height();
         var url = self.allResponses[index].videoUrl+"?autoplay=1";
         if(height > 0) {
+          function onStop(event){
+            console.log(event);
+            console.log(event.data);
+            console.log('we made it');
+          }
           $('.lVideo'+index).append(
             "<iframe class='listVid"+index+
             " listVid{{$index}}' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
@@ -95,7 +101,7 @@ var app = angular.module('challengesController', [])
       }
 
       self.swapSpecial = function swapSpecial(){
-        var height = $(".hImage").height();
+        var height = ($(".hImage").height()-5);
         var videoHeight = $(".hVideo").height();
         var url = self.specialChallenge.videoUrl+"?autoplay=1";
 
@@ -202,6 +208,7 @@ var app = angular.module('challengesController', [])
             challengeResponses[i].thumb = thumbUrl;
           }
           self.allResponses = challengeResponses;
+          console.log(self.allResponses);
         }
         addThumbToResponse();
 
@@ -240,9 +247,14 @@ var app = angular.module('challengesController', [])
             var width = $('.currentChallengeImage').width();
             $('.currentChallengeImage').html('')
             $('.currentChallengeInfo').html(" ")
-            $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
+            $('.currentChallengeImage').html("<iframe class='currentVideo' min-width='100%' height='"+height+"' src='"+url+"' frameborder='0' onStateChange='onStop' allowfullscreen></iframe>")
           })
         })
+        function onStop(event){
+          console.log(event);
+          console.log(event.data);
+          console.log('yo were doing it');
+        }
         $('.completeChallButton').on('click', function(){
           var yesToken = window.localStorage.sessionToken;
           console.log(yesToken);
