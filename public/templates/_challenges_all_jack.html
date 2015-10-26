@@ -5,8 +5,8 @@
 
 
 <div class="challFrContainer" ng-repeat="friendsChallenge in analytics.allFriendsChallenges" ng-if="analytics.passwordCorrect">
-  <h1>{{friendChallenges.challenge}}</h1>
-  <h1>{{friendsChallenge.senderName}}</h1>
-  <h2>{{friendsChallenge.sendeeEmail}}</h2>
-  <h2>{{friendsChallenge.friendVideoUrl}}</h2>
+  <p>The Challenge: {{friendsChallenge.challenge.split("-").join(' ')}}</p>
+  <p>Person Challenging: {{friendsChallenge.senderName}}</p>
+  <p>Emails of people they've challenged: {{friendsChallenge.sendeeEmail}}</p>
+  <p>The video the created: {{friendsChallenge.friendVideoUrl}}</p>
 </div>

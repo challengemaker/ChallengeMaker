@@ -13,6 +13,7 @@ var app = angular.module('analyticsController', [])
     .then(function(data){
       console.log(data);
       self.allFriendsChallenges = data.data;
+      self.allFriendsChallengeChallenge = data.data.challenge.split("-").join(' ');
       console.log(self.allFriendsChallenges);
     })
 

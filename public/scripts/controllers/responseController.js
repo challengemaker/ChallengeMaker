@@ -29,6 +29,7 @@ angular.module('responseController', [])
         responsePackage.userId = data.data.user._id;
         // console.log(responsePackage);
         ////$http call to post the friendschallenge to friends
+        console.log(responsePackage);
         $http({
           method: "POST"
           ,url: "/api/challengeFriends"
