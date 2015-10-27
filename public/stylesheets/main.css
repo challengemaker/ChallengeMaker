@@ -198,6 +198,10 @@ body {
   z-index: -1;
 }
 
+#checkout {
+  margin-top: 20%;
+}
+
 .comp-chal-button {
   font-size: 30px;
   background-color: #b6b6b6;

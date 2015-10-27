@@ -210,8 +210,10 @@ var app = angular.module('challengesController', [])
       ////begin page if statement, for seperated data
       if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
         var challenge = window.location.hash.split('/')[2];
-        var challengerName = window.location.hash.split('/')[3];
-        self.challengerName = challengerName;
+        var challengerVideoId = window.location.hash.split('/')[3];
+        var challengerVideo = "https://www.youtube.com/embed/"+challengerVideoId
+
+        self.challengerVideo = challengerVideo;
         $('.acceptButton').on('click', function(){
           window.location.hash = "#/signin/"+challenge;
         })
@@ -223,7 +225,7 @@ var app = angular.module('challengesController', [])
 
         $http.get('/api/challenges/'+challenge)
           .then(function(data){
-            var url = data.data.videoUrl
+            var url = self.challengerVideo
             ///begin creating "youve been challenged" data model, which will later go into a factory
             self.beenChallengedData = data.data;
             self.toggleBeen = function(){

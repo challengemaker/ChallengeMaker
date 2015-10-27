@@ -6,5 +6,13 @@ var app = angular.module('paymentsController', [])
 
   function paymentsCtrl($http){
     console.log('lol paymnets');
-    
+    $('.ohyeababy').on('click', function(){
+      $http({
+        method: "GET"
+        ,url: "/client_token"
+      })
+      .then(function(data){
+        console.log(data);
+      })
+    })
   }
