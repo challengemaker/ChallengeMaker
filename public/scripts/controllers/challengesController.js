@@ -74,9 +74,10 @@ var app = angular.module('challengesController', [])
           $(".listRemove"+index).css({
             opacity: 1
           })
-          $('.listVid'+index).remove();
           $('.lImage'+index).css('height', videoHeight)
           $('.lImageimg'+index).css('height', videoHeight)
+          // $('.listVid'+index).remove()
+
         }
       }
 

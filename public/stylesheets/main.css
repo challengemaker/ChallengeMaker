@@ -76,7 +76,9 @@ body {
   background-color: black;
   position: absolute;
   width: 100%;
-  opacity: .15
+  opacity: .15;
+  top: 0;
+  left: 0;
 }
 
 .blackLayerList {
@@ -147,6 +149,9 @@ body {
   margin-top: 30px;
 }
 
+.challengeInfo {
+}
+
 .challengedTitle {
   font-size: 35px;
   margin-top: -10px;
@@ -179,7 +184,7 @@ body {
   color: white;
   background-size:  100% 320px;
   background-repeat: no-repeat;
-  margin: 20px 0 40px 0;
+  margin:0;
 }
 
 .challengeInfo {
