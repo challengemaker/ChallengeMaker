@@ -48,6 +48,12 @@ function appRoutes($routeProvider){
       controllerAs: 'user'
     })
 
+    .when('/youvebeenchallenged/:name/:challengename', {
+      templateUrl: 'templates/_challenge_received.html',
+      controller: 'challengesCtrl',
+      controllerAs: 'challenges'
+    })
+
     .when('/youvebeenchallenged/:name', {
       templateUrl: 'templates/_challenge_received.html',
       controller: 'challengesCtrl',

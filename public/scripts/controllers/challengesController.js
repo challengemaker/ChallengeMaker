@@ -243,12 +243,13 @@ var app = angular.module('challengesController', [])
     ////begin page if statement, for seperated data
     if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
       var challenge = window.location.hash.split('/')[2];
-      console.log(challenge);
+      var challengerName = window.location.hash.split('/')[3];
+      self.challengerName = challengerName;
+      console.log(self.challengerName);
       $('.acceptButton').on('click', function(){
         window.location.hash = "#/signin/"+challenge;
       })
       function setBeenBlack() {
-        console.log('setting the black layer');
         var height = $('.challImg').height();
         $('.blackLayerBeen').height(height);
       }
