@@ -168,7 +168,7 @@ var app = angular.module('challengesController', [])
             width: "0px"
           })
         } else {
-          $('.singleVid').remove()
+          $('.singleVid').remove();
           $('.titleCont').css({
             opacity: 1
           })
@@ -233,19 +233,52 @@ var app = angular.module('challengesController', [])
       $('.acceptButton').on('click', function(){
         window.location.hash = "#/signin/"+challenge;
       })
+      function setBeenBlack() {
+        console.log('setting the black layer');
+        var height = $('.challImg').height();
+        $('.blackLayerBeen').height(height);
+      }
+      setInterval(setBeenBlack, 80);
 
       $http.get('/api/challenges/'+challenge)
         .then(function(data){
           var url = data.data.videoUrl
           ///begin creating "youve been challenged" data model, which will later go into a factory
           self.beenChallengedData = data.data;
-          $('.challengePhoto').on('click', function(){
+          self.toggleBeen = function(){
+            var height = ($('.challImg').height() - 5);
+            var videoHeight = $('.currentVideo').height();
+            console.log(videoHeight);
+            console.log(height);
+            var width = $('.challImg').width();
+            if(height > 0){
+              $('.challImg').css({
+                height: '0px'
+              })
+              console.log('so long photo');
+              $('.challengePhoto').append("<iframe class='currentVideo' min-width='"+width+"' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
+              $('.challengeDescription').css({
+                opacity: 0
+              })
+              $('.challengeCharity').css({
+                opacity: 0
+              })
+            } else {
+              $('.challengeDescription').css({
+                opacity: 1
+              })
+              $('.challengeCharity').css({
+                opacity: 1
+              })
+              console.log('so long video');
+              $('.currentVideo').remove();
+              $('.challImg').css({
+                height: videoHeight
+              })
 
-            var height = $('.challengePhoto').height();
-            var width = $('.challengePhoto').width();
-            $('.challengePhoto').html('')
-            $('.challengePhoto').html("<iframe class='currentVideo' min-width='"+width+"' height='"+height+"' src='"+url+"' frameborder='0' allowfullscreen></iframe>")
-          })
+            }
+
+          }
         })
     }
     else
