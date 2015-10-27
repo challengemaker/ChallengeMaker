@@ -53,7 +53,7 @@ var app = angular.module('challengesController', [])
           }
 
       })
-
+      self.listVideoSources = [];
       self.swap = function swap(index){
         var height = ($(".lImageimg"+index).height()-5);
         var width = $(".lImageimg"+index).width();
@@ -65,17 +65,30 @@ var app = angular.module('challengesController', [])
             " listVid{{$index}}' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
             "</iframe>"
           )
-          $('.lImage'+index).css('height', "0px")
-          $('.lImageimg'+index).css('height', "0px")
+          // $('.lImage'+index).css('height', "0px")
+          var src = $('.lImageimg'+index)[0].attributes.src.value;
+          console.log(src);
+          $('.lImageimg'+index).remove();
           $(".listRemove"+index).css({
             opacity: 0
           })
+          self.listVideoSources[index] = src;
         } else {
+          var imageSrc = self.listVideoSources[index];
+          $('.listVid'+index).remove();
+          $('.lVideo'+index).css({
+            height: "0px"
+          })
+          $('.lImage'+index).append(
+            "<img class='lImageImg lImageimg("+index+")'"+ "src='"+imageSrc+"'/>"
+          )
+
+
           $(".listRemove"+index).css({
             opacity: 1
           })
-          $('.lImage'+index).css('height', videoHeight)
-          $('.lImageimg'+index).css('height', videoHeight)
+          // $('.lImageimg'+index).css('height', videoHeight)
+          // $('.lImageimg'+index).css('height', videoHeight)
           // $('.listVid'+index).remove()
 
         }
