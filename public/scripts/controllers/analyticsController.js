@@ -12,9 +12,13 @@ var app = angular.module('analyticsController', [])
     })
     .then(function(data){
       console.log(data);
-      self.allFriendsChallenges = data.data;
-      self.allFriendsChallengeChallenge = data.data.challenge.split("-").join(' ');
-      console.log(self.allFriendsChallenges);
+      var allFriendsChallenges = data.data;
+      console.log(allFriendsChallenges);
+      for (var i = 0; i < allFriendsChallenges.length; i++) {
+        allFriendsChallenges[i].challengeUrlToSend = "www.challengemaker.herokuapp.com/#/youvebeenchallenged/"+allFriendsChallenges[i].challenge + "/" + allFriendsChallenges[i].senderName.split(' ').join('-');
+        console.log(allFriendsChallenges[i]);
+      }
+      self.allFriendsChallenges = allFriendsChallenges
     })
 
 
