@@ -227,7 +227,8 @@ body {
 .currentChallengeHolder{
   display: inline-block;
   min-height: 100%;
-  margin-top: 15px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .currentChallengeImage {

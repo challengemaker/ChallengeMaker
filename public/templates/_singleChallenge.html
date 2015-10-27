@@ -1,7 +1,6 @@
 <div class="challengeContainer">
-  <h2>{{challenges.singleChallenge.name}}</h2>
   <div class="row topRowChallenge">
-    <div class="currentChallengeHolder col-md-7 col-xs-12">
+    <div class="currentChallengeHolder style='' col-md-7 col-xs-12">
       <div class="blackLayerSingleHighlight" ng-click="challenges.swapHighlightSingle()"></div>
       <div class="currentChallengeContainer" ng-click="challenges.swapHighlightSingle()">
         <div class="currentChallengeImage">
@@ -16,9 +15,9 @@
             <p class='currentTitle'>
               {{challenges.singleChallenge.title}}
             </p>
-            <p class="currentDescription">
+            <!-- <p class="currentDescription">
               $0 if challenge completed, or donate ${{challenges.singleChallenge.minimumDonation}} to Special Olympics
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
