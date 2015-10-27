@@ -6,10 +6,7 @@ angular.module('mainController', [])
   function mainCtrl($http){
     var self = this;
     var dropdownCounter = 0;
-
     var sessionUser = window.localStorage.sessionUser;
-    console.log(sessionUser);
-
     if(localStorage.sessionToken && localStorage.sessionToken!= "false" && localStorage.sessionToken!= "none"){
       self.userSesh = sessionUser;
     }
@@ -19,12 +16,9 @@ angular.module('mainController', [])
 
 
     $('.logout').on('click', function(){
-      console.log('logging out');
       self.userSesh = "Sign In";
-      console.log(self.userSesh);
       window.localStorage.sessionToken = "none"
       window.localStorage.sessionUser = "none"
-      console.log(window.localStorage);
       window.location.reload()
     });
 
@@ -32,13 +26,11 @@ angular.module('mainController', [])
       window.location.hash = "#/"
       location.reload()
     });
-
     /////dropdown menu stuff///////
     ///////////////////////////////
     self.dropDown = function dropDown(){
       dropdownCounter++;
       if(dropdownCounter%2 == 1){
-        console.log(dropdownCounter);
         $('.dropdownIcon').append(
           "<div class='dropdownContainer'>"+
             "<div class='dropItem' id='dropHome'>Home</div>"+
@@ -126,7 +118,6 @@ angular.module('mainController', [])
           if(currUser && currUser != "none"){
              window.location.hash = "#/users/"+currUser;
           }
-
         })
 
         $('#dropFacebook').on('mouseenter', function(){
@@ -162,12 +153,9 @@ angular.module('mainController', [])
         });
 
         $('#dropLogout').on('click', function(){
-          console.log('logging out');
           self.userSesh = "Sign in";
-          console.log(self.userSesh);
           window.localStorage.sessionToken = "none"
           window.localStorage.sessionUser = "none"
-          console.log(window.localStorage);
           window.location.reload()
         });
 
@@ -235,19 +223,12 @@ angular.module('mainController', [])
           $('.dropdownContainer').remove();
         });
 
-        // $('.dropdownIconImage').on('mouseleave', function(){
-        //   $('.dropdownContainer').remove();
-        // })
-
       } else if(dropdownCounter%2 == 0){
-        console.log(dropdownCounter);
         $('.dropdownContainer').remove();
       } else {
         console.log('your dropdown counter is broken');
       }
-
     }
-
     // $http.get('/client_token')
     //
     //   .then(function(data){
@@ -264,11 +245,6 @@ angular.module('mainController', [])
     //       });
     //
     //   })
-
-
-
-    /////end dropdown menu//////
-    ////////////////////////
-
-
+////end main controller
+///////////////////////
   }
