@@ -5,7 +5,7 @@ var app = angular.module('paymentsController', [])
   paymentsCtrl.$inject = ['$http'];
 
   function paymentsCtrl($http){
-    console.log('lol paymnets');
+    console.log('lol payments');
     $http({
       method: "GET"
       ,url: "/client_token"
@@ -19,6 +19,4 @@ var app = angular.module('paymentsController', [])
         container: "payment-form"
       });
     })
-
-
   }

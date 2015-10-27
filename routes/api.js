@@ -171,6 +171,7 @@ module.exports = function(app, passport){
   })
 
   app.post('/checkout', function(req, res){
+    console.log(req.body);
     var nonce = req.body.payment_method_nonce;
     console.log('hiihihi');
     console.log(nonce);

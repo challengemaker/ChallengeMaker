@@ -6,6 +6,18 @@ angular.module('responseController', [])
   function responseCtrl($http, $routeParams){
     var self = this;
 
+    var thisChallenge = window.location.hash.split('/')[2];
+    console.log(thisChallenge);
+
+    $http({
+      method: "GET"
+      ,url: "/api/challenges/"+thisChallenge
+    })
+    .then(function(data){
+      console.log(data);
+      self.thisCharity = data.data.charity[0];
+    })
+
     var submitChallenge = function(){
       /////collecting all data we'll need for
       var userName = window.localStorage.sessionUser;
