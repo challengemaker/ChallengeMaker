@@ -166,14 +166,24 @@ module.exports = function(app, passport){
 
   app.get("/client_token", function(req, res){
     gateway.clientToken.generate({}, function(err, response){
-      console.log(err);
-      console.log(response);
       res.json(response.clientToken);
     })
   })
 
   app.post('/checkout', function(req, res){
     var nonce = req.body.payment_method_nonce;
+    console.log('hiihihi');
+    console.log(nonce);
+    console.log('hohihihih');
+    // res.json(nonce)
+    gateway.transaction.sale({
+      amount: '1.00'
+      ,paymentMethodNonce: nonce
+    }, function(err, result){
+      console.log(err);
+      console.log(result);
+      res.json(result)
+    })
   });
 
   ///////////end braintree routing/////////
