@@ -50,7 +50,7 @@ function appRoutes($routeProvider){
       ,controllerAs: 'user'
     })
 
-    .when('/youvebeenchallenged/:name/:challengename', {
+    .when('/youvebeenchallenged/:challengename/:videoid/:name', {
       templateUrl: 'templates/_challenge_received.html'
       ,controller: 'challengesCtrl'
       ,controllerAs: 'challenges'

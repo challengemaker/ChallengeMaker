@@ -210,9 +210,13 @@ var app = angular.module('challengesController', [])
       ////begin page if statement, for seperated data
       if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
         var challenge = window.location.hash.split('/')[2];
+        console.log('challenge is: ',challenge);
+        var challengerName = window.location.hash.split('/')[4].split('-').join(' ');
+        console.log('name is:', challengerName);
+        self.challengerName = challengerName;
         var challengerVideoId = window.location.hash.split('/')[3];
+        console.log('video id si:',challengerVideoId);
         var challengerVideo = "https://www.youtube.com/embed/"+challengerVideoId
-
         self.challengerVideo = challengerVideo;
         $('.acceptButton').on('click', function(){
           window.location.hash = "#/signin/"+challenge;
