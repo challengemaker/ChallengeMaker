@@ -22,7 +22,7 @@ var app = angular.module('paymentsController', [])
         $('#paymentAmount').remove();
         $('.customAmount')[0].textContent = "or enter custom amount"
         $('.paymentOptions').prepend(
-          "<select class='amountDrop' name='amountDropdown'>"+
+          "<select class='amountDrop' name='amount'>"+
             "<option value='5.00'>$5.00</option>"+
             "<option value='10.00'>$10.00</option>"+
             "<option value='15.00'>$15.00</option>"+

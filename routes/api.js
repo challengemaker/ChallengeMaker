@@ -176,7 +176,7 @@ module.exports = function(app, passport){
     var nonce = req.body.payment_method_nonce;
     gateway.transaction.sale({
       paymentMethodNonce: nonce
-      ,amount: req.body.amountDropdown
+      ,amount: req.body.amount
     },
     function(err, result){
       console.log(result);
