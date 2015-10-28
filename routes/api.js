@@ -53,7 +53,7 @@ module.exports = function(app, passport){
       console.log(err);
       res.json(user)
     });
-  })
+  });
 
   app.post('/api/users/update', function(req, res){
     // var updateAttr = req.updateAttr;
@@ -98,6 +98,16 @@ module.exports = function(app, passport){
 
       res.json(challenge)
     })
+  });
+
+  app.delete('/api/challenges/:name', function(req, res){
+    Challenge.remove({
+      :name: req.params.name
+    }, function(err, challenge){
+      if(err){
+        res.send(err)}
+      res.json(challenge)
+    });
   });
 
   app.get('/api/charities/:name', function(req, res){

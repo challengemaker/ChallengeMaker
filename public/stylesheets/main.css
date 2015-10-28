@@ -77,8 +77,9 @@ body {
   position: absolute;
   width: 100%;
   opacity: .15;
-  top: 0;
-  left: 0;
+  z-index: 2;
+  /*top: 0;
+  left: 0;*/
 }
 
 .blackLayerList {
