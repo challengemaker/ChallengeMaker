@@ -285,18 +285,22 @@ var app = angular.module('challengesController', [])
       $http.get('/api/responses')
         .then(function(data){
           var thisChall = window.location.hash.split('/')[2];
-
+          ///////filter out all data that isn't specific to our challenge
           var rawResponses = data.data.reverse();
           var arrResponses = [];
           for (var i = 0; i < rawResponses.length; i++) {
-            console.log(rawResponses[i]);
-            // var thisRespChall = rawResponses[i].data.challenge;
+            console.log(rawResponses[i].challenge);
+            console.log(thisChall);
+            var thisRespChall = rawResponses[i].challenge;
             // console.log(thisRespChall);
-            // if( == )
-
+            if(thisRespChall == thisChall){
+              console.log('yup the same');
+              arrResponses.push(rawResponses[i])
+            }
           }
-          ///////filter out all data that isn't specific to our challenge
-          var challengeResponses = data.data.reverse();//reversed so newest first
+          console.log(arrResponses);
+          var challengeResponses = arrResponses;
+
           function addThumbToResponse(){
             for (var i = 0; i < challengeResponses.length; i++) {
               var videoLink = challengeResponses[i].videoUrl;
