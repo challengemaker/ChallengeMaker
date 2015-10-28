@@ -1,4 +1,9 @@
-<div class="">
+<div class="passwordBox" >
+  <input type="text" name="name" value="" class="pwAttempt"><br>
+  <button type="button" name="button" class="pwChecker">Submit Password</button>
+</div>
+
+<div class="" ng-if="analytics.passwordCorrect">
     <div class="row col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
 
       <div class="cmsHeadline">
@@ -7,8 +12,8 @@
 
       <div class="row cmsButtonRow">
 
-        <div class="cmsDropdown col-sm-4 col-xs-12">
-          <div class="">
+        <div class="dropdown col-sm-4 col-xs-12">
+          <div class="cmsDropdown">
           <select class="" ng-model="">
             <option value="">SELECT TASK</option>
             <option value="">Get All</option>
@@ -19,8 +24,8 @@
           </div>
         </div>
 
-        <div class="cmsDropdown col-sm-4 col-xs-12">
-          <div class="">
+        <div class="dropdown col-sm-4 col-xs-12">
+          <div class="cmsDropdown">
           <select class="cmsChooseModel" ng-model="">
             <option value="">SELECT MODEL</option>
             <option value="">Challenge(s)</option>
@@ -38,6 +43,15 @@
         </div>
 
     </div>
+
+    <div class="challFrContainer" ng-repeat="friendsChallenge in analytics.allFriendsChallenges" ng-if="analytics.passwordCorrect">
+      <p>The Challenge: {{friendsChallenge.challenge.split("-").join(' ')}}</p>
+      <p>Person Challenging: {{friendsChallenge.senderName}}</p>
+      <p>Emails of people they've challenged: {{friendsChallenge.sendeeEmail}}</p>
+      <p>The video the created: {{friendsChallenge.friendVideoUrl}}</p>
+      <p>Challenge Link, to send out: {{friendsChallenge.challengeUrlToSend}}</p>
+    </div>
+
 
   </div>
 </div>

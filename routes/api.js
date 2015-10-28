@@ -22,6 +22,7 @@ var ChallengeFriend = require('../models/challengeFriend.js');
 
 module.exports = function(app, passport){
 
+// get all users
   app.get('/api/users', function(req, res){
     User.find({}, function(err, users){
       if(err){
@@ -31,6 +32,7 @@ module.exports = function(app, passport){
     });
   });
 
+// delete user
   app.delete('/api/users/:user_id', function(req, res){
     User.remove({
       _id: req.params.user_id
@@ -45,6 +47,7 @@ module.exports = function(app, passport){
     });
   });
 
+// create new user
   app.post('/api/users', function(req, res){
     console.log(req.body);
     var password = req.body.password;
@@ -55,6 +58,7 @@ module.exports = function(app, passport){
     });
   });
 
+// update a user
   app.post('/api/users/update', function(req, res){
     // var updateAttr = req.updateAttr;
     User.findOne(req.body.search, function(err, user){
@@ -71,6 +75,7 @@ module.exports = function(app, passport){
     })
   })
 
+// show one user
   app.get('/api/users/:name', function(req, res){
     var name = req.params.name;
     console.log(name);
@@ -83,6 +88,7 @@ module.exports = function(app, passport){
     });
   })
 
+// get all challenges
   app.get('/api/challenges', function(req, res){
     Challenge.find({}, function(err, challenges){
       if(err){res.send(err)}
@@ -90,6 +96,7 @@ module.exports = function(app, passport){
     });
   });
 
+// show one challenge
   app.get('/api/challenges/:name', function(req, res){
     var rawName = req.params.name;
     var fullName = rawName.split('-').join(' ');
@@ -100,14 +107,14 @@ module.exports = function(app, passport){
     })
   });
 
-// not finished!!
+// create a new challenge not finished!!!
   // app.post('/api/challenges', function(req, res){
   //   Challenge.create(req.body, function(err, user){
   //     res.json(challenge)
   //   });
   // });
 
-// not finished!!!
+// update a challenge not finished!!!
   // app.post('/api/challenges/:name', function(req, res){
   //   // var updateAttr = req.updateAttr;
   //   Challenge.findOne(req.body.search, function(err, user){
@@ -124,7 +131,7 @@ module.exports = function(app, passport){
   //   })
   // })
 
-  // not finished!!! error on line 130 :name
+// delete a challenge not tested!!!
   app.delete('/api/challenges/:name', function(req, res){
     Challenge.remove({
       name: req.params.name
@@ -135,6 +142,7 @@ module.exports = function(app, passport){
     });
   });
 
+// get all charities
   app.get('/api/charities/:name', function(req, res){
     var name = req.params.name.split('-').join(' ');
     Charity.findOne({name: name}, function(err, charity){
@@ -143,7 +151,7 @@ module.exports = function(app, passport){
     })
   })
 
-
+// show a charity
   app.get('/api/charities', function(req, res){
     Charity.find({}, function(err, charities){
       if(err){console.log(err)};
@@ -151,6 +159,7 @@ module.exports = function(app, passport){
     })
   })
 
+// delete a charity
   app.delete('/api/charities/:name', function(req, res){
     Charity.remove({
       name: req.params.name
@@ -161,7 +170,7 @@ module.exports = function(app, passport){
     });
   });
 
-
+// get all responses
   app.get('/api/responses', function(req, res){
     Response.find({}, function(err, responses){
       if(err){console.log(err)}
@@ -170,7 +179,7 @@ module.exports = function(app, passport){
     })
   })
 
-
+// create a new response
   app.post('/api/responses', function(req, res){
     console.log(req.body);
     Response.create(req.body, function(err, response){
@@ -180,7 +189,7 @@ module.exports = function(app, passport){
     });
   })
 
-// user :name or _id? can I use response, or is it a protected word?
+// delete a response
   app.delete('/api/responses/:name', function(req, res){
     Responses.remove({
       name: req.params.name
@@ -191,6 +200,7 @@ module.exports = function(app, passport){
     });
   });
 
+// get all challengefriends
   app.get('/api/challengefriends', function(req, res){
     ChallengeFriend.find({}, function(err, friendChallenges){
       if(err){console.log(err)}
@@ -198,6 +208,7 @@ module.exports = function(app, passport){
     })
   })
 
+// create a new challengefriend
   app.post('/api/challengefriends', function(req, res){
     console.log(req.body);
     ChallengeFriend.create(req.body, function(err, friendChallenges){
