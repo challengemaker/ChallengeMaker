@@ -158,7 +158,6 @@ function appRoutes($routeProvider){
       templateUrl: 'templates/_cms.html'
     })
 
-
     .when('/', {
       templateUrl: 'templates/_home.html'
       ,controller: 'challengesCtrl'

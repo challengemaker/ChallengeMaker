@@ -219,7 +219,13 @@ var app = angular.module('challengesController', [])
         var challengerVideo = "https://www.youtube.com/embed/"+challengerVideoId
         self.challengerVideo = challengerVideo;
         $('.acceptButton').on('click', function(){
-          window.location.hash = "#/signin/"+challenge;
+          var userToken = window.localStorage.sessionToken
+          var challengeName = window.location.hash.split('/')[3]
+          if(userToken && userToken != "none"){
+            window.location.hash = "#/"+challengeName
+          } else {
+            window.location.hash = "#/signin/"+challenge;
+          }
         })
         function setBeenBlack() {
           var height = $('.challImg').height();
@@ -278,6 +284,18 @@ var app = angular.module('challengesController', [])
       //////this will all be in a factory later
       $http.get('/api/responses')
         .then(function(data){
+          var thisChall = window.location.hash.split('/')[2];
+
+          var rawResponses = data.data.reverse();
+          var arrResponses = [];
+          for (var i = 0; i < rawResponses.length; i++) {
+            console.log(rawResponses[i]);
+            // var thisRespChall = rawResponses[i].data.challenge;
+            // console.log(thisRespChall);
+            // if( == )
+
+          }
+          ///////filter out all data that isn't specific to our challenge
           var challengeResponses = data.data.reverse();//reversed so newest first
           function addThumbToResponse(){
             for (var i = 0; i < challengeResponses.length; i++) {
