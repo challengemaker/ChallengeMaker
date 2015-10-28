@@ -183,7 +183,7 @@ module.exports = function(app, passport){
     }, function(err, result){
       console.log(err);
       console.log(result);
-      res.json(result)
+      // res.sendFile("*")
     })
   });
 
