@@ -20,3 +20,12 @@ var app = angular.module('paymentsController', [])
       });
     })
   }
+  //
+  // $('#checkout').submit(function(event){
+  //   console.log('hey there');
+  //   event.preventDefault();
+  // })
+
+  $('#checkout').on('submit', function(){
+    console.log('submitted baby');
+  })

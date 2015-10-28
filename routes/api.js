@@ -15,6 +15,7 @@ var Challenge       = require('../models/challenge.js');
 var Response        = require('../models/response.js');
 var Charity         = require('../models/charity.js');
 var Message         = require('../models/messages.js');
+var Transaction         = require('../models/transactions.js');
 var ChallengeFriend = require('../models/challengeFriend.js');
 /////////end model imports ///////////////
 //////////////////////////////////////////
@@ -170,20 +171,20 @@ module.exports = function(app, passport){
     })
   })
 
+  app.get('/checkout', function(req, res){
+    res.sendFile( __dirname + '/public/index.html')
+  })
+
   app.post('/checkout', function(req, res){
-    console.log(req.body);
     var nonce = req.body.payment_method_nonce;
-    console.log('hiihihi');
-    console.log(nonce);
-    console.log('hohihihih');
-    // res.json(nonce)
     gateway.transaction.sale({
       amount: '1.00'
       ,paymentMethodNonce: nonce
     }, function(err, result){
-      console.log(err);
       console.log(result);
-      // res.sendFile("*")
+      var newTran = {amount: result.transaction.amount, merchantAccountId: result.transaction.merchantAccountId, id: result.transaction.id}
+      Transaction.create(newTran);
+      res.json(result.transaction);
     })
   });
 
