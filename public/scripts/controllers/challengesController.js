@@ -220,9 +220,9 @@ var app = angular.module('challengesController', [])
         self.challengerVideo = challengerVideo;
         $('.acceptButton').on('click', function(){
           var userToken = window.localStorage.sessionToken
-          var challengeName = window.location.hash.split('/')[3]
+          var challengeName = window.location.hash.split('/')[2]
           if(userToken && userToken != "none"){
-            window.location.hash = "#/"+challengeName
+            window.location.hash = "#/challenges/"+challengeName
           } else {
             window.location.hash = "#/signin/"+challenge;
           }
