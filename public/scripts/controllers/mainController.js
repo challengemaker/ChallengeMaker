@@ -8,7 +8,7 @@ angular.module('mainController', [])
     var dropdownCounter = 0;
     var sessionUser = window.localStorage.sessionUser;
     if(localStorage.sessionToken && localStorage.sessionToken!= "false" && localStorage.sessionToken!= "none"){
-      self.userSesh = sessionUser;
+      self.userSesh = "logout";
     }
     else{
       self.userSesh = "Sign In"
