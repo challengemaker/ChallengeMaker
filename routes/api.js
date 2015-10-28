@@ -161,12 +161,9 @@ module.exports = function(app, passport){
     privateKey: ignore.privateKey
   })
 
-  // console.log(gateway);
-  // console.log(ignore.merchantId);
-  // console.log(ignore.publicKey);
-
   app.get("/client_token", function(req, res){
     gateway.clientToken.generate({}, function(err, response){
+      if(err){res.json(err)}
       res.json(response.clientToken);
     })
   })
