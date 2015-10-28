@@ -179,7 +179,7 @@ module.exports = function(app, passport){
       ,paymentMethodNonce: nonce
     }, function(err, result){
       console.log(result);
-      var newTran = {amount: result.transaction.amount, merchantAccountId: result.transaction.merchantAccountId, id: result.transaction.id}
+      var newTran = {amount: result.transaction.amount, merchantAccountId: result.transaction.merchantAccountId, id: result.transaction.id, dateCreated: result.transaction.dateCreated}
       Transaction.create(newTran);
       res.json(result.transaction);
     })

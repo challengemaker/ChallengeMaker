@@ -19,13 +19,16 @@ var app = angular.module('paymentsController', [])
         container: "payment-form"
       });
     })
-  }
-  //
-  // $('#checkout').submit(function(event){
-  //   console.log('hey there');
-  //   event.preventDefault();
-  // })
 
-  $('#checkout').on('submit', function(){
-    console.log('submitted baby');
-  })
+    $('#submitPayment').on('click', function(){
+      console.log('in here at least');
+      var form = $('#checkout');
+      form.action = "/checkout";
+      form.method = 'post';
+      form.submit(function(data){
+        console.log('form submitted, i think');
+        console.log(data);
+      });
+    })
+//////end controller
+  }
