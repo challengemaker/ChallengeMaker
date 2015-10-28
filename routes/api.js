@@ -29,6 +29,46 @@ module.exports = function(app, passport){
       }
       res.json(users)
     });
+  });
+
+  app.delete('/api/users/:user_id', function(req, res){
+    User.remove({
+      _id: req.params.user_id
+    }, function(err, user){
+      if(err){
+        console.log(err);
+        res.send(err);
+      }
+      console.log("right BEFORE res.json message");
+      res.json({ message : "successfully deleted"});
+      console.log("right AFTER res.json message");
+    });
+  });
+
+  app.post('/api/users', function(req, res){
+    console.log(req.body);
+    var password = req.body.password;
+    console.log(password);
+    User.create(req.body, function(err, user){
+      console.log(err);
+      res.json(user)
+    });
+  })
+
+  app.post('/api/users/update', function(req, res){
+    // var updateAttr = req.updateAttr;
+    User.findOne(req.body.search, function(err, user){
+      if(err){console.log(err)};
+      if(req.body.email){
+        user.email = req.body.email;
+      }
+      if(req.body.name){
+        user.name = req.body.name;
+      }
+      user.save(function(data){
+        res.json(data);
+      });
+    })
   })
 
   app.get('/api/users/:name', function(req, res){
@@ -76,39 +116,6 @@ module.exports = function(app, passport){
     })
   })
 
-  app.get('/api/users', function(req, res){
-    User.find({}, function(err, users){
-      if(err){console.log(err)};
-      res.json(users);
-    });
-  })
-
-  app.post('/api/users', function(req, res){
-    console.log(req.body);
-    var password = req.body.password;
-    console.log(password);
-    User.create(req.body, function(err, user){
-      console.log(err);
-      res.json(user)
-    });
-  })
-
-  //
-  app.post('/api/users/update', function(req, res){
-    // var updateAttr = req.updateAttr;
-    User.findOne(req.body.search, function(err, user){
-      if(err){console.log(err)};
-      if(req.body.email){
-        user.email = req.body.email;
-      }
-      if(req.body.name){
-        user.name = req.body.name;
-      }
-      user.save(function(data){
-        res.json(data);
-      });
-    })
-  })
 
   app.get('/api/responses', function(req, res){
     Response.find({}, function(err, responses){
