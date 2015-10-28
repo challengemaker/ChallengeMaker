@@ -199,7 +199,6 @@ body {
 }
 
 #checkout {
-  margin-top: 20%;
 }
 
 .comp-chal-button {
@@ -707,6 +706,19 @@ body {
 
 #nav-search {
   margin-top: 7px;
+}
+
+.paymentBox {
+  outline: 5px solid gray;
+  padding: 0 15px 15px 15px;
+}
+
+.paymentBox p{
+font-size: 50px;
+}
+
+.paymentContainer {
+  margin-top: 80px;
 }
 
 .playButtonH {
