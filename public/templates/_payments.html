@@ -8,10 +8,21 @@
       <p>
         4111111111111111
       </p>
-      <form id="checkout" >
-        <div id="payment-form" action="/checkout" method="post"></div>
+      <form id="checkout" action="/checkout" method="post">
+        <div id="payment-form"></div>
         <!-- <input class="ohyeababy" type="submit" value="$1"> -->
-        <input id="submitPayment" type="submit">Submit your Payment</button>
+        <div class="paymentOptions">
+          <select class="amountDrop" name="amountDropdown">
+            <option value='5.00'>$5.00</option>
+            <option value='10.00'>$10.00</option>
+            <option value='15.00'>$15.00</option>
+            <option value='20.00'>$20.00</option>
+            <option value='25.00'>$25.00</option>
+            <option value='30.00'>$30.00</option>
+          </select>
+          <button type="button" class="customAmount">Or Add Custom Donation</button>
+        </div>
+        <input id="submitPayment" type="submit">
       </form>
     </div>
   </div>

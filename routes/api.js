@@ -169,15 +169,16 @@ module.exports = function(app, passport){
   })
 
   app.get('/checkout', function(req, res){
-    res.sendFile( __dirname + '/public/index.html')
+    res.sendFile('../../public/index.html')
   })
 
   app.post('/checkout', function(req, res){
     var nonce = req.body.payment_method_nonce;
     gateway.transaction.sale({
-      amount: '1.00'
-      ,paymentMethodNonce: nonce
-    }, function(err, result){
+      paymentMethodNonce: nonce
+      ,amount: req.body.amountDropdown
+    },
+    function(err, result){
       console.log(result);
       var newTran = {amount: result.transaction.amount, merchantAccountId: result.transaction.merchantAccountId, id: result.transaction.id, dateCreated: result.transaction.dateCreated}
       Transaction.create(newTran);
