@@ -31,16 +31,16 @@
 <div class="homeRepeat">
   <div ng-repeat="challenge in challenges.allChallenges" class="listContainer col-md-6 col-12-xs">
     <div style="margin: 0px" class="row">
-      <div style="margin: 0px" class="blackLayerList">
+      <div class="blackLayerList" ng-click="challenges.swap($index)">
         <span class="glyphicon glyphicon-play-circle playButtonL"></span>
       </div>
       <div class="lMediaHolder" ng-click="challenges.swap($index)">
-        <div class="listText listText{{$index}}">
+        <div class="listText listText{{$index}} row">
             <div class="texttext col-md-10 col-xs-12">
               <div class="listTextHolder">
-                <h2>{{challenge.charity[0]}}</h2>
-                <h3 class="listTitle">{{challenge.title}}</h3>
-                <p class="listSectionRemove">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
+                <h2 class="listRemove{{$index}}">{{challenge.charity[0]}}</h2>
+                <h3 class="listTitle listRemove{{$index}}">{{challenge.title}}</h3>
+                <p class="listSectionRemove listRemove{{$index}}">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
                 <button type="button" class="acceptButton" ng-click="challenges.goTo($index)" id="{{$index}}btn">Accept Challenge</button>
                <!-- <div class="detailsButton" id="{{}}" ng-mouseEnter="" ng-mouseLeave="">details</div> -->
               </div>

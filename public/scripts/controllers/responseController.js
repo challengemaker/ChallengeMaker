@@ -6,6 +6,19 @@ angular.module('responseController', [])
   function responseCtrl($http, $routeParams){
     var self = this;
 
+    var thisChallenge = window.location.hash.split('/')[2];
+    console.log(thisChallenge);
+
+    $http({
+      method: "GET"
+      ,url: "/api/challenges/"+thisChallenge
+    })
+    .then(function(data){
+      console.log(data);
+      self.thisPhoto = data.data.photo;
+      self.thisCharity = data.data.charity[0];
+    })
+
     var submitChallenge = function(){
       /////collecting all data we'll need for
       var userName = window.localStorage.sessionUser;
@@ -29,6 +42,7 @@ angular.module('responseController', [])
         responsePackage.userId = data.data.user._id;
         // console.log(responsePackage);
         ////$http call to post the friendschallenge to friends
+        console.log(responsePackage);
         $http({
           method: "POST"
           ,url: "/api/challengeFriends"
@@ -51,7 +65,7 @@ angular.module('responseController', [])
               creator: responsePackage.responseCreator,
               creatorId: responsePackage.userId,
               videoUrl: responsePackage.video,
-              challenge: responsePackage.cName,
+              challenge: responsePackage.challenge,
               emails: responsePackage.emails
             }
           })
@@ -72,61 +86,12 @@ angular.module('responseController', [])
         })
       })
     }
-    self.checkYoutube = function checkYoutube(){
-      //////////parse the link on each keyup to make sure it's getting a proper youtube reading
-      var currUrl = $('.responseTitle').val();
-
-      var urlFunc = function(){
-        var urlArr = currUrl.split("/");
-        var httpCheck = urlArr[0].slice(0, 6);
-        // console.log(httpCheck);
-        if(httpCheck == "https:" && urlArr.join("").length != 6){
-          // console.log('its an http');
-          urlArr.shift();
-          urlArr.shift();
-          if(urlArr.join("").length > 5){
-            var shortUrl1 = urlArr.join("").slice(0, 9);
-            var shortUrl2 = urlArr.join("").slice(0, 5);
-          }else {
-            var shortUrl1 = "blah";
-            var shortUrl2 = "blah";
-          }
-        } else {
-          // console.log('notan http');
-          var shortUrl1 = urlArr.join("").slice(0, 9);
-          var shortUrl2 = urlArr.join("").slice(0, 5);
-        }
-        if(shortUrl1 == "www.youtu" || shortUrl2 == "youtu"){
-          // console.log('looks right');
-          $('.responseTitle').css({
-            backgroundColor: "#D8F9FF"
-          })
-        } else {
-          // console.log("what the fuck!");
-          $('.responseTitle').css({
-            backgroundColor: "#FFCCE0"
-          })
-        }
-
-        // if()
-      }
-      urlFunc();
-      /////end parsing the url for youtubability
-
-      if(currUrl){
-        // console.log(currUrl);
-      } else{
-        // console.log('boooo');
-      }
-    }
-
     setInterval(function(){
       var contMargin = ((window.innerWidth/2) - 280)+"px";
       $('.questionHolder').css({marginLeft: contMargin})
     }, 50)
     ////create submit-new-response section
     //////////////////////////////////////
-    $('.submitDon').on('click', submitChallenge())
 
     $('.goToDonation').on("click", function(){
       if (window.localStorage.sessionUser && window.localStorage.sessionUser != "none") {
@@ -163,6 +128,9 @@ angular.module('responseController', [])
     /////and creating a new response
     var hash = window.location.hash.split('/');
     if(hash[1] == "newresponse" && hash[2]){
+      ////
+
+
       ///setting all input-clearing
       $('.signup1').on('click', function(evt){
         $(".signup1").val('');
@@ -244,14 +212,40 @@ angular.module('responseController', [])
           carouselCounter++;
           if (carouselCounter == 1) {
             $('.forwardButton').text("SUBMIT!");
+            $('.forwardButton').addClass("submitDon");
+            $('.submitDon').on('click', function(){
+
+              ////begin checking to make sure that the response is actually a youtube link
+              var check = /[\b(youtu(be))\b]/;
+              var checkUrl = $('.responseTitle').val();
+
+              if(check.test(checkUrl)){
+                console.log('test worked');
+                submitChallenge()
+              } else {
+                console.log('try agin');
+              }
+            })
+            /////end checking youtube url and running https
+            /////////////////////////////
 
             tunnelMargin = tunnelMargin-550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
             })
           } else if (carouselCounter == 2) {
-            $('.forwardButton').addClass("submitDon");
-            $('.submitDon').on('click', submitChallenge())
+            // $('.forwardButton').addClass("submitDon");
+            // $('.submitDon').on('click', function(){
+            //   var checkUrl = $('.responseTitle').val();
+            //   console.log(checkUrl);
+            //   if(checkUrl == "dynamo"){
+            //     console.log('its working');
+            //     submitChallenge()
+            //   }
+            //   else {
+            //     console.log('not a proper url');
+            //   }
+            // });
             tunnelMargin = tunnelMargin-550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"

@@ -40,63 +40,26 @@
     <script src="scripts/controllers/userController.js" charset="utf-8"></script>
     <script src="scripts/controllers/charityController.js" charset="utf-8"></script>
     <script src="scripts/controllers/responseController.js" charset="utf-8"></script>
+    <script src="scripts/controllers/messagesController.js" charset="utf-8"></script>
     <script src="scripts/controllers/analyticsController.js" charset="utf-8"></script>
+    <script src="scripts/controllers/paymentsController.js" charset="utf-8"></script>
     <!-- end controllers -->
-
-    <!-- Begin all other javascripts -->
-    <!-- End all other javascripts -->
-
 
   </head>
   <body ng-app="challengeMaker" ng-controller="mainCtrl as main">
-
-    <!-- Navbar begins here -->
-    <!-- <div class="navContainer">
-      <div class="navBar row">
-        <div class="logoContainer col-sm-8 col-xs-12">
-          <img src="/assets/challengemaker_logo.png" alt="" class="logo"/>
-        </div>
-        <div class="signinHolder col-sm-2 col-xs-12">
-          <div class="signIn">
-            <h3>{{main.userSesh}}</h3>
-          </div>
-        </div>
-        <div class="dropdownBarContainer col-sm-2 col-xs-12">
-          <div class="dropdownIcon">
-            <img class="dropdownIconImage" ng-click="main.dropDown()" src="assets/dropdown.png"/>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!-- End Nav Bar -->
-
     <!-- Ben's Bootstrap navbar begins-->
     <nav style="background-color: white" class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div style="{width:100%}" class=" navContainer">
-          <!-- <a id="nav-logo" class="navbar-brand" href="#">challengemaker</a> -->
           <div class="navbar-brand">
-            <a href="/" class="logo"><img src="/assets/challengemaker_logo.png" alt=""></a>
+            <a href="/" class="logo">
+              <img src="/assets/challengemaker_logo.png" alt="">
+            </a>
           </div>
-          <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button> -->
-
-        <!-- <div class="pull-right">
-          <div class="signinHolder col-sm-2 col-xs-12">
-            <div class="signIn">
-              <h3>{{main.userSesh}}</h3>
-            </div>
-          </div> -->
-
         </div>
         <div class="nav navbar-right pull-right">
           <div class="userNameSignedIn">
-            <p>{{main.userSesh}}</p>
+            <a class="signInBar" href="#/signin">{{main.userSesh}}</a>
           </div>
           <div class="dropdownIcon">
             <img class="dropdownIconImage" ng-click="main.dropDown()" src="assets/cmmenuicon.svg"/>
@@ -104,30 +67,26 @@
         </div>
       </div>
 
-        <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
-          <!-- <div class="col-sm-3 col-sm-offset-3">
-            <div id="nav-search" class="input-group">
-              <input type="text" class="form-control" placeholder="search for challenges">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Go!</button>
-              </span>
-            </div>
-          </div> -->
-
-          <!-- <ul class="nav navbar-nav navbar-right" id="nav-links">
-              <li id=""><a href="/">logout</a></li>
-          </ul>
-
-        </div> -->
-      </div>
-    </nav>
-    <!-- Ben's Bootstrap navbar ends-->
-
-    <!-- Begin body -->
-    <div class="bodyView">
-      <section ng-view></section>
-    </div>
-
+            <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+              <!-- <div class="col-sm-3 col-sm-offset-3">
+                <div id="nav-search" class="input-group">
+                  <input type="text" class="form-control" placeholder="search for challenges">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                  </span>
+                </div>
+              </div>
+              <ul class="nav navbar-nav navbar-right" id="nav-links">
+                <li id=""><a href="/">logout</a></li>
+              </ul>
+            </div> -->
+            <!-- End bootstrap dropdown which we are not using -->
+          </div>
+        </nav>
+        <!-- Ben's Bootstrap navbar ends-->
+        <div class="bodyView">
+          <section ng-view></section>
+        </div>
       </div>
     </div>
   </body>

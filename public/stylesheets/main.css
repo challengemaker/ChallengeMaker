@@ -13,6 +13,11 @@ body {
   padding-top: 66px;
 }
 
+.acceptBeen {
+  height: 38px;
+  text-align: center;
+}
+
 .acceptButton {
   background-color: white;
   color: gray;
@@ -24,6 +29,7 @@ body {
   font-weight: bolder;
   opacity: 0.5;
 }
+
 .acceptButton:hover {
   background-color: purple;
   opacity: .90;
@@ -53,6 +59,10 @@ body {
   font-size: 25px;
 }
 
+.beenContainer {
+  min-height: 100%;
+}
+
 .blackLayer{
   width: 100%;
   height: 100%;
@@ -62,19 +72,26 @@ body {
   position: absolute;
 }
 
+.blackLayerBeen {
+  background-color: black;
+  position: absolute;
+  width: 100%;
+  opacity: .15;
+  top: 0;
+  left: 0;
+}
+
 .blackLayerList {
-  width: 99%;
+  width: 100%;
   height: 98.5%;
-  margin-top: 1%;
   background-color: black;
   opacity: .15;
   z-index: 2;
   position: absolute;
-  margin-left: 14px;
 }
 
 .blackLayerSingleHighlight {
-  width: 95%;
+  width: 100%;
   height: 460px;
   background-color: black;
   opacity: .1;
@@ -130,9 +147,23 @@ body {
   margin-top: 30px;
 }
 
+.challengeInfo {
+}
+
 .challengedTitle {
   font-size: 35px;
   margin-top: -10px;
+}
+
+.challFrContainer {
+  background-color: #D6D6EB;
+  margin-top: 20px;
+  font-size: 25px;
+  width: 70%;
+  margin-left: 15%;
+  text-align: center;
+  vertical-align: middle;
+  padding: 15px 10px 10px 15px;
 }
 
 .challengeFriends {
@@ -151,18 +182,23 @@ body {
   color: white;
   background-size:  100% 320px;
   background-repeat: no-repeat;
-  margin: 20px 0 40px 0;
+  margin:0;
 }
 
 .challengeInfo {
   display: inline-block;
   margin: 60px 0 0 5%;
+  position: absolute;
+  z-index: 2
 }
 
 .challengePhoto {
   position: absolute;
   width: 100%;
   z-index: -1;
+}
+
+#checkout {
 }
 
 .comp-chal-button {
@@ -194,6 +230,8 @@ body {
 .currentChallengeHolder{
   display: inline-block;
   min-height: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 .currentChallengeImage {
@@ -208,8 +246,9 @@ body {
 .currentChallengeInfo {
   color: white;
   position: absolute;
-  margin-top: -350px;
-  width: 100%;
+  margin-top: -300px;
+  margin-left: 30px;
+  width: 80%;
 }
 
 .currentChallengeMoney {
@@ -220,7 +259,8 @@ body {
 
 .currentChallengeStats {
   display: inline-block;
-  margin: 5px 5px 5px 5px
+  margin:0;
+  padding-right: 5px;
   background-color: #f1f1f1;
   min-height: 100%;
   padding-bottom: 0px;
@@ -441,6 +481,13 @@ body {
   display: block;
 }
 
+.hContainer {
+  width: 100%;
+  min-height: 100%;
+  display: block;
+  padding: 0px;
+}
+
 .highlightContainer {
 
 }
@@ -467,13 +514,6 @@ body {
   font-weight: bolder;
 }
 
-.hContainer {
-  width: 100%;
-  min-height: 100%;
-  display: block;
-  padding: 0px;
-}
-
 .hImage {
   /*background-color: green;*/
 }
@@ -497,7 +537,7 @@ body {
 
 .hVideo {
   width: 100%;
-  background-color: blue;
+  background-color: black;
 }
 
 .impactChallenged{
@@ -582,7 +622,8 @@ body {
 
 .lMediaHolder {
   margin-top: 5px;
-  width: 100%;
+  width: 98%;
+  margin-left: 1%;
   min-height: 100%;
 }
 
@@ -610,7 +651,7 @@ body {
 
 .lVideo {
   width: 100%;
-  background-color: blue;
+  background-color: black;
 }
 
 .miniChallInfo {
@@ -667,6 +708,19 @@ body {
   margin-top: 7px;
 }
 
+.paymentBox {
+  outline: 5px solid gray;
+  padding: 0 15px 15px 15px;
+}
+
+.paymentBox p{
+font-size: 50px;
+}
+
+.paymentContainer {
+  margin-top: 80px;
+}
+
 .playButtonH {
   width: 100%;
   font-size: 140px;
@@ -681,6 +735,20 @@ body {
   color: white;
   margin-top: 20%;
   text-align: center;
+}
+
+.pwAttempt {
+  margin-top: 40px;
+  width: 30%;
+  margin-left: 35%;
+  height: 40px;
+  font-size: 22px;
+}
+
+.pwChecker {
+  margin-left: 35%;
+  height: 40px;
+  font-size: 22px;
 }
 
 .q1 {
@@ -705,6 +773,27 @@ body {
   margin-left: -400px;
 }
 
+.questionBackgroundContainer {
+
+}
+
+.questionBackgroundImage {
+  margin-top: -32px;
+  width:100%;
+  height:100%;
+  z-index: 2;
+  opacity: .8;
+  position: absolute;
+}
+
+.questionBackgroundImage img{
+  -webkit-filter: blur(10px);
+  width:100%;
+  height:100%;
+  z-index: 2;
+  position: absolute;
+}
+
 .questionContainer {
   display: block;
   height: 70%;
@@ -716,6 +805,8 @@ body {
 .questionHolder {
   height: 480px;
   width: 550px;
+  position: absolute;
+  z-index: 10;
   overflow: hidden;
   margin-top: 40px;
   margin-left: 50%;
@@ -753,6 +844,10 @@ body {
 .responseImage {
   max-height: 100%;
   max-width: 100%;
+}
+
+.responseName {
+  margin-top: 20%;
 }
 
 .responseTitle {

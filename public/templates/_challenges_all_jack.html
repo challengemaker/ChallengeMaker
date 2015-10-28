@@ -1,5 +1,13 @@
-<div class="challfrContainer" ng-repeat="friendsChallenge in analytics.allFriendsChallenges">
-  <h1>{{friendsChallenge.senderName}}</h1>
-  <h2>{{friendsChallenge.sendeeEmail}}</h2>
-  <h2>{{friendsChallenge.friendVideoUrl}}</h2>
+<div class="passwordBox" >
+  <input type="text" name="name" value="" class="pwAttempt"><br>
+  <button type="button" name="button" class="pwChecker">Submit Password</button>
+</div>
+
+
+<div class="challFrContainer" ng-repeat="friendsChallenge in analytics.allFriendsChallenges" ng-if="analytics.passwordCorrect">
+  <p>The Challenge: {{friendsChallenge.challenge.split("-").join(' ')}}</p>
+  <p>Person Challenging: {{friendsChallenge.senderName}}</p>
+  <p>Emails of people they've challenged: {{friendsChallenge.sendeeEmail}}</p>
+  <p>The video the created: {{friendsChallenge.friendVideoUrl}}</p>
+  <p>Challenge Link, to send out: {{friendsChallenge.challengeUrlToSend}}</p>
 </div>

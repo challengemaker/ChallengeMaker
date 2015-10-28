@@ -12,9 +12,52 @@ var app = angular.module('analyticsController', [])
     })
     .then(function(data){
       console.log(data);
-      self.allFriendsChallenges = data.data;
-      console.log(self.allFriendsChallenges);
+      var allFriendsChallenges = data.data.reverse();
+      console.log(allFriendsChallenges);
+      for (var i = 0; i < allFriendsChallenges.length; i++) {
+        allFriendsChallenges[i].challengeUrlToSend = "https://challengemaker.herokuapp.com/#/youvebeenchallenged/"+allFriendsChallenges[i].challenge + "/" + allFriendsChallenges[i].friendVideoUrl.split('/')[4] + "/" + allFriendsChallenges[i].senderName.split(' ').join('-');
+        console.log(allFriendsChallenges[i]);
+      }
+      self.allFriendsChallenges = allFriendsChallenges
     })
+
+
+    /////check password
+    $('.pwChecker').on('click', function(){
+      var attempt = $('.pwAttempt').val();
+      console.log(attempt);
+      $http({
+        method: "POST"
+        ,url: "/api/password"
+        ,data: {password: attempt}
+      })
+      .then(function(data){
+        console.log(data);
+        self.passwordCorrect = data.data.valid;
+        if(self.passwordCorrect){
+          $('.passwordBox').html('')
+        }
+      })
+    })
+    ///keypress event
+    $('.pwAttempt').keypress(function(evt){
+      console.log(evt);
+      var attempt = $('.pwAttempt').val();
+      console.log(attempt);
+      $http({
+        method: "POST"
+        ,url: "/api/password"
+        ,data: {password: attempt}
+      })
+      .then(function(data){
+        console.log(data);
+        self.passwordCorrect = data.data.valid;
+        if(self.passwordCorrect){
+          $('.passwordBox').html('')
+        }
+      })
+    })
+
 
     //////////end controller
   }

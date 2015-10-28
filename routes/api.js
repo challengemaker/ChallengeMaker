@@ -15,6 +15,7 @@ var Challenge       = require('../models/challenge.js');
 var Response        = require('../models/response.js');
 var Charity         = require('../models/charity.js');
 var Message         = require('../models/messages.js');
+var Transaction         = require('../models/transactions.js');
 var ChallengeFriend = require('../models/challengeFriend.js');
 /////////end model imports ///////////////
 //////////////////////////////////////////
@@ -143,6 +144,14 @@ module.exports = function(app, passport){
     })
   })
 
+  app.post('/api/password', function(req, res){
+    if(req.body.password == "kickflip"){
+      res.json({valid: true})
+    } else {
+      res.json({valid: false})
+    }
+  })
+
   /////////////////begin braintree routing/////
   ////////////////////////////////////////////
   var gateway = braintree.connect({
@@ -152,20 +161,28 @@ module.exports = function(app, passport){
     privateKey: ignore.privateKey
   })
 
-  // console.log(gateway);
-  // console.log(ignore.merchantId);
-  // console.log(ignore.publicKey);
-
   app.get("/client_token", function(req, res){
     gateway.clientToken.generate({}, function(err, response){
-      console.log(err);
-      console.log(response);
+      if(err){res.json(err)}
       res.json(response.clientToken);
     })
   })
 
+  app.get('/checkout', function(req, res){
+    res.sendFile( __dirname + '/public/index.html')
+  })
+
   app.post('/checkout', function(req, res){
     var nonce = req.body.payment_method_nonce;
+    gateway.transaction.sale({
+      amount: '1.00'
+      ,paymentMethodNonce: nonce
+    }, function(err, result){
+      console.log(result);
+      var newTran = {amount: result.transaction.amount, merchantAccountId: result.transaction.merchantAccountId, id: result.transaction.id}
+      Transaction.create(newTran);
+      res.json(result.transaction);
+    })
   });
 
   ///////////end braintree routing/////////
