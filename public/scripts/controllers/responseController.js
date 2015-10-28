@@ -15,6 +15,7 @@ angular.module('responseController', [])
     })
     .then(function(data){
       console.log(data);
+      self.thisPhoto = data.data.photo;
       self.thisCharity = data.data.charity[0];
     })
 
@@ -85,54 +86,6 @@ angular.module('responseController', [])
         })
       })
     }
-    // self.checkYoutube = function checkYoutube(){
-    //   //////////parse the link on each keyup to make sure it's getting a proper youtube reading
-    //   var currUrl = $('.responseTitle').val();
-    //
-    //   var urlFunc = function(){
-    //     var urlArr = currUrl.split("/");
-    //     var httpCheck = urlArr[0].slice(0, 6);
-    //     // console.log(httpCheck);
-    //     if(httpCheck == "https:" && urlArr.join("").length != 6){
-    //       // console.log('its an http');
-    //       urlArr.shift();
-    //       urlArr.shift();
-    //       if(urlArr.join("").length > 5){
-    //         var shortUrl1 = urlArr.join("").slice(0, 9);
-    //         var shortUrl2 = urlArr.join("").slice(0, 5);
-    //       }else {
-    //         var shortUrl1 = "blah";
-    //         var shortUrl2 = "blah";
-    //       }
-    //     } else {
-    //       // console.log('notan http');
-    //       var shortUrl1 = urlArr.join("").slice(0, 9);
-    //       var shortUrl2 = urlArr.join("").slice(0, 5);
-    //     }
-    //     if(shortUrl1 == "www.youtu" || shortUrl2 == "youtu"){
-    //       // console.log('looks right');
-    //       $('.responseTitle').css({
-    //         backgroundColor: "#D8F9FF"
-    //       })
-    //     } else {
-    //       // console.log("what the fuck!");
-    //       $('.responseTitle').css({
-    //         backgroundColor: "#FFCCE0"
-    //       })
-    //     }
-    //
-    //     // if()
-    //   }
-    //   urlFunc();
-    //   /////end parsing the url for youtubability
-    //
-    //   if(currUrl){
-    //     // console.log(currUrl);
-    //   } else{
-    //     // console.log('boooo');
-    //   }
-    // }
-
     setInterval(function(){
       var contMargin = ((window.innerWidth/2) - 280)+"px";
       $('.questionHolder').css({marginLeft: contMargin})
@@ -175,6 +128,9 @@ angular.module('responseController', [])
     /////and creating a new response
     var hash = window.location.hash.split('/');
     if(hash[1] == "newresponse" && hash[2]){
+      ////
+
+
       ///setting all input-clearing
       $('.signup1').on('click', function(evt){
         $(".signup1").val('');
