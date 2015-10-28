@@ -64,7 +64,7 @@ angular.module('responseController', [])
               creator: responsePackage.responseCreator,
               creatorId: responsePackage.userId,
               videoUrl: responsePackage.video,
-              challenge: responsePackage.cName,
+              challenge: responsePackage.challenge,
               emails: responsePackage.emails
             }
           })
@@ -139,18 +139,6 @@ angular.module('responseController', [])
     }, 50)
     ////create submit-new-response section
     //////////////////////////////////////
-
-    $('.submitDon').on('click', function(){
-      var checkUrl = $('.responseTitle').val();
-      console.log(checkUrl);
-      if(checkUrl == "dynamo"){
-        console.log('its working');
-        submitChallenge()
-      }
-      else {
-        console.log('not a proper url');
-      }
-    });
 
     $('.goToDonation').on("click", function(){
       if (window.localStorage.sessionUser && window.localStorage.sessionUser != "none") {
