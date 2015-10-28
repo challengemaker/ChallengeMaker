@@ -100,9 +100,34 @@ module.exports = function(app, passport){
     })
   });
 
+// not finished!!
+  // app.post('/api/challenges', function(req, res){
+  //   Challenge.create(req.body, function(err, user){
+  //     res.json(challenge)
+  //   });
+  // });
+
+// not finished!!!
+  // app.post('/api/challenges/:name', function(req, res){
+  //   // var updateAttr = req.updateAttr;
+  //   Challenge.findOne(req.body.search, function(err, user){
+  //     if(err){console.log(err)};
+  //     if(req.body.email){
+  //       user.email = req.body.email;
+  //     }
+  //     if(req.body.name){
+  //       user.name = req.body.name;
+  //     }
+  //     user.save(function(challenge){
+  //       res.json(challenge);
+  //     });
+  //   })
+  // })
+
+  // not finished!!! error on line 130 :name
   app.delete('/api/challenges/:name', function(req, res){
     Challenge.remove({
-      :name: req.params.name
+      name: req.params.name
     }, function(err, challenge){
       if(err){
         res.send(err)}
@@ -126,6 +151,16 @@ module.exports = function(app, passport){
     })
   })
 
+  app.delete('/api/charities/:name', function(req, res){
+    Charity.remove({
+      name: req.params.name
+    }, function(err, charity){
+      if(err){
+        res.send(err)}
+      res.json(charity)
+    });
+  });
+
 
   app.get('/api/responses', function(req, res){
     Response.find({}, function(err, responses){
@@ -144,6 +179,17 @@ module.exports = function(app, passport){
       res.json({'posted': response});
     });
   })
+
+// user :name or _id? can I use response, or is it a protected word?
+  app.delete('/api/responses/:name', function(req, res){
+    Responses.remove({
+      name: req.params.name
+    }, function(err, response){
+      if(err){
+        res.send(err)}
+      res.json(response)
+    });
+  });
 
   app.get('/api/challengefriends', function(req, res){
     ChallengeFriend.find({}, function(err, friendChallenges){
