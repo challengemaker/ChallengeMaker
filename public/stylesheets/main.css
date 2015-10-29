@@ -6,7 +6,8 @@
 
 .bodyView {
   width: 95%;
-  min-width: 100%;
+  min-width: 98%;
+  /*98% eliminates the horizontal scroll issue*/
 }
 
 body {
@@ -729,8 +730,9 @@ body {
 }
 
 .paymentBox {
-  padding: 20px 35px 25px 35px;
-  background-color: #E1E1E1
+  padding: 20px 35px 20px 35px;
+  background-color: #E1E1E1;
+  position: absolute;
 }
 
 .paymentBox h1{
@@ -762,7 +764,10 @@ body {
 }
 
 .paymentSubButt {
-  margin: 5px 0px 5px 0px;
+  font-size: 20px;
+  width: 90px;
+  height: 45px;
+  margin: 15px 0px 0px 0px;
 }
 
 .playButtonH {
