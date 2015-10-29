@@ -8,12 +8,23 @@ angular.module('mainController', [])
     var dropdownCounter = 0;
     var sessionUser = window.localStorage.sessionUser;
     if(localStorage.sessionToken && localStorage.sessionToken!= "false" && localStorage.sessionToken!= "none"){
-      self.userSesh = "logout";
+      self.userSesh = "Sign Out";
     }
     else{
       self.userSesh = "Sign In"
     }
 
+    ////////event listener to login/logout from the navbar
+    $('.signInBar').on('click', function(){
+      if(window.localStorage.sessionToken && window.localStorage.sessionToken!= "false" && window.localStorage.sessionToken!= "none"){
+        self.userSesh = "Sign In";
+        window.localStorage.sessionToken = "none"
+        window.localStorage.sessionUser = "none"
+        window.location.reload()
+      } else {
+        window.location.hash = "#/signin"
+      }
+    })
 
     $('.logout').on('click', function(){
       self.userSesh = "Sign In";
@@ -41,7 +52,7 @@ angular.module('mainController', [])
             "<div class='dropItem' id='dropTerms'>Terms</div>"+
             // "<div class='dropItem' id='dropProfile'>Profile</div>"+
             "<div class='dropItem' id='dropSignin'>Sign In</div>"+
-            "<div class='dropItem' id='dropLogout'>Logout</div>"+
+            "<div class='dropItem' id='dropLogout'>Sign Out</div>"+
             "<div class='dropItem' id='dropFacebook'>Facebook</div>"+
             "<div class='dropItem' id='dropTwitter'>Twitter</div>"+
           "</div>"

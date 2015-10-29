@@ -7,6 +7,7 @@
 .bodyView {
   width: 95%;
   min-width: 98%;
+  margin-left: 1%;
   /*98% eliminates the horizontal scroll issue*/
 }
 
@@ -207,6 +208,7 @@ body {
 }
 
 #checkout {
+  /*position: absolute;*/
 }
 
 .comp-chal-button {
