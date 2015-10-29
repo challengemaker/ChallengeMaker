@@ -81,7 +81,7 @@ function appRoutes($routeProvider){
     })
 
     .when('/messages/:name',{
-      templateUrl: 'templates/_all_messages_user.html'
+      templateUrl: 'templates/_messages_all.html'
       ,controller: 'messagesCtrl'
       ,controllerAs: 'message'
     })

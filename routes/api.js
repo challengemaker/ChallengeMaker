@@ -144,6 +144,26 @@ module.exports = function(app, passport){
     })
   })
 
+  app.get('/api/messages', function(req, res){
+    Message.find({}, function(err, messages){
+      if(err){console.log(err)}
+      res.json(messages)
+    })
+  })
+
+  app.get('/api/messages/:name', function(req, res){
+    var receiver = req.params.name;
+    Message.find({receiver: receiver}, function(err, messages){
+      res.json(messages)
+    })
+  })
+
+  app.post('/api/messages', function(req, res){
+    Message.create(req.body, function(err, message){
+      res.json(message)
+    })
+  })
+
   app.post('/api/password', function(req, res){
     if(req.body.password == "kickflip"){
       res.json({valid: true})
