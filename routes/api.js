@@ -22,39 +22,38 @@ var ChallengeFriend = require('../models/challengeFriend.js');
 
 module.exports = function(app, passport){
 
+// USERS
 // get all users
   app.get('/api/users', function(req, res){
     User.find({}, function(err, users){
       if(err){
         res.send(err);
       }
-      res.json(users)
+      res.json(users);
     });
   });
 
-// delete user
-  app.delete('/api/users/:user_id', function(req, res){
-    User.remove({
-      _id: req.params.user_id
-    }, function(err, user){
+// show one user
+  app.get('/api/users/:name', function(req, res){
+    var name = req.params.name;
+    console.log(name);
+    User.findOne({name: name}, function(err, user){
       if(err){
-        console.log(err);
         res.send(err);
       }
-      console.log("right BEFORE res.json message");
-      res.json({ message : "successfully deleted"});
-      console.log("right AFTER res.json message");
+      console.log(user);
+      res.json({user: user});
     });
   });
 
-// create new user
+// create a new user
   app.post('/api/users', function(req, res){
     console.log(req.body);
     var password = req.body.password;
     console.log(password);
     User.create(req.body, function(err, user){
       console.log(err);
-      res.json(user)
+      res.json(user);
     });
   });
 
@@ -72,22 +71,25 @@ module.exports = function(app, passport){
       user.save(function(data){
         res.json(data);
       });
-    })
-  })
-
-// show one user
-  app.get('/api/users/:name', function(req, res){
-    var name = req.params.name;
-    console.log(name);
-    User.findOne({name: name}, function(err, user){
-      if(err){
-        res.send(err);
-      }
-      console.log(user);
-      res.json({user: user})
     });
-  })
+  });
 
+  // delete a user
+    app.delete('/api/users/:user_id', function(req, res){
+      User.remove({
+        _id: req.params.user_id
+      }, function(err, user){
+        if(err){
+          console.log(err);
+          res.send(err);
+        }
+        console.log("right BEFORE res.json message");
+        res.json({ message : "successfully deleted"});
+        console.log("right AFTER res.json message");
+      });
+    });
+
+// CHALLENGES
 // get all challenges
   app.get('/api/challenges', function(req, res){
     Challenge.find({}, function(err, challenges){
@@ -109,7 +111,6 @@ module.exports = function(app, passport){
 
 // create a new challenge not finished!!!
   app.post('/api/challenges', function(req, res){
-    Challenge.create(
 
       var challenge = new Challenge();
 
@@ -161,7 +162,16 @@ module.exports = function(app, passport){
     });
   });
 
+// CHARITIES
 // get all charities
+    app.get('/api/charities', function(req, res){
+      Charity.find({}, function(err, charities){
+        if(err){console.log(err)};
+        res.json(charities);
+      })
+    })
+
+// show one charity
   app.get('/api/charities/:name', function(req, res){
     var name = req.params.name.split('-').join(' ');
     Charity.findOne({name: name}, function(err, charity){
@@ -170,9 +180,8 @@ module.exports = function(app, passport){
     })
   })
 
-  // create a new charity not finished!!!
+// create a new charity
     app.post('/api/charities', function(req, res){
-      Charity.create(
 
         var charity = new Charity();
 
@@ -190,13 +199,22 @@ module.exports = function(app, passport){
       });
     });
 
-// show a charity
-  app.get('/api/charities', function(req, res){
-    Charity.find({}, function(err, charities){
-      if(err){console.log(err)};
-      res.json(charities);
-    })
-  })
+// update a charity
+      // app.post('/api/users/update', function(req, res){
+      //   // var updateAttr = req.updateAttr;
+      //   User.findOne(req.body.search, function(err, user){
+      //     if(err){console.log(err)};
+      //     if(req.body.email){
+      //       user.email = req.body.email;
+      //     }
+      //     if(req.body.name){
+      //       user.name = req.body.name;
+      //     }
+      //     user.save(function(data){
+      //       res.json(data);
+      //     });
+      //   })
+      // })
 
 // delete a charity
   app.delete('/api/charities/:name', function(req, res){
@@ -209,6 +227,7 @@ module.exports = function(app, passport){
     });
   });
 
+// RESPONSES
 // get all responses
   app.get('/api/responses', function(req, res){
     Response.find({}, function(err, responses){
@@ -239,6 +258,8 @@ module.exports = function(app, passport){
     });
   });
 
+
+// CHALLENGEFRIENDS
 // get all challengefriends
   app.get('/api/challengefriends', function(req, res){
     ChallengeFriend.find({}, function(err, friendChallenges){
@@ -256,6 +277,7 @@ module.exports = function(app, passport){
     })
   })
 
+// EMAILHACK & CMS PASSWORD
   app.post('/api/password', function(req, res){
     if(req.body.password == "kickflip"){
       res.json({valid: true})
