@@ -32,6 +32,12 @@ function appRoutes($routeProvider){
       ,controllerAs: 'payment'
     })
 
+    .when('/donationreceived/', {
+      templateUrl: 'templates/_donation_received.html'
+      ,controller: 'paymentsCtrl'
+      ,controllerAs: 'payment'
+    })
+
     .when('/checkout', {
       templateUrl: 'templates/_checkout.html'
       ,controller: 'paymentsCtrl'

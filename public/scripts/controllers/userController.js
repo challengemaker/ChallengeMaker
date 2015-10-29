@@ -27,9 +27,6 @@ angular.module('userController', [])
     })
 
     $('.goToSigninChallenge').on('click', function(){
-      // var respondChallenge = window.location.hash.split('/')[2];
-      // console.log(respondChallenge);
-      // window.location.hash = "#/newresponse/"+respondChallenge
     })
 
     //////begin profile section
@@ -162,13 +159,6 @@ angular.module('userController', [])
         self.allUsers = userList;
       });
     } else if(window.location.hash.split('/')[1] == "signin"){
-      $(".signInput1").on('click', function(){
-        $(".signInput1").val('')
-      });
-      $(".signInput2").on('click', function(){
-        $(".signInput2").val('')
-      });
-
 
       $('.signinSubmit').on('click', function(){
         var email = $(".signInput1").val();
