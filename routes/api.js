@@ -172,6 +172,9 @@ module.exports = function(app, passport){
     }
   })
 
+  ///////email stuff
+  app.post('/api/sendemail')
+
   /////////////////begin braintree routing/////
   ////////////////////////////////////////////
   var gateway = braintree.connect({

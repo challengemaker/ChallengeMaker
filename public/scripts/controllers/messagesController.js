@@ -17,6 +17,6 @@ var app = angular.module('messagesController', [])
     .then(function(data){
       console.log(data);
       self.myMessages = data.data;
-      console.log(myMessages);
+      console.log(self.myMessages);
     })
   }
