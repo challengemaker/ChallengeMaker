@@ -48,6 +48,9 @@ body {
 
 .amountDrop {
   width: 100%;
+  height: 45px;
+  font-size: 25px;
+  color: gray
 }
 
 .backButton {
@@ -721,16 +724,26 @@ body {
 }
 
 .paymentBox {
-  outline: 5px solid gray;
   padding: 0 15px 15px 15px;
+  background-color: #E1E1E1
 }
 
-.paymentBox p{
-font-size: 50px;
+.paymentBox h1{
+  font-size: 80px;
+  font-style: Helvetica
 }
 
 .paymentContainer {
   margin-top: 80px;
+}
+
+.paymentOptions {
+  font-size: 30px;
+  line-height: 60px;
+}
+
+.paymentOptions option{
+
 }
 
 .playButtonH {
