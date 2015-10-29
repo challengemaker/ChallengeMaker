@@ -108,11 +108,30 @@ module.exports = function(app, passport){
   });
 
 // create a new challenge not finished!!!
-  // app.post('/api/challenges', function(req, res){
-  //   Challenge.create(req.body, function(err, user){
-  //     res.json(challenge)
-  //   });
-  // });
+  app.post('/api/challenges', function(req, res){
+    Challenge.create(
+
+      var challenge = new Challenge();
+
+      challenge.sponsor = req.body.sponsor;
+      challenge.sponsorIcon = req.body.sponsorIcon;
+      challenge.title = req.body.title;
+      challenge.description = req.body.description;
+      challenge.video_url = req.body.video_url;
+      challenge.photo = req.body.photo;
+      challenge.creator = req.body.creator;
+      challenge.charity = req.body.charity;
+      challenge.responses = req.body.responses;
+      challenge.goal = req.body.goal;
+      challenge.total_raised = req.body.total_raised;
+
+      challenge.save(function(err, user) {
+    if (err) {
+      res.send(err);
+    }
+      res.json(challenge);
+    });
+  });
 
 // update a challenge not finished!!!
   // app.post('/api/challenges/:name', function(req, res){
