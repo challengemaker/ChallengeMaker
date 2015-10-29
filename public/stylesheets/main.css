@@ -724,17 +724,27 @@ body {
 }
 
 .paymentBox {
-  padding: 0 35px 25px 35px;
+  padding: 20px 35px 25px 35px;
   background-color: #E1E1E1
 }
 
 .paymentBox h1{
-  font-size: 80px;
+  font-size: 46px;
   font-style: Helvetica
 }
 
+.paymentCards img{
+  height: auto;
+  width: 500px;
+}
+
+.paymentCards p{
+  font-size: 18px;
+  margin-bottom: -8px;
+}
+
 .paymentContainer {
-  margin-top: 80px;
+  margin-top: 35px;
 }
 
 .paymentOptions {
@@ -744,6 +754,10 @@ body {
 
 .paymentOptions option{
 
+}
+
+.paymentSubButt {
+  margin: 5px 0px 5px 0px;
 }
 
 .playButtonH {
