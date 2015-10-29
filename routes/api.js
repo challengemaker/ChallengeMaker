@@ -171,13 +171,15 @@ module.exports = function(app, passport){
   app.post('/api/sendemail', function(req, res){
     mandrill_client.messages.send({
       "message": {
-        "from_email": "from_email@example.com"
-        ,"text": "This is some example text"
+        "from_email": "jackissocool@example.com"
+        ,"text": "Ben, I'm sending this via javascript from challengemaker"
         ,"to":[{
-          "email": "jack.connor83@gmail.com"
+          "email": "jackconnor83@gmail.com"
         }]
       }
-    }, function(err, data){
+    }, function(data){
+      console.log('did we make it to the pipeline?');
+      console.log(data);
       res.json(data)
     })
   })
