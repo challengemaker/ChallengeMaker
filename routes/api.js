@@ -170,6 +170,26 @@ module.exports = function(app, passport){
     })
   })
 
+  // create a new charity not finished!!!
+    app.post('/api/charities', function(req, res){
+      Charity.create(
+
+        var charity = new Charity();
+
+        charity.name = req.body.name;
+        charity.description = req.body.description;
+        charity.url = req.body.url;
+        charity.photo = req.body.photo;
+        charity.challenges = req.body.challenges;
+
+        charity.save(function(err, user) {
+      if (err) {
+        res.send(err);
+      }
+        res.json(charity);
+      });
+    });
+
 // show a charity
   app.get('/api/charities', function(req, res){
     Charity.find({}, function(err, charities){
