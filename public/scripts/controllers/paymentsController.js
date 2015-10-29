@@ -8,6 +8,8 @@ var app = angular.module('paymentsController', [])
     var self = this;
 
     self.paymentCounter = true;
+    self.paymentChallenge = window.location.hash.split('/')[2];
+    console.log(self.paymentChallenge);
 
     $('.customAmount').on('click', function(){
       self.paymentCounter = !self.paymentCounter;
@@ -54,7 +56,8 @@ var app = angular.module('paymentsController', [])
           ,onPaymentMethodReceived: function(nonce){
             console.log(nonce);
             $('#checkout').append(
-              "<input type='hidden' name='payment_method_nonce' value='" + nonce.nonce + "'></input>"
+              "<input type='hidden' name='payment_method_nonce' value='" + nonce.nonce + "'></input>"+
+              "<input type='hidden' name='challenge' value='" + self.paymentChallenge + "'></input>"
             )
             $('#checkout').submit();
           }

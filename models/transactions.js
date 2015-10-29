@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var transactionSchema = new Schema({
   merchantAccountId: String,
+  challenge: String,
   id: String,
   dateCreated: String,
   amount: String

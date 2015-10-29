@@ -171,16 +171,17 @@ module.exports = function(app, passport){
   app.post('/checkout', function(req, res){
     var nonce = req.body.payment_method_nonce;
     console.log(req.body);
+    console.log(req.body.challenge);
     gateway.transaction.sale({
       paymentMethodNonce: nonce
       ,amount: req.body.amount
     },
     function(err, result){
       console.log(result);
-      var newTran = {amount: result.transaction.amount, merchantAccountId: result.transaction.merchantAccountId, id: result.transaction.id, dateCreated: result.transaction.createdAt}
+      var newTran = {amount: result.transaction.amount, merchantAccountId: result.transaction.merchantAccountId, challenge: req.body.challenge, id: result.transaction.id, dateCreated: result.transaction.createdAt}
       Transaction.create(newTran);
       // res.json(result.transaction);
-      res.redirect('/')
+      res.redirect('/#/challenges/'+req.body.challenge)
     })
   });
 

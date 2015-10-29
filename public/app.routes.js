@@ -26,7 +26,7 @@ function appRoutes($routeProvider){
       ,controllerAs: 'challenges'
     })
 
-    .when('/payments', {
+    .when('/payments/:challenge_name', {
       templateUrl: 'templates/_payments.html'
       ,controller: 'paymentsCtrl'
       ,controllerAs: 'payment'
