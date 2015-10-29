@@ -661,6 +661,10 @@ body {
   background-color: black;
 }
 
+.messageInd {
+  outline: 2px solid brown;
+}
+
 .miniChallInfo {
   color: white;
   position: absolute;
