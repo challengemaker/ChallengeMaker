@@ -11,7 +11,7 @@
       <h3>
         sandbox expiration date: 10/20
       </h3>
-      <form id="checkout" action="/checkout" method="post">
+      <form id="checkout" http-equiv="refresh" content="0" URL="/" action="/checkout" method="post">
         <div id="payment-form"></div>
         <!-- <input class="ohyeababy" type="submit" value="$1"> -->
         <div class="paymentOptions">
@@ -23,7 +23,7 @@
             <option value='25.00'>$25.00</option>
             <option value='30.00'>$30.00</option>
           </select>
-          <button type="button" class="customAmount">Or Add Custom Donation</button>
+          <!-- <button type='button' class="customAmount">Or Add Custom Donation</button> -->
         </div>
         <input id="submitPayment" type="submit">
       </form>

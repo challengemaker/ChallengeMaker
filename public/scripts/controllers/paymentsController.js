@@ -35,11 +35,6 @@ var app = angular.module('paymentsController', [])
 
     })
 
-    $('#submitPayment').on('click', function(evt){
-      // evt.preventDefault();
-      console.log(evt);
-    })
-
     console.log('lol payments');
     $http({
       method: "GET"
@@ -52,22 +47,18 @@ var app = angular.module('paymentsController', [])
         self.token,
         'dropin', {
           container: "payment-form"
-        }, function(data){
-          window.localStorage.testData = data;
-        }
-      );
-      console.log(braintree.setup());
-    })
-
-    // $('#submitPayment').on('click', function(){
-    //   console.log('in here at least');
-    //   var form = $('#checkout');
-    //   form.action = "/checkout";
-    //   form.method = 'post';
-    //   form.submit(function(data){
-    //     console.log('form submitted, i think');
-    //     console.log(data);
-    //   });
-    // })
+          ,onError: function(err){
+            console.log(err);
+          }
+          ,redirect_url: "#/"
+          ,onPaymentMethodReceived: function(nonce){
+            console.log(nonce);
+            $('#checkout').append(
+              "<input type='hidden' name='payment_method_nonce' value='" + nonce.nonce + "'></input>"
+            )
+            $('#checkout').submit();
+          }
+        })
+      });
 //////end controller
   }
