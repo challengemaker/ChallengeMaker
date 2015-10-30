@@ -15,14 +15,14 @@ var app = angular.module('paymentsController', [])
       self.paymentCounter = !self.paymentCounter;
       if(!self.paymentCounter){
         $('.amountDrop').remove();
-        $('.customAmount')[0].textContent = "or select from list"
+        $('.customAmount')[0].textContent = "Selct Donation From List"
         $('.paymentOptions').prepend(
-          "<input id='paymentAmount' type='text' name='amount' placeholder='How much would you like to donate?'>"
+          "<input id='paymentAmount' type='text' name='amount' placeholder='Enter Donation Amount'>"
         )
       }
       else if(self.paymentCounter){
         $('#paymentAmount').remove();
-        $('.customAmount')[0].textContent = "Enter Custom Donation"
+        $('.customAmount')[0].textContent = "Create Custom Donation"
         $('.paymentOptions').prepend(
           "<select class='amountDrop form-control' id='sell' name='amount'>"+
             "<option value='5.00'>$5.00</option>"+

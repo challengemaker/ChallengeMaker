@@ -26,7 +26,12 @@ angular.module('userController', [])
       window.location.hash = "#/signin"
     })
 
+    $('.goToLoginChallenge').on("click", function(){
+      window.location.hash = "#/signin/"+window.location.hash.split('/')[2]
+    })
+
     $('.goToSigninChallenge').on('click', function(){
+
     })
 
     //////begin profile section
@@ -184,11 +189,12 @@ angular.module('userController', [])
             console.log(url);
             if(url){
               window.location.hash = '#/newresponse/'+url;
-              // window.location.reload();
+              window.location.reload();
             }
             else {
-              window.location.hash = "#/";
               window.location.reload();
+              window.location.hash = "#/";
+
             }
 
           } else {

@@ -489,6 +489,16 @@ body {
   display: block;
 }
 
+.goToLoginChallenge {
+  height: 40px;
+  width: 35%;
+  margin-left: 32.5%;
+  margin-top: 8px;
+  font-size: 22px;
+  text-align: center;
+  display: block;
+}
+
 .hContainer {
   width: 100%;
   min-height: 100%;
@@ -726,7 +736,7 @@ body {
   width: 100%;
   font-size: 24px;
   display: block;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .paymentBox {
