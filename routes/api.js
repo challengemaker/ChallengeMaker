@@ -120,10 +120,10 @@ module.exports = function(app, passport){
 
 
   app.post('/api/responses', function(req, res){
-    Response.create(req.body, function(err, response){
-      if(err){console.log(err)}
-      res.json({'posted': response});
-    });
+    // Response.create(req.body, function(err, response){
+    //   if(err){console.log(err)}
+    //   res.json({'posted': response});
+    // });
   })
 
   app.get('/api/emails', function(req, res){
@@ -188,8 +188,8 @@ module.exports = function(app, passport){
     console.log(req.body);
     mandrill_client.messages.send({
       "message": {
-        "from_email": "jackissocool@example.com"
-        ,"text": req.body.text
+        "from_email": req.body.email
+        ,"text": req.body.text + "Sent by: " +req.body.email
         ,"subject": req.body.subject
         ,"to":[{
           "email": req.body.sendeeEmail
@@ -242,7 +242,7 @@ module.exports = function(app, passport){
         ,"text": "Thank you for making such a gracious donaition to <Fill_in_Charity>!"
         ,"subject": "ChallengeMaker Is Thrilled About Your Donation"
         ,"to":[{
-          "email": "jack.connor83@gmail.com"
+          "email": "contact@gmail.com"
         }]
       }
     }, function(data){

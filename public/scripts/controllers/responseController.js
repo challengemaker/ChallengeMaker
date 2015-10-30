@@ -26,8 +26,7 @@ angular.module('responseController', [])
         $http({
           method: "POST"
           ,url: "/api/sendemail/contact"
-          ,data: {}
-          //,data: {sendeeEmail: "jack.connor83@gmail.com", subject: subject, text: message}
+          ,data: {sendeeEmail: "questions@challengemaker.com", subject: subject, text: message, email: email}
         })
         .then(function(data){
           console.log(data);
@@ -41,6 +40,7 @@ angular.module('responseController', [])
         })
         .then(function(err, email){
           console.log(email);
+          window.location.hash = "#/";
         })
       })
     }
@@ -54,7 +54,9 @@ angular.module('responseController', [])
     .then(function(data){
       console.log(data);
       // self.thisPhoto = data.data.photo;
-      self.thisCharity = data.data.charity[0];
+      self.thisCharity = data.data.charityLink;
+      console.log(self.thisCharity);
+      self.thisCharityName = data.data.charity[0]
     })
 
     var submitChallenge = function(){
@@ -80,6 +82,7 @@ angular.module('responseController', [])
         responsePackage.userId = data.data.user._id;
         // console.log(responsePackage);
         ////$http call to post the friendschallenge to friends
+        console.log(responsePackage.userId);
         var rightNow = new Date();
         console.log(rightNow);
         $http({
@@ -96,23 +99,32 @@ angular.module('responseController', [])
         })
         .then(function(data){
           /////this should be the data response from the post request, and we now post the challenge info to db
-          // $http({
-          //   method: "Post"
-          //   ,url: "/api/responses"
-          //   ,data: {
-          //     creator: responsePackage.responseCreator,
-          //     creatorId: responsePackage.userId,
-          //     videoUrl: responsePackage.video,
-          //     challenge: responsePackage.challenge,
-          //     emails: responsePackage.emails
-          //   }
-          // })
-          // .then(function(data){
-            var url = window.location.hash.split('/');
+          $http({
+            method: "Post"
+            ,url: "/api/responses"
+            ,data: {
+              creator: responsePackage.responseCreator,
+              creatorId: responsePackage.userId,
+              videoUrl: responsePackage.video,
+              challenge: responsePackage.challenge,
+              emails: responsePackage.emails
+            }
+          })
+          .then(function(data){
+            var url = window.location.hash.split('/')[2];
+            console.log(url);
             $http.get('api/challenges/'+url[2])
               .then(function(data){
+                console.log(data);
                 self.charityLink = data.data.charityLink;
-
+                console.log(self.charityLink);
+                // $('.goToDonation').on('click', function(){
+                //   console.log(self.thisCharity);
+                //   window.open(self.thisCharity, target="_blank")
+                  // .then(function(){
+                  //   window.location.hash = "#/challenges/"+url[2];
+                  // })
+                // })
                 //////send the email thanking them for making a challenge
                 $http({
                   method: "GET"
@@ -147,16 +159,8 @@ angular.module('responseController', [])
                   })
                 })
                 //////end sending challenge thank you email
-
-
-                $('.goToDonation').on('click', function(){
-                  window.open(self.charityLink, target="_blank")
-                  // .then(function(){
-                  //   window.location.hash = "#/challenges/"+url[2];
-                  // })
-                })
               })
-          // })
+          })
         })
       })
     }
@@ -191,7 +195,8 @@ angular.module('responseController', [])
 
     $('.goToDonation').on("click", function(){
       if (window.localStorage.sessionUser && window.localStorage.sessionUser != "none") {
-        window.location.hash = "#/challenges/"+window.location.hash.split('/')[2]
+        window.open(self.thisCharity, target="_blank")
+        window.location.hash = "#/";
       } else {
         window.location.hash = "#/signup"
       }

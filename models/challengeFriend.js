@@ -7,6 +7,7 @@ var challengeFriendSchema = new Schema({
   ,sendeeEmail: Array
   ,friendVideoUrl: String
   ,challenge: String
+  ,date: Date
 })
 
 module.exports = mongoose.model("ChallengeFriend", challengeFriendSchema)
