@@ -216,6 +216,28 @@ module.exports = function(app, passport){
       res.json(data)
     })
   })
+  ////////end challenge response
+
+  ///////make the automatic email for anyone who responds to a challenge
+  app.post('/api/sendemail/donation', function(req, res){
+    console.log(req.body);
+    mandrill_client.messages.send({
+      "message": {
+        "from_email": "challenge@challengemaker.com"
+        ,"text": "Thank you for making such a gracious donaition to <Fill_in_Charity>!"
+        ,"subject": "ChallengeMaker Is Thrilled About Your Donation"
+        ,"to":[{
+          "email": "jack.connor83@gmail.com"
+        }]
+      }
+    }, function(data){
+      res.json(data)
+    })
+  })
+  /////////////end donation thank you email
+
+  //////end emails
+  ////////////////
 
   /////////////////begin braintree routing/////
   ////////////////////////////////////////////
