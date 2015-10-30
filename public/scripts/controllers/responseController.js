@@ -78,7 +78,8 @@ angular.module('responseController', [])
         responsePackage.userId = data.data.user._id;
         // console.log(responsePackage);
         ////$http call to post the friendschallenge to friends
-        console.log(responsePackage);
+        var rightNow = new Date();
+        console.log(rightNow);
         $http({
           method: "POST"
           ,url: "/api/challengeFriends"
@@ -87,13 +88,12 @@ angular.module('responseController', [])
             senderName: responsePackage.responseCreator,
             sendeeEmail: responsePackage.emails,
             friendVideoUrl: responsePackage.video,
-            challenge: responsePackage.challenge
+            challenge: responsePackage.challenge,
+            date: rightNow
           }
         })
         .then(function(data){
-          console.log(data);
           /////this should be the data response from the post request, and we now post the challenge info to db
-          console.log(responsePackage);
           $http({
             method: "Post"
             ,url: "/api/responses"
@@ -106,41 +106,79 @@ angular.module('responseController', [])
             }
           })
           .then(function(data){
-            console.log(data);
             var url = window.location.hash.split('/');
             $http.get('api/challenges/'+url[2])
               .then(function(data){
                 self.charityLink = data.data.charityLink;
 
                 //////send the email thanking them for making a challenge
-                console.log(window.localStorage);
-                console.log(window.localStorage.sessionUser);
                 $http({
                   method: "GET"
                   ,url: "/api/users/"+window.localStorage.sessionUser
                 })
                 .then(function(userObj){
-                  console.log(userObj);
                   var sendeeEmail = userObj.data.user.email;
-                  console.log(sendeeEmail);
                   $http({
                     method: "POST"
-                    ,url: "/api/sendemail/challengecomplete"
+                    ,url: "/api/emails"
                     ,data: {sendeeEmail: sendeeEmail}
+                  })
+                  .then(function(){
+                    var emailArr = $('.challengeFriends');
+                    var realEmails = [];
+                    for (var i = 0; i < emailArr.length; i++) {
+                      var friendEmail = emailArr[i].value;
+                      var checkEmail = /[\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b]/;
+                      var checkUrlEmail = friendEmail;
+                      if(friendEmail != "email" && checkEmail.test(checkUrlEmail)){
+                        realEmails.push({email: friendEmail});
+                      }
+                    }
+                    $http({
+                      method: 'POST'
+                      ,url: "/api/sendemail/challengefriends"
+                      ,data: realEmails
+                    })
+                    .then(function(data){
+                    })
                   })
                 })
                 //////end sending challenge thank you email
 
 
                 $('.goToDonation').on('click', function(){
-                  window.open(self.charityLink, target="_blank");
-                  window.location.hash = "#/challenges/"+url[2];
+                  window.open(self.charityLink, target="_blank")
+                  .then(function(){
+                    window.location.hash = "#/challenges/"+url[2];
+                  })
                 })
               })
           })
         })
       })
     }
+
+    //////tempoarry house for some bullshit
+    // .then(function(email){
+    //   var emailArr = $('.challengeFriends');
+    //   var realEmails = [];
+    //   for (var i = 0; i < emailArr.length; i++) {
+    //     var friendEmail = emailArr[i].value;
+    //     var checkEmail = [\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b]/;
+    //     var checkUrlEmail = friendEmail;
+    //     if(friendEmail != "email" && checkEmail.test(checkUrlEmail)){
+    //       realEmails.push({email: friendEmail});
+    //     }
+    //   }
+    //   $http({
+    //     method: 'POST'
+    //     ,url: "/api/sendemail/challenge"
+    //     ,data: realEmails
+    //   })
+    //   .then(function(data){
+    //     console.log(data);
+    //   })
+    ///////
     setInterval(function(){
       var contMargin = ((window.innerWidth/2) - 280)+"px";
       $('.questionHolder').css({marginLeft: contMargin})

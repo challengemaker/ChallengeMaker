@@ -216,6 +216,21 @@ module.exports = function(app, passport){
       res.json(data)
     })
   })
+
+  //////email that will automatically challenge the people who friends challenge in their response videos
+  app.post('/api/sendemail/challengefriends', function(req, res){
+    console.log(req.body);
+    mandrill_client.messages.send({
+      "message": {
+        "from_email": "challenge@challengemaker.com"
+        ,"text": "You've been challenged! Follow the link below, it will show you how you can accept this chalelnge for charity"
+        ,"subject": "You've Been Challenged - ChallengeMaker"
+        ,"to": req.body
+      }
+    }, function(data){
+      res.json(data)
+    })
+  })
   ////////end challenge response
 
   ///////make the automatic email for anyone who responds to a challenge

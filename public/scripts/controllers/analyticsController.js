@@ -11,9 +11,7 @@ var app = angular.module('analyticsController', [])
       url: "/api/challengefriends"
     })
     .then(function(data){
-      console.log(data);
       var allFriendsChallenges = data.data.reverse();
-      console.log(allFriendsChallenges);
       for (var i = 0; i < allFriendsChallenges.length; i++) {
         allFriendsChallenges[i].challengeUrlToSend = "https://challengemaker.herokuapp.com/#/youvebeenchallenged/"+allFriendsChallenges[i].challenge + "/" + allFriendsChallenges[i].friendVideoUrl.split('/')[4] + "/" + allFriendsChallenges[i].senderName.split(' ').join('-');
         console.log(allFriendsChallenges[i]);
