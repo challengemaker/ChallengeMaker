@@ -6,16 +6,54 @@ angular.module('responseController', [])
   function responseCtrl($http, $routeParams){
     var self = this;
 
+
     var thisChallenge = window.location.hash.split('/')[2];
     console.log(thisChallenge);
 
+    //////some quick contact form stuff, you can find at templates/_contact.html
+    ///////////////////////////////////////////
+    ///////////////////////////////////////////
+    if(window.location.hash.split('/')[1] = "contact"){
+      $('.formSubmit').on('click', function(){
+        var email = $('.formEmail').val();
+        var subject = $('.formSubject').val();
+        var message = $('.formMessage').val();
+
+        console.log(email);
+        console.log(subject);
+        console.log(message);
+        /////////send contact email
+        $http({
+          method: "POST"
+          ,url: "/api/sendemail/contact"
+          ,data: {}
+          //,data: {sendeeEmail: "jack.connor83@gmail.com", subject: subject, text: message}
+        })
+        .then(function(data){
+          console.log(data);
+        })
+        //////finish sending email
+        //////now let's collect the emails
+        $http({
+          method: "POST"
+          ,url: "/api/emails"
+          ,data: {address: email}
+        })
+        .then(function(err, email){
+          console.log(email);
+        })
+      })
+    }
+    /////End contact form stuff///////////////
+    ///////////////////////////////////////////
+    ///////////////////////////////////////////
     $http({
       method: "GET"
       ,url: "/api/challenges/"+thisChallenge
     })
     .then(function(data){
       console.log(data);
-      self.thisPhoto = data.data.photo;
+      // self.thisPhoto = data.data.photo;
       self.thisCharity = data.data.charity[0];
     })
 
@@ -42,7 +80,8 @@ angular.module('responseController', [])
         responsePackage.userId = data.data.user._id;
         // console.log(responsePackage);
         ////$http call to post the friendschallenge to friends
-        console.log(responsePackage);
+        var rightNow = new Date();
+        console.log(rightNow);
         $http({
           method: "POST"
           ,url: "/api/challengeFriends"
@@ -51,41 +90,98 @@ angular.module('responseController', [])
             senderName: responsePackage.responseCreator,
             sendeeEmail: responsePackage.emails,
             friendVideoUrl: responsePackage.video,
-            challenge: responsePackage.challenge
+            challenge: responsePackage.challenge,
+            date: rightNow
           }
         })
         .then(function(data){
-          console.log(data);
           /////this should be the data response from the post request, and we now post the challenge info to db
-          console.log(responsePackage);
-          $http({
-            method: "Post"
-            ,url: "/api/responses"
-            ,data: {
-              creator: responsePackage.responseCreator,
-              creatorId: responsePackage.userId,
-              videoUrl: responsePackage.video,
-              challenge: responsePackage.challenge,
-              emails: responsePackage.emails
-            }
-          })
-          .then(function(data){
-            console.log(data);
+          // $http({
+          //   method: "Post"
+          //   ,url: "/api/responses"
+          //   ,data: {
+          //     creator: responsePackage.responseCreator,
+          //     creatorId: responsePackage.userId,
+          //     videoUrl: responsePackage.video,
+          //     challenge: responsePackage.challenge,
+          //     emails: responsePackage.emails
+          //   }
+          // })
+          // .then(function(data){
             var url = window.location.hash.split('/');
             $http.get('api/challenges/'+url[2])
               .then(function(data){
-                // console.log(data);
                 self.charityLink = data.data.charityLink;
-                // console.log(self.charityLink);
+
+                //////send the email thanking them for making a challenge
+                $http({
+                  method: "GET"
+                  ,url: "/api/users/"+window.localStorage.sessionUser
+                })
+                .then(function(userObj){
+                  var sendeeEmail = userObj.data.user.email;
+                  $http({
+                    method: "POST"
+                    ,url: "/api/emails"
+                    ,data: {sendeeEmail: sendeeEmail}
+                  })
+                  .then(function(){
+                    var emailArr = $('.challengeFriends');
+                    var realEmails = [];
+                    for (var i = 0; i < emailArr.length; i++) {
+                      var friendEmail = emailArr[i].value;
+                      var checkEmail = /[\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b]/;
+                      var checkUrlEmail = friendEmail;
+                      if(friendEmail != "email" && checkEmail.test(checkUrlEmail)){
+                        realEmails.push({email: friendEmail});
+                      }
+                    }
+                    $http({
+                      method: 'POST'
+                      ,url: "/api/sendemail/challengefriends"
+                      ,data: {}
+                      // ,data: realEmails
+                    })
+                    .then(function(data){
+                    })
+                  })
+                })
+                //////end sending challenge thank you email
+
+
                 $('.goToDonation').on('click', function(){
-                  window.open(self.charityLink, target="_blank");
-                  window.location.hash = "#/challenges/"+url[2];
+                  window.open(self.charityLink, target="_blank")
+                  // .then(function(){
+                  //   window.location.hash = "#/challenges/"+url[2];
+                  // })
                 })
               })
-          })
+          // })
         })
       })
     }
+
+    //////tempoarry house for some bullshit
+    // .then(function(email){
+    //   var emailArr = $('.challengeFriends');
+    //   var realEmails = [];
+    //   for (var i = 0; i < emailArr.length; i++) {
+    //     var friendEmail = emailArr[i].value;
+    //     var checkEmail = [\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b]/;
+    //     var checkUrlEmail = friendEmail;
+    //     if(friendEmail != "email" && checkEmail.test(checkUrlEmail)){
+    //       realEmails.push({email: friendEmail});
+    //     }
+    //   }
+    //   $http({
+    //     method: 'POST'
+    //     ,url: "/api/sendemail/challenge"
+    //     ,data: realEmails
+    //   })
+    //   .then(function(data){
+    //     console.log(data);
+    //   })
+    ///////
     setInterval(function(){
       var contMargin = ((window.innerWidth/2) - 280)+"px";
       $('.questionHolder').css({marginLeft: contMargin})
@@ -214,7 +310,6 @@ angular.module('responseController', [])
             $('.forwardButton').text("SUBMIT!");
             $('.forwardButton').addClass("submitDon");
             $('.submitDon').on('click', function(){
-
               ////begin checking to make sure that the response is actually a youtube link
               var check = /[\b(youtu(be))\b]/;
               var checkUrl = $('.responseTitle').val();
@@ -234,18 +329,6 @@ angular.module('responseController', [])
               marginLeft: tunnelMargin+"px"
             })
           } else if (carouselCounter == 2) {
-            // $('.forwardButton').addClass("submitDon");
-            // $('.submitDon').on('click', function(){
-            //   var checkUrl = $('.responseTitle').val();
-            //   console.log(checkUrl);
-            //   if(checkUrl == "dynamo"){
-            //     console.log('its working');
-            //     submitChallenge()
-            //   }
-            //   else {
-            //     console.log('not a proper url');
-            //   }
-            // });
             tunnelMargin = tunnelMargin-550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"

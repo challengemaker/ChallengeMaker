@@ -861,6 +861,7 @@ body {
   margin-top: 40px;
   margin-left: 50%;
   outline: 5px solid gray;
+  background-color: white;
 }
 
 .questionTunnel {
