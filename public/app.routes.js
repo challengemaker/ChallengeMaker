@@ -152,6 +152,8 @@ function appRoutes($routeProvider){
 
     .when('/contact', {
       templateUrl: 'templates/_contact.html'
+      ,controller: 'responseCtrl'
+      ,controllerAs: 'response'
     })
 
     .when('/privacy', {
