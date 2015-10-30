@@ -152,13 +152,13 @@ module.exports = function(app, passport){
   // })
 
 // delete a challenge not tested!!!
-  app.delete('/api/challenges/:name', function(req, res){
+  app.delete('/api/challenges/:title', function(req, res){
     Challenge.remove({
-      name: req.params.name
+      title: req.params.title
     }, function(err, challenge){
       if(err){
-        res.send(err)}
-      res.json(challenge)
+        res.send(err)};
+      res.json({ message : "challenge successfully deleted"});
     });
   });
 
@@ -168,8 +168,8 @@ module.exports = function(app, passport){
       Charity.find({}, function(err, charities){
         if(err){console.log(err)};
         res.json(charities);
-      })
-    })
+      });
+    });
 
 // show one charity
   app.get('/api/charities/:name', function(req, res){
@@ -177,8 +177,8 @@ module.exports = function(app, passport){
     Charity.findOne({name: name}, function(err, charity){
       if(err){console.log(err)};
       res.json(charity);
-    })
-  })
+    });
+  });
 
 // create a new charity
     app.post('/api/charities', function(req, res){
@@ -245,7 +245,7 @@ module.exports = function(app, passport){
       console.log(response);
       res.json({'posted': response});
     });
-  })
+  });
 
 // delete a response
   app.delete('/api/responses/:name', function(req, res){
@@ -265,8 +265,8 @@ module.exports = function(app, passport){
     ChallengeFriend.find({}, function(err, friendChallenges){
       if(err){console.log(err)}
       res.json(friendChallenges);
-    })
-  })
+    });
+  });
 
 // create a new challengefriend
   app.post('/api/challengefriends', function(req, res){
@@ -274,8 +274,8 @@ module.exports = function(app, passport){
     ChallengeFriend.create(req.body, function(err, friendChallenges){
       if(err){console.log(err)}
       res.json(friendChallenges);
-    })
-  })
+    });
+  });
 
 // EMAILHACK & CMS PASSWORD
   app.post('/api/password', function(req, res){
@@ -283,8 +283,8 @@ module.exports = function(app, passport){
       res.json({valid: true})
     } else {
       res.json({valid: false})
-    }
-  })
+    };
+  });
 
   /////////////////begin braintree routing/////
   ////////////////////////////////////////////
@@ -302,8 +302,8 @@ module.exports = function(app, passport){
   app.get("/client_token", function(req, res){
     gateway.clientToken.generate({}, function(err, response){
       res.json(response.clientToken);
-    })
-  })
+    });
+  });
 
   app.post('/checkout', function(req, res){
     console.log(req.body);
@@ -319,7 +319,7 @@ module.exports = function(app, passport){
       console.log(err);
       console.log(result);
       res.json(result)
-    })
+    });
   });
 
   ///////////end braintree routing/////////
@@ -337,7 +337,7 @@ module.exports = function(app, passport){
     console.log(req);
     // User.find({email: req.body.data.email})
     res.json({message: "success", token: "user", sessionUser: "Dildo"})
-  })
+  });
 
   app.get('/logout', function(req, res){
     req.logout();
