@@ -26,7 +26,7 @@ angular.module('responseController', [])
         $http({
           method: "POST"
           ,url: "/api/sendemail/contact"
-          ,data: {sendeeEmail: "jack.connor83@gmail.com", subject: subject, text: message, email: email}
+          ,data: {sendeeEmail: "questions@challengemaker.com", subject: subject, text: message, email: email}
         })
         .then(function(data){
           console.log(data);
