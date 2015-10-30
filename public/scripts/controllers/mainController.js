@@ -30,12 +30,13 @@ angular.module('mainController', [])
       self.userSesh = "Sign In";
       window.localStorage.sessionToken = "none"
       window.localStorage.sessionUser = "none"
-      window.location.reload()
+      window.location.hash = "#/";
+      window.location.reload();
     });
 
     $(".logo").on('click', function(){
       window.location.hash = "#/"
-      location.reload()
+      window.location.reload()
     });
     /////dropdown menu stuff///////
     ///////////////////////////////

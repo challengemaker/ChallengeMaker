@@ -26,8 +26,7 @@ angular.module('responseController', [])
         $http({
           method: "POST"
           ,url: "/api/sendemail/contact"
-          ,data: {}
-          //,data: {sendeeEmail: "jack.connor83@gmail.com", subject: subject, text: message}
+          ,data: {sendeeEmail: "jack.connor83@gmail.com", subject: subject, text: message, email: email}
         })
         .then(function(data){
           console.log(data);
@@ -41,6 +40,7 @@ angular.module('responseController', [])
         })
         .then(function(err, email){
           console.log(email);
+          window.location.hash = "#/";
         })
       })
     }
