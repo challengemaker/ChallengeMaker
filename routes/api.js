@@ -188,8 +188,8 @@ module.exports = function(app, passport){
     console.log(req.body);
     mandrill_client.messages.send({
       "message": {
-        "from_email": "jackissocool@example.com"
-        ,"text": req.body.text
+        "from_email": "ContactChallengeMaker@challengemaker.com"
+        ,"text": req.body.text + "at email: " +req.body.email
         ,"subject": req.body.subject
         ,"to":[{
           "email": req.body.sendeeEmail
