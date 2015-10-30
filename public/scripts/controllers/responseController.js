@@ -9,6 +9,42 @@ angular.module('responseController', [])
     var thisChallenge = window.location.hash.split('/')[2];
     console.log(thisChallenge);
 
+    //////some quick contact form stuff, you can find at templates/_contact.html
+    ///////////////////////////////////////////
+    ///////////////////////////////////////////
+    if(window.location.hash.split('/')[1] = "contact"){
+      $('.formSubmit').on('click', function(){
+        var email = $('.formEmail').val();
+        var subject = $('.formSubject').val();
+        var message = $('.formMessage').val();
+
+        console.log(email);
+        console.log(subject);
+        console.log(message);
+        /////////send contact email
+        $http({
+          method: "POST"
+          ,url: "/api/sendemail/contact"
+          ,data: {sendeeEmail: "jack.connor83@gmail.com", subject: subject, text: message}
+        })
+        .then(function(data){
+          console.log(data);
+        })
+        //////finish sending email
+        //////now let's collect the emails
+        $http({
+          method: "POST"
+          ,url: "/api/emails"
+          ,data: {address: email}
+        })
+        .then(function(err, email){
+          console.log(email);
+        })
+      })
+    }
+    /////End contact form stuff///////////////
+    ///////////////////////////////////////////
+    ///////////////////////////////////////////
     $http({
       method: "GET"
       ,url: "/api/challenges/"+thisChallenge
@@ -74,9 +110,28 @@ angular.module('responseController', [])
             var url = window.location.hash.split('/');
             $http.get('api/challenges/'+url[2])
               .then(function(data){
-                // console.log(data);
                 self.charityLink = data.data.charityLink;
-                // console.log(self.charityLink);
+
+                //////send the email thanking them for making a challenge
+                console.log(window.localStorage);
+                console.log(window.localStorage.sessionUser);
+                $http({
+                  method: "GET"
+                  ,url: "/api/users/"+window.localStorage.sessionUser
+                })
+                .then(function(userObj){
+                  console.log(userObj);
+                  var sendeeEmail = userObj.data.user.email;
+                  console.log(sendeeEmail);
+                  $http({
+                    method: "POST"
+                    ,url: "/api/sendemail/challengecomplete"
+                    ,data: {sendeeEmail: sendeeEmail}
+                  })
+                })
+                //////end sending challenge thank you email
+
+
                 $('.goToDonation').on('click', function(){
                   window.open(self.charityLink, target="_blank");
                   window.location.hash = "#/challenges/"+url[2];
@@ -214,7 +269,6 @@ angular.module('responseController', [])
             $('.forwardButton').text("SUBMIT!");
             $('.forwardButton').addClass("submitDon");
             $('.submitDon').on('click', function(){
-
               ////begin checking to make sure that the response is actually a youtube link
               var check = /[\b(youtu(be))\b]/;
               var checkUrl = $('.responseTitle').val();
@@ -234,18 +288,6 @@ angular.module('responseController', [])
               marginLeft: tunnelMargin+"px"
             })
           } else if (carouselCounter == 2) {
-            // $('.forwardButton').addClass("submitDon");
-            // $('.submitDon').on('click', function(){
-            //   var checkUrl = $('.responseTitle').val();
-            //   console.log(checkUrl);
-            //   if(checkUrl == "dynamo"){
-            //     console.log('its working');
-            //     submitChallenge()
-            //   }
-            //   else {
-            //     console.log('not a proper url');
-            //   }
-            // });
             tunnelMargin = tunnelMargin-550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"

@@ -18,7 +18,8 @@ var Challenge       = require('../models/challenge.js');
 var Response        = require('../models/response.js');
 var Charity         = require('../models/charity.js');
 var Message         = require('../models/messages.js');
-var Transaction         = require('../models/transactions.js');
+var Email           = require('../models/email.js');
+var Transaction     = require('../models/transactions.js');
 var ChallengeFriend = require('../models/challengeFriend.js');
 /////////end model imports ///////////////
 //////////////////////////////////////////
@@ -125,6 +126,21 @@ module.exports = function(app, passport){
     });
   })
 
+  app.get('/api/emails', function(req, res){
+    Email.find({}, function(err, emails){
+      if(err){console.log(err)}
+      console.log(emails);
+      res.json(emails)
+    })
+  })
+
+  app.post('/api/emails', function(req, res){
+    Email.create(req.body, function(err, email){
+      if(err){console.log(err)}
+      res.json(email)
+    })
+  })
+
   app.get('/api/challengefriends', function(req, res){
     ChallengeFriend.find({}, function(err, friendChallenges){
       if(err){console.log(err)}
@@ -168,11 +184,30 @@ module.exports = function(app, passport){
   })
 
   ///////email stuff
-  app.post('/api/sendemail', function(req, res){
+  app.post('/api/sendemail/contact', function(req, res){
+    console.log(req.body);
     mandrill_client.messages.send({
       "message": {
         "from_email": "jackissocool@example.com"
         ,"text": req.body.text
+        ,"subject": req.body.subject
+        ,"to":[{
+          "email": req.body.sendeeEmail
+        }]
+      }
+    }, function(data){
+      res.json(data)
+    })
+  })
+
+  ///////make the automatic email for anyone who responds to a challenge
+  app.post('/api/sendemail/challengecomplete', function(req, res){
+    console.log(req.body);
+    mandrill_client.messages.send({
+      "message": {
+        "from_email": "challenge@challengemaker.com"
+        ,"text": "Thank you for accepting one of the challengeaker challenges!"
+        ,"subject": "Jack is Stoked you accepted a challenge"
         ,"to":[{
           "email": req.body.sendeeEmail
         }]
