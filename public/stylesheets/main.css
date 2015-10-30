@@ -721,9 +721,10 @@ body {
 }
 
 #paymentAmount {
-  height: 50px;
+  line-height: normal;
+  height: 45px;
   width: 100%;
-  font-size: 25px;
+  font-size: 24px;
   display: block;
   text-align: center;
 }
