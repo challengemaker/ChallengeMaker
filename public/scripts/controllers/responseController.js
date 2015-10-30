@@ -96,18 +96,18 @@ angular.module('responseController', [])
         })
         .then(function(data){
           /////this should be the data response from the post request, and we now post the challenge info to db
-          $http({
-            method: "Post"
-            ,url: "/api/responses"
-            ,data: {
-              creator: responsePackage.responseCreator,
-              creatorId: responsePackage.userId,
-              videoUrl: responsePackage.video,
-              challenge: responsePackage.challenge,
-              emails: responsePackage.emails
-            }
-          })
-          .then(function(data){
+          // $http({
+          //   method: "Post"
+          //   ,url: "/api/responses"
+          //   ,data: {
+          //     creator: responsePackage.responseCreator,
+          //     creatorId: responsePackage.userId,
+          //     videoUrl: responsePackage.video,
+          //     challenge: responsePackage.challenge,
+          //     emails: responsePackage.emails
+          //   }
+          // })
+          // .then(function(data){
             var url = window.location.hash.split('/');
             $http.get('api/challenges/'+url[2])
               .then(function(data){
@@ -151,12 +151,12 @@ angular.module('responseController', [])
 
                 $('.goToDonation').on('click', function(){
                   window.open(self.charityLink, target="_blank")
-                  .then(function(){
-                    window.location.hash = "#/challenges/"+url[2];
-                  })
+                  // .then(function(){
+                  //   window.location.hash = "#/challenges/"+url[2];
+                  // })
                 })
               })
-          })
+          // })
         })
       })
     }
