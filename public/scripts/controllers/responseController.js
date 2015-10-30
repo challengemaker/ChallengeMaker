@@ -25,7 +25,8 @@ angular.module('responseController', [])
         $http({
           method: "POST"
           ,url: "/api/sendemail/contact"
-          ,data: {sendeeEmail: "jack.connor83@gmail.com", subject: subject, text: message}
+          ,data: {}
+          //,data: {sendeeEmail: "jack.connor83@gmail.com", subject: subject, text: message}
         })
         .then(function(data){
           console.log(data);
@@ -137,7 +138,8 @@ angular.module('responseController', [])
                     $http({
                       method: 'POST'
                       ,url: "/api/sendemail/challengefriends"
-                      ,data: realEmails
+                      ,data: {}
+                      // ,data: realEmails
                     })
                     .then(function(data){
                     })
