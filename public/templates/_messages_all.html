@@ -1,0 +1,19 @@
+<h1>All Messages yo</h1>
+
+<div class="messageContainer row">
+  <div class="messageHolder col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+    <div class='messageInd' ng-repeat="message in message.myMessages">
+      <p>
+        from: {{message.sender}}
+      </p>
+      <p>
+        content: {{message.messageContent}}
+      </p>
+      <div class="" ng-if='message.isChallenge'>
+        <p>
+          re: {{message.associatedChallenge}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

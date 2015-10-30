@@ -331,7 +331,8 @@ var app = angular.module('challengesController', [])
             var yesToken = window.localStorage.sessionToken;
             var url = window.location.hash.split('/')[2];
             if(yesToken && yesToken != "none") {
-              window.location.hash = "#/newresponse/"+url
+              window.location.hash = "#/newresponse/"+url;
+              window.location.reload();
             }
             else {
               window.location.hash = "#/signin/"+url;

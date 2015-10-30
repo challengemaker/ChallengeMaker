@@ -26,8 +26,14 @@ function appRoutes($routeProvider){
       ,controllerAs: 'challenges'
     })
 
-    .when('/payments', {
+    .when('/payments/:challenge_name', {
       templateUrl: 'templates/_payments.html'
+      ,controller: 'paymentsCtrl'
+      ,controllerAs: 'payment'
+    })
+
+    .when('/donationreceived/', {
+      templateUrl: 'templates/_donation_received.html'
       ,controller: 'paymentsCtrl'
       ,controllerAs: 'payment'
     })
@@ -81,7 +87,7 @@ function appRoutes($routeProvider){
     })
 
     .when('/messages/:name',{
-      templateUrl: 'templates/_all_messages_user.html'
+      templateUrl: 'templates/_messages_all.html'
       ,controller: 'messagesCtrl'
       ,controllerAs: 'message'
     })
@@ -146,6 +152,8 @@ function appRoutes($routeProvider){
 
     .when('/contact', {
       templateUrl: 'templates/_contact.html'
+      ,controller: 'responseCtrl'
+      ,controllerAs: 'response'
     })
 
     .when('/privacy', {

@@ -46,6 +46,13 @@ body {
   font-size: 25px;
 }
 
+.amountDrop {
+  width: 100%;
+  height: 45px;
+  font-size: 25px;
+  color: gray
+}
+
 .backButton {
   display: inline-block;
   margin-top: 5px;
@@ -199,6 +206,7 @@ body {
 }
 
 #checkout {
+  /*position: absolute;*/
 }
 
 .comp-chal-button {
@@ -654,6 +662,10 @@ body {
   background-color: black;
 }
 
+.messageInd {
+  outline: 2px solid brown;
+}
+
 .miniChallInfo {
   color: white;
   position: absolute;
@@ -708,17 +720,53 @@ body {
   margin-top: 7px;
 }
 
-.paymentBox {
-  outline: 5px solid gray;
-  padding: 0 15px 15px 15px;
+#paymentAmount {
+  height: 50px;
+  width: 100%;
+  font-size: 25px;
+  display: block;
+  text-align: center;
 }
 
-.paymentBox p{
-font-size: 50px;
+.paymentBox {
+  padding: 20px 35px 20px 35px;
+  background-color: #E1E1E1;
+  position: absolute;
+}
+
+.paymentBox h1{
+  font-size: 46px;
+  font-style: Helvetica
+}
+
+.paymentCards img{
+  height: auto;
+  width: 500px;
+}
+
+.paymentCards p{
+  font-size: 18px;
+  margin-bottom: -8px;
 }
 
 .paymentContainer {
-  margin-top: 80px;
+  margin-top: 35px;
+}
+
+.paymentOptions {
+  font-size: 30px;
+  line-height: 60px;
+}
+
+.paymentOptions option{
+
+}
+
+.paymentSubButt {
+  font-size: 20px;
+  width: 90px;
+  height: 45px;
+  margin: 15px 0px 0px 0px;
 }
 
 .playButtonH {
@@ -811,6 +859,7 @@ font-size: 50px;
   margin-top: 40px;
   margin-left: 50%;
   outline: 5px solid gray;
+  background-color: white;
 }
 
 .questionTunnel {
@@ -955,6 +1004,10 @@ font-size: 50px;
   margin-bottom: 5px;
   font-size: 22px;
   text-align: center;
+}
+
+.submitPayment{
+  display: block;
 }
 
  table tr td{

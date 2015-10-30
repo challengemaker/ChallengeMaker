@@ -7,6 +7,9 @@ var methodOverride = require('method-override');
 var route          = express.Router();
 var braintree      = require('braintree');
 var ignore         = require('./../.gitignore');
+var mandrill = require('mandrill-api/mandrill')
+
+var mandrill_client = new mandrill.Mandrill('peYat9DNVGXpYcy2o6bypw');
 
 ////////   ----- Models ------- //////////
 /////// This is a "Model" Home  //////////
@@ -15,7 +18,8 @@ var Challenge       = require('../models/challenge.js');
 var Response        = require('../models/response.js');
 var Charity         = require('../models/charity.js');
 var Message         = require('../models/messages.js');
-var Transaction         = require('../models/transactions.js');
+var Email           = require('../models/email.js');
+var Transaction     = require('../models/transactions.js');
 var ChallengeFriend = require('../models/challengeFriend.js');
 /////////end model imports ///////////////
 //////////////////////////////////////////
@@ -34,12 +38,10 @@ module.exports = function(app, passport){
 
   app.get('/api/users/:name', function(req, res){
     var name = req.params.name;
-    console.log(name);
     User.findOne({name: name}, function(err, user){
       if(err){
         res.send(err);
       }
-      console.log(user);
       res.json({user: user})
     });
   })
@@ -85,9 +87,7 @@ module.exports = function(app, passport){
   })
 
   app.post('/api/users', function(req, res){
-    console.log(req.body);
     var password = req.body.password;
-    console.log(password);
     User.create(req.body, function(err, user){
       console.log(err);
       res.json(user)
@@ -114,19 +114,31 @@ module.exports = function(app, passport){
   app.get('/api/responses', function(req, res){
     Response.find({}, function(err, responses){
       if(err){console.log(err)}
-      console.log(req.body);
       res.json(responses)
     })
   })
 
 
   app.post('/api/responses', function(req, res){
-    console.log(req.body);
     Response.create(req.body, function(err, response){
       if(err){console.log(err)}
-      console.log(response);
       res.json({'posted': response});
     });
+  })
+
+  app.get('/api/emails', function(req, res){
+    Email.find({}, function(err, emails){
+      if(err){console.log(err)}
+      console.log(emails);
+      res.json(emails)
+    })
+  })
+
+  app.post('/api/emails', function(req, res){
+    Email.create(req.body, function(err, email){
+      if(err){console.log(err)}
+      res.json(email)
+    })
   })
 
   app.get('/api/challengefriends', function(req, res){
@@ -137,10 +149,29 @@ module.exports = function(app, passport){
   })
 
   app.post('/api/challengefriends', function(req, res){
-    console.log(req.body);
     ChallengeFriend.create(req.body, function(err, friendChallenges){
       if(err){console.log(err)}
       res.json(friendChallenges);
+    })
+  })
+
+  app.get('/api/messages', function(req, res){
+    Message.find({}, function(err, messages){
+      if(err){console.log(err)}
+      res.json(messages)
+    })
+  })
+
+  app.get('/api/messages/:name', function(req, res){
+    var receiver = req.params.name;
+    Message.find({receiver: receiver}, function(err, messages){
+      res.json(messages)
+    })
+  })
+
+  app.post('/api/messages', function(req, res){
+    Message.create(req.body, function(err, message){
+      res.json(message)
     })
   })
 
@@ -151,6 +182,77 @@ module.exports = function(app, passport){
       res.json({valid: false})
     }
   })
+
+  ///////email stuff
+  app.post('/api/sendemail/contact', function(req, res){
+    console.log(req.body);
+    mandrill_client.messages.send({
+      "message": {
+        "from_email": "jackissocool@example.com"
+        ,"text": req.body.text
+        ,"subject": req.body.subject
+        ,"to":[{
+          "email": req.body.sendeeEmail
+        }]
+      }
+    }, function(data){
+      res.json(data)
+    })
+  })
+
+  ///////make the automatic email for anyone who responds to a challenge
+  app.post('/api/sendemail/challengecomplete', function(req, res){
+    console.log(req.body);
+    mandrill_client.messages.send({
+      "message": {
+        "from_email": "challenge@challengemaker.com"
+        ,"text": "Thank you for accepting one of the challengeaker challenges!"
+        ,"subject": "Jack is Stoked you accepted a challenge"
+        ,"to":[{
+          "email": req.body.sendeeEmail
+        }]
+      }
+    }, function(data){
+      res.json(data)
+    })
+  })
+
+  //////email that will automatically challenge the people who friends challenge in their response videos
+  app.post('/api/sendemail/challengefriends', function(req, res){
+    console.log(req.body);
+    mandrill_client.messages.send({
+      "message": {
+        "from_email": "challenge@challengemaker.com"
+        ,"text": "You've been challenged! Follow the link below, it will show you how you can accept this chalelnge for charity"
+        ,"subject": "You've Been Challenged - ChallengeMaker"
+        ,"to": req.body
+      }
+    }, function(data){
+      res.json(data)
+    })
+  })
+  ////////end challenge response
+
+  ///////make the automatic email for anyone who responds to a challenge
+  app.post('/api/sendemail/donation', function(req, res){
+    console.log(req.body);
+    mandrill_client.messages.send({
+      "message": {
+        "from_email": "challenge@challengemaker.com"
+        ,"text": "Thank you for making such a gracious donaition to <Fill_in_Charity>!"
+        ,"subject": "ChallengeMaker Is Thrilled About Your Donation"
+        ,"to":[{
+          "email": "jack.connor83@gmail.com"
+        }]
+      }
+    }, function(data){
+      res.json(data)
+    })
+  })
+  /////////////end donation thank you email
+
+  //////end emails
+  ////////////////
 
   /////////////////begin braintree routing/////
   ////////////////////////////////////////////
@@ -168,20 +270,17 @@ module.exports = function(app, passport){
     })
   })
 
-  app.get('/checkout', function(req, res){
-    res.sendFile( __dirname + '/public/index.html')
-  })
-
   app.post('/checkout', function(req, res){
     var nonce = req.body.payment_method_nonce;
     gateway.transaction.sale({
-      amount: '1.00'
-      ,paymentMethodNonce: nonce
-    }, function(err, result){
-      console.log(result);
-      var newTran = {amount: result.transaction.amount, merchantAccountId: result.transaction.merchantAccountId, id: result.transaction.id}
+      paymentMethodNonce: nonce
+      ,amount: req.body.amount
+    },
+    function(err, result){
+      var newTran = {amount: result.transaction.amount, merchantAccountId: result.transaction.merchantAccountId, challenge: req.body.challenge, id: result.transaction.id, dateCreated: result.transaction.createdAt}
       Transaction.create(newTran);
-      res.json(result.transaction);
+      // res.json(result.transaction);
+      res.redirect('/#/challenges/'+req.body.challenge)
     })
   });
 
@@ -191,13 +290,11 @@ module.exports = function(app, passport){
 
   //////begin login and authentication and all that shit
   app.post('/signup', passport.authenticate('local-signup', function(data){
-    console.log(data);
     res.json(data);
     })
   );
 
   app.post("/login", function(req, res){
-    console.log(req);
     // User.find({email: req.body.data.email})
     res.json({message: "success", token: "user", sessionUser: "Dildo"})
   })
