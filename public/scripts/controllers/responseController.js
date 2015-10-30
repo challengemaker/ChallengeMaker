@@ -56,6 +56,7 @@ angular.module('responseController', [])
       // self.thisPhoto = data.data.photo;
       self.thisCharity = data.data.charityLink;
       console.log(self.thisCharity);
+      self.thisCharityName = data.data.charity[0]
     })
 
     var submitChallenge = function(){
