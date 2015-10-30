@@ -142,7 +142,8 @@ angular.module('userController', [])
                 var responseUrl = window.location.hash.split('/')[2];
                 console.log(responseUrl);
                 if(responseUrl){
-                  window.location.hash = "#/newresponse/"+responseUrl
+                  window.location.hash = "#/newresponse/"+responseUrl;
+                  window.location.reload();
                 }
                 else{
                   window.location.hash = "#/"
