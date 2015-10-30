@@ -6,6 +6,7 @@ angular.module('responseController', [])
   function responseCtrl($http, $routeParams){
     var self = this;
 
+
     var thisChallenge = window.location.hash.split('/')[2];
     console.log(thisChallenge);
 
@@ -52,7 +53,7 @@ angular.module('responseController', [])
     })
     .then(function(data){
       console.log(data);
-      self.thisPhoto = data.data.photo;
+      // self.thisPhoto = data.data.photo;
       self.thisCharity = data.data.charity[0];
     })
 
