@@ -40,6 +40,7 @@ angular.module('responseController', [])
         })
         .then(function(err, email){
           console.log(email);
+          window.location.hash = "#/";
         })
       })
     }
