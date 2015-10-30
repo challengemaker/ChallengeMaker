@@ -120,10 +120,10 @@ module.exports = function(app, passport){
 
 
   app.post('/api/responses', function(req, res){
-    Response.create(req.body, function(err, response){
-      if(err){console.log(err)}
-      res.json({'posted': response});
-    });
+    // Response.create(req.body, function(err, response){
+    //   if(err){console.log(err)}
+    //   res.json({'posted': response});
+    // });
   })
 
   app.get('/api/emails', function(req, res){
