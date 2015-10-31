@@ -62,6 +62,7 @@ angular.module('userController', [])
         );
         self.profileCounter = !self.profileCounter;
         console.log(self.profileCounter);
+        addEventListener();
       }
 
       //////////to edit a users email
@@ -72,6 +73,7 @@ angular.module('userController', [])
         "<input id='useremailEdit' type='text' value='"+currentEmail+"'>"
         )
         self.profileEmailCounter = !self.profileEmailCounter;
+        addEventListener()
       }
       function editPassword(){
         $('#passwordEditor').html('');
@@ -80,6 +82,7 @@ angular.module('userController', [])
         "<input id='userpasswordConfirmEdit' type='text' placeholder='new password here'>"
         )
         self.profilePasswordCounter = !self.profilePasswordCounter;
+        addEventListener()
       }
 
       /////set the value
@@ -103,7 +106,8 @@ angular.module('userController', [])
           console.log(newName);
           window.localStorage.sessionUser = newName;
           var newUrlName = newName.split(' ').join("-");
-          window.location.hash = "#/users/"+newUrlName
+          window.location.hash = "#/users/"+newUrlName;
+          window.location.reload();
         })
       }
 
@@ -126,6 +130,7 @@ angular.module('userController', [])
         })
         .then(function(data){
           console.log(data);
+          window.location.reload();
         })
       }
 
@@ -144,6 +149,18 @@ angular.module('userController', [])
         .then(function(err, data){
           if(err){console.log(err)};
           console.log(data);
+          if(data.notValid){
+            console.log('not a valid passowrd');
+          } else {
+            console.log('password valid');
+            $('#userpasswordConfirmEdit').css({
+              backgroundColor: "red"
+            })
+            $('#userpasswordConfirmEdit').animate({
+              backgroundColor: "white"
+            }, 1000)
+            window.location.reload();
+          }
         })
       }
 
@@ -151,11 +168,22 @@ angular.module('userController', [])
       $('#username').on('click', editProfile)
       $('#useremail').on('click', editEmail)
       $('#userpassword').on('click', editPassword)
-      // }
-      // else if(self.profileCounter == false){
-      // $('#profileImage').on('click', saveEdits);
-      // $('#profileImage').on('click', saveEmailEdits);
-      $('#profileImage').on('click', savePasswordEdits);
+      // }{
+      /////we put an if statement around each piece, so that the counter only works if it's been clicked (using our self. counters)
+      // self.profileCounter = true;
+      // self.profileEmailCounter = true;
+      // self.profilePasswordCounter = true;
+      function addEventListener(){
+        if(!self.profileCounter){
+          $('#profileImage').on('click', saveEdits);
+        }
+        else if(!self.profileEmailCounter){
+          $('#profileImage').on('click', saveEmailEdits);
+        }
+        else if(!self.profilePasswordCounter){
+          $('#profileImage').on('click', savePasswordEdits);
+        }
+      }
       // }
     }
     /////////end profile section ///////////

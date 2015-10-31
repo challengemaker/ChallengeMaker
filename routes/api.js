@@ -100,13 +100,19 @@ module.exports = function(app, passport){
     User.findOne(req.body.search, function(err, user){
       if(err){console.log(err)};
       if(req.body.email){
+        console.log('changed email');
         user.email = req.body.email;
         user.local.email = req.body.email;
       }
       if(req.body.name){
+        console.log('changed name');
         user.name = req.body.name;
       }
-      user.save(function(data){
+      user.save(function(err, data){
+        if (err) {
+          console.log(err)
+        }
+        console.log(data);
         res.json(data);
       });
     })
@@ -116,14 +122,16 @@ module.exports = function(app, passport){
     console.log(req.body);
     User.findOne({name: req.body.name}, function(err, user){
       if(err){console.log(err)}
-      console.log(user);
-      if(user.validPassword(req.body.oldPassword)){
+      else if(user.validPassword(req.body.oldPassword)){
+        console.log(user);
         user.password = user.generateHash( req.body.newPassword )
         console.log(user);
         user.save(function(data){
           res.json(user)
         })
-      };
+      } else {
+        res.json({notvalid: true});
+      }
     })
   })
 
