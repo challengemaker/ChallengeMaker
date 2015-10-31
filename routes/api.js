@@ -81,7 +81,7 @@ module.exports = function(app, passport){
 
   app.get('/api/users', function(req, res){
     User.find({}, function(err, users){
-      if(err){console.log(err)};
+      if(err){console.log(err)};;
       res.json(users);
     });
   })
@@ -100,14 +100,38 @@ module.exports = function(app, passport){
     User.findOne(req.body.search, function(err, user){
       if(err){console.log(err)};
       if(req.body.email){
+        console.log('changed email');
         user.email = req.body.email;
+        user.local.email = req.body.email;
       }
       if(req.body.name){
+        console.log('changed name');
         user.name = req.body.name;
       }
-      user.save(function(data){
+      user.save(function(err, data){
+        if (err) {
+          console.log(err)
+        }
+        console.log(data);
         res.json(data);
       });
+    })
+  })
+
+  app.post('/api/users/updatepassword', function(req, res){
+    console.log(req.body);
+    User.findOne({name: req.body.name}, function(err, user){
+      if(err){console.log(err)}
+      else if(user.validPassword(req.body.oldPassword)){
+        console.log(user);
+        user.password = user.generateHash( req.body.newPassword )
+        console.log(user);
+        user.save(function(data){
+          res.json(user)
+        })
+      } else {
+        res.json({notvalid: true});
+      }
     })
   })
 
@@ -294,15 +318,15 @@ module.exports = function(app, passport){
     })
   );
 
-  app.post("/login", function(req, res){
-    // User.find({email: req.body.data.email})
-    res.json({message: "success", token: "user", sessionUser: "Dildo"})
-  })
-
-  app.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/');
-  });
+  // app.post("/login", function(req, res){
+  //   // User.find({email: req.body.data.email})
+  //   res.json({message: "success", token: "user", sessionUser: "Dildo"})
+  // })
+  //
+  // app.get('/logout', function(req, res){
+  //   req.logout();
+  //   res.redirect('/');
+  // });
 
 
 

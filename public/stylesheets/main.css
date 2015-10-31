@@ -1106,6 +1106,20 @@ body {
 
 }
 
+#useremail {
+  font-size: 33px;
+  width: 90%;
+  text-align: center;
+  z-index: 2;
+}
+
+#useremailEdit {
+  font-size: 33px;
+  width: 90%;
+  text-align: center;
+  z-index: 2;
+}
+
 #username {
   font-size: 33px;
   width: 90%;
@@ -1113,9 +1127,33 @@ body {
   z-index: 2;
 }
 
+
 #usernameEdit {
   font-size: 33px;
   width: 90%;
+  text-align: center;
+  z-index: 2;
+}
+
+
+#userpassword {
+  font-size: 33px;
+  width: 90%;
+  text-align: center;
+  z-index: 2;
+}
+
+#userpasswordEdit {
+  font-size: 25px;
+  width: 90%;
+  text-align: center;
+  z-index: 2;
+}
+
+#userpasswordConfirmEdit {
+  font-size: 25px;
+  width: 90%;
+  margin-top: 10px;
   text-align: center;
   z-index: 2;
 }
