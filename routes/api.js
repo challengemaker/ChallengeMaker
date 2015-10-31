@@ -81,7 +81,7 @@ module.exports = function(app, passport){
 
   app.get('/api/users', function(req, res){
     User.find({}, function(err, users){
-      if(err){console.log(err)};
+      if(err){console.log(err)};;
       res.json(users);
     });
   })
@@ -109,6 +109,21 @@ module.exports = function(app, passport){
       user.save(function(data){
         res.json(data);
       });
+    })
+  })
+
+  app.post('/api/users/updatepassword', function(req, res){
+    console.log(req.body);
+    User.findOne({name: req.body.name}, function(err, user){
+      if(err){console.log(err)}
+      console.log(user);
+      if(user.validPassword(req.body.oldPassword)){
+        user.password = user.generateHash( req.body.newPassword )
+        console.log(user);
+        user.save(function(data){
+          res.json(user)
+        })
+      };
     })
   })
 
@@ -295,15 +310,15 @@ module.exports = function(app, passport){
     })
   );
 
-  app.post("/login", function(req, res){
-    // User.find({email: req.body.data.email})
-    res.json({message: "success", token: "user", sessionUser: "Dildo"})
-  })
-
-  app.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/');
-  });
+  // app.post("/login", function(req, res){
+  //   // User.find({email: req.body.data.email})
+  //   res.json({message: "success", token: "user", sessionUser: "Dildo"})
+  // })
+  //
+  // app.get('/logout', function(req, res){
+  //   req.logout();
+  //   res.redirect('/');
+  // });
 
 
 

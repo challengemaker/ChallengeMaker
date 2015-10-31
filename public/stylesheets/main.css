@@ -1129,8 +1129,16 @@ body {
 }
 
 #userpasswordEdit {
-  font-size: 33px;
+  font-size: 25px;
   width: 90%;
+  text-align: center;
+  z-index: 2;
+}
+
+#userpasswordConfirmEdit {
+  font-size: 25px;
+  width: 90%;
+  margin-top: 10px;
   text-align: center;
   z-index: 2;
 }

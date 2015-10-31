@@ -51,6 +51,7 @@ angular.module('userController', [])
       ////create editor popup thingy
       self.profileCounter = true;
       self.profileEmailCounter = true;
+      self.profilePasswordCounter = true;
 
       /////////to edit a users profile name
       function editProfile(){
@@ -72,6 +73,14 @@ angular.module('userController', [])
         )
         self.profileEmailCounter = !self.profileEmailCounter;
       }
+      function editPassword(){
+        $('#passwordEditor').html('');
+        $('#passwordEditor').html(
+        "<input id='userpasswordEdit' type='text' placeholder='old password here'>" +
+        "<input id='userpasswordConfirmEdit' type='text' placeholder='new password here'>"
+        )
+        self.profilePasswordCounter = !self.profilePasswordCounter;
+      }
 
       /////set the value
       function saveEdits(){
@@ -92,6 +101,7 @@ angular.module('userController', [])
         })
         .then(function(){
           console.log(newName);
+          window.localStorage.sessionUser = newName;
           var newUrlName = newName.split(' ').join("-");
           window.location.hash = "#/users/"+newUrlName
         })
@@ -119,13 +129,33 @@ angular.module('userController', [])
         })
       }
 
+      function savePasswordEdits(){
+        var oldPassword = $("#userpasswordEdit").val();
+        var newPassword = $("#userpasswordConfirmEdit").val();
+        var name = window.location.hash.split('/')[2];
+        console.log(name);
+        console.log(oldPassword);
+        console.log(newPassword);
+        $http({
+          method: "POST"
+          ,url: "/api/users/updatepassword"
+          ,data: {name: name, oldPassword: oldPassword, newPassword}
+        })
+        .then(function(err, data){
+          if(err){console.log(err)};
+          console.log(data);
+        })
+      }
+
       // if(self.profileCounter == true){
       $('#username').on('click', editProfile)
       $('#useremail').on('click', editEmail)
+      $('#userpassword').on('click', editPassword)
       // }
       // else if(self.profileCounter == false){
-      $('#profileImage').on('click', saveEdits);
-      $('#profileImage').on('click', saveEmailEdits);
+      // $('#profileImage').on('click', saveEdits);
+      // $('#profileImage').on('click', saveEmailEdits);
+      $('#profileImage').on('click', savePasswordEdits);
       // }
     }
     /////////end profile section ///////////
