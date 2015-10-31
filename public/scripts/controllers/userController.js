@@ -29,64 +29,105 @@ angular.module('userController', [])
     $('.goToLoginChallenge').on("click", function(){
       window.location.hash = "#/signin/"+window.location.hash.split('/')[2]
     })
-
-    $('.goToSigninChallenge').on('click', function(){
-
-    })
-
     //////begin profile section
     ///////////////////////////
     ///////////////////////////
-    var thisUser = window.location.hash.split("/")[2];
-    console.log(thisUser);
-    self.thisUser = thisUser
-
-    ////create editor popup thingy
-    self.profileCounter = true;
-    function editProfile(){
-      var currentName = $('#username').text();
-      $('#nameEditor').html("");
-      $('#nameEditor').html(
-        "<input id='usernameEdit' type='text' value='"+currentName+"'>"
-      );
-      self.profileCounter = !self.profileCounter;
-      console.log(self.profileCounter);
-    }
-
-    /////set the value
-    function saveEdits(){
-      var oldName = self.thisUser;
-      var newName = $('#usernameEdit').val();
-      console.log(newName);
-      $('#nameEditor').html("");
-      $('#nameEditor').html(
-        "<td id='username'>"+newName+"</td>"
-      );
-      $('#username').on('click', editProfile)
-      self.profileCounter = !self.profileCounter;
-      ///set up and send the http request to the db
-      var request = {search: {name: oldName}, name: newName}
+    if(window.location.hash.split('/')[1] == "users"){
+      var thisUser = window.location.hash.split("/")[2].split("-").join(' ');
+      console.log(thisUser);
       $http({
-        method: "POST"
-        ,url: "/api/users/update"
-        ,data: request
+        method: "GET"
+        ,url: "/api/users/"+thisUser
       })
-      .then(function(){
-        console.log(newName);
-        var newUrlName = newName.split(' ').join("-");
-        window.location.hash = "#/users/"+newUrlName
+      .then(function(data){
+        console.log(data);
+        self.thisUserEmail = data.data.user.email;
+        self.thisUserData = data.data.user;
+        console.log(self.thisUserEmail);
       })
+      console.log(thisUser);
+      self.thisUser = thisUser
+
+      ////create editor popup thingy
+      self.profileCounter = true;
+      self.profileEmailCounter = true;
+
+      /////////to edit a users profile name
+      function editProfile(){
+        var currentName = $('#username').text();
+        $('#nameEditor').html("");
+        $('#nameEditor').html(
+          "<input id='usernameEdit' type='text' value='"+currentName+"'>"
+        );
+        self.profileCounter = !self.profileCounter;
+        console.log(self.profileCounter);
+      }
+
+      //////////to edit a users email
+      function editEmail(){
+        var currentEmail = $('#useremail').text();
+        $('#emailEditor').html('');
+        $('#emailEditor').html(
+        "<input id='useremailEdit' type='text' value='"+currentEmail+"'>"
+        )
+        self.profileEmailCounter = !self.profileEmailCounter;
+      }
+
+      /////set the value
+      function saveEdits(){
+        var oldName = self.thisUser;
+        var newName = $('#usernameEdit').val();
+        $('#nameEditor').html("");
+        $('#nameEditor').html(
+          "<td id='username'>"+newName+"</td>"
+        );
+        $('#username').on('click', editProfile)
+        self.profileCounter = !self.profileCounter;
+        ///set up and send the http request to the db
+        var request = {search: {name: oldName}, name: newName}
+        $http({
+          method: "POST"
+          ,url: "/api/users/update"
+          ,data: request
+        })
+        .then(function(){
+          console.log(newName);
+          var newUrlName = newName.split(' ').join("-");
+          window.location.hash = "#/users/"+newUrlName
+        })
+      }
+
+      function saveEmailEdits(){
+        var oldEmail = self.thisUserEmail;
+        console.log(oldEmail);
+        var newEmail = $('#useremailEdit').val();
+        console.log(newEmail);
+        $('#emailEditor').html(
+          "<td id='useremail'>"+newEmail+"</td>"
+        )
+        $('#useremail').on('click', editEmail);
+        self.profileEmailCounter = !self.emailProfileCounter;
+        console.log(self.profileEmailCounter);
+        var emailRequest = {search: {email: oldEmail}, email: newEmail}
+        $http({
+          method: "POST"
+          ,url: "/api/users/update"
+          ,data: emailRequest
+        })
+        .then(function(data){
+          console.log(data);
+        })
+      }
+
+      // if(self.profileCounter == true){
+      $('#username').on('click', editProfile)
+      $('#useremail').on('click', editEmail)
+      // }
+      // else if(self.profileCounter == false){
+      $('#profileImage').on('click', saveEdits);
+      $('#profileImage').on('click', saveEmailEdits);
+      // }
     }
-
-    // if(self.profileCounter == true){
-    $('#username').on('click', editProfile)
-    // }
-    // else if(self.profileCounter == false){
-    $('#profileImage').on('click', saveEdits)
-    // }
-
-
-
     /////////end profile section ///////////
     ////////////////////////////////////////
     ////////////////////////////////////////

@@ -101,6 +101,7 @@ module.exports = function(app, passport){
       if(err){console.log(err)};
       if(req.body.email){
         user.email = req.body.email;
+        user.local.email = req.body.email;
       }
       if(req.body.name){
         user.name = req.body.name;
