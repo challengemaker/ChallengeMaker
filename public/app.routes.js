@@ -170,6 +170,9 @@ function appRoutes($routeProvider){
 
     .when('/cms', {
       templateUrl: 'templates/_cms.html'
+      ,controller: 'analyticsCtrl'
+      ,controllerAs: 'analytics'
+      // will eventually be 'cmsCtrl' and 'cms'
     })
 
     .when('/', {

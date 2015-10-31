@@ -1,1 +1,56 @@
-<h2>damn, you saying this is gonna be some kind of a CMS? Shiiiiiiiiiiiiit</h2>
+<div class="passwordBox">
+  <input type="text" name="name" value="" class="pwAttempt"><br>
+  <button type="button" name="button" class="pwChecker">Submit Password</button>
+</div>
+
+<div class="" ng-if="analytics.passwordCorrect">
+    <div class="row col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+
+      <div class="cmsHeadline">
+        <h1>ADMIN CMS</h1>
+      </div>
+
+      <div class="row cmsButtonRow">
+
+        <div class="dropdown col-sm-4 col-xs-12">
+          <div class="cmsDropdown">
+          <select class="" ng-model="">
+            <option value="">SELECT TASK</option>
+            <option value="">Get All</option>
+            <option value="">Create New</option>
+            <option value="">Update Existing</option>
+            <option value="">Delete</option>
+          </select>
+          </div>
+        </div>
+
+        <div class="dropdown col-sm-4 col-xs-12">
+          <div class="cmsDropdown">
+          <select class="cmsChooseModel" ng-model="">
+            <option value="">SELECT MODEL</option>
+            <option value="">Challenge(s)</option>
+            <option value="">Charitie(s)</option>
+            <option value="">Response(s)</option>
+            <option value="">User(s)</option>
+          </select>
+          </div>
+        </div>
+
+        <div class="cmsDropdown col-sm-4 col-xs-12">
+          <div class="">
+              <button type="submit" name="">SUBMIT</button>
+          </div>
+        </div>
+
+    </div>
+
+    <!-- <div class="challFrContainer" ng-repeat="friendsChallenge in analytics.allFriendsChallenges" ng-if="analytics.passwordCorrect">
+      <p>The Challenge: {{friendsChallenge.challenge.split("-").join(' ')}}</p>
+      <p>Person Challenging: {{friendsChallenge.senderName}}</p>
+      <p>Emails of people they've challenged: {{friendsChallenge.sendeeEmail}}</p>
+      <p>The video the created: {{friendsChallenge.friendVideoUrl}}</p>
+      <p>Challenge Link, to send out: {{friendsChallenge.challengeUrlToSend}}</p>
+    </div> -->
+
+  </div>
+</div>
