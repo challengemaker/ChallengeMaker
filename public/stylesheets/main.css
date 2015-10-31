@@ -148,6 +148,10 @@ body {
   width: 360px;
 }
 
+.challengeContainer {
+  width: 96%;
+}
+
 .challengedDesc {
   width: 350px;
   font-size: 18px;
@@ -162,17 +166,6 @@ body {
 .challengedTitle {
   font-size: 35px;
   margin-top: -10px;
-}
-
-.challFrContainer {
-  background-color: #D6D6EB;
-  margin-top: 20px;
-  font-size: 25px;
-  width: 70%;
-  margin-left: 15%;
-  text-align: center;
-  vertical-align: middle;
-  padding: 15px 10px 10px 15px;
 }
 
 .challengeFriends {
@@ -207,14 +200,26 @@ body {
   z-index: -1;
 }
 
+.challFrContainer {
+  background-color: #D6D6EB;
+  margin-top: 20px;
+  font-size: 25px;
+  width: 70%;
+  margin-left: 15%;
+  text-align: center;
+  vertical-align: middle;
+  padding: 15px 10px 10px 15px;
+}
+
+
 #checkout {
   /*position: absolute;*/
 }
 
 .comp-chal-button {
-  font-size: 30px;
+  font-size: 25px;
   background-color: #b6b6b6;
-  margin: 15px 30px 10px 2px;
+  margin: 15px 2px 10px 2px;
   height:80px;
   width:100%;
   vertical-align: middle;
@@ -330,9 +335,17 @@ body {
   height: 100%;
 }
 
-.currentVideo{
+.currentVideo {
   min-height: 100%;
   min-width: 100%;
+}
+
+.custDonAmount {
+  font-size: 20px;
+  width: 250px;
+  height: 50px;
+  margin: 15px 0px 0px 0px;
+  text-align: center;
 }
 
 .detailsButton {
