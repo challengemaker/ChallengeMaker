@@ -149,7 +149,7 @@ body {
 }
 
 .challengeContainer {
-  width: 96%;
+  width: 98%;
 }
 
 .challengedDesc {
@@ -219,7 +219,7 @@ body {
 .comp-chal-button {
   font-size: 25px;
   background-color: #b6b6b6;
-  margin: 15px 2px 10px 2px;
+  margin: 15px 10px 5px 0px;
   height:80px;
   width:100%;
   vertical-align: middle;
@@ -274,11 +274,11 @@ body {
 
 .currentChallengeStats {
   display: inline-block;
-  margin:0;
+  margin:0px 0px 0px 0px;
   padding-right: 5px;
   background-color: #f1f1f1;
   min-height: 100%;
-  padding-bottom: 0px;
+  /*padding-bottom: 0px;*/
 }
 
 .currentCharity {
@@ -287,7 +287,7 @@ body {
 }
 
 .currentCharity2 {
-  font-size: 25px;
+  font-size: 20px;
   color: #999999;
   text-align: center;
   font-weight: bold;
@@ -308,7 +308,7 @@ body {
 }
 
 .currentDescDiv {
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .currentSuppDiv {
@@ -324,7 +324,7 @@ body {
 }
 
 .currentTitle2 {
-  font-size: 35px;
+  font-size: 26px;
   text-align: center;
   font-weight: bold;
   height: 40px;
