@@ -108,10 +108,11 @@ app.post( '/login', function( req, res ) {
 			res.json( "No user found" )
 		} else {
 			console.log("User found!")
-			console.log( user.validPassword( req.body.password ) )
+			if( user.validPassword( req.body.password )){
+        var gift = {user: user, token: token}
+        res.json( gift )
+      }
 			//AUTHENTICATE USER HERE
-      var gift = {user: user, token: token}
-			res.json( gift )
 		}
 	} )
 })

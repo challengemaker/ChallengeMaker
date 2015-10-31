@@ -53,6 +53,8 @@ angular.module('userController', [])
       self.profileEmailCounter = true;
       self.profilePasswordCounter = true;
 
+      self.masterCounter = {status: true, value: "any"}
+
       /////////to edit a users profile name
       function editProfile(){
         var currentName = $('#username').text();
@@ -60,9 +62,11 @@ angular.module('userController', [])
         $('#nameEditor').html(
           "<input id='usernameEdit' type='text' value='"+currentName+"'>"
         );
-        self.profileCounter = !self.profileCounter;
-        console.log(self.profileCounter);
-        addEventListener();
+        // self.profileCounter = !self.profileCounter;
+        // console.log(self.profileCounter);
+        self.masterCounter.value = "name";
+        $('#profileImage').on('click', saveEdits);
+        addCoolEvent();
       }
 
       //////////to edit a users email
@@ -72,8 +76,10 @@ angular.module('userController', [])
         $('#emailEditor').html(
         "<input id='useremailEdit' type='text' value='"+currentEmail+"'>"
         )
-        self.profileEmailCounter = !self.profileEmailCounter;
-        addEventListener()
+        // self.profileEmailCounter = !self.profileEmailCounter;
+        self.masterCounter = {status: false, value: "email"}
+        $('#profileImage').on('click', saveEmailEdits);
+        addCoolEvent()
       }
       function editPassword(){
         $('#passwordEditor').html('');
@@ -81,8 +87,10 @@ angular.module('userController', [])
         "<input id='userpasswordEdit' type='text' placeholder='old password here'>" +
         "<input id='userpasswordConfirmEdit' type='text' placeholder='new password here'>"
         )
-        self.profilePasswordCounter = !self.profilePasswordCounter;
-        addEventListener()
+        // self.profilePasswordCounter = !self.profilePasswordCounter;
+        self.masterCounter = {status: false, value: "password"}
+        $('#profileImage').on('click', savePasswordEdits);
+        addCoolEvent()
       }
 
       /////set the value
@@ -94,7 +102,7 @@ angular.module('userController', [])
           "<td id='username'>"+newName+"</td>"
         );
         $('#username').on('click', editProfile)
-        self.profileCounter = !self.profileCounter;
+        // self.profileCounter = !self.profileCounter;
         ///set up and send the http request to the db
         var request = {search: {name: oldName}, name: newName}
         $http({
@@ -108,6 +116,7 @@ angular.module('userController', [])
           var newUrlName = newName.split(' ').join("-");
           window.location.hash = "#/users/"+newUrlName;
           window.location.reload();
+          self.masterCounter.status = true;
         })
       }
 
@@ -120,7 +129,7 @@ angular.module('userController', [])
           "<td id='useremail'>"+newEmail+"</td>"
         )
         $('#useremail').on('click', editEmail);
-        self.profileEmailCounter = !self.emailProfileCounter;
+        // self.profileEmailCounter = !self.emailProfileCounter;
         console.log(self.profileEmailCounter);
         var emailRequest = {search: {email: oldEmail}, email: newEmail}
         $http({
@@ -130,14 +139,15 @@ angular.module('userController', [])
         })
         .then(function(data){
           console.log(data);
-          window.location.reload();
+          self.masterCounter.status = true;
+          // window.location.reload();
         })
       }
 
       function savePasswordEdits(){
         var oldPassword = $("#userpasswordEdit").val();
         var newPassword = $("#userpasswordConfirmEdit").val();
-        var name = window.location.hash.split('/')[2];
+        var name = window.location.hash.split('/')[2].split('-').join(' ');
         console.log(name);
         console.log(oldPassword);
         console.log(newPassword);
@@ -159,31 +169,52 @@ angular.module('userController', [])
             $('#userpasswordConfirmEdit').animate({
               backgroundColor: "white"
             }, 1000)
-            window.location.reload();
+            self.masterCounter.status = true;
+            // window.location.reload();
           }
         })
       }
 
+
+      // $('#profileImage').on('click', saveEdits);
+      // $('#profileImage').on('click', saveEmailEdits);
+      // $('#profileImage').on('click', savePasswordEdits);
       // if(self.profileCounter == true){
-      $('#username').on('click', editProfile)
-      $('#useremail').on('click', editEmail)
-      $('#userpassword').on('click', editPassword)
       // }{
       /////we put an if statement around each piece, so that the counter only works if it's been clicked (using our self. counters)
       // self.profileCounter = true;
       // self.profileEmailCounter = true;
       // self.profilePasswordCounter = true;
-      function addEventListener(){
-        if(!self.profileCounter){
-          $('#profileImage').on('click', saveEdits);
+      function addCoolEvent(){
+        console.log(self.masterCounter);
+        if (self.masterCounter.status == true) {
+          // switch(self.masterCounter.value){
+          //   case "any":
+          //   console.log('yup');
+          $('#username').on('click', editProfile);
+          $('#useremail').on('click', editEmail)
+          $('#userpassword').on('click', editPassword)
+          self.masterCounter.status = false;
+          //     break;
+          //   case "name":
+          //     $('#username').on('click', editProfile);
+          //     self.masterCounter.status = false;
+          //     break;
+          //   case "email":
+          //     $('#useremail').on('click', editEmail);
+          //     self.masterCounter.status = false;
+          //     break;
+          //   case "password":
+          //     $('#userpassword').on('click', editPassword)
+          //     break;
+          // }
         }
-        else if(!self.profileEmailCounter){
-          $('#profileImage').on('click', saveEmailEdits);
+        else{
+          console.log('youre not qualified to access that');
         }
-        else if(!self.profilePasswordCounter){
-          $('#profileImage').on('click', savePasswordEdits);
-        }
+
       }
+      addCoolEvent()
       // }
     }
     /////////end profile section ///////////
@@ -298,7 +329,8 @@ angular.module('userController', [])
             }
 
           } else {
-            window.location.hash = "#/signup"
+            window.location.hash = "#/signup";
+            window.location.reload();
           }
         })
       })
