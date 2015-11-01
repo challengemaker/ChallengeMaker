@@ -29,64 +29,194 @@ angular.module('userController', [])
     $('.goToLoginChallenge').on("click", function(){
       window.location.hash = "#/signin/"+window.location.hash.split('/')[2]
     })
-
-    $('.goToSigninChallenge').on('click', function(){
-
-    })
-
     //////begin profile section
     ///////////////////////////
     ///////////////////////////
-    var thisUser = window.location.hash.split("/")[2];
-    console.log(thisUser);
-    self.thisUser = thisUser
-
-    ////create editor popup thingy
-    self.profileCounter = true;
-    function editProfile(){
-      var currentName = $('#username').text();
-      $('#nameEditor').html("");
-      $('#nameEditor').html(
-        "<input id='usernameEdit' type='text' value='"+currentName+"'>"
-      );
-      self.profileCounter = !self.profileCounter;
-      console.log(self.profileCounter);
-    }
-
-    /////set the value
-    function saveEdits(){
-      var oldName = self.thisUser;
-      var newName = $('#usernameEdit').val();
-      console.log(newName);
-      $('#nameEditor').html("");
-      $('#nameEditor').html(
-        "<td id='username'>"+newName+"</td>"
-      );
-      $('#username').on('click', editProfile)
-      self.profileCounter = !self.profileCounter;
-      ///set up and send the http request to the db
-      var request = {search: {name: oldName}, name: newName}
+    if(window.location.hash.split('/')[1] == "users"){
+      var thisUser = window.location.hash.split("/")[2].split("-").join(' ');
+      console.log(thisUser);
       $http({
-        method: "POST"
-        ,url: "/api/users/update"
-        ,data: request
+        method: "GET"
+        ,url: "/api/users/"+thisUser
       })
-      .then(function(){
-        console.log(newName);
-        var newUrlName = newName.split(' ').join("-");
-        window.location.hash = "#/users/"+newUrlName
+      .then(function(data){
+        console.log(data);
+        self.thisUserEmail = data.data.user.email;
+        self.thisUserData = data.data.user;
+        console.log(self.thisUserEmail);
       })
+      console.log(thisUser);
+      self.thisUser = thisUser
+
+      ////create editor popup thingy
+      self.profileCounter = true;
+      self.profileEmailCounter = true;
+      self.profilePasswordCounter = true;
+
+      self.masterCounter = {status: true, value: "any"}
+
+      /////////to edit a users profile name
+      function editProfile(){
+        var currentName = $('#username').text();
+        $('#nameEditor').html("");
+        $('#nameEditor').html(
+          "<input id='usernameEdit' type='text' value='"+currentName+"'>"
+        );
+        // self.profileCounter = !self.profileCounter;
+        // console.log(self.profileCounter);
+        self.masterCounter.value = "name";
+        $('#profileImage').on('click', saveEdits);
+        addCoolEvent();
+      }
+
+      //////////to edit a users email
+      function editEmail(){
+        var currentEmail = $('#useremail').text();
+        $('#emailEditor').html('');
+        $('#emailEditor').html(
+        "<input id='useremailEdit' type='text' value='"+currentEmail+"'>"
+        )
+        // self.profileEmailCounter = !self.profileEmailCounter;
+        self.masterCounter = {status: false, value: "email"}
+        $('#profileImage').on('click', saveEmailEdits);
+        addCoolEvent()
+      }
+      function editPassword(){
+        $('#passwordEditor').html('');
+        $('#passwordEditor').html(
+        "<input id='userpasswordEdit' type='text' placeholder='old password here'>" +
+        "<input id='userpasswordConfirmEdit' type='text' placeholder='new password here'>"
+        )
+        // self.profilePasswordCounter = !self.profilePasswordCounter;
+        self.masterCounter = {status: false, value: "password"}
+        $('#profileImage').on('click', savePasswordEdits);
+        addCoolEvent()
+      }
+
+      /////set the value
+      function saveEdits(){
+        var oldName = self.thisUser;
+        var newName = $('#usernameEdit').val();
+        $('#nameEditor').html("");
+        $('#nameEditor').html(
+          "<td id='username'>"+newName+"</td>"
+        );
+        $('#username').on('click', editProfile)
+        // self.profileCounter = !self.profileCounter;
+        ///set up and send the http request to the db
+        var request = {search: {name: oldName}, name: newName}
+        $http({
+          method: "POST"
+          ,url: "/api/users/update"
+          ,data: request
+        })
+        .then(function(){
+          console.log(newName);
+          window.localStorage.sessionUser = newName;
+          var newUrlName = newName.split(' ').join("-");
+          window.location.hash = "#/users/"+newUrlName;
+          window.location.reload();
+          self.masterCounter.status = true;
+        })
+      }
+
+      function saveEmailEdits(){
+        var oldEmail = self.thisUserEmail;
+        console.log(oldEmail);
+        var newEmail = $('#useremailEdit').val();
+        console.log(newEmail);
+        $('#emailEditor').html(
+          "<td id='useremail'>"+newEmail+"</td>"
+        )
+        $('#useremail').on('click', editEmail);
+        // self.profileEmailCounter = !self.emailProfileCounter;
+        console.log(self.profileEmailCounter);
+        var emailRequest = {search: {email: oldEmail}, email: newEmail}
+        $http({
+          method: "POST"
+          ,url: "/api/users/update"
+          ,data: emailRequest
+        })
+        .then(function(data){
+          console.log(data);
+          self.masterCounter.status = true;
+          // window.location.reload();
+        })
+      }
+
+      function savePasswordEdits(){
+        var oldPassword = $("#userpasswordEdit").val();
+        var newPassword = $("#userpasswordConfirmEdit").val();
+        var name = window.location.hash.split('/')[2].split('-').join(' ');
+        console.log(name);
+        console.log(oldPassword);
+        console.log(newPassword);
+        $http({
+          method: "POST"
+          ,url: "/api/users/updatepassword"
+          ,data: {name: name, oldPassword: oldPassword, newPassword}
+        })
+        .then(function(err, data){
+          if(err){console.log(err)};
+          console.log(data);
+          if(data.notValid){
+            console.log('not a valid passowrd');
+          } else {
+            console.log('password valid');
+            $('#userpasswordConfirmEdit').css({
+              backgroundColor: "red"
+            })
+            $('#userpasswordConfirmEdit').animate({
+              backgroundColor: "white"
+            }, 1000)
+            self.masterCounter.status = true;
+            // window.location.reload();
+          }
+        })
+      }
+
+
+      // $('#profileImage').on('click', saveEdits);
+      // $('#profileImage').on('click', saveEmailEdits);
+      // $('#profileImage').on('click', savePasswordEdits);
+      // if(self.profileCounter == true){
+      // }{
+      /////we put an if statement around each piece, so that the counter only works if it's been clicked (using our self. counters)
+      // self.profileCounter = true;
+      // self.profileEmailCounter = true;
+      // self.profilePasswordCounter = true;
+      function addCoolEvent(){
+        console.log(self.masterCounter);
+        if (self.masterCounter.status == true) {
+          // switch(self.masterCounter.value){
+          //   case "any":
+          //   console.log('yup');
+          $('#username').on('click', editProfile);
+          $('#useremail').on('click', editEmail)
+          $('#userpassword').on('click', editPassword)
+          self.masterCounter.status = false;
+          //     break;
+          //   case "name":
+          //     $('#username').on('click', editProfile);
+          //     self.masterCounter.status = false;
+          //     break;
+          //   case "email":
+          //     $('#useremail').on('click', editEmail);
+          //     self.masterCounter.status = false;
+          //     break;
+          //   case "password":
+          //     $('#userpassword').on('click', editPassword)
+          //     break;
+          // }
+        }
+        else{
+          console.log('youre not qualified to access that');
+        }
+
+      }
+      addCoolEvent()
+      // }
     }
-
-    // if(self.profileCounter == true){
-    $('#username').on('click', editProfile)
-    // }
-    // else if(self.profileCounter == false){
-    $('#profileImage').on('click', saveEdits)
-    // }
-
-
-
     /////////end profile section ///////////
     ////////////////////////////////////////
     ////////////////////////////////////////
@@ -199,7 +329,8 @@ angular.module('userController', [])
             }
 
           } else {
-            window.location.hash = "#/signup"
+            window.location.hash = "#/signup";
+            window.location.reload();
           }
         })
       })

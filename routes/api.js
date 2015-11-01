@@ -96,7 +96,24 @@ module.exports = function(app, passport){
       res.json({ message : "successfully deleted"});
       console.log("right AFTER res.json message");
     });
-  });
+  })
+
+  app.post('/api/users/updatepassword', function(req, res){
+    console.log(req.body);
+    User.findOne({name: req.body.name}, function(err, user){
+      if(err){console.log(err)}
+      else if(user.validPassword(req.body.oldPassword)){
+        console.log(user);
+        user.password = user.generateHash( req.body.newPassword )
+        console.log(user);
+        user.save(function(data){
+          res.json(user)
+        })
+      } else {
+        res.json({notvalid: true});
+      }
+    })
+  })
 
 // CHALLENGES
 // get all challenges
@@ -207,18 +224,18 @@ module.exports = function(app, passport){
   });
 
 // update a charity
-      app.post('/api/charities/update', function(req, res){
-        // var updateAttr = req.updateAttr;
-        Charity.findOne(req.body.search, function(err, charity){
-          if(err){console.log(err)};
-          if(req.body.name){
-            charity.name = req.body.name;
-          }
-          charity.save(function(){
-            res.json(charity);
-          });
-        })
-      })
+  app.post('/api/charities/update', function(req, res){
+    // var updateAttr = req.updateAttr;
+    Charity.findOne(req.body.search, function(err, charity){
+      if(err){console.log(err)};
+      if(req.body.name){
+        charity.name = req.body.name;
+      }
+      charity.save(function(){
+        res.json(charity);
+      });
+    })
+  })
 
 // delete a charity
   app.delete('/api/charities/:name', function(req, res){
@@ -437,17 +454,15 @@ module.exports = function(app, passport){
     })
   );
 
-  app.post("/login", function(req, res){
-    // User.find({email: req.body.data.email})
-    res.json({message: "success", token: "user", sessionUser: "Dildo"})
-  });
-
-  app.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/');
-  });
-
-
+  // app.post("/login", function(req, res){
+  //   // User.find({email: req.body.data.email})
+  //   res.json({message: "success", token: "user", sessionUser: "Dildo"})
+  // })
+  //
+  // app.get('/logout', function(req, res){
+  //   req.logout();
+  //   res.redirect('/');
+  // });
 
   function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){

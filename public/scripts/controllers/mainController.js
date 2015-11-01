@@ -20,6 +20,7 @@ angular.module('mainController', [])
         self.userSesh = "Sign In";
         window.localStorage.sessionToken = "none"
         window.localStorage.sessionUser = "none"
+        window.location.hash = "#/"
         window.location.reload()
       } else {
         window.location.hash = "#/signin"
