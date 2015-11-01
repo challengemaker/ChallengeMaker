@@ -120,6 +120,7 @@ module.exports = function(app, passport){
   app.get('/api/challenges', function(req, res){
     Challenge.find({}, function(err, challenges){
       if(err){res.send(err)}
+      console.log(challenges);
       res.json(challenges)
     });
   });
@@ -128,6 +129,7 @@ module.exports = function(app, passport){
   app.get('/api/challenges/:name', function(req, res){
     var rawName = req.params.name;
     var fullName = rawName.split('-').join(' ');
+    console.log(fullName);
     Challenge.findOne({"title": fullName}, {}, function(err, challenge){
       if(err){console.log(err)};
 
@@ -163,7 +165,6 @@ module.exports = function(app, passport){
 // update a challenge - works
   app.post('/api/challenges/:name', function(req, res){
     console.log(req.body);
-    console.log('148');
     // var updateAttr = req.updateAttr;
     Challenge.findOne(req.body.search, function(err, challenge){
       if(err){console.log(err)};
@@ -260,10 +261,10 @@ module.exports = function(app, passport){
 
 // create a new response
   app.post('/api/responses', function(req, res){
-    Response.create(req.body, function(err, response){
-      if(err){console.log(err)}
-      res.json({'posted': response});
-    });
+    // Response.create(req.body, function(err, response){
+    //   if(err){console.log(err)}
+    //   res.json({'posted': response});
+    // });
   })
 
   app.delete('/api/responses/:id', function(req, res){
