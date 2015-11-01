@@ -10,15 +10,60 @@ var app = angular.module('cmsController', [])
     ////////////challenges //////////
 
     //////get all challenges
-    $http({
-      method: "GET"
-      ,url: "/api/challenges"
-    })
-    .then(function(allChallenges){
-      console.log(allChallenges);
-      self.allChallenges = allChallenges.data;
-      console.log(self.allChallenges);
-    })
+
+    function allChallenges(){
+      $http({
+        method: "GET"
+        ,url: "/api/challenges"
+      })
+      .then(function(allChallenges){
+        self.allChallenges = allChallenges.data;
+        console.log(self.allChallenges);
+      })
+    }
+
+    /////load all users
+    function allUsers(){
+      $http({
+        method: "GET"
+        ,url: "/api/users"
+      })
+      .then(function(allUsers){
+        self.allUsers = allUsers.data;
+        console.log(self.allUsers);
+      })
+    }
+
+    /////load all Charities
+    function allCharities(){
+      $http({
+        method: "GET"
+        ,url: "/api/charities"
+      })
+      .then(function(allCharities){
+        self.allCharities = allCharities.data;
+        console.log(self.allCharities);
+      })
+    }
+
+    //////load all Reponses
+    function allResponses(){
+      $http({
+        method: "GET"
+        ,url: "/api/responses"
+      })
+      .then(function(allResponses){
+        console.log(allResponses);
+        self.allResponses = allResponses.data;
+        console.log(self.allResponses);
+      })
+    }
+    /////////run all functions on-load so that we have our self.alls loaded from the beginning
+    allChallenges();
+    allUsers();
+    allCharities();
+    allResponses();
+
 
     //////show a single Challenge
     // $('.submitCms').on('click', function(){
