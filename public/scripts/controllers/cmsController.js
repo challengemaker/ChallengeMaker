@@ -6,11 +6,8 @@ var app = angular.module('cmsController', [])
   function cmsCtrl($http){
     var self = this;
 
-    /////////////////////////////////
-    ////////////challenges //////////
-
+    /////start loading all self.all $http calls, in order to load these first and have them stocked to be available for the toggle switch
     //////get all challenges
-
     function allChallenges(){
       $http({
         method: "GET"
@@ -18,6 +15,7 @@ var app = angular.module('cmsController', [])
       })
       .then(function(allChallenges){
         self.allChallenges = allChallenges.data;
+        self.allMaster = allChallenges.data;
         console.log(self.allChallenges);
       })
     }
@@ -59,11 +57,21 @@ var app = angular.module('cmsController', [])
       })
     }
     /////////run all functions on-load so that we have our self.alls loaded from the beginning
-    allChallenges();
-    allUsers();
-    allCharities();
-    allResponses();
+    function setInitialRepeat(){
+      allChallenges();
+      allUsers();
+      allCharities();
+      allResponses();
+    }
+    setInitialRepeat();
+    /////end loading all self.alls on load
+    /////////begin logic for toggling self.alls
+    //////////////////////////////////////////
 
+
+    ////////begin events related to non-all $http loads
+    /////////////////////////////////
+    ////////////challenges //////////
 
     //////show a single Challenge
     // $('.submitCms').on('click', function(){

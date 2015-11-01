@@ -43,9 +43,9 @@
         </div>
 
     </div>
-    <div class="testList" ng-repeat="challenge in cms.allChallenges">
-      <h1>{{challenge.title}}</h1>
-      <h2>{{challenge.charity[0]}}</h2>
+    <div class="testList" ng-repeat="listItem in cms.allMaster">
+      <h1>{{listItem.title}}</h1>
+      <h2>{{listItem.charity[0]}}</h2>
     </div>
 
     <!-- <div class="challFrContainer" ng-repeat="friendsChallenge in analytics.allFriendsChallenges" ng-if="analytics.passwordCorrect">
