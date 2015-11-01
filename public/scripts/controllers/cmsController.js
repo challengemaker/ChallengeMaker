@@ -121,7 +121,5 @@ var app = angular.module('cmsController', [])
     //   })
     // })
 
-
-
     //////////end controller
   }

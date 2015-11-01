@@ -12,7 +12,7 @@
 
       <div class="row cmsButtonRow">
 
-        <div class="dropdown col-sm-4 col-xs-12">
+        <!-- <div class="dropdown col-sm-4 col-xs-12">
           <div class="cmsDropdown">
           <select class="" ng-model="">
             <option value="">SELECT TASK</option>
@@ -22,16 +22,16 @@
             <option value="">Delete</option>
           </select>
           </div>
-        </div>
+        </div> -->
 
         <div class="dropdown col-sm-4 col-xs-12">
           <div class="cmsDropdown">
           <select class="cmsChooseModel" ng-model="">
-            <option value="">SELECT MODEL</option>
-            <option value="">Challenge(s)</option>
-            <option value="">Charitie(s)</option>
-            <option value="">Response(s)</option>
-            <option value="">User(s)</option>
+            <option value="">GET ALL</option>
+            <option value="">Challenges</option>
+            <option value="">Charities</option>
+            <option value="">Responses</option>
+            <option value="">Users</option>
           </select>
           </div>
         </div>
@@ -44,8 +44,8 @@
 
     </div>
     <div class="testList" ng-repeat="challenge in cms.allChallenges">
-      <h1>{{challenge.title}}</h1>
-      <h2>{{challenge.charity[0]}}</h2>
+      <h1 class="testTitle">{{challenge.title}}</h1>
+      <h2 class="testCharity">{{challenge.charity[0]}}</h2>
     </div>
 
     <!-- <div class="challFrContainer" ng-repeat="friendsChallenge in analytics.allFriendsChallenges" ng-if="analytics.passwordCorrect">

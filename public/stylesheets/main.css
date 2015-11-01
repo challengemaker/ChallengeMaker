@@ -247,11 +247,11 @@ body {
   padding-bottom: 15px;
 }
 
-.cmsDropdown select, button{
+.cmsDropdown select, option, button{
   background: transparent;
   background-color: #e9e5dc;
   font-size: 20px;
-  border-radius: 10px;
+  border-radius: 2px;
   border-color: black;
   border: 3px;
   box-shadow: 2px 2px 4px #000000;
@@ -1069,6 +1069,27 @@ body {
  table tr td{
    padding:3px !important;
    border-top: none !important;
+}
+
+.testList {
+  list-style-type: none;
+  background-color: #e0efef;
+  min-height: 100%;
+  margin: 0 0 0 20%;
+  margin: 15px 0px 0px 0px;
+  border-radius: 2px;
+  border-color: black;
+  border-width: 0px;
+  box-shadow: 2px 2px 4px #000000;
+}
+
+.testTitle {
+  font-size: 25px;
+  margin: 5px 5px 5px 5px;
+}
+
+.testCharity {
+  font-size: 15px;
 }
 
 .testResponseForm {
