@@ -70,6 +70,9 @@ var app = angular.module('cmsController', [])
           case "Charitie(s)":
             self.allMaster = self.allCharities
             $('.cmsList').html('')
+            $('.cmsAddCreate').css({
+              opacity: 1
+            })
             for (var i = 0; i < self.allMaster.length; i++) {
               $('.cmsList').append(
                 "<div class='cmsItemCharity' id='cmsItemCharity"+i+"'>"+
@@ -104,6 +107,9 @@ var app = angular.module('cmsController', [])
           case "User(s)":
             self.allMaster = self.allUsers
             $('.cmsList').html('')
+            $('.cmsAddCreate').css({
+              opacity: .4
+            })
             for (var i = 0; i < self.allMaster.length; i++) {
               $('.cmsList').append(
                 "<div class='cmsItemUser' id='cmsItemUser"+i+"'>"+
@@ -126,6 +132,9 @@ var app = angular.module('cmsController', [])
           case "Challenge(s)":
             self.allMaster = self.allChallenges
             $('.cmsList').html('')
+            $('.cmsAddCreate').css({
+              opacity: 1
+            })
             for (var i = 0; i < self.allMaster.length; i++) {
               $('.cmsList').append(
                 "<div class='cmsItemChallenge' id='cmsItemChallenge"+i+"'>"+
@@ -161,6 +170,9 @@ var app = angular.module('cmsController', [])
           case "Response(s)":
             self.allMaster = self.allResponses
             $('.cmsList').html('')
+            $('.cmsAddCreate').css({
+              opacity: .4
+            })
             for (var i = 0; i < self.allMaster.length; i++) {
               $('.cmsList').append(
                 "<div class='cmsItemResponse' id='cmsItemResponse"+i+"'>"+
@@ -185,6 +197,60 @@ var app = angular.module('cmsController', [])
     }
     dropdownLogic()
 
+    //////Begin Logic to add a "Create" Functionality at the top of the list
+    ///////////////////////////////////////////////
+    self.createNewCounter = true
+    function cmsCreateNew(){
+      $('.cmsAddCreate').on('click', function(){
+        /////empty out any old values that might be in there
+        if ($('.newChallengeTitle')) {
+          $('.newChallengeTitle').val('')
+        }
+        if ($('.newChallengeTitle')) {
+          $('.newChallengeDescription').val('')
+        }
+        if ($('.newChallengeTitle')) {
+          $('.newChallengeVideo').val('')
+        }
+        if ($('.newChallengeTitle')) {
+          $('.newChallengeCharity').val('')
+        }
+        if ($('.newCharityName')) {
+          $('.newCharityName').val('')
+        }
+        if ($('.newCharityDescription')) {
+          $('.newCharityDescription').val('')
+        }
+        if ($('.newCharityPhoto')) {
+          $('.newCharityPhoto').val('')
+        }
+        if ($('.newCharityUrl')) {
+          $('.newCharityUrl').val('')
+        }
+        if(self.createNewCounter){
+          if (self.allMaster[0] == self.allChallenges[0] || self.allMaster[0] == self.allCharities[0]) {
+            console.log('on challenges or charities');
+            $('.cmsCreateNewContainer').animate({
+              height: "300px"
+            }, 200)
+            self.createNewCounter = !self.createNewCounter
+          } else {
+            console.log('sorry you cant create a new one of those, not a challenge or charity');
+          }
+        } else {
+          if (!self.createNewCounter) {
+            $('.cmsCreateNewContainer').animate({
+              height: "0px"
+            }, 200)
+            self.createNewCounter = !self.createNewCounter
+          }
+        }
+      })
+    }
+    cmsCreateNew()
+
+    //////////////End CMS Create Functionality//////
+    ////////////////////////////////////////////////
 
     //////function to add the event to open show/edit window, which will be called in switch
     ///////////create show/edit for charities
@@ -324,62 +390,6 @@ var app = angular.module('cmsController', [])
     }
     ///////////////Finish List Creation and Dropdown Functionality
     ////////////////////////////////////
-
-    //////Begin Logic to add a "Create" Functionality at the top of the list
-    ///////////////////////////////////////////////
-    self.createNewCounter = true
-    function cmsCreateNew(){
-      $('.cmsAddCreate').on('click', function(){
-        /////empty out any old values that might be in there
-        if ($('.newChallengeTitle')) {
-          $('.newChallengeTitle').val('')
-        }
-        if ($('.newChallengeTitle')) {
-          $('.newChallengeDescription').val('')
-        }
-        if ($('.newChallengeTitle')) {
-          $('.newChallengeVideo').val('')
-        }
-        if ($('.newChallengeTitle')) {
-          $('.newChallengeCharity').val('')
-        }
-        if ($('.newCharityName')) {
-          $('.newCharityName').val('')
-        }
-        if ($('.newCharityDescription')) {
-          $('.newCharityDescription').val('')
-        }
-        if ($('.newCharityPhoto')) {
-          $('.newCharityPhoto').val('')
-        }
-        if ($('.newCharityUrl')) {
-          $('.newCharityUrl').val('')
-        }
-        if(self.createNewCounter){
-          if (self.allMaster[0] == self.allChallenges[0] || self.allMaster[0] == self.allCharities[0]) {
-            console.log('on challenges or charities');
-            $('.cmsCreateNewContainer').animate({
-              height: "300px"
-            }, 200)
-            self.createNewCounter = !self.createNewCounter
-          } else {
-            console.log('sorry you cant create a new one of those, not a challenge or charity');
-          }
-        } else {
-          if (!self.createNewCounter) {
-            $('.cmsCreateNewContainer').animate({
-              height: "0px"
-            }, 200)
-            self.createNewCounter = !self.createNewCounter
-          }
-        }
-      })
-    }
-    cmsCreateNew()
-
-
-    //////////////End CMS Create Functionality//////
-    ////////////////////////////////////////////////
 
     ////////begin events related to non-all $http loads
     /////////////////////////////////
