@@ -111,7 +111,7 @@ angular.module('responseController', [])
             }
           })
           .then(function(data){
-            var url = window.location.hash.split('/')[2];
+            var url = window.location.hash.split('/')
             console.log(url);
             $http.get('api/challenges/'+url[2])
               .then(function(data){
