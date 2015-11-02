@@ -191,6 +191,7 @@ var app = angular.module('cmsController', [])
               )
               openShowResponse(i)
               openEditResponse(i)
+              deleteResponse(i)
             }
             $('.cmsCreateNewContainer').animate({
               height: '0px'
@@ -578,6 +579,26 @@ var app = angular.module('cmsController', [])
             $('#cmsItemUser'+x).remove()
           }, 150)
           self.allUsers.pop()
+        })
+      })
+    }
+
+    ///////delete a Response
+    function deleteResponse(x){
+      $('#cmsDeleteResponse'+x).on('click', function(){
+        var thisResponseId = self.allResponses[x]._id
+        $http({
+          method: "DELETE"
+          ,url: "/api/users/"+thisResponseId
+        })
+        .then(function(data){
+          $('#cmsItemResponse'+x).animate({
+            height: "0px"
+          }, 150)
+          setTimeout(function(){
+            $('#cmsItemResponse'+x).remove()
+          }, 150)
+          self.allResponses.pop()
         })
       })
     }
