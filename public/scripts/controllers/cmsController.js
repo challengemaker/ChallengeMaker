@@ -482,14 +482,17 @@ var app = angular.module('cmsController', [])
           self.allCharities.push(data.data)
           //////serial counter starts at negative one and counts backwards, and fills in the role of "i" for the repeat-created list
           self.createNewCounter = !self.createNewCounter
-          if(self.serialCharityCounter){
-            self.serialCharityCounter -= self.serialCharityCounter
-            var i = self.serialCharityCounter
-            console.log(self.serialCharityCounter);
-          } else {
-            self.serialCharityCounter = -1
-            var i = self.serialCharityCounter
-          }
+          // if(self.serialCharityCounter){
+          //   self.serialCharityCounter -= self.serialCharityCounter
+          //   var i = self.serialCharityCounter
+          //   console.log(self.serialCharityCounter);
+          // } else {
+          //   self.serialCharityCounter = -1
+          //   var i = self.serialCharityCounter
+          // }
+
+          var i = self.allCharities.length - 1;
+          console.log(i);
           console.log(data.data);
           //////now, to make the page totally dynamic, we prepend it to the cmsList
           $('.cmsList').prepend(
@@ -534,7 +537,13 @@ var app = angular.module('cmsController', [])
         .then(function(data){
           console.log(data);
           console.log($('#cmsItemChallenge'+x));
-          $('#cmsItemChallenge'+x).remove()
+          $('#cmsItemChallenge'+x).animate({
+            height: "0px"
+          }, 150)
+          setTimeout(function(){
+            $('#cmsItemChallenge'+x).remove()
+          }, 150)
+
         })
       })
     }
@@ -557,6 +566,9 @@ var app = angular.module('cmsController', [])
           setTimeout(function(){
             $('#cmsItemCharity'+x).remove()
           }, 150)
+          console.log(self.allCharities.length)
+          self.allCharities.pop()
+          console.log(self.allCharities.length)
         })
       })
     }
