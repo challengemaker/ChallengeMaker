@@ -178,12 +178,14 @@ module.exports = function(app, passport){
 
 // delete a challenge  - works
   app.delete('/api/challenges/:title', function(req, res){
+    var title = req.params.title.split('-').join(' ')
+    console.log(title);
     Challenge.remove({
-      title: req.params.title
+      title: title
     }, function(err, challenge){
       if(err){
         res.send(err)};
-      res.json({ message : "challenge successfully deleted"});
+      res.json({ message : "challenge successfully deleted", deleted: challenge});
     });
   });
 
@@ -192,7 +194,6 @@ module.exports = function(app, passport){
   app.get('/api/charities', function(req, res){
     Charity.find({}, function(err, charities){
       if(err){console.log(err)};
-      console.log(charities);
       res.json(charities);
     });
   });
@@ -269,7 +270,6 @@ module.exports = function(app, passport){
 
   app.delete('/api/responses/:id', function(req, res){
     var elephantId = req.params.id;
-    console.log(elephantId);
     Response.remove({"_id": elephantId}, function(err, response){
       if(err){
         res.send(err)}
@@ -280,7 +280,6 @@ module.exports = function(app, passport){
   app.get('/api/emails', function(req, res){
     Email.find({}, function(err, emails){
       if(err){console.log(err)}
-      console.log(emails);
       res.json(emails)
     })
   })

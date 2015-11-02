@@ -149,6 +149,7 @@ var app = angular.module('cmsController', [])
               )
               openShowChallenge(i)
               openEditChallenge(i)
+              deleteChallenge(i)
             }
             $('.cmsCreateNewContainer').animate({
               height: '0px'
@@ -451,6 +452,7 @@ var app = angular.module('cmsController', [])
           )
           openShowChallenge(i)
           openEditChallenge(i)
+
         })
       })
     }
@@ -516,16 +518,41 @@ var app = angular.module('cmsController', [])
     //   })
     // })
 
-    // Delete ONe Challenge
-    // $('.submitCms').on('click', function(){
-    //   $http({
-    //     method: "DELETE"
-    //     ,url: "/api/challenges/Jack's-Jumping-Challenge"
-    //   })
-    //   .then(function(data){
-    //     console.log(data);
-    //   })
-    // })
+    ///////////Begin creating All Delete Functions
+    /////////////////////////////////////////////
+    function deleteChallenge(x){
+      $('#cmsDeleteChallenge'+x).on('click', function(){
+        var thisName = self.allChallenges[x].title.split(" ").join('-')
+        console.log(thisName);
+        $http({
+          method: "DELETE"
+          ,url: "/api/challenges/"+thisName
+        })
+        .then(function(data){
+          console.log(data);
+          console.log($('#cmsItemChallenge'+x));
+          $('#cmsItemChallenge'+x).remove()
+        })
+      })
+    }
+
+    ///////delete a Charity
+    function deleteCharity(x){
+      $('.cmsDeleteCharity'+x).on('click', function(){
+        var thisName = self.masterChallenge[x]
+        console.log($('#cmsItemCharity'+x));
+        console.log(thisName);
+        $http({
+          method: "DELETE"
+          ,url: "/api/charities/"
+        })
+        .then(function(data){
+          console.log(data);
+          console.log($('#cmsItemCharity'+x));
+          $('#cmsItemCharity'+x).remove()
+        })
+      })
+    }
 
 
 
