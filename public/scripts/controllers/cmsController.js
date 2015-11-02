@@ -93,8 +93,15 @@ var app = angular.module('cmsController', [])
             $('.cmsList').html('')
             for (var i = 0; i < self.allMaster.length; i++) {
               $('.cmsList').append(
-                "<h2>"+self.allMaster[i].name+"</h2>"
+                "<div class='cmsItemUser' id='cmsItemUser"+i+"'>"+
+                  "<h2 class='cmsUserName'>"+self.allMaster[i].title+"</h2>"+
+                  "<button class='cmsShowUser' id='cmsShowUser"+i+"'>See User Info</button>"+
+                  "<button class='cmsEditUser' id='cmsEditUser"+i+"'>Update User Info</button>"+
+                "</div>" +
+                "<div class=cmsItemForm"+i+"></div>"
               )
+              openShowUser(i)
+              openEditUser(i)
             }
             break
           case "Challenge(s)":
@@ -118,9 +125,15 @@ var app = angular.module('cmsController', [])
             $('.cmsList').html('')
             for (var i = 0; i < self.allMaster.length; i++) {
               $('.cmsList').append(
-                "<h2>"+self.allMaster[i].challenge+"</h2>" +
-                "<h2>"+self.allMaster[i].creator+"</h2>"
+                "<div class='cmsItemResponse' id='cmsItemResponse"+i+"'>"+
+                  "<h2 class='cmsResponseName'>"+self.allMaster[i].title+"</h2>"+
+                  "<button class='cmsShowResponse' id='cmsShowResponse"+i+"'>See Response Info</button>"+
+                  "<button class='cmsEditResponse' id='cmsEditResponse"+i+"'>Update Response Info</button>"+
+                "</div>" +
+                "<div class=cmsItemForm"+i+"></div>"
               )
+              openShowResponse(i)
+              openEditResponse(i)
             }
             break
         }
@@ -194,6 +207,74 @@ var app = angular.module('cmsController', [])
         } else if(!self.editChallengeCounter){
             $('.cmsItemForm'+x).html('')
             self.editChallengeCounter = !self.editChallengeCounter
+        }
+      })
+    }
+
+    //////create show/edit framework for Responses
+    self.showResponseCounter = true
+    function openShowResponse(x){
+      $("#cmsShowResponse"+x).on('click', function(){
+        if(self.showResponseCounter){
+          $('.cmsItemForm'+x).append(
+            "<div id='showResponseBox'"+x+">"+
+              "<h1>showing some Response info we is</h1>"+
+            "</div>"
+          )
+          self.showResponseCounter = !self.showResponseCounter
+        } else if(!self.showResponseCounter){
+            $('.cmsItemForm'+x).html('')
+            self.showResponseCounter = !self.showResponseCounter
+        }
+      })
+    }
+    self.editResponseCounter = true
+    function openEditResponse(x){
+      $("#cmsEditResponse"+x).on('click', function(){
+        if(self.editResponseCounter){
+          $('.cmsItemForm'+x).append(
+            "<div id='editResponseBox'"+x+">"+
+              "<h1>showing some Response info we is</h1>"+
+            "</div>"
+          )
+          self.editResponseCounter = !self.editResponseCounter
+        } else if(!self.editResponseCounter){
+            $('.cmsItemForm'+x).html('')
+            self.editResponseCounter = !self.editResponseCounter
+        }
+      })
+    }
+
+    //////create show/edit framework for Users
+    self.showUserCounter = true
+    function openShowUser(x){
+      $("#cmsShowUser"+x).on('click', function(){
+        if(self.showUserCounter){
+          $('.cmsItemForm'+x).append(
+            "<div id='showUserBox'"+x+">"+
+              "<h1>showing some User info we is</h1>"+
+            "</div>"
+          )
+          self.showUserCounter = !self.showUserCounter
+        } else if(!self.showUserCounter){
+            $('.cmsItemForm'+x).html('')
+            self.showUserCounter = !self.showUserCounter
+        }
+      })
+    }
+    self.editUserCounter = true
+    function openEditUser(x){
+      $("#cmsEditUser"+x).on('click', function(){
+        if(self.editUserCounter){
+          $('.cmsItemForm'+x).append(
+            "<div id='editUserBox'"+x+">"+
+              "<h1>showing some User info we is</h1>"+
+            "</div>"
+          )
+          self.editUserCounter = !self.editUserCounter
+        } else if(!self.editUserCounter){
+            $('.cmsItemForm'+x).html('')
+            self.editUserCounter = !self.editUserCounter
         }
       })
     }
