@@ -263,10 +263,10 @@ module.exports = function(app, passport){
 
 // create a new response
   app.post('/api/responses', function(req, res){
-    Response.create(req.body, function(err, response){
-      if(err){console.log(err)}
-      res.json({'posted': response});
-    });
+    // Response.create(req.body, function(err, response){
+    //   if(err){console.log(err)}
+    //   res.json({'posted': response});
+    // });
   })
 
   app.delete('/api/responses/:id', function(req, res){
