@@ -4,7 +4,7 @@ var app = angular.module('cmsController', [])
 
   cmsCtrl.$inject = ['$http'];
   function cmsCtrl($http){
-    var self = this;
+    var self = this
 
     /////start loading all self.all $http calls, in order to load these first and have them stocked to be available for the toggle switch
     //////get all challenges
@@ -14,9 +14,8 @@ var app = angular.module('cmsController', [])
         ,url: "/api/challenges"
       })
       .then(function(allChallenges){
-        self.allChallenges = allChallenges.data;
-        self.allMaster = allChallenges.data;
-        console.log(self.allChallenges);
+        self.allChallenges = allChallenges.data
+        self.allMaster = allChallenges.data
       })
     }
 
@@ -27,8 +26,7 @@ var app = angular.module('cmsController', [])
         ,url: "/api/users"
       })
       .then(function(allUsers){
-        self.allUsers = allUsers.data;
-        console.log(self.allUsers);
+        self.allUsers = allUsers.data
       })
     }
 
@@ -39,8 +37,7 @@ var app = angular.module('cmsController', [])
         ,url: "/api/charities"
       })
       .then(function(allCharities){
-        self.allCharities = allCharities.data;
-        console.log(self.allCharities);
+        self.allCharities = allCharities.data
       })
     }
 
@@ -51,29 +48,27 @@ var app = angular.module('cmsController', [])
         ,url: "/api/responses"
       })
       .then(function(allResponses){
-        console.log(allResponses);
-        self.allResponses = allResponses.data;
-        console.log(self.allResponses);
+        self.allResponses = allResponses.data
       })
     }
     /////////run all functions on-load so that we have our self.alls loaded from the beginning
     function setInitialRepeat(){
-      allChallenges();
-      allUsers();
-      allCharities();
-      allResponses();
+      allChallenges()
+      allUsers()
+      allCharities()
+      allResponses()
     }
-    setInitialRepeat();
+    setInitialRepeat()
     /////end loading all self.alls on load
     /////////begin logic for toggling self.alls
     //////////////////////////////////////////
     function dropdownLogic(){
       $('.cmsChooseModel').on('change', function(){
-        var selectedValue = $(".cmsChooseModel");
-        var selectedOption  = selectedValue[0].selectedOptions[0].innerText;
+        var selectedValue = $(".cmsChooseModel")
+        var selectedOption  = selectedValue[0].selectedOptions[0].innerText
         switch(selectedOption){
           case "Charitie(s)":
-            self.allMaster = self.allCharities;
+            self.allMaster = self.allCharities
             $('.cmsList').html('')
             for (var i = 0; i < self.allMaster.length; i++) {
               $('.cmsList').append(
@@ -139,7 +134,7 @@ var app = angular.module('cmsController', [])
         }
       })
     }
-    dropdownLogic();
+    dropdownLogic()
 
 
     //////function to add the event to open show/edit window, which will be called in switch
@@ -278,6 +273,26 @@ var app = angular.module('cmsController', [])
         }
       })
     }
+    ///////////////Finiah List Creation and Dropdown Functionality
+    ////////////////////////////////////
+
+    //////Begin Logic to add a "Create" Functionality at the top of the list
+    ///////////////////////////////////////////////
+    function cmsCreateNew(){
+      $('.cmsAddCreate').on('click', function(){
+        console.log('about to add the create thing')
+      $('.cmsList').prepend(
+        "<div>"+
+          "<h1>Create a New Person</h1>"+
+        "<div>"
+        )
+      })
+    }
+    cmsCreateNew()
+
+
+    //////////////End CMS Create Functionality//////
+    ////////////////////////////////////////////////
 
     ////////begin events related to non-all $http loads
     /////////////////////////////////
