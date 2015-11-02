@@ -433,14 +433,7 @@ var app = angular.module('cmsController', [])
           })
           //////serial counter starts at negative one and counts backwards, and fills in the role of "i" for the repeat-created list
           self.createNewCounter = !self.createNewCounter
-          if(self.serialChallengeCounter){
-            self.serialChallengeCounter -= self.serialChallengeCounter
-            var i = self.serialChallengeCounter
-            console.log(self.serialChallengeCounter);
-          } else {
-            self.serialChallengeCounter = -1
-            var i = self.serialChallengeCounter
-          }
+          var i = self.allChallenges.length - 1;
           //////now, to make the page totally dynamic, we prepend it to the cmsList
           $('.cmsList').prepend(
             "<div class='cmsItemChallenge' id='cmsItemChallenge"+i+"'>"+
