@@ -204,6 +204,8 @@ var app = angular.module('cmsController', [])
       })
     }
     dropdownLogic()
+    /////////end the logic for creating the dropdown
+    ////////////////////////////////////////////////
 
     //////Begin Logic to add a "Create" Functionality at the top of the list
     ///////////////////////////////////////////////
@@ -281,11 +283,18 @@ var app = angular.module('cmsController', [])
     self.editCharityCounter = true
     function openEditCharity(x){
       $("#cmsEditCharity"+x).on('click', function(){
+        var thisCharity = self.allCharities[x]
+        console.log(thisCharity);
         if(self.editCharityCounter){
           $('.cmsItemForm'+x).append(
-            "<div id='editCharityBox'"+x+">"+
-              "<h1>showing some charity info we is</h1>"+
-            "</div>"
+            "<div class='cmsEditCharity'>"+
+              "<h2>Create a New Charity</h2>"+
+              "<input class='editCharityName' type='text' value='"+thisCharity.name+"'>"+
+              "<input class='editCharityDescription' type='text' value='"+thisCharity.description+"'>"+
+              "<input class='editCharityPhoto' type='text' value='"+thisCharity.photo+"'>"+
+              "<input class='editCharityUrl' type='text' value='"+thisCharity.url+"'>"+
+              "<input class='cmsSubmitEditCharity' type='submit' value='Update Charity Info'>"+
+            "</div>" 
           )
           self.editCharityCounter = !self.editCharityCounter
         } else if(!self.editCharityCounter){
