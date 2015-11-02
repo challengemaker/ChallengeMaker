@@ -243,6 +243,21 @@ body {
   margin: 0 auto;
 }
 
+.cmsCreateNewContainer input{
+  display: block;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 5px;
+  font-size: 20px;
+  height: 35px;
+}
+
+.cmsCreateNewContainer {
+  outline: 1px solid gray;
+  overflow: hidden;
+  height: 0px;
+}
+
 .cmsDropdown {
   padding-bottom: 15px;
 }
@@ -266,6 +281,11 @@ body {
 .cmsHeadline {
   text-align: center;
   margin: 30px 0px 30px 0px;
+}
+
+.cmsItemCharity {
+  outline: 2px solid green;
+  min-height: 100%;
 }
 
 .currentChallengeContainer {
@@ -1071,6 +1091,7 @@ body {
    border-top: none !important;
 }
 
+<<<<<<< HEAD
 .testList {
   list-style-type: none;
   background-color: #e0efef;
@@ -1101,6 +1122,8 @@ body {
   background-color: blue;
   height: 200px;
 }
+=======
+>>>>>>> cmsJack
 
 .texttext {
   text-align: center;

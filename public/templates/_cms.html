@@ -14,7 +14,7 @@
 
         <!-- <div class="dropdown col-sm-4 col-xs-12">
           <div class="cmsDropdown">
-          <select class="" ng-model="">
+          <select class="">
             <option value="">SELECT TASK</option>
             <option value="">Get All</option>
             <option value="">Create New</option>
@@ -26,28 +26,28 @@
 
         <div class="dropdown col-sm-4 col-xs-12">
           <div class="cmsDropdown">
-          <select class="cmsChooseModel" ng-model="">
-            <option value="">GET ALL</option>
-            <option value="">Challenges</option>
-            <option value="">Charities</option>
-            <option value="">Responses</option>
-            <option value="">Users</option>
+          <select class="cmsChooseModel">
+            <option value="">SELECT MODEL</option>
+            <option value="">Challenge(s)</option>
+            <option value="">Charitie(s)</option>
+            <option value="">Response(s)</option>
+            <option value="">User(s)</option>
           </select>
           </div>
         </div>
 
         <div class="cmsDropdown col-sm-4 col-xs-12">
           <div class="">
-              <button class="submitCms" type="submit" name="">SUBMIT</button>
+              <button class="cmsAddCreate" type="submit" name="">Create New</button>
           </div>
         </div>
 
     </div>
-    <div class="testList" ng-repeat="challenge in cms.allChallenges">
-      <h1 class="testTitle">{{challenge.title}}</h1>
-      <h2 class="testCharity">{{challenge.charity[0]}}</h2>
-    </div>
-
+    <!-- End The Header/Button top-portion of the CMS -->
+    <!-- this holds the createNew container -->
+    <div class="cmsCreateNewContainer"></div>
+    <!-- Begin List View -->
+    <div class="cmsList"></div>
     <!-- <div class="challFrContainer" ng-repeat="friendsChallenge in analytics.allFriendsChallenges" ng-if="analytics.passwordCorrect">
       <p>The Challenge: {{friendsChallenge.challenge.split("-").join(' ')}}</p>
       <p>Person Challenging: {{friendsChallenge.senderName}}</p>
