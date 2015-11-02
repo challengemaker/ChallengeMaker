@@ -124,6 +124,7 @@ var app = angular.module('cmsController', [])
               )
               openShowUser(i)
               openEditUser(i)
+              deleteUser(i)
             }
             $('.cmsCreateNewContainer').animate({
               height: '0px'
@@ -545,23 +546,38 @@ var app = angular.module('cmsController', [])
     function deleteCharity(x){
       $('#cmsDeleteCharity'+x).on('click', function(){
         var thisName = self.allCharities[x].name
-        console.log(thisName);
         $http({
           method: "DELETE"
           ,url: "/api/charities/"+thisName
         })
         .then(function(data){
-          console.log(data);
-          console.log($('#cmsItemCharity'+x));
           $('#cmsItemCharity'+x).animate({
             height: "0px"
           }, 150)
           setTimeout(function(){
             $('#cmsItemCharity'+x).remove()
           }, 150)
-          console.log(self.allCharities.length)
           self.allCharities.pop()
-          console.log(self.allCharities.length)
+        })
+      })
+    }
+
+    ///////delete a User
+    function deleteUser(x){
+      $('#cmsDeleteUser'+x).on('click', function(){
+        var thisUserId = self.allUsers[x]._id
+        $http({
+          method: "DELETE"
+          ,url: "/api/users/"+thisUserId
+        })
+        .then(function(data){
+          $('#cmsItemUser'+x).animate({
+            height: "0px"
+          }, 150)
+          setTimeout(function(){
+            $('#cmsItemUser'+x).remove()
+          }, 150)
+          self.allUsers.pop()
         })
       })
     }
