@@ -293,6 +293,19 @@ var app = angular.module('cmsController', [])
     self.createNewCounter = true
     function cmsCreateNew(){
       $('.cmsAddCreate').on('click', function(){
+        /////empty out any old values that might be in there
+        if ($('.newChallengeTitle')) {
+          var title = $('.newChallengeTitle').val('')
+        }
+        if ($('.newChallengeTitle')) {
+          var description = $('.newChallengeDescription').val('')
+        }
+        if ($('.newChallengeTitle')) {
+          var video = $('.newChallengeVideo').val('')
+        }
+        if ($('.newChallengeTitle')) {
+          var charity = $('.newChallengeCharity').val('')
+        }
         console.log('about to add the create thing')
         if(self.createNewCounter){
           $('.cmsCreateNewContainer').animate({
@@ -332,6 +345,7 @@ var app = angular.module('cmsController', [])
     // Post One Challenge
     function createNewChallenge(){
       $('.cmsSubmitNewChallenge').on('click', function(){
+        //////now input new values
         var title = $('.newChallengeTitle').val()
         var description = $('.newChallengeDescription').val()
         var video = $('.newChallengeVideo').val()
@@ -343,6 +357,10 @@ var app = angular.module('cmsController', [])
         })
         .then(function(data){
           console.log(data);
+          $('.cmsCreateNewContainer').animate({
+            height: "0px"
+          })
+          self.createNewCounter = !self.createNewCounter
         })
       })
     }
