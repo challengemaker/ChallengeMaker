@@ -427,13 +427,13 @@ var app = angular.module('cmsController', [])
           })
           //////serial counter starts at negative one and counts backwards, and fills in the role of "i" for the repeat-created list
           self.createNewCounter = !self.createNewCounter
-          if(self.serialCounter){
-            self.serialCounter -= self.serialCounter
-            var i = self.serialCounter
-            console.log(self.serialCounter);
+          if(self.serialChallengeCounter){
+            self.serialChallengeCounter -= self.serialChallengeCounter
+            var i = self.serialChallengeCounter
+            console.log(self.serialChallengeCounter);
           } else {
-            self.serialCounter = -1
-            var i = self.serialCounter
+            self.serialChallengeCounter = -1
+            var i = self.serialChallengeCounter
           }
           //////now, to make the page totally dynamic, we prepend it to the cmsList
           $('.cmsList').prepend(
@@ -472,7 +472,28 @@ var app = angular.module('cmsController', [])
           self.createNewCounter = !self.createNewCounter
           self.allMaster.push(data.data)
           self.allCharities.push(data.data)
-
+          //////serial counter starts at negative one and counts backwards, and fills in the role of "i" for the repeat-created list
+          self.createNewCounter = !self.createNewCounter
+          if(self.serialCharityCounter){
+            self.serialCharityCounter -= self.serialCharityCounter
+            var i = self.serialCharityCounter
+            console.log(self.serialCharityCounter);
+          } else {
+            self.serialCharityCounter = -1
+            var i = self.serialCharityCounter
+          }
+          console.log(data.data);
+          //////now, to make the page totally dynamic, we prepend it to the cmsList
+          $('.cmsList').prepend(
+            "<div class='cmsItemCharity' id='cmsItemCharity"+i+"'>"+
+              "<h2 class='cmsCharityName'>"+data.data.name+"</h2>"+
+              "<button class='cmsShowCharity' id='cmsShowCharity"+i+"'>See Charity Info</button>"+
+              "<button class='cmsEditCharity' id='cmsEditCharity"+i+"'>Update Charity Info</button>"+
+            "</div>" +
+            "<div class=cmsItemForm"+i+"></div>"
+          )
+          openShowCharity(i)
+          openEditCharity(i)
         })
       })
     }
