@@ -117,13 +117,14 @@ var app = angular.module('cmsController', [])
             $('.cmsCreateNewContainer').append(
               "<div class='cmsCreateNewChallenge'>"+
                 "<h2>Create a New Challenge</h2>"+
-                "<input type='text' placeholder='challenge title'>"+
-                "<input type='text' placeholder='challenge description'>"+
-                "<input type='text' placeholder='challenge video link'>"+
-                "<input type='text' placeholder='charity name'>"+
+                "<input class='newChallengeTitle' type='text' placeholder='challenge title'>"+
+                "<input class='newChallengeDescription' type='text' placeholder='challenge description'>"+
+                "<input class='newChallengeVideo' type='text' placeholder='challenge video link'>"+
+                "<input class='newChallengeCharity' type='text' placeholder='charity name'>"+
                 "<input class='cmsSubmitNewChallenge' type='submit' value='Create New Challenge'>"+
               "</div>"
             )
+            createNewChallenge()
             //////create new challenge post request goes here
             break
           case "Response(s)":
@@ -328,17 +329,24 @@ var app = angular.module('cmsController', [])
     //   })
     // })
 
-    // Find One Challenge
-    // $('.submitCms').on('click', function(){
-    //   $http({
-    //     method: "POST"
-    //     ,url: "/api/challenges"
-    //     ,data: {title: , sponsor: "Jimmy Dean"}
-    //   })
-    //   .then(function(data){
-    //     console.log(data);
-    //   })
-    // })
+    // Post One Challenge
+    function createNewChallenge(){
+      $('.cmsSubmitNewChallenge').on('click', function(){
+        var title = $('.newChallengeTitle').val()
+        var description = $('.newChallengeDescription').val()
+        var video = $('.newChallengeVideo').val()
+        var charity = $('.newChallengeCharity').val()
+        $http({
+          method: "POST"
+          ,url: "/api/challenges"
+          ,data: {title: title, description: description, videoUrl: video, charity: charity}
+        })
+        .then(function(data){
+          console.log(data);
+        })
+      })
+    }
+
 
     // Update One Challenge
     // $('.submitCms').on('click', function(){
