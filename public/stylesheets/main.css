@@ -684,10 +684,6 @@ body {
   z-index: 10;
 }
 
-.listText h1, h2, p {
-  color: white;
-}
-
 .listTextHolder {
   width: 80%;
   margin-left: 10%;
