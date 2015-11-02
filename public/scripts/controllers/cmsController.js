@@ -293,9 +293,10 @@ var app = angular.module('cmsController', [])
               "<input class='editCharityDescription' type='text' value='"+thisCharity.description+"'>"+
               "<input class='editCharityPhoto' type='text' value='"+thisCharity.photo+"'>"+
               "<input class='editCharityUrl' type='text' value='"+thisCharity.url+"'>"+
-              "<input class='cmsSubmitEditCharity' type='submit' value='Update Charity Info'>"+
-            "</div>" 
+              "<input class='cmsSubmitEditCharity' id='cmsSubmitEditCharity"+x+"' type='submit' value='Update Charity Info'>"+
+            "</div>"
           )
+          editCharity(x)
           self.editCharityCounter = !self.editCharityCounter
         } else if(!self.editCharityCounter){
             $('.cmsItemForm'+x).html('')
@@ -611,8 +612,36 @@ var app = angular.module('cmsController', [])
         })
       })
     }
+    ///////////////////////end all delete//////
+    ///////////////////////////////////////////
 
-
+    ///////////////////////Begin all update/edits/////
+    //////////////////////////////////////////////////
+    function editCharity(x){
+      var thisId = self.allCharities[x]._id
+      $("#cmsSubmitEditCharity"+x).on('click', function(evt){
+        console.log('hey there');
+        console.log(evt);
+        var newName = $('.editCharityName').val()
+        var newDescription = $('.editCharityDescription').val()
+        var newPhoto = $('.editCharityPhoto').val()
+        var newUrl = $('.editCharityUrl').val()
+        console.log(newName);
+        console.log(newDescription);
+        console.log(newPhoto);
+        console.log(newUrl);
+        search = {search: {_id: thisId}}
+        $http({
+          method: "POST"
+          ,url: "/api/charities/"
+          ,data: {search, name: newName, description: newDescription, photo: newPhoto, url: newUrl}
+        })
+        .then(function(data){
+          console.log('yooyoyoyoyoy');
+          console.log(data);
+        })
+      })
+    }
 
 
     // $http({
