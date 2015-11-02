@@ -89,7 +89,7 @@ var app = angular.module('cmsController', [])
             for (var i = 0; i < self.allMaster.length; i++) {
               $('.cmsList').append(
                 "<div class='cmsItemUser' id='cmsItemUser"+i+"'>"+
-                  "<h2 class='cmsUserName'>"+self.allMaster[i].title+"</h2>"+
+                  "<h2 class='cmsUserName'>"+self.allMaster[i].name+"</h2>"+
                   "<button class='cmsShowUser' id='cmsShowUser"+i+"'>See User Info</button>"+
                   "<button class='cmsEditUser' id='cmsEditUser"+i+"'>Update User Info</button>"+
                 "</div>" +
@@ -121,7 +121,7 @@ var app = angular.module('cmsController', [])
             for (var i = 0; i < self.allMaster.length; i++) {
               $('.cmsList').append(
                 "<div class='cmsItemResponse' id='cmsItemResponse"+i+"'>"+
-                  "<h2 class='cmsResponseName'>"+self.allMaster[i].title+"</h2>"+
+                  "<h2 class='cmsResponseName'>"+self.allMaster[i].challenge+"</h2>"+
                   "<button class='cmsShowResponse' id='cmsShowResponse"+i+"'>See Response Info</button>"+
                   "<button class='cmsEditResponse' id='cmsEditResponse"+i+"'>Update Response Info</button>"+
                 "</div>" +
@@ -278,18 +278,25 @@ var app = angular.module('cmsController', [])
 
     //////Begin Logic to add a "Create" Functionality at the top of the list
     ///////////////////////////////////////////////
+    self.createNewCounter = true
     function cmsCreateNew(){
       $('.cmsAddCreate').on('click', function(){
         console.log('about to add the create thing')
-      $('.cmsList').prepend(
-        "<div>"+
-          "<h1>Create a New Person</h1>"+
-        "<div>"
-        )
+        if(self.createNewCounter){
+          $('.cmsList').prepend(
+            "<div class='createNewContainer'>"+
+              "<h1>Create a New Person</h1>"+
+            "<div>"
+          )
+          self.createNewCounter = !self.createNewCounter
+        } else {
+          $('.createNewContainer').remove()
+          self.createNewCounter = !self.createNewCounter
+        }
       })
     }
     cmsCreateNew()
-
+    
 
     //////////////End CMS Create Functionality//////
     ////////////////////////////////////////////////
