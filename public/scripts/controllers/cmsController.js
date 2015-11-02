@@ -67,7 +67,136 @@ var app = angular.module('cmsController', [])
     /////end loading all self.alls on load
     /////////begin logic for toggling self.alls
     //////////////////////////////////////////
+    function dropdownLogic(){
+      $('.cmsChooseModel').on('change', function(){
+        var selectedValue = $(".cmsChooseModel");
+        var selectedOption  = selectedValue[0].selectedOptions[0].innerText;
+        switch(selectedOption){
+          case "Charitie(s)":
+            self.allMaster = self.allCharities;
+            $('.cmsList').html('')
+            for (var i = 0; i < self.allMaster.length; i++) {
+              $('.cmsList').append(
+                "<div class='cmsItemCharity' id='cmsItemCharity"+i+"'>"+
+                  "<h2 class='cmsCharityName'>"+self.allMaster[i].name+"</h2>"+
+                  "<button class='cmsShowCharity' id='cmsShowCharity"+i+"'>See Charity Info</button>"+
+                  "<button class='cmsEditCharity' id='cmsEditCharity"+i+"'>Update Charity Info</button>"+
+                "</div>" +
+                "<div class=cmsItemForm"+i+"></div>"
+              )
+              openShowCharity(i)
+              openEditCharity(i)
+            }
+            break
+          case "User(s)":
+            self.allMaster = self.allUsers
+            $('.cmsList').html('')
+            for (var i = 0; i < self.allMaster.length; i++) {
+              $('.cmsList').append(
+                "<h2>"+self.allMaster[i].name+"</h2>"
+              )
+            }
+            break
+          case "Challenge(s)":
+            self.allMaster = self.allChallenges
+            $('.cmsList').html('')
+            for (var i = 0; i < self.allMaster.length; i++) {
+              $('.cmsList').append(
+                "<div class='cmsItemChallenge' id='cmsItemChallenge"+i+"'>"+
+                  "<h2 class='cmsChallengeName'>"+self.allMaster[i].title+"</h2>"+
+                  "<button class='cmsShowChallenge' id='cmsShowChallenge"+i+"'>See Challenge Info</button>"+
+                  "<button class='cmsEditChallenge' id='cmsEditChallenge"+i+"'>Update Challenge Info</button>"+
+                "</div>" +
+                "<div class=cmsItemForm"+i+"></div>"
+              )
+              openShowChallenge(i)
+              openEditChallenge(i)
+            }
+            break
+          case "Response(s)":
+            self.allMaster = self.allResponses
+            $('.cmsList').html('')
+            for (var i = 0; i < self.allMaster.length; i++) {
+              $('.cmsList').append(
+                "<h2>"+self.allMaster[i].challenge+"</h2>" +
+                "<h2>"+self.allMaster[i].creator+"</h2>"
+              )
+            }
+            break
+        }
+      })
+    }
+    dropdownLogic();
 
+
+    //////function to add the event to open show/edit window, which will be called in switch
+    ///////////create show/edit for charities
+    self.showCharityCounter = true
+    function openShowCharity(x){
+      $("#cmsShowCharity"+x).on('click', function(){
+        if(self.showCharityCounter){
+          $('.cmsItemForm'+x).append(
+            "<div id='showCharityBox'"+x+">"+
+              "<h1>showing some charity info we is</h1>"+
+            "</div>"
+          )
+          self.showCharityCounter = !self.showCharityCounter
+        } else if(!self.showCharityCounter){
+            $('.cmsItemForm'+x).html('')
+            self.showCharityCounter = !self.showCharityCounter
+        }
+      })
+    }
+    self.editCharityCounter = true
+    function openEditCharity(x){
+      $("#cmsEditCharity"+x).on('click', function(){
+        if(self.editCharityCounter){
+          $('.cmsItemForm'+x).append(
+            "<div id='editCharityBox'"+x+">"+
+              "<h1>showing some charity info we is</h1>"+
+            "</div>"
+          )
+          self.editCharityCounter = !self.editCharityCounter
+        } else if(!self.editCharityCounter){
+            $('.cmsItemForm'+x).html('')
+            self.editCharityCounter = !self.editCharityCounter
+        }
+      })
+    }
+
+    //////create show/edit framework for challenges
+    self.showChallengeCounter = true
+    function openShowChallenge(x){
+      $("#cmsShowChallenge"+x).on('click', function(){
+        if(self.showChallengeCounter){
+          $('.cmsItemForm'+x).append(
+            "<div id='showChallengeBox'"+x+">"+
+              "<h1>showing some challenge info we is</h1>"+
+            "</div>"
+          )
+          self.showChallengeCounter = !self.showChallengeCounter
+        } else if(!self.showChallengeCounter){
+            $('.cmsItemForm'+x).html('')
+            self.showChallengeCounter = !self.showChallengeCounter
+        }
+      })
+    }
+    self.editChallengeCounter = true
+    function openEditChallenge(x){
+      $("#cmsEditChallenge"+x).on('click', function(){
+        if(self.editChallengeCounter){
+          $('.cmsItemForm'+x).append(
+            "<div id='editChallengeBox'"+x+">"+
+              "<h1>showing some challenge info we is</h1>"+
+            "</div>"
+          )
+          self.editChallengeCounter = !self.editChallengeCounter
+        } else if(!self.editChallengeCounter){
+            $('.cmsItemForm'+x).html('')
+            self.editChallengeCounter = !self.editChallengeCounter
+        }
+      })
+    }
 
     ////////begin events related to non-all $http loads
     /////////////////////////////////
