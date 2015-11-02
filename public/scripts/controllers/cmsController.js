@@ -82,6 +82,18 @@ var app = angular.module('cmsController', [])
               openShowCharity(i)
               openEditCharity(i)
             }
+            $('.cmsCreateNewContainer').html('')
+            $('.cmsCreateNewContainer').append(
+              "<div class='cmsCreateNewCharity'>"+
+                "<h2>Create a New Charity</h2>"+
+                "<input class='newCharityName' type='text' placeholder='Charity Name'>"+
+                "<input class='newCharityDescription' type='text' placeholder='Charity description'>"+
+                "<input class='newCharityPhoto' type='text' placeholder='Charity video link'>"+
+                "<input class='newCharityUrl' type='text' placeholder='Charity website link'>"+
+                "<input class='cmsSubmitNewCharity' type='submit' value='Create New Charity'>"+
+              "</div>"
+            )
+            createNewCharity()
             break
           case "User(s)":
             self.allMaster = self.allUsers
@@ -114,6 +126,7 @@ var app = angular.module('cmsController', [])
               openShowChallenge(i)
               openEditChallenge(i)
             }
+            $('.cmsCreateNewContainer').html('')
             $('.cmsCreateNewContainer').append(
               "<div class='cmsCreateNewChallenge'>"+
                 "<h2>Create a New Challenge</h2>"+
@@ -285,7 +298,7 @@ var app = angular.module('cmsController', [])
         }
       })
     }
-    ///////////////Finiah List Creation and Dropdown Functionality
+    ///////////////Finish List Creation and Dropdown Functionality
     ////////////////////////////////////
 
     //////Begin Logic to add a "Create" Functionality at the top of the list
@@ -295,18 +308,29 @@ var app = angular.module('cmsController', [])
       $('.cmsAddCreate').on('click', function(){
         /////empty out any old values that might be in there
         if ($('.newChallengeTitle')) {
-          var title = $('.newChallengeTitle').val('')
+          $('.newChallengeTitle').val('')
         }
         if ($('.newChallengeTitle')) {
-          var description = $('.newChallengeDescription').val('')
+          $('.newChallengeDescription').val('')
         }
         if ($('.newChallengeTitle')) {
-          var video = $('.newChallengeVideo').val('')
+          $('.newChallengeVideo').val('')
         }
         if ($('.newChallengeTitle')) {
-          var charity = $('.newChallengeCharity').val('')
+          $('.newChallengeCharity').val('')
         }
-        console.log('about to add the create thing')
+        if ($('.newCharityName')) {
+          $('.newCharityName').val('')
+        }
+        if ($('.newCharityDescription')) {
+          $('.newCharityDescription').val('')
+        }
+        if ($('.newCharityPhoto')) {
+          $('.newCharityPhoto').val('')
+        }
+        if ($('.newCharityUrl')) {
+          $('.newCharityUrl').val('')
+        }
         if(self.createNewCounter){
           $('.cmsCreateNewContainer').animate({
             height: "300px"
@@ -365,6 +389,29 @@ var app = angular.module('cmsController', [])
       })
     }
 
+    ///post one Charity
+    function createNewCharity(){
+      //////now input new values
+      $(".cmsSubmitNewCharity").on('click', function(){
+        console.log('lets make a new charity!');
+        var name = $('.newCharityName').val()
+        var description = $('.newCharityDescription').val()
+        var video = $('.newCharityPhoto').val()
+        var siteUrl = $('.newCharityUrl').val()
+        $http({
+          method: "POST"
+          ,url: "/api/charities"
+          ,data: {name: name, description: description, video: video, url: siteUrl}
+        })
+        .then(function(data){
+          console.log(data);
+          $('.cmsCreateNewContainer').animate({
+            height: "0px"
+          })
+          self.createNewCounter = !self.createNewCounter
+        })
+      })
+    }
 
     // Update One Challenge
     // $('.submitCms').on('click', function(){
