@@ -14,8 +14,8 @@ var app = angular.module('cmsController', [])
         ,url: "/api/challenges"
       })
       .then(function(allChallenges){
-        self.allChallenges = allChallenges.data
-        self.allMaster = allChallenges.data
+        self.allChallenges = allChallenges.data.reverse()
+        self.allMaster = allChallenges.data.reverse()
       })
     }
 
@@ -26,7 +26,7 @@ var app = angular.module('cmsController', [])
         ,url: "/api/users"
       })
       .then(function(allUsers){
-        self.allUsers = allUsers.data
+        self.allUsers = allUsers.data.reverse()
       })
     }
 
@@ -37,7 +37,7 @@ var app = angular.module('cmsController', [])
         ,url: "/api/charities"
       })
       .then(function(allCharities){
-        self.allCharities = allCharities.data
+        self.allCharities = allCharities.data.reverse()
       })
     }
 
@@ -48,7 +48,7 @@ var app = angular.module('cmsController', [])
         ,url: "/api/responses"
       })
       .then(function(allResponses){
-        self.allResponses = allResponses.data
+        self.allResponses = allResponses.data.reverse()
       })
     }
     /////////run all functions on-load so that we have our self.alls loaded from the beginning
@@ -425,7 +425,27 @@ var app = angular.module('cmsController', [])
           $('.cmsCreateNewContainer').animate({
             height: "0px"
           })
+          //////serial counter starts at negative one and counts backwards, and fills in the role of "i" for the repeat-created list
           self.createNewCounter = !self.createNewCounter
+          if(self.serialCounter){
+            self.serialCounter -= self.serialCounter
+            var i = self.serialCounter
+            console.log(self.serialCounter);
+          } else {
+            self.serialCounter = -1
+            var i = self.serialCounter
+          }
+          //////now, to make the page totally dynamic, we prepend it to the cmsList
+          $('.cmsList').prepend(
+            "<div class='cmsItemChallenge' id='cmsItemChallenge"+i+"'>"+
+              "<h2 class='cmsChallengeName'>"+data.data.title+"</h2>"+
+              "<button class='cmsShowChallenge' id='cmsShowChallenge"+i+"'>See Challenge Info</button>"+
+              "<button class='cmsEditChallenge' id='cmsEditChallenge"+i+"'>Update Challenge Info</button>"+
+            "</div>" +
+            "<div class=cmsItemForm"+i+"></div>"
+          )
+          openShowChallenge(i)
+          openEditChallenge(i)
         })
       })
     }
@@ -450,6 +470,9 @@ var app = angular.module('cmsController', [])
             height: "0px"
           })
           self.createNewCounter = !self.createNewCounter
+          self.allMaster.push(data.data)
+          self.allCharities.push(data.data)
+
         })
       })
     }
