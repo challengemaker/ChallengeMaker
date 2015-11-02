@@ -228,6 +228,7 @@ module.exports = function(app, passport){
 // update a charity
   app.post('/api/charities/update', function(req, res){
     // var updateAttr = req.updateAttr;
+    console.log(req.body);
     Charity.findOne(req.body.search, function(err, charity){
       if(err){console.log(err)};
       if(req.body.name){

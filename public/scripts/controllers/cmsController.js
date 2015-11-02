@@ -630,15 +630,16 @@ var app = angular.module('cmsController', [])
         console.log(newDescription);
         console.log(newPhoto);
         console.log(newUrl);
-        search = {search: {_id: thisId}}
+        search = {_id: thisId}
         $http({
           method: "POST"
-          ,url: "/api/charities/"
+          ,url: "/api/charities/update"
           ,data: {search, name: newName, description: newDescription, photo: newPhoto, url: newUrl}
         })
         .then(function(data){
           console.log('yooyoyoyoyoy');
           console.log(data);
+          $('.cmsCharityName').text(data.data.name)
         })
       })
     }
