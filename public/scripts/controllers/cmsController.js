@@ -77,8 +77,9 @@ var app = angular.module('cmsController', [])
               $('.cmsList').append(
                 "<div class='cmsItemCharity' id='cmsItemCharity"+i+"'>"+
                   "<h2 class='cmsCharityName'>"+self.allMaster[i].name+"</h2>"+
-                  "<button class='cmsShowCharity' id='cmsShowCharity"+i+"'>See Charity Info</button>"+
-                  "<button class='cmsEditCharity' id='cmsEditCharity"+i+"'>Update Charity Info</button>"+
+                  "<button class='repeatButton cmsShowCharity' id='cmsShowCharity"+i+"'>See Charity Info</button>"+
+                  "<button class='repeatButton cmsEditCharity' id='cmsEditCharity"+i+"'>Update Charity Info</button>"+
+                  "<button class='repeatButton cmsDeleteCharity' id='cmsDeleteCharity"+i+"'>Delete Charity Info</button>"+
                 "</div>" +
                 "<div class=cmsItemForm"+i+"></div>"
               )
@@ -114,8 +115,9 @@ var app = angular.module('cmsController', [])
               $('.cmsList').append(
                 "<div class='cmsItemUser' id='cmsItemUser"+i+"'>"+
                   "<h2 class='cmsUserName'>"+self.allMaster[i].name+"</h2>"+
-                  "<button class='cmsShowUser' id='cmsShowUser"+i+"'>See User Info</button>"+
-                  "<button class='cmsEditUser' id='cmsEditUser"+i+"'>Update User Info</button>"+
+                  "<button class='repeatButton cmsShowUser' id='cmsShowUser"+i+"'>See User Info</button>"+
+                  "<button class='repeatButton cmsEditUser' id='cmsEditUser"+i+"'>Update User Info</button>"+
+                  "<button class='repeatButton cmsDeleteUser' id='cmsDeleteUser"+i+"'>Delete User</button>"+
                 "</div>" +
                 "<div class=cmsItemForm"+i+"></div>"
               )
@@ -139,8 +141,9 @@ var app = angular.module('cmsController', [])
               $('.cmsList').append(
                 "<div class='cmsItemChallenge' id='cmsItemChallenge"+i+"'>"+
                   "<h2 class='cmsChallengeName'>"+self.allMaster[i].title+"</h2>"+
-                  "<button class='cmsShowChallenge' id='cmsShowChallenge"+i+"'>See Challenge Info</button>"+
-                  "<button class='cmsEditChallenge' id='cmsEditChallenge"+i+"'>Update Challenge Info</button>"+
+                  "<button class='repeatButton cmsShowChallenge' id='cmsShowChallenge"+i+"'>See Challenge Info</button>"+
+                  "<button class='repeatButton cmsEditChallenge' id='cmsEditChallenge"+i+"'>Update Challenge Info</button>"+
+                  "<button class='repeatButton cmsDeleteChallenge' id='cmsDeleteChallenge"+i+"'>Delete Challenge Info</button>"+
                 "</div>" +
                 "<div class=cmsItemForm"+i+"></div>"
               )
@@ -177,8 +180,9 @@ var app = angular.module('cmsController', [])
               $('.cmsList').append(
                 "<div class='cmsItemResponse' id='cmsItemResponse"+i+"'>"+
                   "<h2 class='cmsResponseName'>"+self.allMaster[i].challenge+"</h2>"+
-                  "<button class='cmsShowResponse' id='cmsShowResponse"+i+"'>See Response Info</button>"+
-                  "<button class='cmsEditResponse' id='cmsEditResponse"+i+"'>Update Response Info</button>"+
+                  "<button class='repeatButton cmsShowResponse' id='cmsShowResponse"+i+"'>See Response Info</button>"+
+                  "<button class='repeatButton cmsEditResponse' id='cmsEditResponse"+i+"'>Update Response Info</button>"+
+                  "<button class='repeatButton cmsDeleteResponse' id='cmsDeleteResponse"+i+"'>Delete Response Info</button>"+
                 "</div>" +
                 "<div class=cmsItemForm"+i+"></div>"
               )
