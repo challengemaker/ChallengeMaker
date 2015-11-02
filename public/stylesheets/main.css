@@ -585,6 +585,7 @@ body {
   width: 60%;
   margin-left: 10%;
   text-align: left;
+
 }
 
 .highlightTextHolder h1{
@@ -681,6 +682,10 @@ body {
   max-height: 300px;
   position: absolute;
   z-index: 10;
+}
+
+.listText h1, h2, p {
+  color: white;
 }
 
 .listTextHolder {
@@ -1090,7 +1095,6 @@ body {
    border-top: none !important;
 }
 
-<<<<<<< HEAD
 .testList {
   list-style-type: none;
   background-color: #e0efef;
@@ -1121,8 +1125,7 @@ body {
   background-color: blue;
   height: 200px;
 }
-=======
->>>>>>> cmsJack
+
 
 .texttext {
   text-align: center;

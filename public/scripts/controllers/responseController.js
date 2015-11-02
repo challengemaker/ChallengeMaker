@@ -230,8 +230,6 @@ angular.module('responseController', [])
     var hash = window.location.hash.split('/');
     if(hash[1] == "newresponse" && hash[2]){
       ////
-
-
       ///setting all input-clearing
       $('.signup1').on('click', function(evt){
         $(".signup1").val('');
@@ -262,8 +260,6 @@ angular.module('responseController', [])
       });
 
       //sizing the questions properly
-
-
       var carouselCounter = 0;
       var tunnelMargin = 0;
       if (carouselCounter == 0) {
