@@ -450,10 +450,10 @@ module.exports = function(app, passport){
 
 
   //////begin login and authentication and all that shit
-  app.post('/signup', passport.authenticate('local-signup', function(data){
-    res.json(data);
-    })
-  );
+  // app.post('/signup', passport.authenticate('local-signup', function(data){
+  //   res.json(data);
+  //   })
+  // );
 
   // app.post("/login", function(req, res){
   //   // User.find({email: req.body.data.email})

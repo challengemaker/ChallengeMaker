@@ -63,6 +63,7 @@ app.use(express.static(__dirname + '/public'));
 //===========================================================
 app.post('/signup', function( req, res ) {
 	console.log( "Starting user check")
+  console.log(req.body);
 	User.findOne( { email: req.body.email }, function(err, user){
 		console.log("Inside user")
 		if (err ) {
@@ -77,15 +78,16 @@ app.post('/signup', function( req, res ) {
 			var newUser = new User();
 			newUser.email = req.body.email
 			newUser.password = newUser.generateHash( req.body.password )
+      newUser.name = req.body.name
 			newUser.local.email = req.body.email
 			newUser.save( function( err, user ) {
 				console.log("inside user save")
-				console.log( newUser)
+				console.log( user)
 				if ( err ) { console.log(err) }
 				console.log("User saved")
-				console.log( newUser )
+				console.log( user )
 				//AUTHENTICATE USER HERE
-				res.json(newUser)
+				res.json(user)
 			})
 		}
 	})
