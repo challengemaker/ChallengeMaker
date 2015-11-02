@@ -85,6 +85,7 @@ var app = angular.module('cmsController', [])
               )
               openShowCharity(i)
               openEditCharity(i)
+              deleteCharity(i)
             }
             $('.cmsCreateNewContainer').animate({
               height: '0px'
@@ -452,7 +453,7 @@ var app = angular.module('cmsController', [])
           )
           openShowChallenge(i)
           openEditChallenge(i)
-
+          deleteChallenge(i)
         })
       })
     }
@@ -502,6 +503,7 @@ var app = angular.module('cmsController', [])
           )
           openShowCharity(i)
           openEditCharity(i)
+          deleteCharity(i)
         })
       })
     }
@@ -523,6 +525,7 @@ var app = angular.module('cmsController', [])
     function deleteChallenge(x){
       $('#cmsDeleteChallenge'+x).on('click', function(){
         var thisName = self.allChallenges[x].title.split(" ").join('-')
+
         console.log(thisName);
         $http({
           method: "DELETE"
@@ -538,18 +541,22 @@ var app = angular.module('cmsController', [])
 
     ///////delete a Charity
     function deleteCharity(x){
-      $('.cmsDeleteCharity'+x).on('click', function(){
-        var thisName = self.masterChallenge[x]
-        console.log($('#cmsItemCharity'+x));
+      $('#cmsDeleteCharity'+x).on('click', function(){
+        var thisName = self.allCharities[x].name
         console.log(thisName);
         $http({
           method: "DELETE"
-          ,url: "/api/charities/"
+          ,url: "/api/charities/"+thisName
         })
         .then(function(data){
           console.log(data);
           console.log($('#cmsItemCharity'+x));
-          $('#cmsItemCharity'+x).remove()
+          $('#cmsItemCharity'+x).animate({
+            height: "0px"
+          }, 150)
+          setTimeout(function(){
+            $('#cmsItemCharity'+x).remove()
+          }, 150)
         })
       })
     }
