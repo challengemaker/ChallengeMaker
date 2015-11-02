@@ -82,6 +82,12 @@ var app = angular.module('cmsController', [])
               openShowCharity(i)
               openEditCharity(i)
             }
+            $('.cmsCreateNewContainer').animate({
+              height: '0px'
+            }, 200)
+            if (!self.createNewCounter) {
+              self.createNewCounter = !self.createNewCounter
+            }
             $('.cmsCreateNewContainer').html('')
             $('.cmsCreateNewContainer').append(
               "<div class='cmsCreateNewCharity'>"+
@@ -110,6 +116,12 @@ var app = angular.module('cmsController', [])
               openShowUser(i)
               openEditUser(i)
             }
+            $('.cmsCreateNewContainer').animate({
+              height: '0px'
+            }, 200)
+            if (!self.createNewCounter) {
+              self.createNewCounter = !self.createNewCounter
+            }
             break
           case "Challenge(s)":
             self.allMaster = self.allChallenges
@@ -125,6 +137,12 @@ var app = angular.module('cmsController', [])
               )
               openShowChallenge(i)
               openEditChallenge(i)
+            }
+            $('.cmsCreateNewContainer').animate({
+              height: '0px'
+            }, 200)
+            if (!self.createNewCounter) {
+              self.createNewCounter = !self.createNewCounter
             }
             $('.cmsCreateNewContainer').html('')
             $('.cmsCreateNewContainer').append(
@@ -154,6 +172,12 @@ var app = angular.module('cmsController', [])
               )
               openShowResponse(i)
               openEditResponse(i)
+            }
+            $('.cmsCreateNewContainer').animate({
+              height: '0px'
+            }, 200)
+            if (!self.createNewCounter) {
+              self.createNewCounter = !self.createNewCounter
             }
             break
         }
@@ -332,15 +356,22 @@ var app = angular.module('cmsController', [])
           $('.newCharityUrl').val('')
         }
         if(self.createNewCounter){
-          $('.cmsCreateNewContainer').animate({
-            height: "300px"
-          }, 200)
-          self.createNewCounter = !self.createNewCounter
+          if (self.allMaster[0] == self.allChallenges[0] || self.allMaster[0] == self.allCharities[0]) {
+            console.log('on challenges or charities');
+            $('.cmsCreateNewContainer').animate({
+              height: "300px"
+            }, 200)
+            self.createNewCounter = !self.createNewCounter
+          } else {
+            console.log('sorry you cant create a new one of those, not a challenge or charity');
+          }
         } else {
-          $('.cmsCreateNewContainer').animate({
-            height: "0px"
-          }, 200)
-          self.createNewCounter = !self.createNewCounter
+          if (!self.createNewCounter) {
+            $('.cmsCreateNewContainer').animate({
+              height: "0px"
+            }, 200)
+            self.createNewCounter = !self.createNewCounter
+          }
         }
       })
     }
