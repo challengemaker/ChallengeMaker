@@ -443,8 +443,9 @@ var app = angular.module('cmsController', [])
           $('.cmsList').prepend(
             "<div class='cmsItemChallenge' id='cmsItemChallenge"+i+"'>"+
               "<h2 class='cmsChallengeName'>"+data.data.title+"</h2>"+
-              "<button class='cmsShowChallenge' id='cmsShowChallenge"+i+"'>See Challenge Info</button>"+
-              "<button class='cmsEditChallenge' id='cmsEditChallenge"+i+"'>Update Challenge Info</button>"+
+              "<button class='repeatButton cmsShowChallenge' id='cmsShowChallenge"+i+"'>See Challenge Info</button>"+
+              "<button class='repeatButton cmsEditChallenge' id='cmsEditChallenge"+i+"'>Update Challenge Info</button>"+
+              "<button class='repeatButton cmsDeleteChallenge' id='cmsDeleteChallenge"+i+"'>Delete Challenge Info</button>"+
             "</div>" +
             "<div class=cmsItemForm"+i+"></div>"
           )
@@ -491,8 +492,9 @@ var app = angular.module('cmsController', [])
           $('.cmsList').prepend(
             "<div class='cmsItemCharity' id='cmsItemCharity"+i+"'>"+
               "<h2 class='cmsCharityName'>"+data.data.name+"</h2>"+
-              "<button class='cmsShowCharity' id='cmsShowCharity"+i+"'>See Charity Info</button>"+
-              "<button class='cmsEditCharity' id='cmsEditCharity"+i+"'>Update Charity Info</button>"+
+              "<button class='repeatButton cmsShowCharity' id='cmsShowCharity"+i+"'>See Charity Info</button>"+
+              "<button class='repeatButton cmsEditCharity' id='cmsEditCharity"+i+"'>Update Charity Info</button>"+
+              "<button class='repeatButton cmsDeleteCharity' id='cmsDeleteCharity"+i+"'>Delete Charity Info</button>"+
             "</div>" +
             "<div class=cmsItemForm"+i+"></div>"
           )
