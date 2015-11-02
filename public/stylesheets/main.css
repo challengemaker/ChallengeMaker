@@ -243,6 +243,21 @@ body {
   margin: 0 auto;
 }
 
+.cmsCreateNewContainer input{
+  display: block;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 5px;
+  font-size: 20px;
+  height: 35px;
+}
+
+.cmsCreateNewContainer {
+  outline: 1px solid gray;
+  overflow: hidden;
+  height: 0px;
+}
+
 .cmsDropdown {
   padding-bottom: 15px;
 }
@@ -1076,15 +1091,6 @@ body {
    border-top: none !important;
 }
 
-.testResponseForm {
-  display: block;
-  margin-top: 200px;
-}
-
-.testRepeat {
-  background-color: blue;
-  height: 200px;
-}
 
 .texttext {
   text-align: center;

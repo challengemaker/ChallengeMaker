@@ -114,6 +114,17 @@ var app = angular.module('cmsController', [])
               openShowChallenge(i)
               openEditChallenge(i)
             }
+            $('.cmsCreateNewContainer').append(
+              "<div class='cmsCreateNewChallenge'>"+
+                "<h2>Create a New Challenge</h2>"+
+                "<input type='text' placeholder='challenge title'>"+
+                "<input type='text' placeholder='challenge description'>"+
+                "<input type='text' placeholder='challenge video link'>"+
+                "<input type='text' placeholder='charity name'>"+
+                "<input class='cmsSubmitNewChallenge' type='submit' value='Create New Challenge'>"+
+              "</div>"
+            )
+            //////create new challenge post request goes here
             break
           case "Response(s)":
             self.allMaster = self.allResponses
@@ -283,20 +294,20 @@ var app = angular.module('cmsController', [])
       $('.cmsAddCreate').on('click', function(){
         console.log('about to add the create thing')
         if(self.createNewCounter){
-          $('.cmsList').prepend(
-            "<div class='createNewContainer'>"+
-              "<h1>Create a New Person</h1>"+
-            "<div>"
-          )
+          $('.cmsCreateNewContainer').animate({
+            height: "300px"
+          }, 200)
           self.createNewCounter = !self.createNewCounter
         } else {
-          $('.createNewContainer').remove()
+          $('.cmsCreateNewContainer').animate({
+            height: "0px"
+          }, 200)
           self.createNewCounter = !self.createNewCounter
         }
       })
     }
     cmsCreateNew()
-    
+
 
     //////////////End CMS Create Functionality//////
     ////////////////////////////////////////////////
