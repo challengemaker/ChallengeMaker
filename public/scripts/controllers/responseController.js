@@ -161,39 +161,58 @@ angular.module('responseController', [])
                 console.log(self.charityLink)
                 console.log(self.sendeeEmail)
                 //////send the email thanking them for making a challenge
-                //////now let's send an email to thank them
+                //////now let's send an email to thank them for completing a challenge
                 console.log('sending our emaillllsllssllsls')
                 $http({
                   method: "POST"
                   ,url: "/api/sendemail/challengecomplete"
                   ,data: {sendeeEmail: self.sendeeEmail}
                 })
-                .then(function(data){
-                  console.log(data);
+                ///now lets send the challenge email to the friends
+                .then(function(){
+                  //////////////////////////////////////////////////////////
+                  ////////the following will fo through all the email addresses, checking for legitimacy and filtering out all that aren't real
+                  var emailArr = $('.challengeFriends')
+                  var realEmails = []
+                  for (var i = 0; i < emailArr.length; i++) {
+                    var friendEmail = emailArr[i].value;
+                    console.log(friendEmail)
+                    var emailArray = friendEmail.split('@')
+                    var testAt = friendEmail.split('@').length
+                    console.log(testAt)
+                    if(testAt > 1){
+                      ///////// only if there's at least one '@'
+                      emailArray.shift()
+                      /////////email array should no start at 'google.com' or whatever comes after the at
+                      /////now we split to check for a period
+                      var periodTestArray = emailArray[0].split('.')
+                      var periodTestLength = emailArray[0].split('.').length
+                      console.log(periodTestArray)
+                      console.log(periodTestLength)
+                      if(periodTestLength > 1){
+                        console.log(friendEmail+' looks pretty good to me!')
+                        realEmails.push({email: friendEmail})
+                      } else {
+                        console.log('I dont see a period in there')
+                      }
+                    } else {
+                      console.log('dude wheres your at, at?')
+                    }
+                  /////////end for-loop
+                  }
+                  console.log(realEmails)
+                  ////////end email parsing to challenge Friends
+                  //////////////////////////////////////////////
+                  ////the below http send mail to all friends a user has challenged
+                  $http({
+                    method: 'POST'
+                    ,url: "/api/sendemail/challengefriends"
+                    ,data: {emails: realEmails}
+                  })
+                  .then(function(data){
+                    console.log(data);
+                  })
                 })
-
-                  // .then(function(){
-                  //   var emailArr = $('.challengeFriends');
-                  //   var realEmails = [];
-                  //   for (var i = 0; i < emailArr.length; i++) {
-                  //     var friendEmail = emailArr[i].value;
-                  //     var checkEmail = /[\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b]/;
-                  //     var checkUrlEmail = friendEmail;
-                  //     if(friendEmail != "email" && checkEmail.test(checkUrlEmail)){
-                  //       realEmails.push({email: friendEmail});
-                  //     }
-                  //   }
-                    //////the below http send mail to all friends a user has challenged
-                    // $http({
-                    //   method: 'POST'
-                    //   ,url: "/api/sendemail/challengefriends"
-                    //   ,data: {}
-                    //   // ,data: realEmails
-                    // })
-                    // .then(function(data){
-                    // })
-                  // })
-                //////end sending challenge thank you email
               })
           })
         })
@@ -264,18 +283,14 @@ angular.module('responseController', [])
     /////and creating a new response
     var hash = window.location.hash.split('/');
     if(hash[1] == "newresponse" && hash[2]){
-      ////
-      //sizing the questions properly
+      /////////////////////////////////////////////////////////////////////////
+      ///////////begin button logic for the challenge path forward-back buttons
       var carouselCounter = 0;
       var tunnelMargin = 0;
-      if (carouselCounter == 0) {
-
-      }
-
+      ////////begin logic for the back button
       $('.backButton').on('click', function(){
         if(carouselCounter > 0){
           carouselCounter--;
-
           if(carouselCounter == 0){
             $('.forwardButton').html(
               "NEXT"+
@@ -298,32 +313,9 @@ angular.module('responseController', [])
               marginLeft: tunnelMargin+"px"
             })
           }
-          // else if(carouselCounter == 3){
-          //   tunnelMargin += 550;
-          //   $('.questionTunnel').animate({
-          //     marginLeft: tunnelMargin+"px"
-          //   })
-          // }
         }
       })
-
-      //////function which will take the embed code, and with other things, store it to the db
-      // function postResponse(youtubeCodeArg){
-      //   var embedCode = youtubeCodeArg()
-      //   var response = {
-      //     title: self.title,
-      //     description: self.description,
-      //     video: self.video,
-      //     username: self.name
-      //   }
-      //   $http({
-      //     method: "POST"
-      //     ,url: "/api/responses/"
-      //     ,data:
-      //   })
-      // }
-
-
+      /////////begin logic for the forward button
       $('.forwardButton').on('click', function(){
         self.title = $('.responseTitle').val();
         self.description = $('.responseDesc').val();
@@ -332,15 +324,13 @@ angular.module('responseController', [])
         if(carouselCounter < 3){
           carouselCounter++;
           if (carouselCounter == 1) {
+            /////////add a class and event listener so thta the forward button can now submit the emails and youtube link response
             $('.forwardButton').text("SUBMIT!");
             $('.forwardButton').addClass("submitDon");
             $('.submitDon').on('click', function(){
-              //////////////////////////////////////////
-              //////begin if-solution to youtube parsing
               submitChallenge()
-              // getYoutubeEmbed(inputUrl)
-              // console.log(getYoutubeEmbed(inputUrl))
             })
+            //////////end adding event listener to submit response
             tunnelMargin = tunnelMargin-550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
@@ -352,14 +342,11 @@ angular.module('responseController', [])
             })
             $('.carouselButtonHolder').html('');
           }
-          // else if (carouselCounter == 3) {
-          //   tunnelMargin = tunnelMargin-550;
-          //   $('.questionTunnel').animate({
-          //     marginLeft: tunnelMargin+"px"
-          //   })
-          // }
         }
       })
+      ///////////////end logic for forward and back button in the challenge path
+      //////////////////////////////////////////////////////////////////////////
+
       $http({
         method: "GET",
         url: "/api/charities",
@@ -369,6 +356,7 @@ angular.module('responseController', [])
       .then(function(data){
         self.allCharities = data.data;
       })
+    ///////end new responses
     }
     //////the function which we use to parse our youtube links
     function getYoutubeEmbed(youtubeUrl){

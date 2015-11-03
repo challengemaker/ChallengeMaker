@@ -401,7 +401,7 @@ module.exports = function(app, passport){
         from_email: "Challenged@ChallengeMaker.com"
         ,text: "You've been challenged! Follow the link below, it will show you how you can accept this challenge for charity"
         ,subject: "You've Been Challenged via ChallengeMaker"
-        ,to: req.body
+        ,to: req.body.emails
       }
     }, function(data){
       res.json(data)
