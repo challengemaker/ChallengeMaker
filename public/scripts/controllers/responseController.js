@@ -63,16 +63,19 @@ angular.module('responseController', [])
     var submitChallenge = function(){
       /////collecting all data we'll need for
       var inputUrl = $('.responseTitle').val()
+      console.log(inputUrl);
       var embedCodeForDb = getYoutubeEmbed(inputUrl)
       if(!embedCodeForDb){
         return;
       }
       var userName = window.localStorage.sessionUser;
+      console.log(userName);
       // var videoUrl = $('.responseTitle').val();
       var cName = window.location.hash.split('/')[2].split("/").join(" ");
       ///////collect all email and push into "emailList"
       var emailList = [];
       var rawList = $('.challengeFriends');
+      // console.log(rawList);
       for (var i = 0; i < rawList.length; i++) {
         emailList.push(rawList[i].value);
       }
@@ -87,7 +90,9 @@ angular.module('responseController', [])
         responsePackage.userId = data.data.user._id;
         // console.log(responsePackage);
         ////$http call to post the friendschallenge to friends
+        console.log(responsePackage.userId);
         var rightNow = new Date();
+        console.log(rightNow);
         $http({
           method: "POST"
           ,url: "/api/challengeFriends"
@@ -101,6 +106,7 @@ angular.module('responseController', [])
           }
         })
         .then(function(data){
+          console.log('challenge friends posted');
           /////this should be the data response from the post request, and we now post the challenge info to db
           $http({
             method: "Post"
@@ -114,10 +120,14 @@ angular.module('responseController', [])
             }
           })
           .then(function(data){
+            console.log('response posted');
             var url = window.location.hash.split('/')
+            console.log(url);
             $http.get('api/challenges/'+url[2])
               .then(function(data){
+                console.log(data);
                 self.charityLink = data.data.charityLink;
+                console.log(self.charityLink);
 
                 //////send the email thanking them for making a challenge
                 $http({
@@ -396,22 +406,43 @@ angular.module('responseController', [])
             return embedCode
           } else {
             /////////urls that do not fit the youtube standard format and so which are, therefore, kaput
-            return undefined
+            return 'not a properly formatted email'
           }
         } else {
           //////////this side is all inputs of any type, as long as they don't begin with 'https:/'
           /////////
-          return undefined
         }
       } else {
         /////below this only triggers if there is nothing in the youtube link
-        return undefined
+        return "no link"
       }
     }
     /////end youtube parsing function
 //////////////////end new response section
 //////////////////////////////////////////
 //////////////////////////////////////////
+    // $('.createResponse').on('click', function(){
+    //   carouselCounter++;
+    //   ////this response modelling will be done in a factory later
+    //   var response = {
+    //     title: self.title,
+    //     description: self.description,
+    //     video: self.video,
+    //     username: self.name
+    //   }
+    //   $http({
+    //     method: "POST",
+    //     url: "api/responses",
+    //     data: response
+    //   })
+    //   .then(function(data){
+    //     window.location.hash = "#/challenges/"+$routeParams.name
+    //   })
+    // })
+    // $('.forwardButton').on('click', function(){
+    //   $('.forwardButton').css('opacity', 0);
+    //   $('.backButton').css('opacity', 0);
+    // })
 
     $('.finishResponse').on('click', function(){
       window.location.hash = "#/challenges/"+$routeParams.name
