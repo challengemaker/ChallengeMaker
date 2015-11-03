@@ -279,6 +279,10 @@ body {
   text-align: center;
 }
 
+.contactMessage {
+  height: 80px;
+}
+
 .cmsButtonRow {
   margin: 0 auto;
 }
