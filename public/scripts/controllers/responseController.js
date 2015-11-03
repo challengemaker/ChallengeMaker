@@ -157,7 +157,8 @@ angular.module('responseController', [])
             $http.get('api/challenges/'+url[2])
               .then(function(data){
                 console.log(data);
-                self.charityLink = data.data.charityLink;
+                self.charityName = data.data.charity[0]
+                self.charityLink = data.data.charityLink
                 console.log(self.charityLink)
                 console.log(self.sendeeEmail)
                 //////send the email thanking them for making a challenge
@@ -210,13 +211,17 @@ angular.module('responseController', [])
                   /////////end for-loop
                   }
                   console.log(realEmails)
+                  responsePackage.charityLink = self.charityLink
+                  responsePackage.charityName = self.charityName
+                  console.log(responsePackage)
+                  ///////
                   ////////end email parsing to challenge Friends
                   //////////////////////////////////////////////
                   ////the below http send mail to all friends a user has challenged
                   $http({
                     method: 'POST'
                     ,url: "/api/sendemail/challengefriends"
-                    ,data: {emails: realEmails}
+                    ,data: {emails: realEmails, responseData: responsePackage}
                   })
                   .then(function(data){
                     console.log(data);

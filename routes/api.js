@@ -389,7 +389,7 @@ module.exports = function(app, passport){
         }]
       }
     }, function(data){
-      console.log(data);
+      console.log(data)
       res.json(data)
     })
   })
@@ -399,7 +399,10 @@ module.exports = function(app, passport){
     mandrill_client.messages.send({
       message: {
         from_email: "Challenged@ChallengeMaker.com"
-        ,text: "You've been challenged! Follow the link below, it will show you how you can accept this challenge for charity"
+        // ,text: "You've been challenged! Follow the link below, it will show you how you can accept this challenge for charity"
+        ,html:
+        "<h3 style='font-weight:bolder'>"+req.body.responseData.responseCreator+" has challenged you to the</h3>"+
+        "<h1>"+req.body.responseData.charityName+"</h1>"
         ,subject: "You've Been Challenged via ChallengeMaker"
         ,to: req.body.emails
       }
