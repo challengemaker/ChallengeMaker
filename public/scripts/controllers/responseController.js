@@ -349,15 +349,21 @@ angular.module('responseController', [])
                         urlArray.shift()///let's get rid of this, just for fun so it's just the link
                         var embedCode = urlArray[0].split('?')[0]
                         console.log(embedCode);
+                        return embedCode
                       } else {
                         console.log(urlArray[0]);
                         var embedCode = urlArray[0].split('=')[1].split('&')[0]
                         console.log(embedCode);
+                        return embedCode
                       }
 
                     } else if(checkWww[0] == "youtu"){
                       ///////checks for the youtu.be/ new embed format
                       console.log('a youtu.ber, huh?');
+                      urlArray.shift()
+                      var embedCode = urlArray[0].split("?")[0]/////should be the embed code that youtube itself provides
+                      console.log(embedCode);
+                      return embedCode
                     } else {
                       /////////urls that do not fit the youtube standard format and so which are, therefore, kaput
                       console.log('whats up with that link man? That even Youtube?');
@@ -381,6 +387,7 @@ angular.module('responseController', [])
                 }
               }
               getYoutubeEmbed(inputUrl)
+              console.log(getYoutubeEmbed(inputUrl));
 
 
               /////////end if solution to youtube parsing
