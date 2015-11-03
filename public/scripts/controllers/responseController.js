@@ -47,6 +47,7 @@ angular.module('responseController', [])
     /////End contact form stuff///////////////
     ///////////////////////////////////////////
     ///////////////////////////////////////////
+
     $http({
       method: "GET"
       ,url: "/api/challenges/"+thisChallenge
@@ -61,8 +62,16 @@ angular.module('responseController', [])
 
     var submitChallenge = function(){
       /////collecting all data we'll need for
+      var inputUrl = $('.responseTitle').val()
+      console.log(inputUrl);
+      var embedCodeForDb = getYoutubeEmbed(inputUrl)
+      console.log(embedCodeForDb);
+      if(!embedCodeForDb){
+        return;
+      }
       var userName = window.localStorage.sessionUser;
-      var videoUrl = $('.responseTitle').val();
+      console.log(userName);
+      // var videoUrl = $('.responseTitle').val();
       var cName = window.location.hash.split('/')[2].split("/").join(" ");
       ///////collect all email and push into "emailList"
       var emailList = [];
@@ -71,7 +80,7 @@ angular.module('responseController', [])
       for (var i = 0; i < rawList.length; i++) {
         emailList.push(rawList[i].value);
       }
-      var responsePackage = {responseCreator: userName, emails: emailList, video: videoUrl, challenge: cName }
+      var responsePackage = {responseCreator: userName, emails: emailList, video: embedCodeForDb, challenge: cName }
       ///////lets chain our https in order: search id, post challenge friends, post response
       $http({
         method: "GET"
@@ -98,6 +107,7 @@ angular.module('responseController', [])
           }
         })
         .then(function(data){
+          console.log('challenge friends posted');
           /////this should be the data response from the post request, and we now post the challenge info to db
           $http({
             method: "Post"
@@ -111,6 +121,7 @@ angular.module('responseController', [])
             }
           })
           .then(function(data){
+            console.log('response posted');
             var url = window.location.hash.split('/')
             console.log(url);
             $http.get('api/challenges/'+url[2])
@@ -118,13 +129,7 @@ angular.module('responseController', [])
                 console.log(data);
                 self.charityLink = data.data.charityLink;
                 console.log(self.charityLink);
-                // $('.goToDonation').on('click', function(){
-                //   console.log(self.thisCharity);
-                //   window.open(self.thisCharity, target="_blank")
-                  // .then(function(){
-                  //   window.location.hash = "#/challenges/"+url[2];
-                  // })
-                // })
+
                 //////send the email thanking them for making a challenge
                 $http({
                   method: "GET"
@@ -148,14 +153,15 @@ angular.module('responseController', [])
                         realEmails.push({email: friendEmail});
                       }
                     }
-                    $http({
-                      method: 'POST'
-                      ,url: "/api/sendemail/challengefriends"
-                      ,data: {}
-                      // ,data: realEmails
-                    })
-                    .then(function(data){
-                    })
+                    //////the below http send mail to all friends a user has challenged
+                    // $http({
+                    //   method: 'POST'
+                    //   ,url: "/api/sendemail/challengefriends"
+                    //   ,data: {}
+                    //   // ,data: realEmails
+                    // })
+                    // .then(function(data){
+                    // })
                   })
                 })
                 //////end sending challenge thank you email
@@ -255,9 +261,9 @@ angular.module('responseController', [])
       $('#email4').on('click', function(){
         $('#email4').val('');
       });
-      $('.responseTitle').on('click', function(){
-        $('.responseTitle').val('');
-      });
+      // $('.responseTitle').on('click', function(){
+      //   $('.responseTitle').val('');
+      // });
 
       //sizing the questions properly
       var carouselCounter = 0;
@@ -300,6 +306,24 @@ angular.module('responseController', [])
           // }
         }
       })
+
+      //////function which will take the embed code, and with other things, store it to the db
+      // function postResponse(youtubeCodeArg){
+      //   var embedCode = youtubeCodeArg()
+      //   var response = {
+      //     title: self.title,
+      //     description: self.description,
+      //     video: self.video,
+      //     username: self.name
+      //   }
+      //   $http({
+      //     method: "POST"
+      //     ,url: "/api/responses/"
+      //     ,data:
+      //   })
+      // }
+
+
       $('.forwardButton').on('click', function(){
         self.title = $('.responseTitle').val();
         self.description = $('.responseDesc').val();
@@ -311,20 +335,12 @@ angular.module('responseController', [])
             $('.forwardButton').text("SUBMIT!");
             $('.forwardButton').addClass("submitDon");
             $('.submitDon').on('click', function(){
-              ////begin checking to make sure that the response is actually a youtube link
-              var check = /[\b(youtu(be))\b]/;
-              var checkUrl = $('.responseTitle').val();
-
-              if(check.test(checkUrl)){
-                console.log('test worked');
-                submitChallenge()
-              } else {
-                console.log('try agin');
-              }
+              //////////////////////////////////////////
+              //////begin if-solution to youtube parsing
+              submitChallenge()
+              // getYoutubeEmbed(inputUrl)
+              // console.log(getYoutubeEmbed(inputUrl))
             })
-            /////end checking youtube url and running https
-            /////////////////////////////
-
             tunnelMargin = tunnelMargin-550;
             $('.questionTunnel').animate({
               marginLeft: tunnelMargin+"px"
@@ -354,25 +370,76 @@ angular.module('responseController', [])
         self.allCharities = data.data;
       })
     }
-
-    $('.createResponse').on('click', function(){
-      carouselCounter++;
-      ////this response modelling will be done in a factory later
-      var response = {
-        title: self.title,
-        description: self.description,
-        video: self.video,
-        username: self.name
+    //////the function which we use to parse our youtube links
+    function getYoutubeEmbed(youtubeUrl){
+      if(youtubeUrl){
+        var urlArray = youtubeUrl.split("/")
+        ////////now let's split them into https - nonhttps groups
+        if(urlArray[0] == "https:"){
+          //////////this side is all inputs that begin with 'https:/'
+          //we shift twice to get rid of the https and the empty space from our //
+          urlArray.shift()
+          urlArray.shift()
+          ///////the array now begins at www.
+          var checkWww = urlArray[0].split('.')////this is just the youtube.com part of the url (maybe with www, we'll see)
+          if (checkWww[0] == 'www') {
+            ////////this if will filter out any urls with a www begining
+            checkWww.shift()
+          }
+          //////at this point forward, everything should be stripped of all https and www (if it began with https)
+          if(checkWww[0] == "youtube"){
+            //////checks for an embed or url-bar link type
+            urlArray.shift()/////we just got rid of the youtube.com part
+            //////now we need to chck of it's an embed link or not, but we're damn sure it's youtube
+            if(urlArray[0] == 'embed'){
+              /////we now know that this is an embed link
+              urlArray.shift()///let's get rid of this, just for fun so it's just the link
+              var embedCode = urlArray[0].split('?')[0]
+              return embedCode
+            } else {
+              var embedCode = urlArray[0].split('=')[1].split('&')[0]
+              return embedCode
+            }
+          } else if(checkWww[0] == "youtu"){
+            ///////checks for the youtu.be/ new embed format
+            urlArray.shift()
+            var embedCode = urlArray[0].split("?")[0]/////should be the embed code that youtube itself provides
+            return embedCode
+          } else {
+            /////////urls that do not fit the youtube standard format and so which are, therefore, kaput
+            return 'not a properly formatted email'
+          }
+        } else {
+          //////////this side is all inputs of any type, as long as they don't begin with 'https:/'
+          /////////
+        }
+      } else {
+        /////below this only triggers if there is nothing in the youtube link
+        return "no link"
       }
-      $http({
-        method: "POST",
-        url: "api/responses",
-        data: response
-      })
-      .then(function(data){
-        window.location.hash = "#/challenges/"+$routeParams.name
-      })
-    })
+    }
+    /////end youtube parsing function
+//////////////////end new response section
+//////////////////////////////////////////
+//////////////////////////////////////////
+    // $('.createResponse').on('click', function(){
+    //   carouselCounter++;
+    //   ////this response modelling will be done in a factory later
+    //   var response = {
+    //     title: self.title,
+    //     description: self.description,
+    //     video: self.video,
+    //     username: self.name
+    //   }
+    //   $http({
+    //     method: "POST",
+    //     url: "api/responses",
+    //     data: response
+    //   })
+    //   .then(function(data){
+    //     window.location.hash = "#/challenges/"+$routeParams.name
+    //   })
+    // })
     // $('.forwardButton').on('click', function(){
     //   $('.forwardButton').css('opacity', 0);
     //   $('.backButton').css('opacity', 0);
