@@ -118,13 +118,7 @@ angular.module('responseController', [])
                 console.log(data);
                 self.charityLink = data.data.charityLink;
                 console.log(self.charityLink);
-                // $('.goToDonation').on('click', function(){
-                //   console.log(self.thisCharity);
-                //   window.open(self.thisCharity, target="_blank")
-                  // .then(function(){
-                  //   window.location.hash = "#/challenges/"+url[2];
-                  // })
-                // })
+
                 //////send the email thanking them for making a challenge
                 $http({
                   method: "GET"
@@ -148,14 +142,15 @@ angular.module('responseController', [])
                         realEmails.push({email: friendEmail});
                       }
                     }
-                    $http({
-                      method: 'POST'
-                      ,url: "/api/sendemail/challengefriends"
-                      ,data: {}
-                      // ,data: realEmails
-                    })
-                    .then(function(data){
-                    })
+                    //////the below http send mail to all friends a user has challenged
+                    // $http({
+                    //   method: 'POST'
+                    //   ,url: "/api/sendemail/challengefriends"
+                    //   ,data: {}
+                    //   // ,data: realEmails
+                    // })
+                    // .then(function(data){
+                    // })
                   })
                 })
                 //////end sending challenge thank you email
@@ -311,17 +306,44 @@ angular.module('responseController', [])
             $('.forwardButton').text("SUBMIT!");
             $('.forwardButton').addClass("submitDon");
             $('.submitDon').on('click', function(){
-              ////begin checking to make sure that the response is actually a youtube link
-              var check = /[\b(youtu(be))\b]/;
-              var checkUrl = $('.responseTitle').val();
+              //////////////////////////////////////////
+              //////begin if-solution to youtube parsing
+              var inputUrl = $('.responseTitle').val()
+              console.log(inputUrl);
+              var noHttpUrl = ''
+              var httpUrl = ''
+              var noHttpWwwUrl = ''
+              var httpNoWwwUrl = ''
+              var httpWwwUrl = ''
+              var noHttpNoWwwUrl = ''
 
-              if(check.test(checkUrl)){
-                console.log('test worked');
-                submitChallenge()
-              } else {
-                console.log('try agin');
+              function getYoutubeEmbed(youtubeUrl){
+                if(youtubeUrl){
+                  console.log('is a start!');
+
+                } else {
+                  /////below this only triggers if there is nothing in the youtube link
+                  console.log('you didnt even enter a link, dumbass')
+                }
               }
+              getYoutubeEmbed(inputUrl)
+
+
+              /////////end if solution to youtube parsing
+              ///////////////////////////////////////////
+              ////begin checking to make sure that the response is actually a youtube link
+            //   var check = /[\b(youtu(be))\b]/;
+            //   var checkUrl = $('.responseTitle').val();
+            //
+            //   if(check.test(checkUrl)){
+            //     console.log('test worked');
+            //     submitChallenge()
+            //   } else {
+            //     console.log('try agin');
+            //   }
             })
+            // we're putting aside the regex version for a moment as I'm not convinced I understand it well enought to use it effectively, adn am going to try an if based solution (up a bit)
+
             /////end checking youtube url and running https
             /////////////////////////////
 
