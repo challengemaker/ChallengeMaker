@@ -26,10 +26,15 @@ angular.module('responseController', [])
         $http({
           method: "POST"
           ,url: "/api/sendemail/contact"
-          ,data: {sendeeEmail: "jason@challengemaker.com", subject: subject, text: message, email: email}
+          ,data: {sendeeEmail: "jack.connor83@gmail.com"}
         })
         .then(function(data){
           console.log(data);
+          $http({
+            method: "POST"
+            ,url: "/api/sendemail/contactthankyou"
+            ,data: {sendeeEmail: email}
+          })
         })
         //////finish sending email
         //////now let's collect the emails
@@ -447,28 +452,6 @@ angular.module('responseController', [])
 //////////////////end new response section
 //////////////////////////////////////////
 //////////////////////////////////////////
-    // $('.createResponse').on('click', function(){
-    //   carouselCounter++;
-    //   ////this response modelling will be done in a factory later
-    //   var response = {
-    //     title: self.title,
-    //     description: self.description,
-    //     video: self.video,
-    //     username: self.name
-    //   }
-    //   $http({
-    //     method: "POST",
-    //     url: "api/responses",
-    //     data: response
-    //   })
-    //   .then(function(data){
-    //     window.location.hash = "#/challenges/"+$routeParams.name
-    //   })
-    // })
-    // $('.forwardButton').on('click', function(){
-    //   $('.forwardButton').css('opacity', 0);
-    //   $('.backButton').css('opacity', 0);
-    // })
 
     $('.finishResponse').on('click', function(){
       window.location.hash = "#/challenges/"+$routeParams.name
