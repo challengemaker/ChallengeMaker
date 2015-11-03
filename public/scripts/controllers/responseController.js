@@ -250,9 +250,9 @@ angular.module('responseController', [])
       $('#email4').on('click', function(){
         $('#email4').val('');
       });
-      $('.responseTitle').on('click', function(){
-        $('.responseTitle').val('');
-      });
+      // $('.responseTitle').on('click', function(){
+      //   $('.responseTitle').val('');
+      // });
 
       //sizing the questions properly
       var carouselCounter = 0;
@@ -319,11 +319,53 @@ angular.module('responseController', [])
 
               function getYoutubeEmbed(youtubeUrl){
                 if(youtubeUrl){
-                  console.log('is a start!');
+                  console.log('is a start!')
+                  var urlArray = youtubeUrl.split("/")
+                  console.log(urlArray)
+                  ////////now let's split them into https - nonhttps groups
+                  if(urlArray[0] == "https:"){
+                    //////////this side is all inputs that begin with 'https:/'
+                    console.log('this should be an https oh yes it is');
+                    //we shift twice to get rid of the https and the empty space from our //
+                    urlArray.shift()
+                    console.log(urlArray)
+                    urlArray.shift()
+                    console.log(urlArray);
+                    ///////the array now begins at www.
+                    var checkWww = urlArray[0].split('.')
+                    if (checkWww[0] == 'www') {
+                      ////////this if will filter out any urls with a www begining
+                      console.log('its a www begining thang');
+                      checkWww.shift()
+                    }
+                    //////at this point forward, everything should be stripped of all https and www (if it began with https)
+                    if(checkWww[0] == "youtube"){
+                      //////checks for an embed or url-bar link type
+                      console.log('we got a classic url type, narrowed to either in-bar url or the embed link')
+
+                    } else if(checkWww[0] == "youtu"){
+                      ///////checks for the youtu.be/ new embed format
+                      console.log('a youtu.ber, huh?');
+                    } else {
+                      /////////urls that do not fit the youtube standard format and so which are, therefore, kaput
+                      console.log('whats up with that link man? That even Youtube?');
+                    }
+                    console.log(urlArray);
+
+
+                  } else {
+                    //////////this side is all inputs of any type, as long as they don't begin with 'https:/'
+                    console.log('nope no https bullshit on this guy')
+                    //////check if there's an errant //
+
+                    // console.log(urlArray);
+
+                  }
+
 
                 } else {
                   /////below this only triggers if there is nothing in the youtube link
-                  console.log('you didnt even enter a link, dumbass')
+                  console.log('you didnt enter a link, dumbass')
                 }
               }
               getYoutubeEmbed(inputUrl)
