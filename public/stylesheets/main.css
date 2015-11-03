@@ -802,7 +802,7 @@ body {
 
 .paymentBackgroundImage img {
   width:100%;
-  height:100%;
+  height:140%;
   z-index: 2;
   position: absolute;
 }
@@ -815,7 +815,6 @@ body {
 
 .paymentBox h1{
   font-size: 46px;
-  font-style: Helvetica
 }
 
 .paymentCards img{
@@ -829,7 +828,7 @@ body {
 }
 
 .paymentContainer {
-  margin-top: 35px;
+  margin-top: 50px;
   z-index: 10;
 }
 
@@ -994,8 +993,16 @@ body {
   margin-top: 8px;
 }
 
+.signinBackgroundImage img {
+  width:100%;
+  height:100%;
+  z-index: 2;
+  position: absolute;
+}
+
+
 .signinBox {
-  padding: 20px 30px 20px 30px;
+  padding: 20px 20px 20px 20px;
   background-color: #E1E1E1;
   position: absolute;
 }
@@ -1006,14 +1013,19 @@ body {
 }
 
 .signinContainer {
-  margin-top: 35px;
+  margin-top: 50px;
   z-index: 10;
 }
 
 .signinForm {
-  margin-top: 10%;
-  margin-bottom: 30px;
+  margin: 30px 0px 30px 0px;
   height: 100%;
+}
+
+.signinForm p {
+  text-align: center;
+  font-size: 15px;
+  margin: 15px 0px -15px 0px;
 }
 
 .signinForm input{
@@ -1030,8 +1042,15 @@ body {
   text-align: right;
 }
 
+.signupBackgroundImage img {
+  width:100%;
+  height:100%;
+  z-index: 2;
+  position: absolute;
+}
+
 .signupBox {
-  padding: 20px 30px 20px 30px;
+  padding: 20px 20px 50px 20px;
   background-color: #E1E1E1;
   position: absolute;
 }
@@ -1052,14 +1071,14 @@ body {
 }*/
 
 .signupContainer {
-  margin-top: 35px;
+  margin-top: 50px;
   z-index: 10;
 }
 
-.signupForm {
-  margin-top: 10%;
-  margin-bottom: 30px;
-  height: 100%;
+.signupForm p {
+  text-align: center;
+  font-size: 15px;
+  margin: 15px 0px -15px 0px;
 }
 
 .signupForm input{
@@ -1068,7 +1087,6 @@ body {
   margin-top: 30px;
   height: 40px;
   font-size: 25px;
-  color: #52798E;
   text-align: center;
 }
 
