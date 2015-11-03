@@ -401,8 +401,13 @@ module.exports = function(app, passport){
         from_email: "Challenged@ChallengeMaker.com"
         // ,text: "You've been challenged! Follow the link below, it will show you how you can accept this challenge for charity"
         ,html:
-        "<h3 style='font-weight:bolder'>"+req.body.responseData.responseCreator+" has challenged you to the</h3>"+
-        "<h1>"+req.body.responseData.charityName+"</h1>"
+          "<div>"+
+            "<h3 style='font-weight:bolder'>"+req.body.responseData.responseCreator+" has challenged you to the</h3>"+
+            "<h1>"+req.body.responseData.charityName+"</h1>"+
+            "<h1>"+req.body.responseData.challenge.split('-').join(' ')+"</h1>"+
+            "<a href='https://challengemakerproduction.herokuapp.com/#/youvebeenchallenged/"+req.body.responseData.challenge+"/"+req.body.responseData.video+"/"+req.body.responseData.responseCreator+"'>Accept Challenge</a>"+ "   " +
+            "<a href='https://challengemakerproduction.herokuapp.com/#/challenges/"+req.body.responseData.challenge+"'>See Challenge Details</a>"+
+          "</div>"
         ,subject: "You've Been Challenged via ChallengeMaker"
         ,to: req.body.emails
       }
