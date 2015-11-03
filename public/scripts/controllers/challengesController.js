@@ -6,6 +6,7 @@ var app = angular.module('challengesController', [])
   challengesCtrl.$inject = ['$http', '$sce'];
   function challengesCtrl($http, $sce){
     var self = this;
+    //////////////////////////////
     ///some quick blacklayer stuff
     function adjustHighlightBlack(){
       var imgHeight = $(".hImage").height();
@@ -15,7 +16,8 @@ var app = angular.module('challengesController', [])
     }
     setInterval(adjustHighlightBlack, 30);
     ///////end blacklayer adjustment stuff
-    //////////////////////
+    /////////////////////////////////////
+
     ////begin dividing controller by page, this will be simplified by the use of factories
     ///////////set the blacklayer to adjust on the single challenge page
     if(window.location.hash.split('/')[1] == "challenges"){
@@ -37,6 +39,20 @@ var app = angular.module('challengesController', [])
           allChallenges[i].isPhoto = true;
         }
         self.allChallenges = allChallenges;
+        ///////let's do a quick black layer adjustment for the listview on the homepage
+        function adjustBlackListAll(){
+          var listImgHeight = $(".lMediaHolder").height()
+          var multipleLayer = Math.ceil(self.allChallenges.length/2)
+          var newHeight = ((listImgHeight * multipleLayer)+(multipleLayer*5))
+          console.log(newHeight)
+          console.log('each list item height is: '+listImgHeight);
+          $('.blackLayerListAll').css({
+            height: newHeight
+          })
+        }
+        setInterval(adjustBlackListAll, 50);
+        ///////end quick black layer adjustment for the listview on the homepage
+
         //////now it's all set and ready to go
         self.goTo = function goTo(index){
           var elem = self.allChallenges[index];
