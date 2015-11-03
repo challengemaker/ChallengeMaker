@@ -338,16 +338,18 @@ module.exports = function(app, passport){
     };
   });
 
+  ///////////////////
   ///////email stuff
+
+  ///////post request which sends contact email to us
   app.post('/api/sendemail/contact', function(req, res){
-    console.log(req.body);
     mandrill_client.messages.send({
-      "message": {
-        "from_email": req.body.email
-        ,"text": req.body.text + "Sent by: " +req.body.email
-        ,"subject": req.body.subject
-        ,"to":[{
-          "email": req.body.sendeeEmail
+      message: {
+        from_email: req.body.email
+        ,text: req.body.text + "Sent by: " +req.body.email
+        ,subject: req.body.subject
+        ,to:[{
+          email: req.body.sendeeEmail
         }]
       }
     }, function(data){
@@ -355,16 +357,35 @@ module.exports = function(app, passport){
     })
   })
 
+  ///////thank you email for users for contacting us
+  app.post('/api/sendemail/contactthankyou', function(req, res){
+    console.log(req.body)
+    mandrill_client.messages.send({
+      message: {
+        from_email: "contact@ChallengeMaker.com"
+        ,text: "Thak you for contacting ChallengeMaker, we'll get back to you soon"
+        ,subject: "Challengemaker Contact - Thanks for your Message"
+        ,to:[{
+          email: req.body.sendeeEmail
+        }]
+      }
+    })
+    .then(function(data){
+      res.json(data)
+    })
+
+  })
+
   ///////make the automatic email for anyone who responds to a challenge
   app.post('/api/sendemail/challengecomplete', function(req, res){
     console.log(req.body);
     mandrill_client.messages.send({
-      "message": {
-        "from_email": "ChallengeCompleted@ChallengeMaker.com"
-        ,"text": "Thank you for completing one of our challenges by uploading your video, your impact makes a huge difference to us."
-        ,"subject": "You Completed a Challenge on Challengemaker!"
-        ,"to":[{
-          "email": req.body.sendeeEmail
+      message: {
+        from_email: "ChallengeCompleted@ChallengeMaker.com"
+        ,text: "Thank you for completing one of our challenges by uploading your video, your impact makes a huge difference to us."
+        ,subject: "You Completed a Challenge on Challengemaker!"
+        ,to:[{
+          email: req.body.sendeeEmail
         }]
       }
     }, function(data){
@@ -376,11 +397,11 @@ module.exports = function(app, passport){
   app.post('/api/sendemail/challengefriends', function(req, res){
     console.log(req.body);
     mandrill_client.messages.send({
-      "message": {
-        "from_email": "Challenged@ChallengeMaker.com"
-        ,"text": "You've been challenged! Follow the link below, it will show you how you can accept this challenge for charity"
-        ,"subject": "You've Been Challenged via ChallengeMaker"
-        ,"to": req.body
+      message: {
+        from_email: "Challenged@ChallengeMaker.com"
+        ,text: "You've been challenged! Follow the link below, it will show you how you can accept this challenge for charity"
+        ,subject: "You've Been Challenged via ChallengeMaker"
+        ,to: req.body
       }
     }, function(data){
       res.json(data)
@@ -392,12 +413,12 @@ module.exports = function(app, passport){
   app.post('/api/sendemail/donation', function(req, res){
     console.log(req.body);
     mandrill_client.messages.send({
-      "message": {
-        "from_email": "challenge@challengemaker.com"
-        ,"text": "Thank you for making such a gracious donaition to <Fill_in_Charity>!"
-        ,"subject": "ChallengeMaker Is Thrilled About Your Donation"
-        ,"to":[{
-          "email": "contact@gmail.com"
+      message: {
+        from_email: "challenge@challengemaker.com"
+        ,text: "Thank you for making such a gracious donaition to <Fill_in_Charity>!"
+        ,subject: "ChallengeMaker Is Thrilled About Your Donation"
+        ,to:[{
+          email: "contact@gmail.com"
         }]
       }
     }, function(data){
