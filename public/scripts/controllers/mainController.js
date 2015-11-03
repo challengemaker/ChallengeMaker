@@ -45,7 +45,7 @@ angular.module('mainController', [])
       dropdownCounter++;
       if(dropdownCounter%2 == 1){
         $('.dropdownIcon').append(
-          "<div class='dropdownContainer'>"+
+          "<div style='cursor: pointer' class='dropdownContainer'>"+
             "<div class='dropItem' id='dropHome'>Home</div>"+
             // "<div class='dropItem' id='dropAbout'>About</div>"+
             // // "<div class='dropItem' id='dropWhat'>What we do</div>"+
