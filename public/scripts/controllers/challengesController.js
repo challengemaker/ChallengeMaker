@@ -82,11 +82,12 @@ var app = angular.module('challengesController', [])
         var height = ($(".lImageimg" +index).height()-5);
         var width = $(".lImageimg"+index).width();
         var videoHeight = $(".lVideo").height();
-        var url = self.allResponses[index].videoUrl+"?autoplay=1";
+        var url = self.allResponses[index].videoUrl;
+        console.log(url);
         if(height > 0) {
           $('.lVideo'+index).append(
             "<iframe class='listVid"+index+
-            " listVid{{$index}}' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+            " listVid{{$index}}' width='100%'"+ "height='"+height+"' src='https://www.youtube.com/embed/"+url+"?autoplay=1' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
             "</iframe>"
           )
           $('.lImage'+index).css('height', "0px")
