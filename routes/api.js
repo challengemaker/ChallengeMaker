@@ -360,9 +360,9 @@ module.exports = function(app, passport){
     console.log(req.body);
     mandrill_client.messages.send({
       "message": {
-        "from_email": "ChallengeAccepted@ChallengeMaker.com"
-        ,"text": "Thank you for accepting one of our challenges!"
-        ,"subject": "You took a Challenge on Challengemaker!"
+        "from_email": "ChallengeCompleted@ChallengeMaker.com"
+        ,"text": "Thank you for completing one of our challenges by uploading your video, your impact makes a huge difference to us."
+        ,"subject": "You Completed a Challenge on Challengemaker!"
         ,"to":[{
           "email": req.body.sendeeEmail
         }]
@@ -372,15 +372,14 @@ module.exports = function(app, passport){
       res.json(data)
     })
   })
-
   //////email that will automatically challenge the people who friends challenge in their response videos
   app.post('/api/sendemail/challengefriends', function(req, res){
     console.log(req.body);
     mandrill_client.messages.send({
       "message": {
-        "from_email": "challenge@challengemaker.com"
-        ,"text": "You've been challenged! Follow the link below, it will show you how you can accept this chalelnge for charity"
-        ,"subject": "You've Been Challenged - ChallengeMaker"
+        "from_email": "Challenged@ChallengeMaker.com"
+        ,"text": "You've been challenged! Follow the link below, it will show you how you can accept this challenge for charity"
+        ,"subject": "You've Been Challenged via ChallengeMaker"
         ,"to": req.body
       }
     }, function(data){
@@ -448,23 +447,6 @@ module.exports = function(app, passport){
 
   ///////////end braintree routing/////////
   /////////////////////////////////////////
-
-
-  //////begin login and authentication and all that shit
-  // app.post('/signup', passport.authenticate('local-signup', function(data){
-  //   res.json(data);
-  //   })
-  // );
-
-  // app.post("/login", function(req, res){
-  //   // User.find({email: req.body.data.email})
-  //   res.json({message: "success", token: "user", sessionUser: "Dildo"})
-  // })
-  //
-  // app.get('/logout', function(req, res){
-  //   req.logout();
-  //   res.redirect('/');
-  // });
 
   function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){

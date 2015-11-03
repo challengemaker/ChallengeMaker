@@ -66,7 +66,7 @@ angular.module('responseController', [])
     function checkRealUrl(urlToCheck){
       if(urlToCheck){
         $('.responseTitle').css({
-          backgroundColor: "#CAE1FF"
+          backgroundColor: "#EBFFF2"
         })
       } else {
         $('.responseTitle').css({
