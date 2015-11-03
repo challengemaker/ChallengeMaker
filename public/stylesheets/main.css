@@ -410,6 +410,7 @@ body {
 }
 
 .currentDescription {
+  padding: 0px 0px 0px 10px;
   font-size: 20px;
 }
 
@@ -1044,6 +1045,10 @@ body {
   width: 100%;
   color: gray;
   font-size: 18px;
+}
+
+.responseVideoTitle {
+  padding: 0px 0px 0px 10px;
 }
 
 .signIn {
