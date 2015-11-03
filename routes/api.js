@@ -360,9 +360,9 @@ module.exports = function(app, passport){
     console.log(req.body);
     mandrill_client.messages.send({
       "message": {
-        "from_email": "challenge@challengemaker.com"
-        ,"text": "Thank you for accepting one of the challengeaker challenges!"
-        ,"subject": "Jack is Stoked you accepted a challenge"
+        "from_email": "ChallengeAccepted@ChallengeMaker.com"
+        ,"text": "Thank you for accepting one of our challenges!"
+        ,"subject": "You took a Challenge on Challengemaker!"
         ,"to":[{
           "email": req.body.sendeeEmail
         }]

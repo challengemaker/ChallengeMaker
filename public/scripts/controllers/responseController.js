@@ -48,6 +48,7 @@ angular.module('responseController', [])
     ///////////////////////////////////////////
     ///////////////////////////////////////////
 
+    ///////get all challenges
     $http({
       method: "GET"
       ,url: "/api/challenges/"+thisChallenge
@@ -59,6 +60,22 @@ angular.module('responseController', [])
       console.log(self.thisCharity);
       self.thisCharityName = data.data.charity[0]
     })
+    //////end get all challenges
+
+    /////function to make the input box light up depending on what kind of link is inside of it
+    function checkRealUrl(urlToCheck){
+      if(urlToCheck){
+        $('.responseTitle').css({
+          backgroundColor: "blue"
+        })
+      }
+    }
+    $('.backButton').on('click', function(){
+      var inputVal = $('.responseTitle').val()
+      var checkUrl = getYoutubeEmbed(inputVal)
+      checkRealUrl(checkUrl)
+    })
+
 
     var submitChallenge = function(){
       /////collecting all data we'll need for
@@ -235,30 +252,30 @@ angular.module('responseController', [])
     if(hash[1] == "newresponse" && hash[2]){
       ////
       ///setting all input-clearing
-      $('.signup1').on('click', function(evt){
-        $(".signup1").val('');
-      });
-      $('.signup2').on('click', function(){
-        $('.signup2').val('');
-      });
-      $('.signup3').on('click', function(){
-        $('.signup3').val('');
-      });
-      $('.signup4').on('click', function(){
-        $('.signup4').val('');
-      });
-      $('#email1').on('click', function(){
-        $('#email1').val('');
-      });
-      $('#email2').on('click', function(){
-        $('#email2').val('');
-      });
-      $('#email3').on('click', function(){
-        $('#email3').val('');
-      });
-      $('#email4').on('click', function(){
-        $('#email4').val('');
-      });
+      // $('.signup1').on('click', function(evt){
+      //   $(".signup1").val('');
+      // });
+      // $('.signup2').on('click', function(){
+      //   $('.signup2').val('');
+      // });
+      // $('.signup3').on('click', function(){
+      //   $('.signup3').val('');
+      // });
+      // $('.signup4').on('click', function(){
+      //   $('.signup4').val('');
+      // });
+      // $('#email1').on('click', function(){
+      //   $('#email1').val('');
+      // });
+      // $('#email2').on('click', function(){
+      //   $('#email2').val('');
+      // });
+      // $('#email3').on('click', function(){
+      //   $('#email3').val('');
+      // });
+      // $('#email4').on('click', function(){
+      //   $('#email4').val('');
+      // });
       // $('.responseTitle').on('click', function(){
       //   $('.responseTitle').val('');
       // });
@@ -405,15 +422,16 @@ angular.module('responseController', [])
             return embedCode
           } else {
             /////////urls that do not fit the youtube standard format and so which are, therefore, kaput
-            return 'not a properly formatted email'
+            return undefined
           }
         } else {
           //////////this side is all inputs of any type, as long as they don't begin with 'https:/'
           /////////
+          return undefined
         }
       } else {
         /////below this only triggers if there is nothing in the youtube link
-        return "no link"
+        return undefined
       }
     }
     /////end youtube parsing function
