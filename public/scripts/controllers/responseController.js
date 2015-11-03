@@ -66,6 +66,9 @@ angular.module('responseController', [])
       console.log(inputUrl);
       var embedCodeForDb = getYoutubeEmbed(inputUrl)
       console.log(embedCodeForDb);
+      if(!embedCodeForDb){
+        return;
+      }
       var userName = window.localStorage.sessionUser;
       console.log(userName);
       // var videoUrl = $('.responseTitle').val();
