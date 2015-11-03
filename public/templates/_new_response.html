@@ -1,21 +1,21 @@
 <!-- <div class="responseContainer row"> -->
   <div class="">
-    <div class="questionBackgroundImage">
+    <div class="questionBackgroundImage img-responsive">
       <img src="/assets/blurredbackground.png" alt="" />
-      <!-- <img ng-src="{{response.thisPhoto}}"/> -->
     </div>
 
-  <div class="questionHolder col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1">
+  <div class="questionHolder col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
     <div class="questionContainer">
       <div class="questionTunnel row">
 
         <div class="questions col-xs-3">
           <div class="q1">
             <div class="titleDescBox">
-              <h3>Link your YouTube Video (optional)</h3>
+              <h2>Link your YouTube Video</h2>
+              <h3>(optional)</h3>
             </div>
             <div class='qContent row'>
-              <div class="responseInfo col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1">
+              <div class="responseInfo col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
                 <input ng-keypress="response.checkYoutube()"  class="responseTitle" type="text" name="name" placeholder="Add Link Here">
               </div>
             </div>
@@ -24,7 +24,8 @@
 
         <div class="questions col-xs-3" class="q2 col-xs-3">
           <div class="titleDescBox">
-            <h3>Challenge Friends by Adding their Email</h3>
+            <h2>Challenge Friends</h2>
+            <h3>by Adding their Email</h3>
           </div>
           <div class="qContent">
             <input type="text" class='challengeFriends' id="email1" placeholder="email">
@@ -37,7 +38,8 @@
         <div class="questions col-xs-3" id="q3">
           <div class="titleDescBox">
             <h1>Challenge Completed!</h1>
-            <h3>Donate To {{response.thisCharityName}}</h3>
+            <h2>Donate To</h2>
+              <h3>{{response.thisCharityName}}</h3>
           </div>
           <div class="qContent row">
             <div class="signupForm col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
@@ -57,9 +59,9 @@
     <div class="row">
       <div class="carouselButtonHolder col-xs-12">
         <div class="row">
-          <button type="button" class="caro-button btn btn-lg btn-block backButton col-xs-4 col-md-offset-3"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>LAST</button>
+          <button type="button" class="caro-button btn-block backButton col-xs-4 col-md-offset-3"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>LAST</button>
 
-          <button style="height: '250px'" type="button" class="caro-button btn btn-lg btn-block forwardButton col-xs-4">NEXT<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+          <button style="height: '250px'" type="button" class="caro-button btn-block forwardButton col-xs-4">NEXT<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
         </div>
       </div>
     </div>

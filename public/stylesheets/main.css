@@ -994,8 +994,7 @@ body {
   overflow: hidden;
   margin-top: 40px;
   margin-left: 50%;
-  /*outline: 5px solid gray;*/
-  background-color: white;
+  background-color: #E1E1E1;
 }
 
 .questionTunnel {
@@ -1003,13 +1002,12 @@ body {
   margin-top: 5%;
   width: 2200px;
   position: absolute;
-  /*outline: 3px solid blue;*/
 }
 
 .questions {
-  display: inline-block;
+  /*display: inline-block;
   height: 250px;
-  position: relative;
+  position: relative;*/
 }
 
 .repeatButton {
