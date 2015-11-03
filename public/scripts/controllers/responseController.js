@@ -73,26 +73,27 @@ angular.module('responseController', [])
       // var videoUrl = $('.responseTitle').val();
       var cName = window.location.hash.split('/')[2].split("/").join(" ");
       ///////collect all email and push into "emailList"
-      var emailList = [];
-      var rawList = $('.challengeFriends');
-      // console.log(rawList);
-      for (var i = 0; i < rawList.length; i++) {
-        emailList.push(rawList[i].value);
-      }
-      var responsePackage = {responseCreator: userName, emails: emailList, video: embedCodeForDb, challenge: cName }
+      // var emailList = [];
+      // var rawList = $('.challengeFriends');
+      // // console.log(rawList);
+      // for (var i = 0; i < rawList.length; i++) {
+      //   emailList.push(rawList[i].value);
+      // }
+      var responsePackage = {responseCreator: userName, video: embedCodeForDb, challenge: cName }
+      console.log(responsePackage);
       ///////lets chain our https in order: search id, post challenge friends, post response
       $http({
         method: "GET"
         ,url: "/api/users/"+userName
       })
       .then(function(data){
+        console.log(data)
         //////this callback has all the users (signed in user's) information
-        responsePackage.userId = data.data.user._id;
-        // console.log(responsePackage);
+        responsePackage.userId = data.data.user._id
+        self.sendeeEmail = data.data.user.email
+        console.log(responsePackage);
         ////$http call to post the friendschallenge to friends
-        console.log(responsePackage.userId);
         var rightNow = new Date();
-        console.log(rightNow);
         $http({
           method: "POST"
           ,url: "/api/challengeFriends"
@@ -120,38 +121,37 @@ angular.module('responseController', [])
             }
           })
           .then(function(data){
-            console.log('response posted');
             var url = window.location.hash.split('/')
             console.log(url);
             $http.get('api/challenges/'+url[2])
               .then(function(data){
                 console.log(data);
                 self.charityLink = data.data.charityLink;
-                console.log(self.charityLink);
-
+                console.log(self.charityLink)
+                console.log(self.sendeeEmail)
                 //////send the email thanking them for making a challenge
+                //////now let's send an email to thank them
+                console.log('sending our emaillllsllssllsls')
                 $http({
-                  method: "GET"
-                  ,url: "/api/users/"+window.localStorage.sessionUser
+                  method: "POST"
+                  ,url: "/api/sendemail/challengecomplete"
+                  ,data: {sendeeEmail: self.sendeeEmail}
                 })
-                .then(function(userObj){
-                  var sendeeEmail = userObj.data.user.email;
-                  $http({
-                    method: "POST"
-                    ,url: "/api/emails"
-                    ,data: {sendeeEmail: sendeeEmail}
-                  })
-                  .then(function(){
-                    var emailArr = $('.challengeFriends');
-                    var realEmails = [];
-                    for (var i = 0; i < emailArr.length; i++) {
-                      var friendEmail = emailArr[i].value;
-                      var checkEmail = /[\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b]/;
-                      var checkUrlEmail = friendEmail;
-                      if(friendEmail != "email" && checkEmail.test(checkUrlEmail)){
-                        realEmails.push({email: friendEmail});
-                      }
-                    }
+                .then(function(data){
+                  console.log(data);
+                })
+
+                  // .then(function(){
+                  //   var emailArr = $('.challengeFriends');
+                  //   var realEmails = [];
+                  //   for (var i = 0; i < emailArr.length; i++) {
+                  //     var friendEmail = emailArr[i].value;
+                  //     var checkEmail = /[\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b]/;
+                  //     var checkUrlEmail = friendEmail;
+                  //     if(friendEmail != "email" && checkEmail.test(checkUrlEmail)){
+                  //       realEmails.push({email: friendEmail});
+                  //     }
+                  //   }
                     //////the below http send mail to all friends a user has challenged
                     // $http({
                     //   method: 'POST'
@@ -161,8 +161,7 @@ angular.module('responseController', [])
                     // })
                     // .then(function(data){
                     // })
-                  })
-                })
+                  // })
                 //////end sending challenge thank you email
               })
           })

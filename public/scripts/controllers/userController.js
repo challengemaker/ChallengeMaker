@@ -309,7 +309,7 @@ angular.module('userController', [])
             console.log('in here');
             console.log(data);
             window.localStorage.sessionToken = data.data.token;
-            window.localStorage.sessionUser = data.data.user.email;
+            window.localStorage.sessionUser = data.data.user.name;
             self.userSesh = email;
             console.log('user email is:',self.userSesh);
             var url = window.location.hash.split('/')[2];

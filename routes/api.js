@@ -368,6 +368,7 @@ module.exports = function(app, passport){
         }]
       }
     }, function(data){
+      console.log(data);
       res.json(data)
     })
   })
