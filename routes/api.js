@@ -263,10 +263,10 @@ module.exports = function(app, passport){
 
 // create a new response
   app.post('/api/responses', function(req, res){
-    // Response.create(req.body, function(err, response){
-    //   if(err){console.log(err)}
-    //   res.json({'posted': response});
-    // });
+    Response.create(req.body, function(err, response){
+      if(err){console.log(err)}
+      res.json({'posted': response});
+    });
   })
 
   app.delete('/api/responses/:id', function(req, res){
@@ -368,6 +368,7 @@ module.exports = function(app, passport){
         }]
       }
     }, function(data){
+      console.log(data);
       res.json(data)
     })
   })
@@ -450,10 +451,10 @@ module.exports = function(app, passport){
 
 
   //////begin login and authentication and all that shit
-  app.post('/signup', passport.authenticate('local-signup', function(data){
-    res.json(data);
-    })
-  );
+  // app.post('/signup', passport.authenticate('local-signup', function(data){
+  //   res.json(data);
+  //   })
+  // );
 
   // app.post("/login", function(req, res){
   //   // User.find({email: req.body.data.email})

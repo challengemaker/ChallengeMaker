@@ -20,6 +20,9 @@ userSchema.methods.generateHash = function(password) {
 
 userSchema.methods.validPassword = function(password) {
 	console.log("In pass check")
+  console.log(password);
+  console.log(this.password);
+  console.log('were the the same?');
 	console.log(bcrypt.compareSync(password, this.password));
   return bcrypt.compareSync(password, this.password)
 }

@@ -227,61 +227,57 @@ angular.module('userController', [])
       $(".submitNew").on('click', submitNew);
       function submitNew(){
         console.log('hi');
-        self.name = $('.signupName').val();
+        var name = $('.signupName').val();
         console.log(name);
         var email = $('.signupEmail').val();
         console.log(email);
         var password = $('.signupPw').val();
         console.log(password);
         var newUser = {name: name, email: email, password: password, local: {email: email}}
+        console.log(newUser);
         $http({
           data: newUser,
           method: 'POST',
           url: '/signup'
         })
         .then(function(data){
-          var name = self.name;
+          var name = data.data.name;
           console.log(name);
           console.log(data);
           var email = data.data.email;
           console.log(email);
-          var password = data.data.password;
-          console.log(password);
+          var newPassword = data.data.password;
+          console.log(newPassword);
           // var newUser =
+          // $http({
+          //   data: {name: name, email: email, password: password, local: {email: email}},
+          //   method: "POST",
+          //   url: "/api/users"
+          //   })
+            // .then(function(moreData){
           $http({
-            data: {name: name, email: email, password: password, local: {email: email}},
-            method: "POST",
-            url: "/api/users"
-            })
-            .then(function(moreData){
-              console.log(moreData);
-              var email = moreData.data.email;
-              console.log(email);
-              var password = moreData.data.password;
-              console.log(password);
-              $http({
-                data: {email: email, password: password},
-                method: 'POST',
-                url: '/login'
-              })
-              .then(function(data){
-                console.log(data);
-                window.localStorage.sessionToken = data.data.token;
-                window.localStorage.sessionUser = data.data.user.name;
-                self.userSesh = window.localStorage.sessionUser;
-                var responseUrl = window.location.hash.split('/')[2];
-                console.log(responseUrl);
-                if(responseUrl){
-                  window.location.hash = "#/newresponse/"+responseUrl;
-                  window.location.reload();
-                }
-                else{
-                  window.location.hash = "#/"
-                  window.location.reload();
-                }
-              })
+            data: {email: email, password: password},
+            method: 'POST',
+            url: '/login'
+          })
+          .then(function(data){
+            console.log(data);
+            window.localStorage.sessionToken = data.data.token;
+            window.localStorage.sessionUser = data.data.user.name;
+            self.userSesh = window.localStorage.sessionUser;
+            var responseUrl = window.location.hash.split('/')[2];
+            console.log(responseUrl);
+            if(responseUrl){
+              window.location.hash = "#/newresponse/"+responseUrl;
+              window.location.reload();
+            }
+            else{
+              window.location.hash = "#/"
+              window.location.reload();
+            }
+          })
               // window.location.hash = "/profile";
-            })
+            // })
           })
         }
       }
@@ -313,7 +309,7 @@ angular.module('userController', [])
             console.log('in here');
             console.log(data);
             window.localStorage.sessionToken = data.data.token;
-            window.localStorage.sessionUser = data.data.user.email;
+            window.localStorage.sessionUser = data.data.user.name;
             self.userSesh = email;
             console.log('user email is:',self.userSesh);
             var url = window.location.hash.split('/')[2];
