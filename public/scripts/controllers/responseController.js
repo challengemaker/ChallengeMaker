@@ -265,35 +265,6 @@ angular.module('responseController', [])
     var hash = window.location.hash.split('/');
     if(hash[1] == "newresponse" && hash[2]){
       ////
-      ///setting all input-clearing
-      // $('.signup1').on('click', function(evt){
-      //   $(".signup1").val('');
-      // });
-      // $('.signup2').on('click', function(){
-      //   $('.signup2').val('');
-      // });
-      // $('.signup3').on('click', function(){
-      //   $('.signup3').val('');
-      // });
-      // $('.signup4').on('click', function(){
-      //   $('.signup4').val('');
-      // });
-      // $('#email1').on('click', function(){
-      //   $('#email1').val('');
-      // });
-      // $('#email2').on('click', function(){
-      //   $('#email2').val('');
-      // });
-      // $('#email3').on('click', function(){
-      //   $('#email3').val('');
-      // });
-      // $('#email4').on('click', function(){
-      //   $('#email4').val('');
-      // });
-      // $('.responseTitle').on('click', function(){
-      //   $('.responseTitle').val('');
-      // });
-
       //sizing the questions properly
       var carouselCounter = 0;
       var tunnelMargin = 0;
