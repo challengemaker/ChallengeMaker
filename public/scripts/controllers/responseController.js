@@ -192,6 +192,15 @@ angular.module('responseController', [])
                       if(periodTestLength > 1){
                         console.log(friendEmail+' looks pretty good to me!')
                         realEmails.push({email: friendEmail})
+                        $http({
+                          method: "POST"
+                          ,url: "/api/emails"
+                          ,data: {address: friendEmail}
+                        })
+                        .then(function(data){
+                          console.log('email upoload worked')
+                          console.log(data);
+                        })
                       } else {
                         console.log('I dont see a period in there')
                       }
