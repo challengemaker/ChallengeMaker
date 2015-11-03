@@ -22,18 +22,20 @@
       <img class = "hImageImg" src="{{challenges.specialChallenge.photo}}" alt="" />
     </div>
     <div class="hVideo" >
-      <!-- <iframe width="100%" height="{{challenges.height}}" ng-src="{{challenge.videoUrl}}" frameborder="0" allowfullscreen></iframe> -->
     </div>
   </div>
 </div>
 
 <!-- Repeat images from here down -->
 <div class="homeRepeat">
+  <div class="blackLayerListAll">
+
+  </div>
   <div ng-repeat="challenge in challenges.allChallenges" class="listContainer col-md-6 col-12-xs">
     <div style="margin: 0px" class="row">
-      <div class="blackLayerList" ng-click="challenges.swap($index)">
+      <!-- <div class="blackLayerList" ng-click="challenges.swap($index)">
         <span class="glyphicon glyphicon-play-circle playButtonL"></span>
-      </div>
+      </div> -->
       <div class="lMediaHolder" ng-click="challenges.swap($index)">
         <div class="listText listText{{$index}} row">
             <div class="texttext col-md-10 col-xs-12">
