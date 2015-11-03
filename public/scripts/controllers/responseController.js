@@ -332,7 +332,7 @@ angular.module('responseController', [])
                     urlArray.shift()
                     console.log(urlArray);
                     ///////the array now begins at www.
-                    var checkWww = urlArray[0].split('.')
+                    var checkWww = urlArray[0].split('.')////this is just the youtube.com part of the url (maybe with www, we'll see)
                     if (checkWww[0] == 'www') {
                       ////////this if will filter out any urls with a www begining
                       console.log('its a www begining thang');
@@ -342,6 +342,18 @@ angular.module('responseController', [])
                     if(checkWww[0] == "youtube"){
                       //////checks for an embed or url-bar link type
                       console.log('we got a classic url type, narrowed to either in-bar url or the embed link')
+                      urlArray.shift()/////we just got rid of the youtube.com part
+                      //////now we need to chck of it's an embed link or not, but we're damn sure it's youtube
+                      if(urlArray[0] == 'embed'){
+                        /////we now know that this is an embed link
+                        urlArray.shift()///let's get rid of this, just for fun so it's just the link
+                        var embedCode = urlArray[0].split('?')[0]
+                        console.log(embedCode);
+                      } else {
+                        console.log(urlArray[0]);
+                        var embedCode = urlArray[0].split('=')[1].split('&')[0]
+                        console.log(embedCode);
+                      }
 
                     } else if(checkWww[0] == "youtu"){
                       ///////checks for the youtu.be/ new embed format
