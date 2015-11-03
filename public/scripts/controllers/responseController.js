@@ -66,14 +66,23 @@ angular.module('responseController', [])
     function checkRealUrl(urlToCheck){
       if(urlToCheck){
         $('.responseTitle').css({
-          backgroundColor: "blue"
+          backgroundColor: "#CAE1FF"
+        })
+      } else {
+        $('.responseTitle').css({
+          backgroundColor: "#FFCCE5"
         })
       }
     }
-    $('.backButton').on('click', function(){
-      var inputVal = $('.responseTitle').val()
-      var checkUrl = getYoutubeEmbed(inputVal)
-      checkRealUrl(checkUrl)
+    $('.responseTitle').on('paste', function(){
+      console.log('the event fired');
+      setTimeout(function(){
+        var inputVal = $('.responseTitle').val()
+        console.log(inputVal);
+        var checkUrl = getYoutubeEmbed(inputVal)
+        checkRealUrl(checkUrl)
+      }, 100)
+
     })
 
 
