@@ -8,6 +8,8 @@
   width: 95%;
   min-width: 100%;
   /*98% eliminates the horizontal scroll issue*/
+  font-family: "Helvetica Neue";
+}
 
 }
 
