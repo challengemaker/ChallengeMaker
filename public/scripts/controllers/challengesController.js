@@ -18,7 +18,12 @@ var app = angular.module('challengesController', [])
     ///////let's do a quick black layer adjustment for the listview on the homepage
     function adjustBlackListAll(){
       var listImgHeight = $(".lMediaHolder").height()
-      var multipleLayer = Math.ceil(self.allChallenges.length/2)
+      // var multipleLayer = Math.ceil(self.allChallenges.length/2)
+      if($(window).width() > 992){
+        var multipleLayer = Math.ceil(self.allChallenges.length/2)
+      } else {
+        var multipleLayer = self.allChallenges.length
+      }
       var newHeight = ((listImgHeight * multipleLayer)+(multipleLayer*5))
       $('.blackLayerListAll').css({
         height: newHeight
@@ -30,8 +35,10 @@ var app = angular.module('challengesController', [])
     /////////////////////////////////////
 
     ////begin dividing controller by page, this will be simplified by the use of factories
-    ///////////set the blacklayer to adjust on the single challenge page
     if(window.location.hash.split('/')[1] == "challenges"){
+      ////////////////////////////////////////////////////////////////////
+      ///////////set the blacklayer to adjust on the single challenge page
+      ///adjusts the black layer for them top highlighted challenge
       function adjustSingleBlack(){
         var imgHeight = $(".currImg").height();
         $('.blackLayerSingleHighlight').css({
@@ -39,8 +46,25 @@ var app = angular.module('challengesController', [])
         })
       }
       setInterval(adjustSingleBlack, 500);
+      ////////////adjust listview single challenge blacklayer
+      function adjustSingleBlackList(){
+        var imgHeight = $(".lImage0").height()
+        // var heightMultiple = self.allResponses.length/2
+        if($(window).width() > 992){
+          var heightMultiple = Math.ceil(self.allResponses.length/2)
+        } else {
+          var heightMultiple = self.allResponses.length
+        }
+        var newListHeight = ((imgHeight * heightMultiple)+(heightMultiple*5))
+        $('.blackLayerSingleChallengeList').css({
+          height: newListHeight+39
+        })
+      }
+      setInterval(adjustSingleBlackList, 30)
+      ////end adjust single challenge black layer
+      //////////////////////////////////////////
     }
-    ////end adjust single challenge black layer
+
     /////simple call to bring in all challenges
 		$http.get('/api/challenges')
       .then(function(data){
