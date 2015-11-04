@@ -402,11 +402,12 @@ module.exports = function(app, passport){
         // ,text: "You've been challenged! Follow the link below, it will show you how you can accept this challenge for charity"
         ,html:
           "<div>"+
-            "<h3 style='font-weight:bolder'>"+req.body.responseData.responseCreator+" has challenged you to the</h3>"+
-            "<h1>"+req.body.responseData.charityName+"</h1>"+
-            "<h1>"+req.body.responseData.challenge.split('-').join(' ')+"</h1>"+
-            "<a href='https://challengemakerproduction.herokuapp.com/#/youvebeenchallenged/"+req.body.responseData.challenge+"/"+req.body.responseData.video+"/"+req.body.responseData.responseCreator+"'>Accept Challenge</a>"+ "   " +
-            "<a href='https://challengemakerproduction.herokuapp.com/#/challenges/"+req.body.responseData.challenge+"'>See Challenge Details</a>"+
+            "<h2 style='color:#545454'>"+ req.body.responseData.responseCreator+
+            " has challenged you to the</h2>"+
+            "<h1 style='font-size:40px; color:#545454; font-weight: bolder'>"+req.body.responseData.charityName+"</h1>"+
+            "<h1 style='font-size:40px; color:#545454; font-weight: bolder'>"+req.body.responseData.challenge.split('-').join(' ')+"</h1>"+
+            "<a style='color:#e70090; font-size: 24px' href='https://challengemakerproduction.herokuapp.com/#/youvebeenchallenged/"+req.body.responseData.challenge+"/"+req.body.responseData.video+"/"+req.body.responseData.responseCreator+"'>Accept Challenge</a>"+ "       " +
+            "<a style='color:#f57801; font-size: 24px' href='https://challengemakerproduction.herokuapp.com/#/challenges/"+req.body.responseData.challenge+"'>Details & VIdeo</a>"+
           "</div>"
         ,subject: "You've Been Challenged via ChallengeMaker"
         ,to: req.body.emails
