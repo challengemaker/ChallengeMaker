@@ -168,6 +168,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             opacity: 0
           })
+          $('.playButtonH').css({
+            opacity: 0
+          })
           $('.blackLayer').css({
             width: "0px"
           })
