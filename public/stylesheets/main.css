@@ -4,16 +4,33 @@
 
 /*Begin classes*/
 
-.bodyView {
-  width: 95%;
-  min-width: 100%;
+.aboutList li {
+  font-size: 20px;
+  margin: 25px 25px 25px 25px;
 }
-  /*98% eliminates the horizontal scroll issue*/
 
+.aboutBackgroundImage img {
+  width:100%;
+  height:100%;
+  z-index: 2;
+  position: absolute;
+}
 
-body {
-  padding-top: 66px;
- }
+.aboutBox {
+  padding: 20px 20px 20px 20px;
+  background-color: #E1E1E1;
+  position: absolute;
+}
+
+.aboutBox h1{
+  text-align: center;
+  font-size: 46px;
+}
+
+.aboutContainer {
+  margin-top: 50px;
+  z-index: 10;
+}
 
 .acceptBeen {
   height: 38px;
@@ -71,6 +88,16 @@ body {
 .beenContainer {
   min-height: 100%;
 }
+
+body {
+  padding-top: 66px;
+ }
+
+.bodyView {
+  width: 95%;
+  min-width: 100%;
+}
+  /*98% eliminates the horizontal scroll issue*/
 
 .blackLayer{
   width: 100%;
@@ -258,7 +285,6 @@ body {
   z-index: 2;
   position: absolute;
 }
-
 
 .contactBox {
   padding: 20px 20px 20px 20px;
