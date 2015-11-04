@@ -7,15 +7,12 @@
 .bodyView {
   width: 95%;
   min-width: 100%;
+}
   /*98% eliminates the horizontal scroll issue*/
-  font-family: "Helvetica Neue";
-}
 
-}
 
 body {
   padding-top: 66px;
-  font-family: "Helvetica Neue";
 }
 
 .acceptBeen {

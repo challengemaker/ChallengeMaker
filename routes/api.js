@@ -382,7 +382,8 @@ module.exports = function(app, passport){
     mandrill_client.messages.send({
       message: {
         from_email: "ChallengeCompleted@ChallengeMaker.com"
-        ,text: "Thank you for completing one of our challenges by uploading your video, your impact makes a huge difference to us."
+        ,html: "<h1>your impact makes a huge difference to us.</h1>"+
+        "<h2>Thank you for completing one of our challenges by uploading your video<h2>"
         ,subject: "You Completed a Challenge on Challengemaker!"
         ,to:[{
           email: req.body.sendeeEmail
