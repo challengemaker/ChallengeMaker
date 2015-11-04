@@ -20,8 +20,6 @@ var app = angular.module('challengesController', [])
       var listImgHeight = $(".lMediaHolder").height()
       var multipleLayer = Math.ceil(self.allChallenges.length/2)
       var newHeight = ((listImgHeight * multipleLayer)+(multipleLayer*5))
-      console.log(newHeight)
-      console.log('each list item height is: '+listImgHeight);
       $('.blackLayerListAll').css({
         height: newHeight
       })
@@ -59,13 +57,17 @@ var app = angular.module('challengesController', [])
           window.location.hash = "#/challenges/"+parsedElem
         }
       })
-      self.listVideoSources = [];
+
+      self.listVideoSources = []
+      self.swapListHomeCounter = true
       self.swap = function swap(index){
-        var height = ($(".lImageimg"+index).height()-5);
-        var width = $(".lImageimg"+index).width();
-        var videoHeight = $(".lVideo").height();
+        var height = ($(".lImageimg"+index).height()-5)
+        var width = $(".lImageimg"+index).width()
+        var videoHeight = $(".lVideo").height()
         var url = self.allChallenges[index].videoUrl+"?autoplay=1";
         if(height > 0) {
+          console.log('counter is ', self.swapListHomeCounter)
+          console.log($('.lVideo'+index)[0].children.length);
           $('.lVideo'+index).append(
             "<iframe class='listVid"+index+
             " listVid{{$index}}' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
@@ -77,7 +79,10 @@ var app = angular.module('challengesController', [])
             opacity: 0
           })
           self.listVideoSources[index] = src;
+          self.swapListHomeCounter = !self.swapListHomeCounter
+          
         } else {
+          console.log('counter is ', self.swapListHomeCounter)
           var imageSrc = self.listVideoSources[index];
           $('.listVid'+index).remove();
           $('.lVideo'+index).css({
@@ -89,6 +94,7 @@ var app = angular.module('challengesController', [])
           $(".listRemove"+index).css({
             opacity: 1
           })
+          self.swapListHomeCounter = !self.swapListHomeCounter
         }
       }
       ////////start all the video-photo toggle actions
@@ -98,7 +104,6 @@ var app = angular.module('challengesController', [])
         var width = $(".lImageimg"+index).width();
         var videoHeight = $(".lVideo").height();
         var url = self.allResponses[index].videoUrl;
-        console.log(url);
         if(height > 0) {
           $('.lVideo'+index).append(
             "<iframe class='listVid"+index+
@@ -226,12 +231,9 @@ var app = angular.module('challengesController', [])
       ////begin page if statement, for seperated data
       if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
         var challenge = window.location.hash.split('/')[2];
-        console.log('challenge is: ',challenge);
         var challengerName = window.location.hash.split('/')[4].split('-').join(' ');
-        console.log('name is:', challengerName);
         self.challengerName = challengerName;
         var challengerVideoId = window.location.hash.split('/')[3];
-        console.log('video id si:',challengerVideoId);
         var challengerVideo = "https://www.youtube.com/embed/"+challengerVideoId
         self.challengerVideo = challengerVideo;
         $('.acceptButton').on('click', function(){
@@ -305,16 +307,11 @@ var app = angular.module('challengesController', [])
           var rawResponses = data.data.reverse();
           var arrResponses = [];
           for (var i = 0; i < rawResponses.length; i++) {
-            console.log(rawResponses[i].challenge);
-            console.log(thisChall);
             var thisRespChall = rawResponses[i].challenge;
-            // console.log(thisRespChall);
             if(thisRespChall == thisChall){
-              console.log('yup the same');
               arrResponses.push(rawResponses[i])
             }
           }
-          console.log(arrResponses);
           var challengeResponses = arrResponses;
 
           function addThumbToResponse(){

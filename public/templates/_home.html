@@ -4,7 +4,7 @@
     <span class="glyphicon glyphicon-play-circle playButtonH"></span>
   </div>
   <div class="hMediaHolder" ng-click="challenges.swapSpecial()">
-    <div class="highlightText">
+    <div class="highlightText" ng-click="challenges.swapSpecial()">
       <div class="texttext col-md-8 col-xs-12">
         <div class="highlightTextHolder">
           <h1 class="titleCont">{{challenges.specialChallenge.charity[0]}}</h1>
@@ -39,7 +39,7 @@
       <div class="lMediaHolder" ng-click="challenges.swap($index)">
         <div class="listText listText{{$index}} row">
             <div class="texttext col-md-10 col-xs-12">
-              <div class="listTextHolder">
+              <div class="listTextHolder" ng-click="challenges.swap($index)">
                 <h2 class="listRemove{{$index}}">{{challenge.charity[0]}}</h2>
                 <h3 class="listTitle listRemove{{$index}}">{{challenge.title}}</h3>
                 <p class="listSectionRemove listRemove{{$index}}">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
