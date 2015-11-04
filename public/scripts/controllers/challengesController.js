@@ -138,7 +138,7 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             opacity: 0
           })
-          $('.glyphicon-play-circle').css({
+          $('.playButtonH').css({
             opacity: 0
           })
           $('.blackLayer').css({
