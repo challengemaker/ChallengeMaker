@@ -57,20 +57,17 @@ var app = angular.module('challengesController', [])
           window.location.hash = "#/challenges/"+parsedElem
         }
       })
-
-      self.listVideoSources = []
-      self.swapListHomeCounter = true
+      self.listVideoSources = [];
       self.swap = function swap(index){
-        var height = ($(".lImageimg"+index).height()-5)
-        var width = $(".lImageimg"+index).width()
-        var videoHeight = $(".lVideo").height()
+        var height = ($(".lImageimg"+index).height()-5);
+        console.log(height);
+        var width = $(".lImageimg"+index).width();
+        var videoHeight = $(".lVideo").height();
         var url = self.allChallenges[index].videoUrl+"?autoplay=1";
         if(height > 0) {
-          console.log('counter is ', self.swapListHomeCounter)
-          console.log($('.lVideo'+index)[0].children.length);
           $('.lVideo'+index).append(
             "<iframe class='listVid"+index+
-            " listVid{{$index}}' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+            " width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
             "</iframe>"
           )
           var src = $('.lImageimg'+index)[0].attributes.src.value;
@@ -79,22 +76,18 @@ var app = angular.module('challengesController', [])
             opacity: 0
           })
           self.listVideoSources[index] = src;
-          self.swapListHomeCounter = !self.swapListHomeCounter
-          
         } else {
-          console.log('counter is ', self.swapListHomeCounter)
           var imageSrc = self.listVideoSources[index];
           $('.listVid'+index).remove();
           $('.lVideo'+index).css({
             height: "0px"
           })
           $('.lImage'+index).append(
-            "<img class='lImageImg lImageimg("+index+")'"+ "src='"+imageSrc+"'/>"
+            "<img class='lImageImg lImageimg("+index+")' "+ "src='"+imageSrc+"'/>"
           )
           $(".listRemove"+index).css({
             opacity: 1
           })
-          self.swapListHomeCounter = !self.swapListHomeCounter
         }
       }
       ////////start all the video-photo toggle actions
