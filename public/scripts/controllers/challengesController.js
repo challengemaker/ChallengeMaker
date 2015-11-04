@@ -80,7 +80,7 @@ var app = angular.module('challengesController', [])
           })
           self.listVideoSources[index] = src;
           self.swapListHomeCounter = !self.swapListHomeCounter
-          
+
         } else {
           console.log('counter is ', self.swapListHomeCounter)
           var imageSrc = self.listVideoSources[index];
@@ -136,6 +136,9 @@ var app = angular.module('challengesController', [])
             opacity: 0
           })
           $('.hRemoveDescription').css({
+            opacity: 0
+          })
+          $('.glyphicon-play-circle').css({
             opacity: 0
           })
           $('.blackLayer').css({
