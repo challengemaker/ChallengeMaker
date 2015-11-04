@@ -235,7 +235,13 @@ var app = angular.module('challengesController', [])
       /////////////////////////////////////
       function makeFit(){
         var windowSize = $(window).width();
-        if(windowSize < 1024){
+        ///////first we fit to large
+        if(992 < windowSize < 1200){
+          $('.titleCont').css({
+            fontSize: "41px"
+          })
+        }
+        else if(windowSize < 993){
           fixSpacing();
           $('.listSectionRemove').html("");
           $('.hRemoveDescription').html("");
