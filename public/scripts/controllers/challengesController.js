@@ -41,6 +41,7 @@ var app = angular.module('challengesController', [])
       setInterval(adjustSingleBlack, 500);
     }
     ////end adjust single challenge black layer
+    /////simple call to bring in all challenges
 		$http.get('/api/challenges')
       .then(function(data){
         var allChallenges = data.data;
@@ -57,37 +58,49 @@ var app = angular.module('challengesController', [])
           window.location.hash = "#/challenges/"+parsedElem
         }
       })
-      self.listVideoSources = [];
+      ////end call to get all challenges
+
+      /////begin code to toggle picture and video on the site
+      self.listVideoSources = []
+      self.startListCounter = []
+      self.listVideoToggleCounters = []
       self.swap = function swap(index){
-        var height = ($(".lImageimg"+index).height()-5);
-        console.log(height);
-        var width = $(".lImageimg"+index).width();
-        var videoHeight = $(".lVideo").height();
+        var height = ($(".lImageimg"+index).height()-5)
+        console.log(height)
+        var width = $(".lImageimg"+index).width()
+        var videoHeight = $(".lVideo"+index).height()
         var url = self.allChallenges[index].videoUrl+"?autoplay=1";
+        ////////this next only triggers if it's the first time it's been clicked
         if(height > 0) {
+          $('.lImageimg'+index).height('0px')
           $('.lVideo'+index).append(
             "<iframe class='listVid"+index+
-            " width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+            " listVid{{$index}}' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
             "</iframe>"
           )
+          $('.lImage'+index).css('height', "0px")
+          $('.lImageimg'+index).css('height', "0px")
+
           var src = $('.lImageimg'+index)[0].attributes.src.value;
-          $('.lImageimg'+index).remove();
-          $(".listRemove"+index).css({
-            opacity: 0
-          })
-          self.listVideoSources[index] = src;
+          // $(".listRemove"+index).css({
+          //   opacity: 0
+          // })
+          self.listVideoSources[index] = src
         } else {
-          var imageSrc = self.listVideoSources[index];
+          var imageSrc = self.listVideoSources[index]
           $('.listVid'+index).remove();
-          $('.lVideo'+index).css({
-            height: "0px"
-          })
-          $('.lImage'+index).append(
-            "<img class='lImageImg lImageimg("+index+")' "+ "src='"+imageSrc+"'/>"
-          )
-          $(".listRemove"+index).css({
-            opacity: 1
-          })
+          $('.lImage'+index).css('height', videoHeight)
+          $('.lImageimg'+index).css('height', videoHeight)
+          // $('.listVid'+index).remove();
+          // $('.lVideo'+index).css({
+          //   height: "0px"
+          // })
+          // $('.lImage'+index).append(
+          //   "<img class='lImageImg lImageimg("+index+")' "+ "src='"+imageSrc+"'/>"
+          // )
+          // $(".listRemove"+index).css({
+          //   opacity: 1
+          // })
         }
       }
       ////////start all the video-photo toggle actions
@@ -95,7 +108,7 @@ var app = angular.module('challengesController', [])
       self.swapResponse = function swap(index){
         var height = ($(".lImageimg" +index).height()-5);
         var width = $(".lImageimg"+index).width();
-        var videoHeight = $(".lVideo").height();
+        var videoHeight = $(".lVideo"+index).height();
         var url = self.allResponses[index].videoUrl;
         if(height > 0) {
           $('.lVideo'+index).append(
@@ -104,7 +117,7 @@ var app = angular.module('challengesController', [])
             "</iframe>"
           )
           $('.lImage'+index).css('height', "0px")
-          $('.lImageimg'+index).css('height', "0px");
+          $('.lImageimg'+index).css('height', "0px")
         } else {
           $('.listVid'+index).remove();
           $('.lImage'+index).css('height', videoHeight)
