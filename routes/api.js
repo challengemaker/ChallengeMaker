@@ -404,10 +404,10 @@ module.exports = function(app, passport){
           "<div>"+
             "<h2 style='color:#545454'>"+ req.body.responseData.responseCreator+
             " has challenged you to the</h2>"+
-            "<h1 style='font-size:40px; color:#545454; font-weight: bolder'>"+req.body.responseData.charityName+"</h1>"+
-            "<h1 style='font-size:40px; color:#545454; font-weight: bolder'>"+req.body.responseData.challenge.split('-').join(' ')+"</h1>"+
-            "<a style='color:#e70090; font-size: 24px' href='https://challengemakerproduction.herokuapp.com/#/youvebeenchallenged/"+req.body.responseData.challenge+"/"+req.body.responseData.video+"/"+req.body.responseData.responseCreator+"'>Accept Challenge</a>"+ "       " +
-            "<a style='color:#f57801; font-size: 24px' href='https://challengemakerproduction.herokuapp.com/#/challenges/"+req.body.responseData.challenge+"'>Details & VIdeo</a>"+
+            "<p style='font-size:32px; color:#545454; font-weight: bolder'>"+req.body.responseData.charityName+"</p>"+
+            "<p style='font-size:32px; color:#545454; font-weight: bolder'>"+req.body.responseData.challenge.split('-').join(' ')+"</p>"+
+            "<a style='color:#e70090; font-size: 22px; font-weight: bold' href='https://challengemakerproduction.herokuapp.com/#/youvebeenchallenged/"+req.body.responseData.challenge+"/"+req.body.responseData.video+"/"+req.body.responseData.responseCreator+"'>ACCEPT CHALLENGE</a>"+
+            "<a style='color:#f57801; font-size: 22px; font-weight: bold; margin-left: 30px' href='https://challengemakerproduction.herokuapp.com/#/challenges/"+req.body.responseData.challenge+"'>DETAILS & VIDEO</a>"+
           "</div>"
         ,subject: "You've Been Challenged via ChallengeMaker"
         ,to: req.body.emails
