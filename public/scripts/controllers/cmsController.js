@@ -634,7 +634,7 @@ var app = angular.module('cmsController', [])
         $http({
           method: "POST"
           ,url: "/api/charities/update"
-          ,data: {search, name: newName, description: newDescription, photo: newPhoto, url: newUrl}
+          ,data: {search: {name: newName}, description: newDescription, photo: newPhoto, url: newUrl}
         })
         .then(function(data){
           console.log('yooyoyoyoyoy');

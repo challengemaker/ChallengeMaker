@@ -154,7 +154,7 @@ angular.module('userController', [])
         $http({
           method: "POST"
           ,url: "/api/users/updatepassword"
-          ,data: {name: name, oldPassword: oldPassword, newPassword}
+          ,data: {name: name, oldPassword: oldPassword, newPassword: newPassword}
         })
         .then(function(err, data){
           if(err){console.log(err)};

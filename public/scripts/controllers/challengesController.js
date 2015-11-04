@@ -65,6 +65,9 @@ var app = angular.module('challengesController', [])
       //////////////////////////////////////////
     }
 
+    ///////////////////////////////////////////
+    ///////////////////function to give us 
+
     /////simple call to bring in all challenges
 		$http.get('/api/challenges')
       .then(function(data){

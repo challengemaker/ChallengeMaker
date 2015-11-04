@@ -16,17 +16,15 @@ var jwt            = require('jsonwebtoken');
 // var User           = mongoose.model('User')
 var User           = require('./models/user');
 var ignore         = require('./.gitignore')
-
+console.log('1');
 var message = {message: "jack is cool"}
 var secret = "punkrock"
 //
 var token = jwt.sign(message, secret, { expiresInMinutes: 1 });
-console.log(token);
 
 var detoken = jwt.verify(token, secret, function(err, decoded){
-  console.log(decoded);
 });
-console.log(detoken);
+console.log('2');
 
 // Begin Middleware
 app.use(bodyParser.json());
@@ -44,6 +42,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+console.log('3');
 
 require('./passport.js')(passport);
 app.use(flash()); //note: if flash end up being unnecessary, we're pulling that shit out
@@ -53,6 +52,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+console.log('4');
 
 // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(methodOverride('X-HTTP-Method-Override'));
@@ -62,30 +62,19 @@ app.use(express.static(__dirname + '/public'));
 //User signup
 //===========================================================
 app.post('/signup', function( req, res ) {
-	console.log( "Starting user check")
-  console.log(req.body);
 	User.findOne( { email: req.body.email }, function(err, user){
-		console.log("Inside user")
 		if (err ) {
-				console.log("error thrown")
 				res.json( err )
 		} else if ( user ) {
-			console.log(user)
-			console.log("There's already somebody names that")
 			res.redirect( '/login')
 		} else {
-			console.log('user being made')
 			var newUser = new User();
 			newUser.email = req.body.email
 			newUser.password = newUser.generateHash( req.body.password )
       newUser.name = req.body.name
 			newUser.local.email = req.body.email
 			newUser.save( function( err, user ) {
-				console.log("inside user save")
-				console.log( user)
 				if ( err ) { console.log(err) }
-				console.log("User saved")
-				console.log( user )
 				//AUTHENTICATE USER HERE
 				res.json(user)
 			})
@@ -94,22 +83,17 @@ app.post('/signup', function( req, res ) {
 
 } )
 // =================================================================
+console.log('5');
 
 app.post( '/login', function( req, res ) {
-	console.log("In login page")
-	console.log(req.body)
   var email = req.body.email;
-  console.log(email);
 	User.findOne( { email: req.body.email }, function( err, user) {
-		console.log( "User is:")
-		console.log(user )
 		if ( err ) {
 			console.log(err)
 			res.json( err )
 		} else if ( !user ) {
 			res.json( "No user found" )
 		} else {
-			console.log("User found!")
 			if( user.validPassword( req.body.password )){
         var gift = {user: user, token: token}
         res.json( gift )
@@ -124,6 +108,8 @@ app.post('/logout', function(req, res){
 
 })
 
+console.log('6');
+
 
 app.post('/signup', passport.authenticate('local-signup', {
     successRedirect: 'http://reddit.com',
@@ -136,6 +122,7 @@ require('./routes/api')(app, passport);
 
 
 // End MiddleWare
+console.log('7');
 
 ////setting views directory for express, though all routing will go through Angular
 
@@ -150,9 +137,13 @@ app.get('*', function(req, res){
 
 ////setting ports for local and remote, and listening
 app.set('port', (process.env.PORT || 5555))
+console.log('8');
 
 app.listen(app.get('port'), function(){
   console.log("Server running smoother than Barry White");
 })
+console.log('9');
 
 exports = module.exports = app;
+
+console.log('10');
