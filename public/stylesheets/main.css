@@ -801,6 +801,12 @@ body {
   /*outline: 2px solid yellow;*/
 }
 
+.listContent {
+  line-height: 0.8;
+  margin-top: -10px;
+  font-weight: bolder;
+}
+
 .listContainer {
   /*outline: 2px solid black;*/
   position: relative;
@@ -808,7 +814,7 @@ body {
 }
 
 .listText {
-  width: 90%;
+  width: 68.5%;
   max-height: 300px;
   position: absolute;
   z-index: 10;
@@ -826,7 +832,9 @@ body {
 }
 
 .listTitle {
-  margin-top: -8px;
+  line-height: 0.8;
+  margin-top: -10px;
+  font-weight: bolder;
 }
 
 .lMediaHolder {
