@@ -414,6 +414,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "114px"
             })
+          $(".hRemoveDescription").css({
+            marginTop: "70px"
+          })
         } else if(windowSize >= 1415){
           $('.titleCont').css({
               fontSize: "113px"
@@ -446,6 +449,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "106px"
             })
+          $('.hRemoveDescription').css({
+            marginTop: "63px"
+          })
         } else if(windowSize >= 1314){
           $('.titleCont').css({
               fontSize: "105px"
@@ -478,6 +484,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "98px"
             })
+          $('.hRemoveDescription').css({
+            marginTop: "56px"
+          })
         } else if(windowSize >= 1214){
           $('.titleCont').css({
               fontSize: "97px"
@@ -510,6 +519,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "89px"
             })
+          $('.hRemoveDescription').css({
+            marginTop: "49px"
+          })
         } else if(windowSize >= 1114){
           $('.titleCont').css({
               fontSize: "88px"
@@ -542,6 +554,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "81px"
             })
+          $('.hRemoveDescription').css({
+            marginTop: "42px"
+          })
         } else if(windowSize >= 1014){
           $('.titleCont').css({
               fontSize: "80px"
@@ -574,6 +589,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "73px"
             })
+          $('.hRemoveDescription').css({
+            marginTop: "35px"
+          })
         } else if(windowSize >= 926){
           $('.titleCont').css({
               fontSize: "72px"
@@ -606,6 +624,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "65px"
             })
+          $('.hRemoveDescription').css({
+            marginTop: "28px"
+          })
         } else if(windowSize >= 826){
           $('.titleCont').css({
               fontSize: "64px"
@@ -638,6 +659,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "57px"
             })
+          $('.hRemoveDescription').css({
+            marginTop: "21px"
+          })
         } else if(windowSize >= 726){
           $('.titleCont').css({
               fontSize: "56px"
@@ -670,6 +694,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "49px"
             })
+          $('.hRemoveDescription').css({
+            marginTop: "14px"
+          })
         } else if(windowSize >= 626){
           $('.titleCont').css({
               fontSize: "48px"
@@ -702,6 +729,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "41px"
             })
+          $('.hRemoveDescription').css({
+            marginTop: "7px"
+          })
         } else if(windowSize >= 525){
           $('.titleCont').css({
               fontSize: "40px"
@@ -734,6 +764,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "33px"
             })
+          $('.hRemoveDescription').css({
+            marginTop: "7px"
+          })
         } else if(windowSize >= 425){
           $('.titleCont').css({
               fontSize: "32px"
@@ -746,6 +779,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "30px"
             })
+          $('.hRemoveDescription').css({
+            marginTop: "0px"
+          })
         }
       }
       $(window).resize(function(){

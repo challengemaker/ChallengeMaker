@@ -706,10 +706,14 @@ body {
   width: 100%;
   margin-left: 10%;
   text-align: left;
-
 }
 
 .highlightTextHolder h1{
+  font-size: 52px;
+  font-weight: bolder;
+}
+
+.highlightTextHolder p{
   font-size: 52px;
   font-weight: bolder;
 }
@@ -733,6 +737,11 @@ body {
 .homeRepeat {
   display: block;
   /*position: relative;*/
+}
+
+.hRemoveDescription {
+  margin-top: 70px;
+  width: 60%;
 }
 
 .hVideo {
@@ -1306,6 +1315,15 @@ body {
 .titleCont {
   margin: 0px;
   padding: 0px;
+}
+
+.titleContCharity {
+
+}
+
+.titleContTitle {
+  line-height: 0.8;
+  margin-top: -10px;
 }
 
 .titleDescBox {

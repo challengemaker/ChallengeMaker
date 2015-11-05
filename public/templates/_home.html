@@ -7,9 +7,9 @@
     <div class="highlightText" ng-click="challenges.swapSpecial()">
       <div class="texttext">
         <div class="highlightTextHolder">
-          <h1 class="titleCont">{{challenges.specialChallenge.charity[0]}}</h1>
-          <h1 class="titleCont">{{challenges.specialChallenge.title}}</h1>
-          <p class="hRemoveDescription">$0 if completed or donate ${{challenges.specialChallenge.minimumDonation}} to {{challenges.specialChallenge.charity[0]}}</p>
+          <p class="titleCont titleContCharity">{{challenges.specialChallenge.charity[0]}}</p>
+          <p class="titleCont titleContTitle">{{challenges.specialChallenge.title}}</p>
+          <h4 class="hRemoveDescription">$0 if completed or donate ${{challenges.specialChallenge.minimumDonation}} to {{challenges.specialChallenge.charity[0]}}</h4>
           <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}">Accept Challenge</button>
           <!-- <div class="detailsButton" id="{{challenges.specialChallenge._id}}" ng-mouseEnter="challenges.showDetails(challenges.specialChallenge._id)" ng-mouseLeave="challenges.removeDetails(challenges.specialChallenge._id)
           ">details</div> -->
