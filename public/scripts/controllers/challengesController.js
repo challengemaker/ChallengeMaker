@@ -33,7 +33,6 @@ var app = angular.module('challengesController', [])
     ///////end quick black layer adjustment for the listview on the homepage
     ///////end blacklayer adjustment stuff
     /////////////////////////////////////
-
     ////begin dividing controller by page, this will be simplified by the use of factories
     if(window.location.hash.split('/')[1] == "challenges"){
       ////////////////////////////////////////////////////////////////////
@@ -66,7 +65,7 @@ var app = angular.module('challengesController', [])
     }
 
     ///////////////////////////////////////////
-    ///////////////////function to give us 
+    ///////////////////function to give us
 
     /////simple call to bring in all challenges
 		$http.get('/api/challenges')
@@ -236,34 +235,7 @@ var app = angular.module('challengesController', [])
       }
       ////////begin all font resizing work
       /////////////////////////////////////
-      function makeFit(){
-        var windowSize = $(window).width();
-        ///////first we fit to large
-        if(992 < windowSize < 1200){
-          $('.titleCont').css({
-            fontSize: "41px"
-          })
-        }
-        else if(windowSize < 993){
-          fixSpacing();
-          $('.listSectionRemove').html("");
-          $('.hRemoveDescription').html("");
-          $('.titleCont').css({
-            fontSize: "30px"
-          })
-        } else {
-          $('.listSectionRemove').html(
-            "<p class=listSectionRemove>$0 if completed or"+ "donate to this charity</p>"
-          );
-          $('.titleCont').css({
-            fontSize: "52px"
-          })
-        }
-      }
-      $(window).resize(function(){
-        makeFit()
-      })
-      makeFit();
+
       //////function to make first list item not jet up info to top box, this will go in the box resizing
       function fixSpacing(){
         $('.listText0').css({
@@ -430,5 +402,111 @@ var app = angular.module('challengesController', [])
           ///end homepage
         }
       /////end of the page-based if statement
-      ////////////////////end of the controller
+
+      ///////////////////////////////////////////////////////////////////////////////
+      ////////////////Create a function to auto-adjust home page big window font-size
+      function makeFit(){
+        var windowSize = parseInt($(window).width())
+        console.log(windowSize)
+        console.log($(window).width())
+        if(windowSize >= 1430){
+          console.log('yellow')
+          $('.titleCont').css({
+              fontSize: "114px"
+            })
+        } else if(windowSize >= 1420){
+          $('.titleCont').css({
+              fontSize: "113px"
+            })
+        } else if(windowSize >= 1410){
+          $('.titleCont').css({
+              fontSize: "112px"
+            })
+        } else if(windowSize >= 1400){
+          $('.titleCont').css({
+              fontSize: "111px"
+            })
+        } else if(windowSize >= 1390){
+          $('.titleCont').css({
+              fontSize: "110px"
+            })
+        } else if(windowSize >= 1380){
+          $('.titleCont').css({
+              fontSize: "109px"
+            })
+        } else if(windowSize >= 1370){
+          $('.titleCont').css({
+              fontSize: "108px"
+            })
+        } else if(windowSize >= 1360){
+          $('.titleCont').css({
+              fontSize: "107px"
+            })
+        } else if(windowSize >= 1350){
+          $('.titleCont').css({
+              fontSize: "106px"
+            })
+        } else if(windowSize >= 1340){
+          $('.titleCont').css({
+              fontSize: "105px"
+            })
+        } else if(windowSize >= 1330){
+          $('.titleCont').css({
+              fontSize: "104px"
+            })
+        } else if(windowSize >= 1320){
+          $('.titleCont').css({
+              fontSize: "103px"
+            })
+        } else if(windowSize >= 1310){
+          $('.titleCont').css({
+              fontSize: "102px"
+            })
+        } else if(windowSize >= 1300){
+          $('.titleCont').css({
+              fontSize: "101px"
+            })
+        } else if(windowSize >= 1280){
+          $('.titleCont').css({
+              fontSize: "100px"
+            })
+        } else if(windowSize >= 1260){
+          $('.titleCont').css({
+              fontSize: "99px"
+            })
+        } else if(windowSize >= 1240){
+          $('.titleCont').css({
+              fontSize: "98px"
+            })
+        }
+        ///////first we fit to large
+        // if(992 < windowSize < 1200){
+        //   $('.titleCont').css({
+        //     fontSize: "41px"
+        //   })
+        // }
+        // else if(windowSize < 993){
+        //   fixSpacing();
+        //   $('.listSectionRemove').html("");
+        //   $('.hRemoveDescription').html("");
+        //   $('.titleCont').css({
+        //     fontSize: "30px"
+        //   })
+        // } else {
+        //   $('.listSectionRemove').html(
+        //     "<p class=listSectionRemove>$0 if completed or"+ "donate to this charity</p>"
+        //   );
+        //   $('.titleCont').css({
+        //     fontSize: "52px"
+        //   })
+        // }
+      }
+      $(window).resize(function(){
+        makeFit()
+      })
+      makeFit()
+      ///////////////////end creating font-adjusting function
+      ///////////////////////////////////////////////////////
+
+    ////////////////////end of the controller
     }

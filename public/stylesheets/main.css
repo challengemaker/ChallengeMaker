@@ -636,14 +636,14 @@ body {
 }
 
 .highlightText {
-  width: 90%;
+  width: 65.38%;
   height: 0%;
   position: absolute;
   z-index: 10;
 }
 
 .highlightTextHolder {
-  width: 60%;
+  width: 100%;
   margin-left: 10%;
   text-align: left;
 
