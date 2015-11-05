@@ -1303,6 +1303,11 @@ body {
   position: relative;
 }
 
+.titleCont {
+  margin: 0px;
+  padding: 0px;
+}
+
 .titleDescBox {
   position: relative;
   text-align: center;
