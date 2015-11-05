@@ -632,7 +632,7 @@ var app = angular.module('challengesController', [])
             })
           $('.listContent').css({
             fontSize: '26px'
-          }) 
+          })
           $('.listContent').css({
             fontSize: "77px"
           })
