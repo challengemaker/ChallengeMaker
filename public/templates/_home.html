@@ -12,7 +12,7 @@
   <div class="hMediaHolder" ng-click="challenges.swapSpecial()">
     <div class="highlightText" ng-click="challenges.swapSpecial()">
       <div class="texttext">
-        <div class="highlightTextHolder">
+        <div class="highlightTextHolder" ng-click="challenges.swapSpecial()" style="cursor: pointer">
           <p class="titleCont titleContCharity">{{challenges.specialChallenge.charity[0]}}</p>
           <p class="titleCont titleContTitle">{{challenges.specialChallenge.title}}</p>
           <h4 class="hRemoveDescription">$0 if completed or donate ${{challenges.specialChallenge.minimumDonation}} to {{challenges.specialChallenge.charity[0]}}</h4>
@@ -21,7 +21,7 @@
           ">details</div> -->
         </div>
       </div>
-      <div class="texttext col-xs-4">
+      <div class="texttext col-xs-4" >
       </div>
     </div>
     <div class="hImage">
@@ -37,7 +37,7 @@
   <div class="blackLayerListAll">
 
   </div>
-  <div ng-repeat="challenge in challenges.allChallenges" class="listContainer col-md-6 col-12-xs">
+  <div ng-repeat="challenge in challenges.allChallenges" class="listContainer col-md-6 col-12-xs"  ng-click="challenges.swap($index)">
     <div style="margin: 0px" class="row">
       <!-- <div class="blackLayerList" ng-click="challenges.swap($index)">
         <span class="glyphicon glyphicon-play-circle playButtonL"></span>
@@ -45,7 +45,7 @@
       <div class="lMediaHolder" ng-click="challenges.swap($index)">
         <div class="listText listText{{$index}} row">
             <div class="texttext">
-              <div class="listTextHolder" ng-click="challenges.swap($index)">
+              <div class="listTextHolder">
                 <h2 class="listContent listRemove{{$index}}">{{challenge.charity[0]}}</h2>
                 <h2 class="listContent listTitle listRemove{{$index}}">{{challenge.title}}</h2>
                 <p class="listSectionRemove listRemove{{$index}}">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>

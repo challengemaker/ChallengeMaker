@@ -91,6 +91,7 @@ var app = angular.module('challengesController', [])
       self.startListCounter = []
       self.listVideoToggleCounters = []
       self.swap = function swap(index){
+        console.log(index);
         var height = ($(".lImageimg"+index).height()-5)
         console.log(height)
         var width = $(".lImageimg"+index).width()
