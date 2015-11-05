@@ -17,6 +17,11 @@
   position: absolute;
 }
 
+.aboutBox h1{
+  text-align: center;
+  font-size: 46px;
+}
+
 .aboutButton {
   background-color: white;
   color: black;
@@ -36,19 +41,19 @@
 }
 
 .aboutColor1 {
-  color: #7F4C9F;
+  color: #000000;
   font-size: 40px;
   font-weight: bolder;
 }
 
 .aboutColor2 {
-  color: #F25D1E;
+  color: #333333;
   font-size: 30px;
   font-weight: bold;
 }
 
 .aboutColor3 {
-  color: #FCB60C;
+  color: #666666;
   font-size: 30px;
   font-weight: bold;
 }
@@ -612,7 +617,7 @@ body {
 .dropItem {
   font-size: 20px;
   margin-top: 5px;
-  border-bottom: 3px dotted gray;
+  /*border-bottom: 3px dotted gray;*/
   color: white;
 }
 
@@ -783,7 +788,7 @@ body {
   height: 55px;
   width: 100%;
   display: block;
-  background-color: #F25D1E;
+  background: url("../assets/orange.jpg");
 }
 
 .infoBarText {
