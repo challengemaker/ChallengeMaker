@@ -581,15 +581,29 @@ body {
 }
 
 .dropdownContainer {
-  width: 163px;
-  margin-left: -98px;
+  width: 200px;
+  margin-left: -135px;
   height: 100%;
   margin-top: 47px;
   position: fixed;
   z-index: 200;
   background-color: #585858;
-  opacity: 0.8;
+  opacity: 0.9;
   text-align: left;
+}
+
+@media only screen and (max-width: 992px) {
+    .dropdownContainer {
+      width: 400px;
+      margin-left: -335px;
+      height: 100%;
+      margin-top: 47px;
+      position: fixed;
+      z-index: 200;
+      background-color: #585858;
+      opacity: 0.9;
+      text-align: left;
+    }
 }
 
 .dropdownIcon {
@@ -615,15 +629,23 @@ body {
 }
 
 .dropItem {
-  font-size: 20px;
-  margin-top: 5px;
-  /*border-bottom: 3px dotted gray;*/
+  font-size: 25px;
+  margin-top: 15px;
+  text-indent: 20px;
   color: white;
+}
+
+@media only screen and (max-width: 992px) {
+  .dropItem {
+    text-indent: 20px;
+    font-size: 38px;
+    margin-top: 20px;
+    color: white;
+  }
 }
 
 .footerContainer {
   height: 75px;
-  /*background-color: green;*/
   display: block;
 }
 
@@ -785,10 +807,10 @@ body {
 }
 
 .infoBarContainer{
-  height: 50px;
+  height: 55px;
   width: 100%;
   display: block;
-  background-color: #F25D1E;
+  background: url("../assets/orange.jpg");
 }
 
 .infoBarText {
@@ -796,9 +818,9 @@ body {
 }
 
 .infoBarText p{
-  font-size: 35px;
+  font-size: 30px;
   /*font-weight: bolder;*/
-  line-height: 1.5;
+  line-height: 2;
   color: white;
 }
 
