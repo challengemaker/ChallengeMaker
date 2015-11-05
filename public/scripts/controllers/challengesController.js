@@ -409,74 +409,342 @@ var app = angular.module('challengesController', [])
         var windowSize = parseInt($(window).width())
         console.log(windowSize)
         console.log($(window).width())
-        if(windowSize >= 1430){
+        if(windowSize >= 1427){
           console.log('yellow')
           $('.titleCont').css({
               fontSize: "114px"
             })
-        } else if(windowSize >= 1420){
+        } else if(windowSize >= 1415){
           $('.titleCont').css({
               fontSize: "113px"
             })
-        } else if(windowSize >= 1410){
+        } else if(windowSize >= 1402){
           $('.titleCont').css({
               fontSize: "112px"
             })
-        } else if(windowSize >= 1400){
+        } else if(windowSize >= 1390){
           $('.titleCont').css({
               fontSize: "111px"
             })
-        } else if(windowSize >= 1390){
+        } else if(windowSize >= 1377){
           $('.titleCont').css({
               fontSize: "110px"
             })
-        } else if(windowSize >= 1380){
+        } else if(windowSize >= 1364){
           $('.titleCont').css({
               fontSize: "109px"
             })
-        } else if(windowSize >= 1370){
+        } else if(windowSize >= 1352){
           $('.titleCont').css({
               fontSize: "108px"
             })
-        } else if(windowSize >= 1360){
+        } else if(windowSize >= 1340){
           $('.titleCont').css({
               fontSize: "107px"
             })
-        } else if(windowSize >= 1350){
+        } else if(windowSize >= 1327){
           $('.titleCont').css({
               fontSize: "106px"
             })
-        } else if(windowSize >= 1340){
+        } else if(windowSize >= 1314){
           $('.titleCont').css({
               fontSize: "105px"
             })
-        } else if(windowSize >= 1330){
+        } else if(windowSize >= 1302){
           $('.titleCont').css({
               fontSize: "104px"
             })
-        } else if(windowSize >= 1320){
+        } else if(windowSize >= 1290){
           $('.titleCont').css({
               fontSize: "103px"
             })
-        } else if(windowSize >= 1310){
+        } else if(windowSize >= 1277){
           $('.titleCont').css({
               fontSize: "102px"
             })
-        } else if(windowSize >= 1300){
+        } else if(windowSize >= 1265){
           $('.titleCont').css({
               fontSize: "101px"
             })
-        } else if(windowSize >= 1280){
+        } else if(windowSize >= 1252){
           $('.titleCont').css({
               fontSize: "100px"
             })
-        } else if(windowSize >= 1260){
+        } else if(windowSize >= 1240){
           $('.titleCont').css({
               fontSize: "99px"
             })
-        } else if(windowSize >= 1240){
+        } else if(windowSize >= 1227){
           $('.titleCont').css({
               fontSize: "98px"
+            })
+        } else if(windowSize >= 1214){
+          $('.titleCont').css({
+              fontSize: "97px"
+            })
+        } else if(windowSize >= 1202){
+          $('.titleCont').css({
+              fontSize: "96px"
+            })
+        } else if(windowSize >= 1189){
+          $('.titleCont').css({
+              fontSize: "95px"
+            })
+        } else if(windowSize >= 1177){
+          $('.titleCont').css({
+              fontSize: "93px"
+            })
+        } else if(windowSize >= 1164){
+          $('.titleCont').css({
+              fontSize: "92px"
+            })
+        } else if(windowSize >= 1152){
+          $('.titleCont').css({
+              fontSize: "91px"
+            })
+        } else if(windowSize >= 1139){
+          $('.titleCont').css({
+              fontSize: "90px"
+            })
+        } else if(windowSize >= 1126){
+          $('.titleCont').css({
+              fontSize: "89px"
+            })
+        } else if(windowSize >= 1114){
+          $('.titleCont').css({
+              fontSize: "88px"
+            })
+        } else if(windowSize >= 1102){
+          $('.titleCont').css({
+              fontSize: "87px"
+            })
+        } else if(windowSize >= 1089){
+          $('.titleCont').css({
+              fontSize: "86px"
+            })
+        } else if(windowSize >= 1077){
+          $('.titleCont').css({
+              fontSize: "85px"
+            })
+        } else if(windowSize >= 1064){
+          $('.titleCont').css({
+              fontSize: "84px"
+            })
+        } else if(windowSize >= 1051){
+          $('.titleCont').css({
+              fontSize: "83px"
+            })
+        } else if(windowSize >= 1039){
+          $('.titleCont').css({
+              fontSize: "82px"
+            })
+        } else if(windowSize >= 1027){
+          $('.titleCont').css({
+              fontSize: "81px"
+            })
+        } else if(windowSize >= 1014){
+          $('.titleCont').css({
+              fontSize: "80px"
+            })
+        } else if(windowSize >= 1060){
+          $('.titleCont').css({
+              fontSize: "79px"
+            })
+        } else if(windowSize >= 1001){
+          $('.titleCont').css({
+              fontSize: "78px"
+            })
+        } else if(windowSize >= 989){
+          $('.titleCont').css({
+              fontSize: "77px"
+            })
+        } else if(windowSize >= 976){
+          $('.titleCont').css({
+              fontSize: "76px"
+            })
+        } else if(windowSize >= 964){
+          $('.titleCont').css({
+              fontSize: "75px"
+            })
+        } else if(windowSize >= 951){
+          $('.titleCont').css({
+              fontSize: "74px"
+            })
+        } else if(windowSize >= 939){
+          $('.titleCont').css({
+              fontSize: "73px"
+            })
+        } else if(windowSize >= 926){
+          $('.titleCont').css({
+              fontSize: "72px"
+            })
+        } else if(windowSize >= 914){
+          $('.titleCont').css({
+              fontSize: "71px"
+            })
+        } else if(windowSize >= 901){
+          $('.titleCont').css({
+              fontSize: "70px"
+            })
+        } else if(windowSize >= 889){
+          $('.titleCont').css({
+              fontSize: "69px"
+            })
+        } else if(windowSize >= 876){
+          $('.titleCont').css({
+              fontSize: "68px"
+            })
+        } else if(windowSize >= 864){
+          $('.titleCont').css({
+              fontSize: "67px"
+            })
+        } else if(windowSize >= 851){
+          $('.titleCont').css({
+              fontSize: "66px"
+            })
+        } else if(windowSize >= 839){
+          $('.titleCont').css({
+              fontSize: "65px"
+            })
+        } else if(windowSize >= 826){
+          $('.titleCont').css({
+              fontSize: "64px"
+            })
+        } else if(windowSize >= 814){
+          $('.titleCont').css({
+              fontSize: "63px"
+            })
+        } else if(windowSize >= 801){
+          $('.titleCont').css({
+              fontSize: "62px"
+            })
+        } else if(windowSize >= 788){
+          $('.titleCont').css({
+              fontSize: "61px"
+            })
+        } else if(windowSize >= 776){
+          $('.titleCont').css({
+              fontSize: "60px"
+            })
+        } else if(windowSize >= 763){
+          $('.titleCont').css({
+              fontSize: "59px"
+            })
+        } else if(windowSize >= 751){
+          $('.titleCont').css({
+              fontSize: "58px"
+            })
+        } else if(windowSize >= 738){
+          $('.titleCont').css({
+              fontSize: "57px"
+            })
+        } else if(windowSize >= 726){
+          $('.titleCont').css({
+              fontSize: "56px"
+            })
+        } else if(windowSize >= 713){
+          $('.titleCont').css({
+              fontSize: "55px"
+            })
+        } else if(windowSize >= 701){
+          $('.titleCont').css({
+              fontSize: "54px"
+            })
+        } else if(windowSize >= 688){
+          $('.titleCont').css({
+              fontSize: "53px"
+            })
+        } else if(windowSize >= 676){
+          $('.titleCont').css({
+              fontSize: "52px"
+            })
+        } else if(windowSize >= 663){
+          $('.titleCont').css({
+              fontSize: "51px"
+            })
+        } else if(windowSize >= 651){
+          $('.titleCont').css({
+              fontSize: "50px"
+            })
+        } else if(windowSize >= 638){
+          $('.titleCont').css({
+              fontSize: "49px"
+            })
+        } else if(windowSize >= 626){
+          $('.titleCont').css({
+              fontSize: "48px"
+            })
+        } else if(windowSize >= 613){
+          $('.titleCont').css({
+              fontSize: "47px"
+            })
+        } else if(windowSize >= 600){
+          $('.titleCont').css({
+              fontSize: "46px"
+            })
+        } else if(windowSize >= 588){
+          $('.titleCont').css({
+              fontSize: "45px"
+            })
+        } else if(windowSize >= 575){
+          $('.titleCont').css({
+              fontSize: "44px"
+            })
+        } else if(windowSize >= 563){
+          $('.titleCont').css({
+              fontSize: "43px"
+            })
+        } else if(windowSize >= 550){
+          $('.titleCont').css({
+              fontSize: "42px"
+            })
+        } else if(windowSize >= 538){
+          $('.titleCont').css({
+              fontSize: "41px"
+            })
+        } else if(windowSize >= 525){
+          $('.titleCont').css({
+              fontSize: "40px"
+            })
+        } else if(windowSize >= 513){
+          $('.titleCont').css({
+              fontSize: "39px"
+            })
+        } else if(windowSize >= 500){
+          $('.titleCont').css({
+              fontSize: "38px"
+            })
+        } else if(windowSize >= 488){
+          $('.titleCont').css({
+              fontSize: "37px"
+            })
+        } else if(windowSize >= 475){
+          $('.titleCont').css({
+              fontSize: "36px"
+            })
+        } else if(windowSize >= 463){
+          $('.titleCont').css({
+              fontSize: "35px"
+            })
+        } else if(windowSize >= 450){
+          $('.titleCont').css({
+              fontSize: "34px"
+            })
+        } else if(windowSize >= 438){
+          $('.titleCont').css({
+              fontSize: "33px"
+            })
+        } else if(windowSize >= 425){
+          $('.titleCont').css({
+              fontSize: "32px"
+            })
+        } else if(windowSize >= 413){
+          $('.titleCont').css({
+              fontSize: "31px"
+            })
+        } else if(windowSize >= 400){
+          $('.titleCont').css({
+              fontSize: "30px"
             })
         }
         ///////first we fit to large
