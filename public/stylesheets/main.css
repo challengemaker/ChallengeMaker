@@ -4,16 +4,67 @@
 
 /*Begin classes*/
 
-.bodyView {
-  width: 95%;
-  min-width: 100%;
+.aboutBackgroundImage img {
+  width:100%;
+  height:100%;
+  z-index: 2;
+  position: absolute;
 }
-  /*98% eliminates the horizontal scroll issue*/
 
+.aboutBox {
+  padding: 20px 20px 20px 20px;
+  background-color: #E1E1E1;
+  position: absolute;
+}
 
-body {
-  padding-top: 66px;
- }
+.aboutButton {
+  background-color: white;
+  color: black;
+  width: 225px;
+  text-align: middle;
+  display: block;
+  font-size: 20px;
+  margin: 0 auto;
+  font-weight: bolder;
+  opacity: 0.5;
+}
+
+.aboutButton:hover {
+  background-color: #C31C85;
+  color: white;
+  opacity: .90;
+}
+
+.aboutColor1 {
+  color: #7F4C9F;
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+.aboutColor2 {
+  color: #F25D1E;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.aboutColor3 {
+  color: #FCB60C;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.aboutCopy {
+  font-size: 22px;
+}
+
+.aboutContainer {
+  margin-top: 50px;
+  z-index: 10;
+}
+
+.aboutList p {
+  text-align: center;
+}
 
 .acceptBeen {
   height: 38px;
@@ -71,6 +122,16 @@ body {
 .beenContainer {
   min-height: 100%;
 }
+
+body {
+  padding-top: 66px;
+ }
+
+.bodyView {
+  width: 95%;
+  min-width: 100%;
+}
+  /*98% eliminates the horizontal scroll issue*/
 
 .blackLayer{
   width: 100%;
@@ -259,7 +320,6 @@ body {
   position: absolute;
 }
 
-
 .contactBox {
   padding: 20px 20px 20px 20px;
   background-color: #E1E1E1;
@@ -285,7 +345,7 @@ body {
   width: 80%;
   margin-left: 10%;
   margin-top: 30px;
-  height: 150px;
+  height: 120px;
   font-size: 25px;
   text-align: center;
 }
