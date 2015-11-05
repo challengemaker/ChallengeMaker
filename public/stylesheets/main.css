@@ -17,20 +17,6 @@
   position: absolute;
 }
 
-.aboutBox h1 {
-  text-align: center;
-  font-size: 46px;
-  color: #60605D;
-  margin-bottom: 25px;
-}
-
-.aboutBox h2 {
-  text-align: center;
-  font-size: 30px;
-  color: #60605D;
-  margin-bottom: -20px;
-}
-
 .aboutButton {
   background-color: white;
   color: black;
@@ -44,37 +30,40 @@
 }
 
 .aboutButton:hover {
-  background-color: #7F4C9F;
+  background-color: #C31C85;
   color: white;
   opacity: .90;
 }
 
 .aboutColor1 {
-  color: #C31C85;
+  color: #7F4C9F;
+  font-size: 40px;
+  font-weight: bolder;
 }
 
 .aboutColor2 {
   color: #F25D1E;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .aboutColor3 {
   color: #FCB60C;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.aboutCopy {
+  font-size: 22px;
 }
 
 .aboutContainer {
   margin-top: 50px;
-  margin-bottom: 30px;
   z-index: 10;
 }
 
-.aboutList ul {
-  margin: 50px 0px 50px 0px;
-}
-
-.aboutList li {
-  font-size: 20px;
-  margin: 25px 25px 25px 25px;
-  text-decoration: none;
+.aboutList p {
+  text-align: center;
 }
 
 .acceptBeen {
