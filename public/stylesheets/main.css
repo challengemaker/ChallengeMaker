@@ -727,7 +727,6 @@ body {
 }
 
 .hMediaHolder {
-  margin-top: 5px;
   width: 100%;
   min-height: 100%;
   overflow: auto;
@@ -778,6 +777,24 @@ body {
 .impactReached {
   font-size: 18px;
   font-weight: bold;
+}
+
+.infoBarContainer{
+  height: 50px;
+  width: 100%;
+  display: block;
+  background-color: #F25D1E;
+}
+
+.infoBarText {
+  text-align: center;
+}
+
+.infoBarText p{
+  font-size: 35px;
+  /*font-weight: bolder;*/
+  line-height: 1.5;
+  color: white;
 }
 
 .lContainer {
