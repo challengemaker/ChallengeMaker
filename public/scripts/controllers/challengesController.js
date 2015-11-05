@@ -414,6 +414,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "114px"
             })
+          $('.listContent').css({
+            fontSize: '45px'
+          })
           $(".hRemoveDescription").css({
             marginTop: "70px"
           })
@@ -425,6 +428,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "112px"
             })
+          $('.listContent').css({
+            fontSize: '44px'
+          })
         } else if(windowSize >= 1390){
           $('.titleCont').css({
               fontSize: "111px"
@@ -433,10 +439,16 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "110px"
             })
+          $('.listContent').css({
+            fontSize: '43px'
+          })
         } else if(windowSize >= 1364){
           $('.titleCont').css({
               fontSize: "109px"
             })
+          $('.listContent').css({
+            fontSize: '42px'
+          })
         } else if(windowSize >= 1352){
           $('.titleCont').css({
               fontSize: "108px"
@@ -445,6 +457,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "107px"
             })
+          $('.listContent').css({
+            fontSize: '41px'
+          })
         } else if(windowSize >= 1327){
           $('.titleCont').css({
               fontSize: "106px"
@@ -456,6 +471,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "105px"
             })
+          $('.listContent').css({
+            fontSize: '40px'
+          })
         } else if(windowSize >= 1302){
           $('.titleCont').css({
               fontSize: "104px"
@@ -464,6 +482,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "103px"
             })
+          $('.listContent').css({
+            fontSize: '39px'
+          })
         } else if(windowSize >= 1277){
           $('.titleCont').css({
               fontSize: "102px"
@@ -472,6 +493,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "101px"
             })
+          $('.listContent').css({
+            fontSize: '38px'
+          })
         } else if(windowSize >= 1252){
           $('.titleCont').css({
               fontSize: "100px"
@@ -480,6 +504,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "99px"
             })
+          $('.listContent').css({
+            fontSize: '37px'
+          })
         } else if(windowSize >= 1227){
           $('.titleCont').css({
               fontSize: "98px"
@@ -491,6 +518,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "97px"
             })
+          $('.listContent').css({
+            fontSize: '36px'
+          })
         } else if(windowSize >= 1202){
           $('.titleCont').css({
               fontSize: "96px"
@@ -499,6 +529,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "95px"
             })
+          $('.listContent').css({
+            fontSize: '35px'
+          })
         } else if(windowSize >= 1177){
           $('.titleCont').css({
               fontSize: "93px"
@@ -507,6 +540,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "92px"
             })
+          $('.listContent').css({
+            fontSize: '34px'
+          })
         } else if(windowSize >= 1152){
           $('.titleCont').css({
               fontSize: "91px"
@@ -515,6 +551,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "90px"
             })
+          $('.listContent').css({
+            fontSize: '33px'
+          })
         } else if(windowSize >= 1126){
           $('.titleCont').css({
               fontSize: "89px"
@@ -526,6 +565,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "88px"
             })
+          $('.listContent').css({
+            fontSize: '32px'
+          })
         } else if(windowSize >= 1102){
           $('.titleCont').css({
               fontSize: "87px"
@@ -534,6 +576,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "86px"
             })
+          $('.listContent').css({
+            fontSize: '31px'
+          })
         } else if(windowSize >= 1077){
           $('.titleCont').css({
               fontSize: "85px"
@@ -542,6 +587,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "84px"
             })
+          $('.listContent').css({
+            fontSize: '30px'
+          })
         } else if(windowSize >= 1051){
           $('.titleCont').css({
               fontSize: "83px"
@@ -550,12 +598,18 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "82px"
             })
+          $('.listContent').css({
+            fontSize: '29px'
+          })
         } else if(windowSize >= 1027){
           $('.titleCont').css({
               fontSize: "81px"
             })
           $('.hRemoveDescription').css({
             marginTop: "42px"
+          })
+          $('.listContent').css({
+            fontSize: '28px'
           })
         } else if(windowSize >= 1014){
           $('.titleCont').css({
@@ -565,6 +619,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "79px"
             })
+          $('.listContent').css({
+            fontSize: '27px'
+          })
         } else if(windowSize >= 1001){
           $('.titleCont').css({
               fontSize: "78px"
@@ -573,6 +630,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "77px"
             })
+          $('.listContent').css({
+            fontSize: '26px'
+          })
           $('.listContent').css({
             fontSize: "77px"
           })
@@ -922,7 +982,7 @@ var app = angular.module('challengesController', [])
               fontSize: "30px"
             })
           $('.listContent').css({
-              fontSize: "30px"
+              fontSize: "19px"
             })
           $('.hRemoveDescription').css({
             marginTop: "0px"
