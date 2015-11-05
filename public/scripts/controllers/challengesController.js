@@ -747,27 +747,6 @@ var app = angular.module('challengesController', [])
               fontSize: "30px"
             })
         }
-        ///////first we fit to large
-        // if(992 < windowSize < 1200){
-        //   $('.titleCont').css({
-        //     fontSize: "41px"
-        //   })
-        // }
-        // else if(windowSize < 993){
-        //   fixSpacing();
-        //   $('.listSectionRemove').html("");
-        //   $('.hRemoveDescription').html("");
-        //   $('.titleCont').css({
-        //     fontSize: "30px"
-        //   })
-        // } else {
-        //   $('.listSectionRemove').html(
-        //     "<p class=listSectionRemove>$0 if completed or"+ "donate to this charity</p>"
-        //   );
-        //   $('.titleCont').css({
-        //     fontSize: "52px"
-        //   })
-        // }
       }
       $(window).resize(function(){
         makeFit()
