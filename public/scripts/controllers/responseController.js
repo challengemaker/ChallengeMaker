@@ -96,6 +96,7 @@ angular.module('responseController', [])
       var inputUrl = $('.responseTitle').val()
       console.log(inputUrl);
       var embedCodeForDb = getYoutubeEmbed(inputUrl)
+      console.log(embedCodeForDb);
       if(!embedCodeForDb){
         return;
       }
