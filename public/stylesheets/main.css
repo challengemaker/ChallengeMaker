@@ -746,6 +746,7 @@ body {
   min-height: 100%;
   overflow: auto;
   position: relative;
+  margin-top: "-10px";
 }
 
 .homeRepeat {
