@@ -39,24 +39,27 @@
 
   </div>
   <div ng-repeat="challenge in challenges.allChallenges" class="listContainer col-md-6 col-12-xs"  ng-click="challenges.swap($index)">
+    <div class="clickLayerList">
+
+    </div>
     <div style="margin: 0px" class="row">
       <!-- <div class="blackLayerList" ng-click="challenges.swap($index)">
         <span class="glyphicon glyphicon-play-circle playButtonL"></span>
       </div> -->
       <div class="lMediaHolder" ng-click="challenges.swap($index)">
-        <div class="listText listText{{$index}} row">
+        <div class="listText listText{{$index}} row" ng-click="challenges.swap($index)">
             <div class="texttext">
-              <div style="cursor: pointer" class="listTextHolder" ng-click="challenges.swap($index)">
-                <h2 style="color: white" style="cursor: pointer" ng-click="challenges.swap($index)" class="listContent listRemove{{$index}}">{{challenge.charity[0]}}</h2>
+              <div style="cursor: pointer" class="listTextHolder">
+                <h2 style="color: white" style="cursor: pointer" class="listContent listRemove{{$index}}">{{challenge.charity[0]}}</h2>
                 <br>
-                <h2 style="color: white" style="cursor: pointer" class="listContent listTitle listRemove{{$index}}">{{challenge.title}}</h2>
-                <p class="listSectionRemove listRemove{{$index}}">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
+                <h2 style="color: white" style="cursor: pointer" class="listContent listTitle listRemove{{$index}}" ng-click="challenges.swap($index)">{{challenge.title}}</h2>
+                <p ng-click="challenges.swap($index)" class="listSectionRemove listRemove{{$index}}">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
                 <button type="button" class="acceptButton" ng-click="challenges.goTo($index)" id="{{$index}}btn"></button>
                <!-- <div class="detailsButton" id="{{}}" ng-mouseEnter="" ng-mouseLeave="">details</div> -->
               </div>
             </div>
         </div>
-        <div class="lImage lImage{{$index}}" ng-if="challenge.isPhoto" >
+        <div class="lImage lImage{{$index}}" ng-if="challenge.isPhoto" ng-click="challenges.swap($index)">
           <img class="lImageImg lImageimg{{$index}}" src="{{challenge.photo}}" alt="" />
         </div>
         <div class="lVideo lVideo{{$index}}">

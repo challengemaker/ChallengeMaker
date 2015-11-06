@@ -288,6 +288,15 @@ body {
   /*position: absolute;*/
 }
 
+.clickLayerList {
+  outline: 2px solid white;
+  position: absolute;
+  height: 100%;
+  width: 35%;
+  margin-left: 55%;
+  z-index: 22;
+}
+
 .comp-chal-button {
   font-size: 25px;
   font-weight: bold;

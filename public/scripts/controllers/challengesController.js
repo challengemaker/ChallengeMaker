@@ -109,27 +109,43 @@ var app = angular.module('challengesController', [])
           $('.lImageimg'+index).css('height', "0px")
 
           var src = $('.lImageimg'+index)[0].attributes.src.value;
-          // $(".listRemove"+index).css({
-          //   opacity: 0
-          // })
           self.listVideoSources[index] = src
         } else {
           var imageSrc = self.listVideoSources[index]
           $('.listVid'+index).remove();
           $('.lImage'+index).css('height', videoHeight)
           $('.lImageimg'+index).css('height', videoHeight)
-          // $('.listVid'+index).remove();
-          // $('.lVideo'+index).css({
-          //   height: "0px"
-          // })
-          // $('.lImage'+index).append(
-          //   "<img class='lImageImg lImageimg("+index+")' "+ "src='"+imageSrc+"'/>"
-          // )
-          // $(".listRemove"+index).css({
-          //   opacity: 1
-          // })
         }
       }
+
+      $('.clickLayerList').on('click', function(){
+        console.log('yo');
+        console.log(index);
+        var height = ($(".lImageimg"+index).height()-5)
+        console.log(height)
+        var width = $(".lImageimg"+index).width()
+        var videoHeight = $(".lVideo"+index).height()
+        var url = self.allChallenges[index].videoUrl+"?autoplay=1";
+        ////////this next only triggers if it's the first time it's been clicked
+        if(height > 0) {
+          $('.lImageimg'+index).height('0px')
+          $('.lVideo'+index).append(
+            "<iframe class='listVid"+index+
+            " listVid{{$index}}' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+            "</iframe>"
+          )
+          $('.lImage'+index).css('height', "0px")
+          $('.lImageimg'+index).css('height', "0px")
+
+          var src = $('.lImageimg'+index)[0].attributes.src.value;
+          self.listVideoSources[index] = src
+        } else {
+          var imageSrc = self.listVideoSources[index]
+          $('.listVid'+index).remove();
+          $('.lImage'+index).css('height', videoHeight)
+          $('.lImageimg'+index).css('height', videoHeight)
+        }
+      })
       ////////start all the video-photo toggle actions
       //////////////begin the video=photo toggle on the listview, single challenge
       self.swapResponse = function swap(index){
