@@ -1,4 +1,4 @@
-<div class="challengeContainer beenContainer" ng-click="challenges.toggleBeen()">
+<!-- <div class="challengeContainer beenContainer" ng-click="challenges.toggleBeen()">
   <div class="row">
     <div class="challengeHolder col-xs-12">
       <div class="challengeInfo">
@@ -16,6 +16,41 @@
       <div class="challengePhoto">
         <img class="challImg" src="{{challenges.beenChallengedData.photo}}" alt="" />
       </div>
+    </div>
+  </div>
+</div> -->
+<!-- //////////////////
+//////////////////
+/
+
+////////////////
+/////////////// -->
+
+<div class="hContainer" >
+  <div class="blackLayer" ng-click="challenges.swapSpecialYouve()">
+    <span class="glyphicon glyphicon-play-circle playButtonH"></span>
+  </div>
+  <div class="hMediaHolder" ng-click="challenges.swapSpecial()">
+    <div class="highlightText" ng-click="challenges.swapSpecial()">
+      <div class="texttext">
+        <div class="highlightTextHolder" ng-click="challenges.swapSpecial()" style="cursor: pointer">
+          <p class="titleCont titleContCharity">{{challenges.specialChallenge.charity[0]}}</p>
+          <br>
+          <p class="titleCont titleContTitle">{{challenges.challenged}}</p>
+          <h4 style="color: white" class="hRemoveDescription">$0 if completed or donate ${{challenges.specialChallenge.minimumDonation}} to {{challenges.specialChallenge.charity[0]}}</h4>
+          <h3 style='color:white'>You've Been Challenged By: {{challenges.challengerName}}</h3>
+          <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}"></button>
+          <!-- <div class="detailsButton" id="{{challenges.specialChallenge._id}}" ng-mouseEnter="challenges.showDetails(challenges.specialChallenge._id)" ng-mouseLeave="challenges.removeDetails(challenges.specialChallenge._id)
+          ">details</div> -->
+        </div>
+      </div>
+      <div class="texttext col-xs-4" >
+      </div>
+    </div>
+    <div class="hImage">
+      <img class = "hImageImg" src="{{challenges.vidThumb}}" alt="" />
+    </div>
+    <div class="hVideo" >
     </div>
   </div>
 </div>

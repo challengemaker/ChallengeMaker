@@ -208,6 +208,46 @@ var app = angular.module('challengesController', [])
           $('.hImageImg').css('height', videoHeight)
         }
       }
+      /////begin for the big vahllenge on the home page
+      self.swapSpecialYouve = function swapSpecialYouve(){
+        var height = ($(".hImage").height()-5);
+        var videoHeight = $(".hVideo").height();
+        var url = "https://www.youtube.com/embed/"+self.challengerVideoId+"?autoplay=1"
+        if(height > 0) {
+          $('.hVideo').append(
+            "<iframe class='specialVid"+
+            "'width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+            "</iframe>"
+          )
+          $('.hImage').css('height', "0px")
+          $('.hImageImg').css('height', "0px")
+          $('.titleCont').css({
+            opacity: 0
+          })
+          $('.hRemoveDescription').css({
+            opacity: 0
+          })
+          $('.playButtonH').css({
+            opacity: 0
+          })
+          $('.blackLayer').css({
+            width: "0px"
+          })
+        } else {
+          $('.titleCont').css({
+            opacity: 1
+          })
+          $('.hRemoveDescription').css({
+            opacity: 1
+          })
+          $('.blackLayer').css({
+            width: "100%"
+          })
+          $('.specialVid').remove();
+          $('.hImage').css('height', videoHeight)
+          $('.hImageImg').css('height', videoHeight)
+        }
+      }
       //////singlehighlight swap
       self.swapHighlightSingle = function(){
         var height = ($(".currentChallengeImage").height()-5);
@@ -261,12 +301,15 @@ var app = angular.module('challengesController', [])
       }
       ////begin page if statement, for seperated data
       if(window.location.hash.split('/')[1] == 'youvebeenchallenged'){
-        var challenge = window.location.hash.split('/')[2];
-        var challengerName = window.location.hash.split('/')[4].split('-').join(' ');
+        self.challenged = window.location.hash.split('/')[2].split('-').join(' ')
+        var challengerName = window.location.hash.split('/')[4].split('-').join(' ')
         self.challengerName = challengerName;
-        var challengerVideoId = window.location.hash.split('/')[3];
+        var challengerVideoId = window.location.hash.split('/')[3]
+        self.challengerVideoId = challengerVideoId
         var challengerVideo = "https://www.youtube.com/embed/"+challengerVideoId
-        self.challengerVideo = challengerVideo;
+        console.log(challengerVideo);
+        self.vidThumb = "https://img.youtube.com/vi/"+self.challengerVideoId+"/0.jpg"
+        self.challengerVideo = challengerVideo
         $('.acceptButton').on('click', function(){
           var userToken = window.localStorage.sessionToken
           var challengeName = window.location.hash.split('/')[2]
@@ -282,7 +325,7 @@ var app = angular.module('challengesController', [])
         }
         setInterval(setBeenBlack, 80);
 
-        $http.get('/api/challenges/'+challenge)
+        $http.get('/api/challenges/'+self.challenged)
           .then(function(data){
             var url = self.challengerVideo
             ///begin creating "youve been challenged" data model, which will later go into a factory
