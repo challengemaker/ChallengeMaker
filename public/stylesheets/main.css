@@ -289,11 +289,10 @@ body {
 }
 
 .clickLayerList {
-  outline: 2px solid white;
   position: absolute;
   height: 100%;
-  width: 35%;
-  margin-left: 55%;
+  width: 63%;
+  margin-left: 36%;
   z-index: 22;
 }
 
