@@ -1092,6 +1092,10 @@ body {
   position: absolute;
 }
 
+.questionButtons {
+  color: #999999;
+}
+
 .questionContainer {
   display: block;
   height: 70%;
@@ -1376,6 +1380,10 @@ body {
 .titleDescBox {
   position: relative;
   text-align: center;
+}
+
+.titleDescBox h1, h2, h3, h4 {
+  color: #999999;
 }
 
 .topChallenges {
