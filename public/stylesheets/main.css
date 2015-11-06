@@ -1372,12 +1372,11 @@ body {
 }
 
 .titleContCharity {
-
+  line-height: 0.8;
 }
 
 .titleContTitle {
   line-height: 0.8;
-  margin-top: -10px;
 }
 
 .titleDescBox {
