@@ -1193,6 +1193,7 @@ body {
 .signinBox h1{
   text-align: center;
   font-size: 46px;
+  color: #999999
 }
 
 .signinContainer {
@@ -1241,6 +1242,7 @@ body {
 .signupBox h1{
   text-align: center;
   font-size: 46px;
+  color: #999999;
 }
 
 /*.signupBoxInput {
