@@ -807,7 +807,7 @@ body {
 }
 
 .infoBarText p{
-  font-size: 25px;
+  /*font-size: 25px;*/
   /*font-weight: bolder;*/
   /*line-height: 2;*/
   color: white;
