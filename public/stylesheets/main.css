@@ -63,20 +63,22 @@
 }
 
 .acceptButton {
-  background-color: white;
+  background: url("../assets/acceptbutton.svg");
+  /*background-color: white;*/
   color: gray;
-  width: 225px;
+  width: 190px;
   text-align: center;
   display: block;
   font-size: 20px;
   margin: 0 2px;
   font-weight: bolder;
-  opacity: 0.5;
+  /*opacity: 0.5;*/
 }
 
 .acceptButton:hover {
-  background-color: purple;
-  opacity: .90;
+  background: url("../assets/acceptbutton_over.svg");
+  /*background-color: purple;*/
+  /*opacity: .90;*/
 }
 
 .acceptedVideos {
