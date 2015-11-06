@@ -4,16 +4,58 @@
 
 /*Begin classes*/
 
-.bodyView {
-  width: 95%;
-  min-width: 100%;
+.aboutBackgroundImage img {
+  width:100%;
+  height:120%;
+  z-index: 2;
+  position: absolute;
 }
-  /*98% eliminates the horizontal scroll issue*/
 
+.aboutBox {
+  padding: 20px 20px 20px 20px;
+  background-color: #E1E1E1;
+  position: absolute;
+}
 
-body {
-  padding-top: 66px;
- }
+.aboutBox h1{
+  text-align: center;
+  font-size: 46px;
+  font-weight: bold;
+  color: #999999
+}
+
+.aboutBox p {
+  color: #666666
+}
+
+.aboutButton {
+  background-color: white;
+  color: #999999;
+  width: 225px;
+  text-align: middle;
+  display: block;
+  font-size: 20px;
+  margin: 0 auto;
+  font-weight: bolder;
+  opacity: 0.5;
+}
+
+.aboutButton:hover {
+  background-color: #C31C85;
+  color: white;
+  opacity: .90;
+}
+
+.aboutContainer {
+  margin-top: 50px;
+  z-index: 10;
+}
+
+.aboutList p {
+  margin: 0px 0px 10px 20px;
+  text-align: left;
+  font-size: 22px;
+}
 
 .acceptBeen {
   height: 38px;
@@ -126,6 +168,16 @@ body {
   position: absolute;
 }
 
+body {
+  padding-top: 66px;
+ }
+
+.bodyView {
+  width: 95%;
+  min-width: 100%;
+}
+  /*98% eliminates the horizontal scroll issue*/
+
 .bodyView {
   display: block;
   height: 100%;
@@ -236,10 +288,12 @@ body {
 
 .comp-chal-button {
   font-size: 25px;
+  font-weight: bold;
   background-color: #b6b6b6;
+  color: #525252;
   margin: 15px 10px 5px 0px;
-  height:80px;
-  width:100%;
+  height: 80px;
+  width: 100%;
   vertical-align: middle;
 }
 
@@ -259,7 +313,6 @@ body {
   position: absolute;
 }
 
-
 .contactBox {
   padding: 20px 20px 20px 20px;
   background-color: #E1E1E1;
@@ -269,6 +322,8 @@ body {
 .contactBox h1{
   text-align: center;
   font-size: 46px;
+  font-weight: bold;
+  color: #999999
 }
 
 .contactContainer {
@@ -285,7 +340,7 @@ body {
   width: 80%;
   margin-left: 10%;
   margin-top: 30px;
-  height: 150px;
+  height: 120px;
   font-size: 25px;
   text-align: center;
 }
@@ -417,6 +472,7 @@ body {
 .currentDescription {
   padding: 0px 0px 0px 10px;
   font-size: 20px;
+  color: #666666;
 }
 
 .currentDescDiv {
@@ -437,6 +493,7 @@ body {
 
 .currentTitle2 {
   font-size: 26px;
+  color: #999999;
   text-align: center;
   font-weight: bold;
   height: 40px;
@@ -516,15 +573,29 @@ body {
 }
 
 .dropdownContainer {
-  width: 163px;
-  margin-left: -98px;
+  width: 200px;
+  margin-left: -135px;
   height: 100%;
   margin-top: 47px;
   position: fixed;
   z-index: 200;
   background-color: #585858;
-  opacity: 0.8;
+  opacity: 0.9;
   text-align: left;
+}
+
+@media only screen and (max-width: 992px) {
+    .dropdownContainer {
+      width: 400px;
+      margin-left: -335px;
+      height: 100%;
+      margin-top: 47px;
+      position: fixed;
+      z-index: 200;
+      background-color: #585858;
+      opacity: 0.9;
+      text-align: left;
+    }
 }
 
 .dropdownIcon {
@@ -550,15 +621,23 @@ body {
 }
 
 .dropItem {
-  font-size: 20px;
-  margin-top: 5px;
-  border-bottom: 3px dotted gray;
+  font-size: 25px;
+  margin-top: 15px;
+  text-indent: 20px;
   color: white;
+}
+
+@media only screen and (max-width: 992px) {
+  .dropItem {
+    text-indent: 20px;
+    font-size: 38px;
+    margin-top: 20px;
+    color: white;
+  }
 }
 
 .footerContainer {
   height: 75px;
-  /*background-color: green;*/
   display: block;
 }
 
@@ -636,20 +715,24 @@ body {
 }
 
 .highlightText {
-  width: 90%;
+  width: 68.38%;
   height: 0%;
   position: absolute;
   z-index: 10;
 }
 
 .highlightTextHolder {
-  width: 60%;
+  width: 100%;
   margin-left: 10%;
   text-align: left;
-
 }
 
 .highlightTextHolder h1{
+  font-size: 52px;
+  font-weight: bolder;
+}
+
+.highlightTextHolder p{
   font-size: 52px;
   font-weight: bolder;
 }
@@ -663,16 +746,21 @@ body {
 }
 
 .hMediaHolder {
-  margin-top: 5px;
   width: 100%;
   min-height: 100%;
   overflow: auto;
   position: relative;
+  margin-top: "-10px";
 }
 
 .homeRepeat {
   display: block;
   /*position: relative;*/
+}
+
+.hRemoveDescription {
+  margin-top: 70px;
+  width: 60%;
 }
 
 .hVideo {
@@ -711,6 +799,26 @@ body {
   font-weight: bold;
 }
 
+.infoBarContainer{
+  /*height: 55px;*/
+  width: 100%;
+  display: block;
+  background: url("../assets/orange.jpg");
+}
+
+.infoBarText {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.infoBarText p{
+  font-size: 25px;
+  /*font-weight: bolder;*/
+  /*line-height: 2;*/
+  color: white;
+  margin: 0;
+}
+
 .lContainer {
   width: 100%;
   min-height: 100%;
@@ -732,6 +840,12 @@ body {
   /*outline: 2px solid yellow;*/
 }
 
+.listContent {
+  line-height: 0.8;
+  margin-top: -10px;
+  font-weight: bolder;
+}
+
 .listContainer {
   /*outline: 2px solid black;*/
   position: relative;
@@ -739,14 +853,14 @@ body {
 }
 
 .listText {
-  width: 90%;
+  width: 68.5%;
   max-height: 300px;
   position: absolute;
   z-index: 10;
 }
 
 .listTextHolder {
-  width: 80%;
+  width: 100%;
   margin-left: 10%;
   text-align: left;
 }
@@ -757,7 +871,9 @@ body {
 }
 
 .listTitle {
-  margin-top: -8px;
+  line-height: 0.8;
+  margin-top: -10px;
+  font-weight: bolder;
 }
 
 .lMediaHolder {
@@ -977,6 +1093,10 @@ body {
   position: absolute;
 }
 
+.questionButtons {
+  color: #999999;
+}
+
 .questionContainer {
   display: block;
   height: 70%;
@@ -1046,6 +1166,7 @@ body {
 
 .responseVideoTitle {
   padding: 0px 0px 0px 10px;
+  color: #999999;
 }
 
 .signIn {
@@ -1243,9 +1364,27 @@ body {
   position: relative;
 }
 
+.titleCont {
+  margin: 0px;
+  padding: 0px;
+}
+
+.titleContCharity {
+
+}
+
+.titleContTitle {
+  line-height: 0.8;
+  margin-top: -10px;
+}
+
 .titleDescBox {
   position: relative;
   text-align: center;
+}
+
+.titleDescBox h1, h2, h3, h4 {
+  color: #999999;
 }
 
 .topChallenges {

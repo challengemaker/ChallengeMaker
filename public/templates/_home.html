@@ -1,21 +1,27 @@
-
+<div class="infoBarContainer">
+  <div class="infoBarText">
+    <p>
+      Video Fundraising Challenges
+    </p>
+  </div>
+</div>
 <div class="hContainer" >
   <div class="blackLayer" ng-click="challenges.swapSpecial()">
     <span class="glyphicon glyphicon-play-circle playButtonH"></span>
   </div>
   <div class="hMediaHolder" ng-click="challenges.swapSpecial()">
     <div class="highlightText" ng-click="challenges.swapSpecial()">
-      <div class="texttext col-lg-8 col-md-10 col-xs-12">
-        <div class="highlightTextHolder">
-          <h1 class="titleCont">{{challenges.specialChallenge.charity[0]}}</h1>
-          <h1 class="titleCont">{{challenges.specialChallenge.title}}</h1>
-          <p class="hRemoveDescription">$0 if completed or donate ${{challenges.specialChallenge.minimumDonation}} to {{challenges.specialChallenge.charity[0]}}</p>
+      <div class="texttext">
+        <div class="highlightTextHolder" ng-click="challenges.swapSpecial()" style="cursor: pointer">
+          <p class="titleCont titleContCharity">{{challenges.specialChallenge.charity[0]}}</p>
+          <p class="titleCont titleContTitle">{{challenges.specialChallenge.title}}</p>
+          <h4 style="color: white" class="hRemoveDescription">$0 if completed or donate ${{challenges.specialChallenge.minimumDonation}} to {{challenges.specialChallenge.charity[0]}}</h4>
           <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}">Accept Challenge</button>
           <!-- <div class="detailsButton" id="{{challenges.specialChallenge._id}}" ng-mouseEnter="challenges.showDetails(challenges.specialChallenge._id)" ng-mouseLeave="challenges.removeDetails(challenges.specialChallenge._id)
           ">details</div> -->
         </div>
       </div>
-      <div class="texttext col-xs-4">
+      <div class="texttext col-xs-4" >
       </div>
     </div>
     <div class="hImage">
@@ -31,17 +37,17 @@
   <div class="blackLayerListAll">
 
   </div>
-  <div ng-repeat="challenge in challenges.allChallenges" class="listContainer col-md-6 col-12-xs">
+  <div ng-repeat="challenge in challenges.allChallenges" class="listContainer col-md-6 col-12-xs"  ng-click="challenges.swap($index)">
     <div style="margin: 0px" class="row">
       <!-- <div class="blackLayerList" ng-click="challenges.swap($index)">
         <span class="glyphicon glyphicon-play-circle playButtonL"></span>
       </div> -->
       <div class="lMediaHolder" ng-click="challenges.swap($index)">
         <div class="listText listText{{$index}} row">
-            <div class="texttext col-md-10 col-xs-12">
-              <div class="listTextHolder" ng-click="challenges.swap($index)">
-                <h2 class="listRemove{{$index}}">{{challenge.charity[0]}}</h2>
-                <h3 class="listTitle listRemove{{$index}}">{{challenge.title}}</h3>
+            <div class="texttext">
+              <div style="cursor: pointer" class="listTextHolder" ng-click="challenges.swap($index)">
+                <h2 style="color: white" style="cursor: pointer" ng-click="challenges.swap($index)" class="listContent listRemove{{$index}}">{{challenge.charity[0]}}</h2>
+                <h2 style="color: white" style="cursor: pointer" class="listContent listTitle listRemove{{$index}}">{{challenge.title}}</h2>
                 <p class="listSectionRemove listRemove{{$index}}">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
                 <button type="button" class="acceptButton" ng-click="challenges.goTo($index)" id="{{$index}}btn">Accept Challenge</button>
                <!-- <div class="detailsButton" id="{{}}" ng-mouseEnter="" ng-mouseLeave="">details</div> -->

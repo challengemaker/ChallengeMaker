@@ -47,18 +47,16 @@ angular.module('mainController', [])
         $('.dropdownIcon').append(
           "<div style='cursor: pointer' class='dropdownContainer'>"+
             "<div class='dropItem' id='dropHome'>Home</div>"+
-            // "<div class='dropItem' id='dropAbout'>About</div>"+
-            // // "<div class='dropItem' id='dropWhat'>What we do</div>"+
+            "<div class='dropItem' id='dropSignin'>Sign In</div>"+
+            "<div class='dropItem' id='dropLogout'>Sign Out</div>"+
+            "<div class='dropItem' id='dropAbout'>About</div>"+
             "<div class='dropItem' id='dropContact'>Contact</div>"+
             "<div class='dropItem' id='dropPrivacy'>Privacy</div>"+
             "<div class='dropItem' id='dropTerms'>Terms</div>"+
-            // "<div class='dropItem' id='dropProfile'>Profile</div>"+
-            "<div class='dropItem' id='dropSignin'>Sign In</div>"+
-            "<div class='dropItem' id='dropLogout'>Sign Out</div>"+
             "<div class='dropItem' id='dropFacebook'>Facebook</div>"+
             "<div class='dropItem' id='dropTwitter'>Twitter</div>"+
           "</div>"
-        );
+        )
 
         $('#dropHome').on('click', function(){
           window.location.hash = "#/"
@@ -98,9 +96,9 @@ angular.module('mainController', [])
           });
         });
 
-        // $('#dropAbout').on('click', function(){
-        //   window.location.hash = "#/about"
-        // });
+        $('#dropAbout').on('click', function(){
+          window.location.hash = "#/about"
+        });
 
         $('#dropAbout').on('mouseenter', function(){
           $('#dropAbout').css({
