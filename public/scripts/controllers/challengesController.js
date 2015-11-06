@@ -71,7 +71,7 @@ var app = angular.module('challengesController', [])
 		$http.get('/api/challenges')
       .then(function(data){
         var allChallenges = data.data;
-        self.specialChallenge = allChallenges[3]
+        self.specialChallenge = allChallenges[allChallenges.length-1]
         /////we'er adding an new attr to the object
         for (var i = 0; i < allChallenges.length; i++) {
           allChallenges[i].isPhoto = true;
