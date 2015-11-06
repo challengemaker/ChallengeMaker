@@ -45,8 +45,8 @@
       <div class="lMediaHolder" ng-click="challenges.swap($index)">
         <div class="listText listText{{$index}} row">
             <div class="texttext">
-              <div class="listTextHolder">
-                <h2 class="listContent listRemove{{$index}}">{{challenge.charity[0]}}</h2>
+              <div class="listTextHolder" ng-click="challenges.swap($index)">
+                <h2 ng-click="challenges.swap($index)" class="listContent listRemove{{$index}}">{{challenge.charity[0]}}</h2>
                 <h2 class="listContent listTitle listRemove{{$index}}">{{challenge.title}}</h2>
                 <p class="listSectionRemove listRemove{{$index}}">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
                 <button type="button" class="acceptButton" ng-click="challenges.goTo($index)" id="{{$index}}btn">Accept Challenge</button>
