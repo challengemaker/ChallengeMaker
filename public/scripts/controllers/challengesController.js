@@ -193,6 +193,8 @@ var app = angular.module('challengesController', [])
           $('.blackLayer').css({
             width: "0px"
           })
+          console.log($('.specialVid'))
+          $('.specialVid').playVideo()
         } else {
           $('.titleCont').css({
             opacity: 1
@@ -467,8 +469,8 @@ var app = angular.module('challengesController', [])
       ////////////////Create a function to auto-adjust home page big window font-size
       function makeFit(){
         var windowSize = parseInt($(window).width())
-        console.log(windowSize)
-        console.log($(window).width())
+        // console.log(windowSize)
+        // console.log($(window).width())
         if(windowSize >= 1427){
           console.log('yellow')
           $('.titleCont').css({
