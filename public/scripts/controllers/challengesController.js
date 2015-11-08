@@ -76,7 +76,8 @@ var app = angular.module('challengesController', [])
         for (var i = 0; i < allChallenges.length; i++) {
           allChallenges[i].isPhoto = true;
         }
-        self.allChallenges = allChallenges;
+        self.allChallenges = allChallenges
+        self.allChallenges.pop()
         //////now it's all set and ready to go
         self.goTo = function goTo(index){
           var elem = self.allChallenges[index];
