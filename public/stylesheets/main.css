@@ -72,7 +72,6 @@
   font-size: 20px;
   margin: 0 2px;
   font-weight: bolder;
-  /*opacity: 0.5;*/
 }
 
 .acceptButton:hover {
@@ -270,6 +269,10 @@ body {
   position: absolute;
   width: 100%;
   z-index: -1;
+}
+
+.challengeSwitch {
+  opacity: 0;
 }
 
 .challFrContainer {
@@ -863,7 +866,7 @@ body {
 }
 
 .listText {
-  width: 68.5%;
+  width: 67%;
   max-height: 300px;
   position: absolute;
   z-index: 10;

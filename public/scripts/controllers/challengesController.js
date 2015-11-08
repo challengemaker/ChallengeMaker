@@ -75,7 +75,16 @@ var app = angular.module('challengesController', [])
         /////we'er adding an new attr to the object
         for (var i = 0; i < allChallenges.length; i++) {
           allChallenges[i].isPhoto = true;
+          if(allChallenges[i].title.length < 20){
+            allChallenges[i].title = allChallenges[i].title + " pppppppppppppppppp"
+          }
+          console.log(allChallenges[i].charity)
+          console.log(allChallenges[i].charity[0].length)
+          if(allChallenges[i].charity[0].length < 19){
+            allChallenges[i].charity[0] = allChallenges[i].charity[0] + " pppppppppppppppppp"
+          }
         }
+        console.log(allChallenges);
         self.allChallenges = allChallenges
         self.allChallenges.pop()
         //////now it's all set and ready to go
@@ -86,7 +95,6 @@ var app = angular.module('challengesController', [])
         }
       })
       ////end call to get all challenges
-
       /////begin code to toggle picture and video on the site
       self.listVideoSources = []
       self.startListCounter = []
@@ -102,16 +110,14 @@ var app = angular.module('challengesController', [])
         if(height > 0) {
           $('.lImageimg'+index).height('0px')
           $('.lVideo'+index).append(
-            "<iframe class='listVid"+index+
-            " listVid{{$index}}' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+            "<iframe class='listVid"+index+"' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
             "</iframe>"
           )
           $('.lImage'+index).css('height', "0px")
           $('.lImageimg'+index).css('height', "0px")
           $('.listTextContent'+index).css({marginLeft: "-2000px"})
-          var src = $('.lImageimg'+index)[0].attributes.src.value;
+          var src = $('.lImageimg'+index)[0].attributes.src.value
           self.listVideoSources[index] = src
-          console.log($('iframe'))
         } else {
           var imageSrc = self.listVideoSources[index]
           $('.listVid'+index).remove();
@@ -121,8 +127,7 @@ var app = angular.module('challengesController', [])
           $('.listTextHolder'+index).height('200px')
         }
       }
-
-      $('.clickLayerList').on('click', function(){
+      $('.clickLayerList').on('click', function(evt){
         console.log('yo');
         console.log(index);
         var height = ($(".lImageimg"+index).height()-5)
@@ -135,12 +140,11 @@ var app = angular.module('challengesController', [])
           $('.lImageimg'+index).height('0px')
           $('.lVideo'+index).append(
             "<iframe class='listVid"+index+
-            " listVid{{$index}}' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+            "' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
             "</iframe>"
           )
           $('.lImage'+index).css('height', "0px")
           $('.lImageimg'+index).css('height', "0px")
-
           var src = $('.lImageimg'+index)[0].attributes.src.value;
           self.listVideoSources[index] = src
         } else {
