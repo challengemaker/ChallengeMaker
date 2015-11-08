@@ -749,15 +749,12 @@ var app = angular.module('challengesController', [])
           $('.listContent').css({
             fontSize: '27px'
           })
-        } else if(windowSize >= 989){
+        } else if(windowSize >= 993){
           $('.titleCont').css({
               fontSize: "77px"
             })
           $('.listContent').css({
             fontSize: '26px'
-          })
-          $('.listContent').css({
-            fontSize: "77px"
           })
         } else if(windowSize >= 976){
           $('.titleCont').css({
@@ -1120,6 +1117,6 @@ var app = angular.module('challengesController', [])
       }, 500)
       ///////////////////end creating font-adjusting function
       ///////////////////////////////////////////////////////
-      
+
     ////////////////////end of the controller
     }
