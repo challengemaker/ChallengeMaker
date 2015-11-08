@@ -107,14 +107,17 @@ var app = angular.module('challengesController', [])
           )
           $('.lImage'+index).css('height', "0px")
           $('.lImageimg'+index).css('height', "0px")
-
+          $('.listTextContent'+index).css({marginLeft: "-2000px"})
           var src = $('.lImageimg'+index)[0].attributes.src.value;
           self.listVideoSources[index] = src
+          console.log($('iframe'))
         } else {
           var imageSrc = self.listVideoSources[index]
           $('.listVid'+index).remove();
+          $('.listTextContent'+index).css({marginLeft: "0px"})
           $('.lImage'+index).css('height', videoHeight)
           $('.lImageimg'+index).css('height', videoHeight)
+          $('.listTextHolder'+index).height('200px')
         }
       }
 
@@ -193,8 +196,9 @@ var app = angular.module('challengesController', [])
           $('.blackLayer').css({
             width: "0px"
           })
+
           console.log($('.specialVid'))
-          $('.specialVid').playVideo()
+          $('.specialVid')[0].playVideo()
         } else {
           $('.titleCont').css({
             opacity: 1
