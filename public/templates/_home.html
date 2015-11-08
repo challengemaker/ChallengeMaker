@@ -52,8 +52,8 @@
               <div style="cursor: pointer" class="listTextHolder">
                 <h2 class="listTextContent{{$index}}" style="color: white" style="cursor: pointer" class="listContent listRemove{{$index}}">{{challenge.charity[0]}}</h2>
                 <br>
-                <h2 class="listTextContent{{$index}}" style="color: white" style="cursor: pointer" class="listContent listTitle listRemove{{$index}}" ng-click="challenges.swap($index)">{{challenge.title}}</h2>
-                <p class="listTextContent{{$index}}" ng-click="challenges.swap($index)" class="listSectionRemove listRemove{{$index}}">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
+                <h2 style="color: white" style="cursor: pointer" class="listContent listTitle" ng-click="challenges.swap($index)">{{challenge.title}}</h2>
+                <p ng-click="challenges.swap($index)" class="listSectionRemove listRemove{{$index}}">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
                 <button type="button" class="acceptButton" ng-click="challenges.goTo($index)" id="{{$index}}btn"></button>
                <!-- <div class="detailsButton" id="{{}}" ng-mouseEnter="" ng-mouseLeave="">details</div> -->
               </div>
