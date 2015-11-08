@@ -76,12 +76,14 @@ var app = angular.module('challengesController', [])
         for (var i = 0; i < allChallenges.length; i++) {
           allChallenges[i].isPhoto = true;
           if(allChallenges[i].title.length < 20){
-            allChallenges[i].title = allChallenges[i].title + " pppppppppppppppppp"
+            allChallenges[i].title = allChallenges[i].title
+            // + " pppppppppppppppppp"
           }
           console.log(allChallenges[i].charity)
           console.log(allChallenges[i].charity[0].length)
           if(allChallenges[i].charity[0].length < 19){
-            allChallenges[i].charity[0] = allChallenges[i].charity[0] + " pppppppppppppppppp"
+            allChallenges[i].charity[0] = allChallenges[i].charity[0]
+            // + " pppppppppppppppppp"
           }
         }
         console.log(allChallenges);
@@ -128,10 +130,7 @@ var app = angular.module('challengesController', [])
         }
       }
       $('.clickLayerList').on('click', function(evt){
-        console.log('yo');
-        console.log(index);
         var height = ($(".lImageimg"+index).height()-5)
-        console.log(height)
         var width = $(".lImageimg"+index).width()
         var videoHeight = $(".lVideo"+index).height()
         var url = self.allChallenges[index].videoUrl+"?autoplay=1";
