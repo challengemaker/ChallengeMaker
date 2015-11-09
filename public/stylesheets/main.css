@@ -738,7 +738,7 @@ body {
 
 .highlightTextHolder {
   width: 100%;
-  margin-left: 10%;
+  margin-left: 4%;
   text-align: left;
 }
 
@@ -750,6 +750,11 @@ body {
 .highlightTextHolder p{
   font-size: 52px;
   font-weight: bolder;
+}
+
+.highlightTextHolder h4{
+  font-size: 30px;
+  font-weight: normal;
 }
 
 .hImage {
@@ -1041,19 +1046,21 @@ body {
 }
 
 .playButtonH {
-  margin: 20px 0px 0px 50%;
+  margin: 10px 0px 0px 63%;
 }
 
 .playButtonH img {
-  height: 120px;
+  height: 100px;
+  opacity: .66;
 }
 
 .playButtonL {
-  width: 100%;
-  font-size: 90px;
-  color: white;
-  margin-top: 20%;
-  text-align: center;
+  margin: 0px 0px 0px 55%;
+}
+
+.playButtonL img {
+  height: 50px;
+  opacity: .66;
 }
 
 .pwAttempt {
