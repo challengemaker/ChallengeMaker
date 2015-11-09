@@ -43,41 +43,33 @@ module.exports = function(app, passport){
     var name = req.params.name;
     User.findOne({name: name}, function(err, user){
       if(err){
-        res.send(err);
+        res.send(err)
       }
-      console.log(user);
-      res.json({user: user});
-    });
-  });
+      res.json({user: user})
+    })
+  })
 
 // create a new user - works
   app.post('/api/users', function(req, res){
-    console.log(req.body);
     var password = req.body.password;
-    console.log(password);
     User.create(req.body, function(err, user){
-      console.log(err);
-      res.json(user);
-    });
-  });
+      res.json(user)
+    })
+  })
 
 // update a user
   app.post('/api/users/update', function(req, res){
-    console.log(req.body);
     // var updateAttr = req.updateAttr;
     User.findOne(req.body.search, function(err, user){
       if(err){console.log(err)};
-      console.log("70 line");
       console.log(user);
       if(req.body.email){
         user.email = req.body.email;
       }
       if(req.body.name){
-        console.log('hit the name if');
         user.name = req.body.name;
       }
       user.save(function(){
-        console.log('in the callback');
         res.json(user);
       });
     });
@@ -89,23 +81,17 @@ module.exports = function(app, passport){
       _id: req.params.user_id
     }, function(err, user){
       if(err){
-        console.log(err);
         res.send(err);
       }
-      console.log("right BEFORE res.json message");
       res.json({ message : "successfully deleted"});
-      console.log("right AFTER res.json message");
     });
   })
 
   app.post('/api/users/updatepassword', function(req, res){
-    console.log(req.body);
     User.findOne({name: req.body.name}, function(err, user){
       if(err){console.log(err)}
       else if(user.validPassword(req.body.oldPassword)){
-        console.log(user);
         user.password = user.generateHash( req.body.newPassword )
-        console.log(user);
         user.save(function(data){
           res.json(user)
         })
@@ -120,7 +106,6 @@ module.exports = function(app, passport){
   app.get('/api/challenges', function(req, res){
     Challenge.find({}, function(err, challenges){
       if(err){res.send(err)}
-      console.log(challenges);
       res.json(challenges)
     });
   });
@@ -129,7 +114,6 @@ module.exports = function(app, passport){
   app.get('/api/challenges/:name', function(req, res){
     var rawName = req.params.name;
     var fullName = rawName.split('-').join(' ');
-    console.log(fullName);
     Challenge.findOne({"title": fullName}, {}, function(err, challenge){
       if(err){console.log(err)};
 
@@ -164,11 +148,9 @@ module.exports = function(app, passport){
 
 // update a challenge - works
   app.post('/api/challenges/:name', function(req, res){
-    console.log(req.body);
     // var updateAttr = req.updateAttr;
     Challenge.findOne(req.body.search, function(err, challenge){
       if(err){console.log(err)};
-      console.log(challenge);
       challenge.title = req.body.title;
       challenge.save(function(){
         res.json(challenge);
@@ -179,7 +161,6 @@ module.exports = function(app, passport){
 // delete a challenge  - works
   app.delete('/api/challenges/:title', function(req, res){
     var title = req.params.title.split('-').join(' ')
-    console.log(title);
     Challenge.remove({
       title: title
     }, function(err, challenge){
@@ -228,7 +209,6 @@ module.exports = function(app, passport){
 // update a charity
   app.post('/api/charities/update', function(req, res){
     // var updateAttr = req.updateAttr;
-    console.log(req.body);
     Charity.findOne(req.body.search, function(err, charity){
       if(err){console.log(err)};
       if(req.body.name){
@@ -359,7 +339,6 @@ module.exports = function(app, passport){
 
   ///////thank you email for users for contacting us
   app.post('/api/sendemail/contactthankyou', function(req, res){
-    console.log(req.body)
     mandrill_client.messages.send({
       message: {
         from_email: "contact@ChallengeMaker.com"
@@ -378,7 +357,6 @@ module.exports = function(app, passport){
 
   ///////make the automatic email for anyone who responds to a challenge
   app.post('/api/sendemail/challengecomplete', function(req, res){
-    console.log(req.body);
     mandrill_client.messages.send({
       message: {
         from_email: "ChallengeCompleted@ChallengeMaker.com"
@@ -390,13 +368,11 @@ module.exports = function(app, passport){
         }]
       }
     }, function(data){
-      console.log(data)
       res.json(data)
     })
   })
   //////email that will automatically challenge the people who friends challenge in their response videos
   app.post('/api/sendemail/challengefriends', function(req, res){
-    console.log(req.body);
     mandrill_client.messages.send({
       message: {
         from_email: "Challenged@ChallengeMaker.com"
@@ -421,7 +397,6 @@ module.exports = function(app, passport){
 
   ///////make the automatic email for anyone who responds to a challenge
   app.post('/api/sendemail/donation', function(req, res){
-    console.log(req.body);
     mandrill_client.messages.send({
       message: {
         from_email: "challenge@challengemaker.com"
@@ -474,7 +449,51 @@ module.exports = function(app, passport){
       // res.json(result.transaction);
       res.redirect('/#/challenges/'+req.body.challenge)
     })
-  });
+  })
+
+  merchantAccountParams = {
+  individual: {
+    firstName: "Jane",
+    lastName: "Doe",
+    email: "jane@14ladders.com",
+    phone: "5553334444",
+    dateOfBirth: "1981-11-19",
+    ssn: "456-45-4567",
+    address: {
+      streetAddress: "111 Main St",
+      locality: "Chicago",
+      region: "IL",
+      postalCode: "60622"
+    }
+  },
+  business: {
+    legalName: "Jane's Ladders",
+    dbaName: "Jane's Ladders",
+    taxId: "98-7654321",
+    address: {
+      streetAddress: "111 Main St",
+      locality: "Chicago",
+      region: "IL",
+      postalCode: "60622"
+    }
+  },
+  funding: {
+    descriptor: "Blue Ladders",
+    destination: "8476828273",
+    email: "funding@blueladders.com",
+    mobilePhone: "5555555555",
+    accountNumber: "1123581321",
+    routingNumber: "071101307"
+  },
+  tosAccepted: true,
+  masterMerchantAccountId: "14ladders_marketplace",
+  id: "blue_ladders_store"
+};
+
+gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
+  if(err)(console.log(err))
+  console.log(result)
+});
 
   ///////////end braintree routing/////////
   /////////////////////////////////////////
