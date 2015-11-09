@@ -492,10 +492,12 @@ module.exports = function(app, passport){
 
 gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
   if(err)(console.log(err))
-  console.log(result)
+  // console.log(result)
 });
 
-
+console.log(498);
+console.log(gateway.webhookNotification);
+console.log(500);
 
 //////webhook stuff//////
 /////////////////////////
@@ -504,7 +506,9 @@ app.post('/api/submerchantverified', function(req, res){
     req.body.bt_signature,
     req.body.bt_payload,
     function (err, webhookNotification) {
-      console.log("[Webhook Received " + webhookNotification.timestamp + "] | Kind: " + webhookNotification.kind + " | Subscription: " + webhookNotification.subscription.id);
+      if(err){console.log(err)}
+      // console.log("[Webhook Received " + webhookNotification.timestamp + "] | Kind: " + webhookNotification.kind + " | Subscription: " + webhookNotification.subscription.id);
+      console.log(webhookNotification);
     }
   )
 })
