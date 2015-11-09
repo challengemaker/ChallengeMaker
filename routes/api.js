@@ -502,22 +502,24 @@ app.post('/api/submerchantverified', function(req, res){
   // console.log(req.body)
   // console.log(gateway.webHookNotification)
   // console.log(req.body.webhookNotification)
-  gateway.webhookNotification.parse(req.body.bt_signature, req.body.bt_payload, function(err, data){
-    if(err){console.log("err is", err)}
-    console.log(507);
-    console.log(data)
-    res.json(data)
-  })
-    req.body.bt_signature,
-    req.body.bt_payload,
-    function (err, webhookNotification) {
-      if(err){console.log(err)}
-      // console.log("[Webhook Received " + webhookNotification.timestamp + "] | Kind: " + webhookNotification.kind + " | Subscription: " + webhookNotification.subscription.id);
-      console.log("BLAHHHHHHHH");
-      console.log(webhookNotification.timestamp);
-      console.log(webhookNotification);
-      console.log("BLAHHHHHHHH");
-    }
+  // gateway.webhookNotification.parse(req.body.bt_signature, req.body.bt_payload, function(err, data){
+  //   if(err){console.log("err is", err)}
+  //   console.log(507);
+  //   console.log(data)
+  //   res.json(data)
+  // })
+  gateway.webhookNotification.parse(req.body.bt_Signature, req.body.bt_Payload, function (err, webhookNotification) {
+  webhookNotification.kind === braintree.WebhookNotification.Kind.SubMerchantAccountApproved
+  // true
+  webhookNotification.merchantAccount.status
+  // "active"
+  webhookNotification.merchantAccount.id
+  // "blueLaddersStore"
+  webhookNotification.merchantAccount.masterMerchantAccount.id
+  // "14laddersMarketplace"
+  notification.merchantAccount.masterMerchantAccount.status
+  // "active"
+});
 })
 
 ////end webhook stuff////
