@@ -1046,11 +1046,11 @@ body {
 }
 
 .playButtonH {
-  margin: 10px 0px 0px 60%;
+  margin: 10px 0px 0px 63%;
 }
 
 .playButtonH img {
-  height: 150px;
+  height: 100px;
   opacity: .66;
 }
 
@@ -1059,7 +1059,7 @@ body {
 }
 
 .playButtonL img {
-  height: 70px;
+  height: 50px;
   opacity: .66;
 }
 
