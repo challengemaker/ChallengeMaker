@@ -79,14 +79,11 @@ var app = angular.module('challengesController', [])
             allChallenges[i].title = allChallenges[i].title
             // + " pppppppppppppppppp"
           }
-          console.log(allChallenges[i].charity)
-          console.log(allChallenges[i].charity[0].length)
           if(allChallenges[i].charity[0].length < 19){
             allChallenges[i].charity[0] = allChallenges[i].charity[0]
             // + " pppppppppppppppppp"
           }
         }
-        console.log(allChallenges);
         self.allChallenges = allChallenges
         self.allChallenges.pop()
         //////now it's all set and ready to go
@@ -102,9 +99,7 @@ var app = angular.module('challengesController', [])
       self.startListCounter = []
       self.listVideoToggleCounters = []
       self.swap = function swap(index){
-        console.log(index);
         var height = ($(".lImageimg"+index).height()-5)
-        console.log(height)
         var width = $(".lImageimg"+index).width()
         var videoHeight = $(".lVideo"+index).height()
         var url = self.allChallenges[index].videoUrl+"?autoplay=1";
@@ -204,7 +199,6 @@ var app = angular.module('challengesController', [])
             width: "0px"
           })
 
-          console.log($('.specialVid'))
           $('.specialVid')[0].playVideo()
         } else {
           $('.titleCont').css({
@@ -327,7 +321,6 @@ var app = angular.module('challengesController', [])
         var challengerVideoId = window.location.hash.split('/')[3]
         self.challengerVideoId = challengerVideoId
         var challengerVideo = "https://www.youtube.com/embed/"+challengerVideoId
-        console.log(challengerVideo);
         self.vidThumb = "https://img.youtube.com/vi/"+self.challengerVideoId+"/0.jpg"
         self.challengerVideo = challengerVideo
         $('.acceptButton').on('click', function(){
@@ -487,10 +480,7 @@ var app = angular.module('challengesController', [])
       ////////////////Create a function to auto-adjust home page big window font-size
       function makeFit(){
         var windowSize = parseInt($(window).width())
-        // console.log(windowSize)
-        // console.log($(window).width())
         if(windowSize >= 1427){
-          console.log('yellow')
           $('.titleCont').css({
               fontSize: "114px"
             })
@@ -501,7 +491,6 @@ var app = angular.module('challengesController', [])
             marginTop: "70px"
           })
         } else if(windowSize >= 1415){
-          console.log('mellow');
           $('.titleCont').css({
               fontSize: "113px"
             })
