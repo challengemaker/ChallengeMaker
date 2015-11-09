@@ -483,12 +483,12 @@ app.post('/api/submerchantverified', function(req, res){
   //     }
   //   }
   // }
-  gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
-    if(err)(console.log(err))
-    console.log('yoyoyoyoyo');
-    console.log(result.message)
-    console.log('yoyoyoyoyo');
-  })
+  // gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
+  //   if(err)(console.log(err))
+  //   console.log('yoyoyoyoyo');
+  //   console.log(result.message)
+  //   console.log('yoyoyoyoyo');
+  // })
 })
 ////end webhook stuff////
 /////////////////////////
