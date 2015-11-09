@@ -115,12 +115,9 @@ var app = angular.module('challengesController', [])
           $('.listText'+index).css({
             marginLeft: '-2000px'
           })
-          // $('.playButtonL'+index).css({
-          //   marginLeft: '-2000px'
-          // })
-          // $('.playButtonL'+index).css({
-          //   width: 0
-          // })
+          $('.acceptButton'+index).css({
+            marginLeft: "2000px"
+          })
           $('.listContainer'+index).css({
             zIndex: 150
           })
@@ -135,12 +132,6 @@ var app = angular.module('challengesController', [])
           $('.listText'+index).css({
             marginLeft: '-15px'
           })
-          // $('.playButtonL'+index).css({
-          //   marginLeft: '-2000px'
-          // })
-          // $('.playButtonL'+index).css({
-          //   width: 0
-          // })
           $('.listContainer'+index).css({
             zIndex: 150
           })
