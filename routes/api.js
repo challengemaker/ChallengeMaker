@@ -495,6 +495,18 @@ gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
   console.log(result)
 });
 
+
+
+//////webhook stuff//////
+/////////////////////////
+app.post('/api/submerchantverified', function(req, res){
+  console.log('merchant verification did something')
+
+})
+
+////end webhook stuff////
+/////////////////////////
+
   ///////////end braintree routing/////////
   /////////////////////////////////////////
 
