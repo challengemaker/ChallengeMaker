@@ -500,13 +500,14 @@ gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
 //////webhook stuff//////
 /////////////////////////
 app.post('/api/submerchantverified', function(req, res){
-  console.log('merchant verification did something')
-  console.log(req.body)
-  res.json({
-    mission: "successful",
-    message: req.body
-  })
-
+  gateway.webhookNotification.parse(
+    req.body.bt_signature,
+    req.body.bt_payload,
+    function (err, webhookNotification) {
+      console.log("[Webhook Received " + webhookNotification.timestamp + "] | Kind: " + webhookNotification.kind + " | Subscription: " + webhookNotification.subscription.id);
+    }
+  );
+  res.send(200);
 })
 
 ////end webhook stuff////
