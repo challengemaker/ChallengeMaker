@@ -502,10 +502,11 @@ gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
 //////webhook stuff//////
 /////////////////////////
 app.post('/api/submerchantverified', function(req, res){
-  console.log(req.body)
-  console.log(gateway.webHookNotification)
-  console.log(req.body.webhookNotification)
-  gateway.webhookNotification.parse(req.body.bt_signature, req.body.bt_payload, function(data){
+  // console.log(req.body)
+  // console.log(gateway.webHookNotification)
+  // console.log(req.body.webhookNotification)
+  gateway.webhookNotification.parse(req.body.bt_signature, req.body.bt_payload, function(err, data){
+    if(err){console.log("err is", err)}
     console.log(data)
     res.json(data)
   })
