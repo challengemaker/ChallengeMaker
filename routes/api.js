@@ -498,28 +498,8 @@ gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
 //////webhook stuff//////
 /////////////////////////
 app.post('/api/submerchantverified', function(req, res){
-  console.log('kjhsdfkjhsdfkjhsdkjfhsdkjfhsdkjfhsdkjfh');
-  // console.log(req.body)
-  // console.log(gateway.webHookNotification)
-  // console.log(req.body.webhookNotification)
-  // gateway.webhookNotification.parse(req.body.bt_signature, req.body.bt_payload, function(err, data){
-  //   if(err){console.log("err is", err)}
-  //   console.log(507);
-  //   console.log(data)
-  //   res.json(data)
-  // })
-  gateway.webhookNotification.parse(req.body.bt_signature, req.body.bt_payload, function (err, webhookNotification) {
-  webhookNotification.kind === braintree.WebhookNotification.Kind.SubMerchantAccountApproved
-  // true
-  webhookNotification.merchantAccount.status
-  // "active"
-  webhookNotification.merchantAccount.id
-  // "blueLaddersStore"
-  webhookNotification.merchantAccount.masterMerchantAccount.id
-  // "14laddersMarketplace"
-  notification.merchantAccount.masterMerchantAccount.status
-  // "active"
-});
+  console.log('kjhsdfkjhsdfkjhsdkjfhsdkjfhsdkjfhsdkjfh')
+
 })
 
 ////end webhook stuff////
