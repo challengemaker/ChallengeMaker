@@ -515,7 +515,7 @@ app.post('/api/submerchantverified', function(req, res){
       console.log(webhookNotification.timestamp);
       console.log(webhookNotification);
       console.log("BLAHHHHHHHH");
-    })
+    }
 })
 
 ////end webhook stuff////
