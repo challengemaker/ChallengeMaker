@@ -63,7 +63,7 @@
 }
 
 .acceptButton {
-  background: url("../assets/acceptbutton.svg");
+  background: url("../assets/pink_accept_button.svg");
   /*background-color: white;*/
   color: gray;
   width: 190px;
@@ -75,7 +75,7 @@
 }
 
 .acceptButton:hover {
-  background: url("../assets/acceptbutton_over.svg");
+  background: url("../assets/pink_accept_rollover.svg");
   /*background-color: purple;*/
   /*opacity: .90;*/
 }
