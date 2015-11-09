@@ -738,7 +738,7 @@ body {
 
 .highlightTextHolder {
   width: 100%;
-  margin-left: 10%;
+  margin-left: 4%;
   text-align: left;
 }
 
@@ -1049,11 +1049,11 @@ body {
 }
 
 .playButtonL {
-  width: 100%;
-  font-size: 90px;
-  color: white;
-  margin-top: 20%;
-  text-align: center;
+  margin: 10px 0px 0px 50%;
+}
+
+.playButtonL img {
+  height: 60px;
 }
 
 .pwAttempt {
