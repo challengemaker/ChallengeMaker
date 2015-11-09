@@ -502,17 +502,20 @@ gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
 //////webhook stuff//////
 /////////////////////////
 app.post('/api/submerchantverified', function(req, res){
-  gateway.webhookNotification.parse(
-    req.body.bt_signature,
-    req.body.bt_payload,
-    function (err, webhookNotification) {
-      if(err){console.log(err)}
-      // console.log("[Webhook Received " + webhookNotification.timestamp + "] | Kind: " + webhookNotification.kind + " | Subscription: " + webhookNotification.subscription.id);
-      console.log("BLAHHHHHHHH");
-      console.log(webhookNotification.timestamp);
-      console.log("BLAHHHHHHHH");
-    }
-  )
+  console.log(req.body)
+  console.log(req.body.webHookNotification)
+  console.log(req.body.webhookNotification)
+  // gateway.webhookNotification.parse(
+  //   req.body.bt_signature,
+  //   req.body.bt_payload,
+  //   function (err, webhookNotification) {
+  //     if(err){console.log(err)}
+  //     // console.log("[Webhook Received " + webhookNotification.timestamp + "] | Kind: " + webhookNotification.kind + " | Subscription: " + webhookNotification.subscription.id);
+  //     console.log("BLAHHHHHHHH");
+  //     console.log(webhookNotification.timestamp);
+  //     console.log("BLAHHHHHHHH");
+  //   }
+  // )
 })
 
 ////end webhook stuff////
