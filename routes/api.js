@@ -451,6 +451,24 @@ module.exports = function(app, passport){
     })
   })
 
+
+
+//////webhook stuff//////
+/////////////////////////
+app.post('/api/submerchantverified', function(req, res){
+  // console.log('kjhsdfkjhsdfkjhsdkjfhsdkjfhsdkjfhsdkjfh')
+  // sampleNotification = gateway.webhookTesting.sampleNotification(
+  // braintree.WebhookNotification.Kind.SubMerchantAccountApproved,
+  // "myId"
+  // )
+  // gateway.webhookNotification.parse(
+  //   sampleNotification.bt_signature,
+  //   sampleNotification.bt_payload,
+  //   function (err, webhookNotification) {
+  //     console.log(webhookNotification)
+  //     // "myId"
+  //   }
+  // )
   merchantAccountParams = {
   individual: {
     firstName: braintree.Test.MerchantAccountTest.Approve,
@@ -488,29 +506,13 @@ module.exports = function(app, passport){
   tosAccepted: true,
   masterMerchantAccountId: "14ladders_marketplace",
   id: "blue_ladders_store"
-};
-
-gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
-  if(err)(console.log(err))
-  console.log(result)
-})
-
-//////webhook stuff//////
-/////////////////////////
-app.post('/api/submerchantverified', function(req, res){
-  console.log('kjhsdfkjhsdfkjhsdkjfhsdkjfhsdkjfhsdkjfh')
-  sampleNotification = gateway.webhookTesting.sampleNotification(
-  braintree.WebhookNotification.Kind.SubMerchantAccountApproved,
-  "myId"
-  )
-  gateway.webhookNotification.parse(
-    sampleNotification.bt_signature,
-    sampleNotification.bt_payload,
-    function (err, webhookNotification) {
-      console.log(webhookNotification)
-      // "myId"
-    }
-  )
+  }
+  gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
+    if(err)(console.log(err))
+    console.log('yoyoyoyoyo');
+    console.log(result)
+    console.log('yoyoyoyoyo');
+  })
 })
 ////end webhook stuff////
 /////////////////////////
