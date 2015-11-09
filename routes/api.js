@@ -465,6 +465,7 @@ app.post('/api/submerchantverified', function(req, res){
     sampleNotification.bt_payload,
     function (err, webhookNotification) {
       console.log(webhookNotification)
+      console.log();
     }
   )
   // merchantAccountParams = {
