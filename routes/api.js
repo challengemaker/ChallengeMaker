@@ -501,8 +501,10 @@ gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
 /////////////////////////
 app.post('/api/submerchantverified', function(req, res){
   console.log('merchant verification did something')
+  console.log(req.body)
   res.json({
-    mission: "successful"
+    mission: "successful",
+    message: req.body
   })
 
 })
