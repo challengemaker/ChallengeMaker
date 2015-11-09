@@ -774,7 +774,7 @@ body {
 }
 
 .hRemoveDescription {
-  margin-top: 70px;
+  /*margin-top: 70px;*/
   width: 60%;
 }
 
@@ -1041,10 +1041,11 @@ body {
 }
 
 .playButtonH {
-  background: url("../assets/playbutton.png");
-  width: 300px;
-  height: 300px;
-  margin: 20px 10px 20px 20px;
+  margin: 20px 0px 0px 50%;
+}
+
+.playButtonH img {
+  height: 120px;
 }
 
 .playButtonL {

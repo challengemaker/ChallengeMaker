@@ -14,9 +14,11 @@
       <div class="texttext">
         <div class="highlightTextHolder"  style="cursor: pointer">
           <p class="titleCont titleContCharity">{{challenges.specialChallenge.charity[0]}}</p>
-          <br>
           <p class="titleCont titleContTitle">{{challenges.specialChallenge.title}}</p>
-          <div class="playButtonH" ng-click='challenges.swapSpecial()'></div>
+
+          <div class="playButtonH">
+            <img ng-click="challenges.swapSpecial()" src="/assets/playbutton.png" alt=""/>
+          </div>
           <h4 style="color: white" class="hRemoveDescription">$0 if completed or donate ${{challenges.specialChallenge.minimumDonation}} to {{challenges.specialChallenge.charity[0]}}</h4>
           <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}"></button>
           <!-- <div class="detailsButton" id="{{challenges.specialChallenge._id}}" ng-mouseEnter="challenges.showDetails(challenges.specialChallenge._id)" ng-mouseLeave="challenges.removeDetails(challenges.specialChallenge._id)
@@ -52,7 +54,6 @@
             <div class="texttext">
               <div style="cursor: pointer" class="listTextHolder">
                 <h2 style="color: white" style="cursor: pointer" class="listContent listRemove{{$index}} listTextContent{{$index}}">{{challenge.charity[0]}}</h2>
-                <br>
                 <h2 style="color: white" style="cursor: pointer" class="listContent listTitle listTextContent{{$index}}" ng-click="challenges.swap($index)">{{challenge.title}}</h2>
                 <p ng-click="challenges.swap($index)" class="listSectionRemove listRemove{{$index}} listTextContent{{$index}}">$0 if completed or donate ${{challenge.minimumDonation}} to {{challenge.charity[0]}}</p>
                 <button type="button" class="acceptButton" ng-click="challenges.goTo($index)" id="{{$index}}btn"></button>

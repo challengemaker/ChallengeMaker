@@ -208,10 +208,10 @@ var app = angular.module('challengesController', [])
             marginLeft: '0px'
           })
           $('.highlightTextHolder').css({
-            marginLeft: '0'
+            marginLeft: '10%'
           })
           $('.playButtonH').css({
-            marginLeft: '0px'
+            marginLeft: '50%'
           })
           $('.blackLayer').css({
             width: "100%"
