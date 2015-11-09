@@ -305,17 +305,19 @@ body {
   background-color: #b6b6b6;
   color: #525252;
   margin: 15px 10px 5px 0px;
-  height: 80px;
+  height: 60px;
   width: 100%;
   vertical-align: middle;
 }
 
 .comp-donate-button {
-  font-size: 30px;
-  background-color: #d4d4d4;
-  margin: 5px 30px 10px 2px;
-  height:80px;
-  width:90%;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #b6b6b6;
+  color: #525252;
+  margin: 10px 10px 5px 0px;
+  height: 60px;
+  width: 100%;
   vertical-align: middle;
 }
 
@@ -489,12 +491,12 @@ body {
 }
 
 .currentDescDiv {
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .currentSuppDiv {
   height: 100%;
-  margin-top: 25px;
+  margin-top: 10px;
 }
 
 .currentTitle {
@@ -1039,11 +1041,10 @@ body {
 }
 
 .playButtonH {
-  width: 100%;
-  font-size: 140px;
-  color: white;
-  margin-top: 20%;
-  text-align: center;
+  background: url("../assets/playbutton.png");
+  width: 300px;
+  height: 300px;
+  margin: 20px 10px 20px 20px;
 }
 
 .playButtonL {
