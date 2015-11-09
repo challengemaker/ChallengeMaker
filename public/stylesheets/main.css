@@ -752,6 +752,11 @@ body {
   font-weight: bolder;
 }
 
+.highlightTextHolder h4{
+  font-size: 30px;
+  font-weight: normal;
+}
+
 .hImage {
   /*background-color: green;*/
 }
@@ -1041,19 +1046,19 @@ body {
 }
 
 .playButtonH {
-  margin: 20px 0px 0px 50%;
+  margin: 10px 0px -10px 58%;
 }
 
 .playButtonH img {
-  height: 120px;
+  height: 150px;
 }
 
 .playButtonL {
-  margin: 10px 0px 0px 50%;
+  margin: 0px 0px 0px 55%;
 }
 
 .playButtonL img {
-  height: 60px;
+  height: 70px;
 }
 
 .pwAttempt {
