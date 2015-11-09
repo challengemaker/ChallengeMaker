@@ -492,19 +492,34 @@ module.exports = function(app, passport){
 
 gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
   if(err)(console.log(err))
-  console.log(result)
+  // console.log(result)
 });
 
-
+// console.log(498);
+// console.log(gateway.webhookNotification);
+// console.log(500);
 
 //////webhook stuff//////
 /////////////////////////
 app.post('/api/submerchantverified', function(req, res){
-  console.log('merchant verification did something')
-  res.json({
-    mission: "successful"
+  // console.log(req.body)
+  // console.log(gateway.webHookNotification)
+  // console.log(req.body.webhookNotification)
+  gateway.webhookNotification.parse(req.body.bt_signature, req.body.bt_payload, function(err, data){
+    if(err){console.log("err is", err)}
+    console.log(data)
+    res.json(data)
   })
-
+  //   req.body.bt_signature,
+  //   req.body.bt_payload,
+  //   function (err, webhookNotification) {
+  //     if(err){console.log(err)}
+  //     // console.log("[Webhook Received " + webhookNotification.timestamp + "] | Kind: " + webhookNotification.kind + " | Subscription: " + webhookNotification.subscription.id);
+  //     console.log("BLAHHHHHHHH");
+  //     console.log(webhookNotification.timestamp);
+  //     console.log("BLAHHHHHHHH");
+  //   }
+  // )
 })
 
 ////end webhook stuff////
