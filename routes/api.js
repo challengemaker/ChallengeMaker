@@ -458,7 +458,7 @@ module.exports = function(app, passport){
 app.post('/api/submerchantverified', function(req, res){
   // console.log('kjhsdfkjhsdfkjhsdkjfhsdkjfhsdkjfhsdkjfh')
   sampleNotification = gateway.webhookTesting.sampleNotification(
-  braintree.WebhookNotification.Kind.SubMerchantAccountApproved
+  braintree.WebhookNotification.Kind.SubMerchantAccountApproved, 'yo yo'
   )
   gateway.webhookNotification.parse(
     sampleNotification.bt_signature,
