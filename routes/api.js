@@ -470,47 +470,25 @@ app.post('/api/submerchantverified', function(req, res){
   //   }
   // )
   merchantAccountParams = {
-  individual: {
-    firstName: braintree.Test.MerchantAccountTest.Approve,
-    lastName: "Doe",
-    email: "jane@14ladders.com",
-    phone: "5553334444",
-    dateOfBirth: "1981-11-19",
-    ssn: "456-45-4567",
-    address: {
-      streetAddress: "111 Main St",
-      locality: "Chicago",
-      region: "IL",
-      postalCode: "60622"
+    individual: {
+      firstName: braintree.Test.MerchantAccountTest.Approve,
+      lastName: "Doe",
+      email: "jane@14ladders.com",
+      phone: "5553334444",
+      dateOfBirth: "1981-11-19",
+      ssn: "456-45-4567",
+      address: {
+        streetAddress: "111 Main St",
+        locality: "Chicago",
+        region: "IL",
+        postalCode: "60622"
+      }
     }
-  },
-  business: {
-    legalName: "Jane's Ladders",
-    dbaName: "Jane's Ladders",
-    taxId: "98-7654321",
-    address: {
-      streetAddress: "111 Main St",
-      locality: "Chicago",
-      region: "IL",
-      postalCode: "60622"
-    }
-  },
-  funding: {
-    descriptor: "Blue Ladders",
-    destination: "8476828273",
-    email: "funding@blueladders.com",
-    mobilePhone: "5555555555",
-    accountNumber: "1123581321",
-    routingNumber: "071101307"
-  },
-  tosAccepted: true,
-  masterMerchantAccountId: "14ladders_marketplace",
-  id: "blue_ladders_store"
   }
   gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
     if(err)(console.log(err))
     console.log('yoyoyoyoyo');
-    console.log(result)
+    console.log(result.message)
     console.log('yoyoyoyoyo');
   })
 })
