@@ -506,8 +506,7 @@ app.post('/api/submerchantverified', function(req, res){
     function (err, webhookNotification) {
       console.log("[Webhook Received " + webhookNotification.timestamp + "] | Kind: " + webhookNotification.kind + " | Subscription: " + webhookNotification.subscription.id);
     }
-  );
-  res.send(200);
+  )
 })
 
 ////end webhook stuff////
