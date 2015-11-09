@@ -457,34 +457,32 @@ module.exports = function(app, passport){
 /////////////////////////
 app.post('/api/submerchantverified', function(req, res){
   // console.log('kjhsdfkjhsdfkjhsdkjfhsdkjfhsdkjfhsdkjfh')
-  // sampleNotification = gateway.webhookTesting.sampleNotification(
-  // braintree.WebhookNotification.Kind.SubMerchantAccountApproved,
-  // "myId"
-  // )
-  // gateway.webhookNotification.parse(
-  //   sampleNotification.bt_signature,
-  //   sampleNotification.bt_payload,
-  //   function (err, webhookNotification) {
-  //     console.log(webhookNotification)
-  //     // "myId"
-  //   }
-  // )
-  merchantAccountParams = {
-    individual: {
-      firstName: braintree.Test.MerchantAccountTest.Approve,
-      lastName: "Doe",
-      email: "jane@14ladders.com",
-      phone: "5553334444",
-      dateOfBirth: "1981-11-19",
-      ssn: "456-45-4567",
-      address: {
-        streetAddress: "111 Main St",
-        locality: "Chicago",
-        region: "IL",
-        postalCode: "60622"
-      }
+  sampleNotification = gateway.webhookTesting.sampleNotification(
+  braintree.WebhookNotification.Kind.SubMerchantAccountApproved,
+  )
+  gateway.webhookNotification.parse(
+    sampleNotification.bt_signature,
+    sampleNotification.bt_payload,
+    function (err, webhookNotification) {
+      console.log(webhookNotification)
     }
-  }
+  )
+  // merchantAccountParams = {
+  //   individual: {
+  //     firstName: braintree.Test.MerchantAccountTest.Approve,
+  //     lastName: "Doe",
+  //     email: "jane@14ladders.com",
+  //     phone: "5553334444",
+  //     dateOfBirth: "1981-11-19",
+  //     ssn: "456-45-4567",
+  //     address: {
+  //       streetAddress: "111 Main St",
+  //       locality: "Chicago",
+  //       region: "IL",
+  //       postalCode: "60622"
+  //     }
+  //   }
+  // }
   gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
     if(err)(console.log(err))
     console.log('yoyoyoyoyo');
