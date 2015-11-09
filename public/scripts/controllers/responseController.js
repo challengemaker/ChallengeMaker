@@ -4,8 +4,7 @@ angular.module('responseController', [])
 
   responseCtrl.$inject = ['$http', "$routeParams"];
   function responseCtrl($http, $routeParams){
-    var self = this;
-
+    var self = this
 
     var thisChallenge = window.location.hash.split('/')[2];
     console.log(thisChallenge);
@@ -73,6 +72,8 @@ angular.module('responseController', [])
         $('.responseTitle').css({
           backgroundColor: "#EBFFF2"
         })
+        $('.forwardButton').addClass('forwardOn')
+        $('.forwardOn').on('click', getClickForward)
       } else {
         $('.responseTitle').css({
           backgroundColor: "#FFCCE5"
@@ -84,24 +85,20 @@ angular.module('responseController', [])
       setTimeout(function(){
         var inputVal = $('.responseTitle').val()
         console.log(inputVal);
-        var checkUrl = getYoutubeEmbed(inputVal)
-        checkRealUrl(checkUrl)
+        var checkUrl = getYoutubeEmbed(inputVal)///this returns either the embed code or a "false", and so checks for validity
+        checkRealUrl(checkUrl)/////this places all teh DOM event stuff
       }, 100)
-
     })
 
 
     var submitChallenge = function(){
       /////collecting all data we'll need for
       var inputUrl = $('.responseTitle').val()
-      console.log(inputUrl);
       var embedCodeForDb = getYoutubeEmbed(inputUrl)
-      console.log(embedCodeForDb);
       if(!embedCodeForDb){
         return;
       }
-      var userName = window.localStorage.sessionUser;
-      console.log(userName);
+      var userName = window.localStorage.sessionUser
       // var videoUrl = $('.responseTitle').val();
       var cName = window.location.hash.split('/')[2].split("/").join(" ");
       ///////collect all email and push into "emailList"
@@ -112,18 +109,15 @@ angular.module('responseController', [])
       //   emailList.push(rawList[i].value);
       // }
       var responsePackage = {responseCreator: userName, video: embedCodeForDb, challenge: cName }
-      console.log(responsePackage);
       ///////lets chain our https in order: search id, post challenge friends, post response
       $http({
         method: "GET"
         ,url: "/api/users/"+userName
       })
       .then(function(data){
-        console.log(data)
         //////this callback has all the users (signed in user's) information
         responsePackage.userId = data.data.user._id
         self.sendeeEmail = data.data.user.email
-        console.log(responsePackage);
         ////$http call to post the friendschallenge to friends
         var rightNow = new Date();
         $http({
@@ -139,7 +133,6 @@ angular.module('responseController', [])
           }
         })
         .then(function(data){
-          console.log('challenge friends posted');
           /////this should be the data response from the post request, and we now post the challenge info to db
           $http({
             method: "Post"
@@ -256,7 +249,7 @@ angular.module('responseController', [])
     //   })
     ///////
     setInterval(function(){
-      var contMargin = ((window.innerWidth/2) - 280)+"px";
+      var contMargin = ((window.innerWidth/2) - 280)+"px"
       $('.questionHolder').css({marginLeft: contMargin})
     }, 50)
     ////create submit-new-response section
@@ -331,7 +324,7 @@ angular.module('responseController', [])
         }
       })
       /////////begin logic for the forward button
-      $('.forwardButton').on('click', function(){
+      var getClickForward = function(){
         self.title = $('.responseTitle').val();
         self.description = $('.responseDesc').val();
         self.video = $('.videoUrl').val();
@@ -358,7 +351,38 @@ angular.module('responseController', [])
             $('.carouselButtonHolder').html('');
           }
         }
-      })
+      }
+
+      // $('.forwardOn').on('click', getClickForward)
+
+      // function(){
+      //   self.title = $('.responseTitle').val();
+      //   self.description = $('.responseDesc').val();
+      //   self.video = $('.videoUrl').val();
+      //   self.name = $('.signup2').val();
+      //   if(carouselCounter < 3){
+      //     carouselCounter++;
+      //     if (carouselCounter == 1) {
+      //       /////////add a class and event listener so thta the forward button can now submit the emails and youtube link response
+      //       $('.forwardButton').text("SUBMIT!");
+      //       $('.forwardButton').addClass("submitDon");
+      //       $('.submitDon').on('click', function(){
+      //         submitChallenge()
+      //       })
+      //       //////////end adding event listener to submit response
+      //       tunnelMargin = tunnelMargin-550;
+      //       $('.questionTunnel').animate({
+      //         marginLeft: tunnelMargin+"px"
+      //       })
+      //     } else if (carouselCounter == 2) {
+      //       tunnelMargin = tunnelMargin-550;
+      //       $('.questionTunnel').animate({
+      //         marginLeft: tunnelMargin+"px"
+      //       })
+      //       $('.carouselButtonHolder').html('');
+      //     }
+      //   }
+      // })
       ///////////////end logic for forward and back button in the challenge path
       //////////////////////////////////////////////////////////////////////////
 
