@@ -6,18 +6,19 @@
   </div>
 </div>
 <div class="hContainer" >
-  <div class="blackLayer" ng-click="challenges.swapSpecial()">
+  <div class="blackLayer" >
     <!-- <span class="glyphicon glyphicon-play-circle playButtonH"></span> -->
   </div>
-  <div class="hMediaHolder" ng-click="challenges.swapSpecial()">
-    <div class="highlightText" ng-click="challenges.swapSpecial()">
+  <div class="hMediaHolder" >
+    <div class="highlightText" >
       <div class="texttext">
-        <div class="highlightTextHolder" ng-click="challenges.swapSpecial()" style="cursor: pointer">
+        <div class="highlightTextHolder"  style="cursor: pointer">
           <p class="titleCont titleContCharity">{{challenges.specialChallenge.charity[0]}}</p>
           <br>
           <p class="titleCont titleContTitle">{{challenges.specialChallenge.title}}</p>
           <h4 style="color: white" class="hRemoveDescription">$0 if completed or donate ${{challenges.specialChallenge.minimumDonation}} to {{challenges.specialChallenge.charity[0]}}</h4>
           <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}"></button>
+          <button type="button" class="tempButton" ng-click='challenges.swapSpecial()'></button>
           <!-- <div class="detailsButton" id="{{challenges.specialChallenge._id}}" ng-mouseEnter="challenges.showDetails(challenges.specialChallenge._id)" ng-mouseLeave="challenges.removeDetails(challenges.specialChallenge._id)
           ">details</div> -->
         </div>

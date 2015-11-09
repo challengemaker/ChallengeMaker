@@ -218,6 +218,7 @@ var app = angular.module('challengesController', [])
           $('.hImageImg').css('height', videoHeight)
         }
       }
+      // $('.tempButton').on('click', self.swapSpecial())
       /////begin for the big vahllenge on the home page
       self.swapSpecialYouve = function swapSpecialYouve(){
         var height = ($(".hImage").height()-5);
