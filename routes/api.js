@@ -500,20 +500,18 @@ gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
 app.post('/api/submerchantverified', function(req, res){
   console.log('kjhsdfkjhsdfkjhsdkjfhsdkjfhsdkjfhsdkjfh')
   sampleNotification = gateway.webhookTesting.sampleNotification(
-  braintree.WebhookNotification.Kind.SubscriptionWentPastDue,
+  braintree.WebhookNotification.Kind.SubMerchantAccountApproved,
   "myId"
   )
   gateway.webhookNotification.parse(
     sampleNotification.bt_signature,
     sampleNotification.bt_payload,
     function (err, webhookNotification) {
-      webhookNotification.subscription.id
+      console.log(webhookNotification)
       // "myId"
     }
   )
-
 })
-
 ////end webhook stuff////
 /////////////////////////
 
