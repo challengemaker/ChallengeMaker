@@ -492,7 +492,7 @@ module.exports = function(app, passport){
 
 gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
   if(err)(console.log(err))
-  // console.log(result)
+  console.log(result)
 })
 
 //////webhook stuff//////
@@ -504,6 +504,7 @@ app.post('/api/submerchantverified', function(req, res){
   // console.log(req.body.webhookNotification)
   gateway.webhookNotification.parse(req.body.bt_signature, req.body.bt_payload, function(err, data){
     if(err){console.log("err is", err)}
+    console.log(507);
     console.log(data)
     res.json(data)
   })
