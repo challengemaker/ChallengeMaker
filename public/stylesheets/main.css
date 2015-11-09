@@ -1046,11 +1046,12 @@ body {
 }
 
 .playButtonH {
-  margin: 10px 0px -10px 58%;
+  margin: 10px 0px 0px 60%;
 }
 
 .playButtonH img {
   height: 150px;
+  opacity: .66;
 }
 
 .playButtonL {
@@ -1059,6 +1060,7 @@ body {
 
 .playButtonL img {
   height: 70px;
+  opacity: .66;
 }
 
 .pwAttempt {

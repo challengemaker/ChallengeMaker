@@ -16,7 +16,7 @@
           <p class="titleCont titleContCharity">{{challenges.specialChallenge.charity[0]}}</p>
           <p class="titleCont titleContTitle">{{challenges.specialChallenge.title}}</p>
             <div class="playButtonH">
-              <img ng-click="challenges.swapSpecial()" src="/assets/playbutton5.png" alt=""/>
+              <img ng-click="challenges.swapSpecial()" src="/assets/play_button.svg" alt=""/>
             </div>
           <h4 style="color: white" class="hRemoveDescription">$0 if completed<br> or donate ${{challenges.specialChallenge.minimumDonation}}<br> to {{challenges.specialChallenge.charity[0]}}</h4>
           <button type="button" class="acceptButton" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}"></button>
@@ -52,7 +52,7 @@
                 <h2 style="color: white" style="cursor: pointer" class="listContent listRemove{{$index}} listTextContent{{$index}}">{{challenge.charity[0]}}</h2>
                 <h2 style="color: white" style="cursor: pointer" class="listContent listTitle listTextContent{{$index}}" ng-click="challenges.swap($index)">{{challenge.title}}</h2>
                 <div class="playButtonL">
-                  <img ng-click="challenges.swapSpecial()" src="/assets/playbutton5.png" alt=""/>
+                  <img ng-click="challenges.swapSpecial()" src="/assets/play_button.svg" alt=""/>
                 </div>
                 <p ng-click="challenges.swap($index)" class="listSectionRemove listRemove{{$index}} listTextContent{{$index}}">$0 if completed<br> or donate ${{challenge.minimumDonation}}<br> to {{challenge.charity[0]}}</p>
                 <button type="button" class="acceptButton" ng-click="challenges.goTo($index)" id="{{$index}}btn"></button>
