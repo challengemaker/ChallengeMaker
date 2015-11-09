@@ -193,7 +193,7 @@ var app = angular.module('challengesController', [])
             marginLeft: '-2000px'
           })
           $('.playButtonH').css({
-            marginLeft: '2000px'
+            marginLeft: '-2000px'
           })
           $('.blackLayer').css({
             width: "0px"
