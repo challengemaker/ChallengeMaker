@@ -495,9 +495,9 @@ gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
   // console.log(result)
 });
 
-console.log(498);
-console.log(gateway.webhookNotification);
-console.log(500);
+// console.log(498);
+// console.log(gateway.webhookNotification);
+// console.log(500);
 
 //////webhook stuff//////
 /////////////////////////
@@ -508,7 +508,9 @@ app.post('/api/submerchantverified', function(req, res){
     function (err, webhookNotification) {
       if(err){console.log(err)}
       // console.log("[Webhook Received " + webhookNotification.timestamp + "] | Kind: " + webhookNotification.kind + " | Subscription: " + webhookNotification.subscription.id);
-      console.log(webhookNotification);
+      console.log("BLAHHHHHHHH");
+      console.log(webhookNotification.timestamp);
+      console.log("BLAHHHHHHHH");
     }
   )
 })
