@@ -508,7 +508,7 @@ app.post('/api/submerchantverified', function(req, res){
   //   console.log(data)
   //   res.json(data)
   // })
-  gateway.webhookNotification.parse(req.body.bt_Signature, req.body.bt_Payload, function (err, webhookNotification) {
+  gateway.webhookNotification.parse(req.body.bt_signature, req.body.bt_payload, function (err, webhookNotification) {
   webhookNotification.kind === braintree.WebhookNotification.Kind.SubMerchantAccountApproved
   // true
   webhookNotification.merchantAccount.status
