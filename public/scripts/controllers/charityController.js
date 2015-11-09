@@ -2,7 +2,7 @@ angular.module('charityController', [])
 
   .controller('charityCtrl', charityCtrl)
 
-  challengesCtrl.$inject = ['$http'];
+  charityCtrl.$inject = ['$http'];
   function charityCtrl($http){
     var self = this;
 
