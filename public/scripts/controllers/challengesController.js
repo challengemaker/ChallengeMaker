@@ -189,13 +189,16 @@ var app = angular.module('challengesController', [])
           $('.hImage').css('height', "0px")
           $('.hImageImg').css('height', "0px")
           $('.titleCont').css({
-            opacity: 0
+            marginLeft: '-2000px'
           })
           $('.hRemoveDescription').css({
-            opacity: 0
+            marginLeft: '-2000px'
+          })
+          $('.highlightTextHolder').css({
+            marginLeft: '-2000px'
           })
           $('.playButtonH').css({
-            opacity: 0
+            marginLeft: '2000px'
           })
           $('.blackLayer').css({
             width: "0px"
@@ -205,10 +208,16 @@ var app = angular.module('challengesController', [])
           $('.specialVid')[0].playVideo()
         } else {
           $('.titleCont').css({
-            opacity: 1
+            marginLeft: '0px'
           })
           $('.hRemoveDescription').css({
-            opacity: 1
+            marginLeft: '0px'
+          })
+          $('.highlightTextHolder').css({
+            marginLeft: '0'
+          })
+          $('.playButtonH').css({
+            marginLeft: '0px'
           })
           $('.blackLayer').css({
             width: "100%"
