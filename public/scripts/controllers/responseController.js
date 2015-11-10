@@ -68,18 +68,34 @@ angular.module('responseController', [])
 
     /////function to make the input box light up depending on what kind of link is inside of it
     function checkRealUrl(urlToCheck){
-      if(urlToCheck){
+      $('.responseLightbox').remove()
+      if(urlToCheck && $('.forwardButtonLightbox')){
         $('.responseTitle').css({
           backgroundColor: "#EBFFF2"
         })
         $('.forwardButton').addClass('forwardOn')
         $('.forwardOn').on('click', getClickForward)
+
       } else {
         $('.responseTitle').css({
           backgroundColor: "#FFCCE5"
         })
+        $('.responseOuter').prepend(
+          "<div class='responseLightbox'>" +
+            "<div class='okButton'> Ok </div>"+
+          "</div>"
+        )
+        $('.okButton').on('click', function(){
+          $('.okButton').css({
+            backgroundColor: 'red'
+          })
+          setTimeout(function(){
+            $('.responseLightbox').remove()
+          }, 200)
+        })
       }
     }
+
     $('.responseTitle').on('paste', function(){
       console.log('the event fired');
       setTimeout(function(){
@@ -89,7 +105,11 @@ angular.module('responseController', [])
         checkRealUrl(checkUrl)/////this places all teh DOM event stuff
       }, 100)
     })
-
+    $('.forwardButtonLightbox').on('click', function(){
+      var inputVal = $('.responseTitle').val()
+      var checkUrl = getYoutubeEmbed(inputVal)///this returns either the embed code or a "false", and so checks for validity
+      checkRealUrl(checkUrl)/////this places all teh DOM event stuff
+    })
 
     var submitChallenge = function(){
       /////collecting all data we'll need for
