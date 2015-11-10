@@ -311,8 +311,16 @@ var app = angular.module('cmsController', [])
       $("#cmsShowChallenge"+x).on('click', function(){
         if(self.showChallengeCounter){
           $('.cmsItemForm'+x).append(
-            "<div id='showChallengeBox'"+x+">"+
-              "<h1>showing some challenge info we is</h1>"+
+            "<div id='showResponseBox'"+x+">"+
+              "<div id='showResponsePhoto'><img src='https://img.youtube.com/vi/"+self.allChallenges[x].videoUrl.split('/')[4]+"/0.jpg'>"+
+              "</div>"+
+              "<div id='showResponseInfo1'>"+
+                "<h4> Challenge Title: "+self.allChallenges[x].title+ "</h4>"+
+                "<h4> Challenge Id: "+self.allChallenges[x]._id+ "</h4>"+
+                "<h4> Charity: "+self.allChallenges[x].charity+ "</h4>"+
+              "</div>"+
+              // "<div id='showResponseInfo2'>"+
+              // "</div>"+
             "</div>"
           )
           self.showChallengeCounter = !self.showChallengeCounter
@@ -354,7 +362,7 @@ var app = angular.module('cmsController', [])
                 "<h4> ResponseId: "+self.allResponses[x]._id+ "</h4>"+
               "</div>"+
               // "<div id='showResponseInfo2'>"+
-              "</div>"+
+              // "</div>"+
             "</div>"
           )
           //"https://img.youtube.com/vi/"+self.challengerVideoId+"/0.jpg"
@@ -388,8 +396,12 @@ var app = angular.module('cmsController', [])
       $("#cmsShowUser"+x).on('click', function(){
         if(self.showUserCounter){
           $('.cmsItemForm'+x).append(
-            "<div id='showUserBox'"+x+">"+
-              "<h1>showing some User info we is</h1>"+
+            "<div id='showResponseBox'"+x+">"+
+              "<div id='showResponseInfo1'>"+
+                "<h3>User's Name: "+self.allUsers[x].name+"</h3>"+
+                "<h3>User's Email Address: "+self.allUsers[x].email+"</h3>"+
+              "</div>"+
+              "</div>"+
             "</div>"
           )
           self.showUserCounter = !self.showUserCounter
