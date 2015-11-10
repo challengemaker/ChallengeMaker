@@ -34,6 +34,11 @@ var app = angular.module('challengesController', [])
     ///////end blacklayer adjustment stuff
     /////////////////////////////////////
     ////begin dividing controller by page, this will be simplified by the use of factories
+
+    $('.donateNow').on('click', function(){
+      var challenge = window.location.hash.split('/')[2]
+      window.location.hash = "#/donate/"+challenge
+    })
     if(window.location.hash.split('/')[1] == "challenges"){
       ////////////////////////////////////////////////////////////////////
       ///////////set the blacklayer to adjust on the single challenge page
@@ -84,8 +89,8 @@ var app = angular.module('challengesController', [])
             // + " pppppppppppppppppp"
           }
         }
+        allChallenges.pop()
         self.allChallenges = allChallenges
-        self.allChallenges.pop()
         //////now it's all set and ready to go
         self.goTo = function goTo(index){
           var elem = self.allChallenges[index];
@@ -112,42 +117,55 @@ var app = angular.module('challengesController', [])
           )
           $('.lImage'+index).css('height', "0px")
           $('.lImageimg'+index).css('height', "0px")
-          $('.listTextContent'+index).css({marginLeft: "-2000px"})
+          $('.listText'+index).css({
+            marginLeft: '-2000px'
+          })
+          $('.acceptButton'+index).css({
+            marginLeft: "2000px"
+          })
+          $('.listContainer'+index).css({
+            zIndex: 150
+          })
           var src = $('.lImageimg'+index)[0].attributes.src.value
           self.listVideoSources[index] = src
         } else {
           var imageSrc = self.listVideoSources[index]
           $('.listVid'+index).remove();
-          $('.listTextContent'+index).css({marginLeft: "0px"})
+          // $('.listTextContent'+index).css({marginLeft: "0px"})
           $('.lImage'+index).css('height', videoHeight)
           $('.lImageimg'+index).css('height', videoHeight)
-          $('.listTextHolder'+index).height('200px')
+          $('.listText'+index).css({
+            marginLeft: '-15px'
+          })
+          $('.listContainer'+index).css({
+            zIndex: 150
+          })
         }
       }
-      $('.clickLayerList').on('click', function(evt){
-        var height = ($(".lImageimg"+index).height()-5)
-        var width = $(".lImageimg"+index).width()
-        var videoHeight = $(".lVideo"+index).height()
-        var url = self.allChallenges[index].videoUrl+"?autoplay=1";
-        ////////this next only triggers if it's the first time it's been clicked
-        if(height > 0) {
-          $('.lImageimg'+index).height('0px')
-          $('.lVideo'+index).append(
-            "<iframe class='listVid"+index+
-            "' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
-            "</iframe>"
-          )
-          $('.lImage'+index).css('height', "0px")
-          $('.lImageimg'+index).css('height', "0px")
-          var src = $('.lImageimg'+index)[0].attributes.src.value;
-          self.listVideoSources[index] = src
-        } else {
-          var imageSrc = self.listVideoSources[index]
-          $('.listVid'+index).remove();
-          $('.lImage'+index).css('height', videoHeight)
-          $('.lImageimg'+index).css('height', videoHeight)
-        }
-      })
+      // $('.clickLayerList').on('click', function(evt){
+      //   var height = ($(".lImageimg"+index).height()-5)
+      //   var width = $(".lImageimg"+index).width()
+      //   var videoHeight = $(".lVideo"+index).height()
+      //   var url = self.allChallenges[index].videoUrl+"?autoplay=1";
+      //   ////////this next only triggers if it's the first time it's been clicked
+      //   if(height > 0) {
+      //     $('.lImageimg'+index).height('0px')
+      //     $('.lVideo'+index).append(
+      //       "<iframe class='listVid"+index+
+      //       "' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+      //       "</iframe>"
+      //     )
+      //     $('.lImage'+index).css('height', "0px")
+      //     $('.lImageimg'+index).css('height', "0px")
+      //     var src = $('.lImageimg'+index)[0].attributes.src.value;
+      //     self.listVideoSources[index] = src
+      //   } else {
+      //     var imageSrc = self.listVideoSources[index]
+      //     $('.listVid'+index).remove();
+      //     $('.lImage'+index).css('height', videoHeight)
+      //     $('.lImageimg'+index).css('height', videoHeight)
+      //   }
+      // })
       ////////start all the video-photo toggle actions
       //////////////begin the video=photo toggle on the listview, single challenge
       self.swapResponse = function swap(index){
@@ -163,6 +181,22 @@ var app = angular.module('challengesController', [])
           )
           $('.lImage'+index).css('height', "0px")
           $('.lImageimg'+index).css('height', "0px")
+          $('.listText'+index).css({
+            marginLeft: '-2000px'
+          })
+          $('.listText'+index).css({
+            width: 0
+          })
+          console.log(index);
+          $('.playButtonL'+index).css({
+            marginLeft: '-2000px'
+          })
+          $('.playButtonL'+index).css({
+            width: 0
+          })
+          $('.listContainer'+index).css({
+            zIndex: 150
+          })
         } else {
           $('.listVid'+index).remove();
           $('.lImage'+index).css('height', videoHeight)
@@ -194,6 +228,10 @@ var app = angular.module('challengesController', [])
           })
           $('.playButtonH').css({
             marginLeft: '-2000px'
+          })
+          $('.acceptButtonHome').css({
+            marginLeft: '2030px',
+            marginTop: '40px'
           })
           $('.blackLayer').css({
             width: "0px"

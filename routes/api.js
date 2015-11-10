@@ -373,6 +373,7 @@ module.exports = function(app, passport){
   })
   //////email that will automatically challenge the people who friends challenge in their response videos
   app.post('/api/sendemail/challengefriends', function(req, res){
+    console.log(req.body);
     mandrill_client.messages.send({
       message: {
         from_email: "Challenged@ChallengeMaker.com"
@@ -433,84 +434,62 @@ module.exports = function(app, passport){
 
   app.post('/checkout', function(req, res){
     var nonce = req.body.payment_method_nonce;
-    gateway.transaction.sale({
-      paymentMethodNonce: nonce
-      ,amount: req.body.amount
-    },
-    function(err, result){
-      var newTran = {
-        amount: result.transaction.amount
-        ,merchantAccountId: result.transaction.merchantAccountId
-        ,challenge: req.body.challenge
-        ,id: result.transaction.id
-        ,dateCreated: result.transaction.createdAt
-      }
-      Transaction.create(newTran);
-      // res.json(result.transaction);
-      res.redirect('/#/challenges/'+req.body.challenge)
-    })
+    // gateway.transaction.sale({
+    //   paymentMethodNonce: nonce
+    //   ,amount: req.body.amount
+    // },
+    // function(err, result){
+    //   var newTran = {
+    //     amount: result.transaction.amount
+    //     ,merchantAccountId: result.transaction.merchantAccountId
+    //     ,challenge: req.body.challenge
+    //     ,id: result.transaction.id
+    //     ,dateCreated: result.transaction.createdAt
+    //   }
+    //   Transaction.create(newTran);
+      res.redirect('/#/donate/challengefriends/'+req.body.challenge)
+    // })
   })
 
-  merchantAccountParams = {
-  individual: {
-    firstName: braintree.Test.MerchantAccountTest.Approve,
-    lastName: "Doe",
-    email: "jane@14ladders.com",
-    phone: "5553334444",
-    dateOfBirth: "1981-11-19",
-    ssn: "456-45-4567",
-    address: {
-      streetAddress: "111 Main St",
-      locality: "Chicago",
-      region: "IL",
-      postalCode: "60622"
-    }
-  },
-  business: {
-    legalName: "Jane's Ladders",
-    dbaName: "Jane's Ladders",
-    taxId: "98-7654321",
-    address: {
-      streetAddress: "111 Main St",
-      locality: "Chicago",
-      region: "IL",
-      postalCode: "60622"
-    }
-  },
-  funding: {
-    descriptor: "Blue Ladders",
-    destination: "8476828273",
-    email: "funding@blueladders.com",
-    mobilePhone: "5555555555",
-    accountNumber: "1123581321",
-    routingNumber: "071101307"
-  },
-  tosAccepted: true,
-  masterMerchantAccountId: "14ladders_marketplace",
-  id: "blue_ladders_store"
-};
 
-gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
-  if(err)(console.log(err))
-  console.log(result)
-})
 
 //////webhook stuff//////
 /////////////////////////
 app.post('/api/submerchantverified', function(req, res){
-  console.log('kjhsdfkjhsdfkjhsdkjfhsdkjfhsdkjfhsdkjfh')
+  // console.log('kjhsdfkjhsdfkjhsdkjfhsdkjfhsdkjfhsdkjfh')
   sampleNotification = gateway.webhookTesting.sampleNotification(
-  braintree.WebhookNotification.Kind.SubMerchantAccountApproved,
-  "myId"
+  braintree.WebhookNotification.Kind.SubMerchantAccountApproved, 'yo yo'
   )
   gateway.webhookNotification.parse(
     sampleNotification.bt_signature,
     sampleNotification.bt_payload,
     function (err, webhookNotification) {
       console.log(webhookNotification)
-      // "myId"
+      console.log();
     }
   )
+  // merchantAccountParams = {
+  //   individual: {
+  //     firstName: braintree.Test.MerchantAccountTest.Approve,
+  //     lastName: "Doe",
+  //     email: "jane@14ladders.com",
+  //     phone: "5553334444",
+  //     dateOfBirth: "1981-11-19",
+  //     ssn: "456-45-4567",
+  //     address: {
+  //       streetAddress: "111 Main St",
+  //       locality: "Chicago",
+  //       region: "IL",
+  //       postalCode: "60622"
+  //     }
+  //   }
+  // }
+  // gateway.merchantAccount.create(merchantAccountParams, function (err, result) {
+  //   if(err)(console.log(err))
+  //   console.log('yoyoyoyoyo');
+  //   console.log(result.message)
+  //   console.log('yoyoyoyoyo');
+  // })
 })
 ////end webhook stuff////
 /////////////////////////

@@ -231,6 +231,12 @@ body {
   margin-top: 30px;
 }
 
+.challengeFriendsContainer {
+  background-color: #E1E1E1;
+  z-index: 2;
+  height: 400px;
+}
+
 .challengeInfo {
 }
 
@@ -248,6 +254,13 @@ body {
   text-align: center;
   font-style: bold;
   color: gray
+}
+
+.challengeFriendsContainer button{
+  display: inline-block;
+  width: 30%;
+  font-size: 16px;
+  margin-top: 50px;
 }
 
 .challengeHolder {
@@ -568,6 +581,10 @@ body {
   font-size: 20px;
   position: relative;
   background-color: "#31007A";
+}
+
+.donateHome{
+  margin-left: 20%;
 }
 
 .donationButtons {
@@ -988,6 +1005,19 @@ body {
   margin-top: 7px;
 }
 
+.okButton {
+  height: 25%;
+  width: 100%;
+  margin-top: 90px;
+  background-color: #F5F5F5;
+  color: #4747FF;
+  line-height: 2.2;
+  text-align: center;
+  font-size: 28px;
+  border-top: 2px solid gray;
+  border-bottom: 2px solid gray;
+}
+
 #paymentAmount {
   line-height: normal;
   height: 45px;
@@ -1171,6 +1201,26 @@ body {
 .responseImage {
   max-height: 100%;
   max-width: 100%;
+}
+
+.responseLightbox {
+  position: absolute;
+  height: 300px;
+  width: 25%;
+  margin-left: 37.5%;
+  margin-top: 100px;
+  z-index: 200;
+  border-radius: 15px;
+  background-color: #F5F5F5;
+}
+
+.responseLightbox p{
+  font-size: 26px;
+  font-weight: bold;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 30px;
+  text-align: center;
 }
 
 .responseName {

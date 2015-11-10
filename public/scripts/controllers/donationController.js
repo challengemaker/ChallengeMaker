@@ -11,64 +11,72 @@ angular.module('donationController', [])
 
     /////////////////////////////////////////////////////////////////////////
     ///////////begin button logic for the challenge path forward-back buttons
-    var carouselCounter = 0;
-    var tunnelMargin = 0;
-    ////////begin logic for the back button
-    $('.backButton').on('click', function(){
-      if(carouselCounter > 0){
-        carouselCounter--;
-        if(carouselCounter == 0){
-          $('.forwardButton').html(
-            "NEXT"+
-             "<span class=glyphicon"+ "glyphicon-chevron-right"+ "aria-hidden='true'></span>"
-          );
-          tunnelMargin += 550;
-          $('.questionTunnel').animate({
-            marginLeft: tunnelMargin+"px"
-          })
-        }
-        else if(carouselCounter == 1){
-          tunnelMargin += 550;
-          $('.questionTunnel').animate({
-            marginLeft: tunnelMargin+"px"
-          })
-        }
-        else if(carouselCounter == 2){
-          tunnelMargin += 550;
-          $('.questionTunnel').animate({
-            marginLeft: tunnelMargin+"px"
-          })
-        }
-      }
+
+    $("#submitPayment").on('click', function(){
+      // $('.paymentContainer').animate({
+      //   marginLeft: "-500px"
+      //   ,opacity: 0
+      // })
     })
-    /////////begin logic for the forward button
-    $('.forwardButton').on('click', function(){
-      self.title = $('.responseTitle').val();
-      self.description = $('.responseDesc').val();
-      self.video = $('.videoUrl').val();
-      self.name = $('.signup2').val();
-      if(carouselCounter < 3){
-        carouselCounter++;
-        if (carouselCounter == 1) {
-          /////////add a class and event listener so thta the forward button can now submit the emails and youtube link response
-          $('.forwardButton').text("SUBMIT!");
-          $('.forwardButton').addClass("submitDon");
-          $('.submitDon').on('click', function(){
-            submitChallenge()
-          })
-          //////////end adding event listener to submit response
-          tunnelMargin = tunnelMargin-550;
-          $('.questionTunnel').animate({
-            marginLeft: tunnelMargin+"px"
-          })
-        } else if (carouselCounter == 2) {
-          tunnelMargin = tunnelMargin-550;
-          $('.questionTunnel').animate({
-            marginLeft: tunnelMargin+"px"
-          })
-          $('.carouselButtonHolder').html('');
+
+    $('.donateChallengeFriends').on('click', function(){
+      var emailArr = $('.challengeFriends')
+      var realEmails = []
+      for (var i = 0; i < emailArr.length; i++) {
+        var friendEmail = emailArr[i].value
+        var emailArray = friendEmail.split('@')
+        var testAt = friendEmail.split('@').length
+        if(testAt > 1){
+          ///////// only if there's at least one '@'
+          emailArray.shift()
+          /////////email array should no start at 'google.com' or whatever comes after the at
+          /////now we split to check for a period
+          var periodTestArray = emailArray[0].split('.')
+          var periodTestLength = emailArray[0].split('.').length
+          if(periodTestLength > 1){
+            console.log(friendEmail+' looks pretty good to me!')
+            realEmails.push({email: friendEmail})
+            $http({
+              method: "POST"
+              ,url: "/api/emails"
+              ,data: {address: friendEmail}
+            })
+            .then(function(data){
+              console.log('email upoload worked')
+              console.log(data);
+            })
+          } else {
+            console.log('I dont see a period in there')
+          }
+        } else {
+          console.log('dude wheres your at, at?')
         }
+      /////////end for-loop
       }
+      ///////
+      ////////end email parsing to challenge Friends
+      //////////////////////////////////////////////
+      ////the below http send mail to all friends a user has challenged
+      var url = window.location.hash.split('/')
+      console.log(url);
+      $http.get('api/challenges/'+url[3])
+        .then(function(data){
+          console.log(data)
+          var responseData = {responseCreator: window.localStorage.sessionUser, charityName: data.data.charity[0], challenge: url[3].split('-').join(' ')}
+          $http({
+            method: 'POST'
+            ,url: "/api/sendemail/challengefriends"
+            ,data: {emails: realEmails, responseData: responseData}
+          })
+          .then(function(data){
+            console.log(data);
+          })
+        })
+        window.location.hash = "#/"
+    })
+
+    $('.donateHome').on('click', function(){
+      window.location.hash = "#/"
     })
     ///////////////end logic for forward and back button in the challenge path
     //////////////////////////////////////////////////////////////////////////
