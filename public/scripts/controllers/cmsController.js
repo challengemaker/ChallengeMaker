@@ -348,6 +348,11 @@ var app = angular.module('cmsController', [])
             "<div id='showResponseBox'"+x+">"+
               "<div id='showResponsePhoto'><img src='https://img.youtube.com/vi/"+self.allResponses[x].videoUrl+"/0.jpg'>"+
               "</div>"+
+              "<div id='showResponseInfo1'>"+
+                "<h4> Creator: "+self.allResponses[x].creator+ "</h4>"+
+              "</div>"+
+              "<div id='showResponseInfo2'>"+
+              "</div>"+
             "</div>"
           )
           //"https://img.youtube.com/vi/"+self.challengerVideoId+"/0.jpg"

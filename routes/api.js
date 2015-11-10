@@ -185,8 +185,8 @@ module.exports = function(app, passport){
     Charity.findOne({name: name}, function(err, charity){
       if(err){console.log(err)};
       res.json(charity);
-    });
-  });
+    })
+  })
 
 // create a new charity
   app.post('/api/charities', function(req, res){
@@ -197,7 +197,6 @@ module.exports = function(app, passport){
       charity.url = req.body.url;
       charity.photo = req.body.photo;
       charity.challenges = req.body.challenges;
-
       charity.save(function(err, user) {
     if (err) {
       res.send(err);
@@ -433,7 +432,8 @@ module.exports = function(app, passport){
   });
 
   app.post('/checkout', function(req, res){
-    var nonce = req.body.payment_method_nonce;
+    var nonce = req.body.payment_method_nonce
+    console.log(req.body)
     // gateway.transaction.sale({
     //   paymentMethodNonce: nonce
     //   ,amount: req.body.amount

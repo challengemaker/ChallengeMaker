@@ -37,7 +37,7 @@ var app = angular.module('challengesController', [])
 
     $('.donateNow').on('click', function(){
       var challenge = window.location.hash.split('/')[2]
-      window.location.hash = "#/donate/"+challenge
+      window.location.hash = "#/donate/challengefriends/"+challenge
     })
     if(window.location.hash.split('/')[1] == "challenges"){
       ////////////////////////////////////////////////////////////////////
