@@ -72,7 +72,7 @@ angular.module('donationController', [])
             console.log(data);
           })
         })
-        window.location.hash = "#/"
+        window.location.hash = "#/donate/"+window.location.hash.split('/')[4]
     })
 
     $('.donateHome').on('click', function(){

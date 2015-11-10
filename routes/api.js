@@ -447,7 +447,7 @@ module.exports = function(app, passport){
     //     ,dateCreated: result.transaction.createdAt
     //   }
     //   Transaction.create(newTran);
-      res.redirect('/#/donate/challengefriends/'+req.body.challenge)
+      res.redirect('/#/donationReceived')
     // })
   })
 
