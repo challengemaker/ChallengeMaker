@@ -19,6 +19,61 @@ angular.module('donationController', [])
       })
     })
 
+    $('.donateChallengeFriends').on('click', function(){
+      var emailArr = $('.challengeFriends')
+      var realEmails = []
+      for (var i = 0; i < emailArr.length; i++) {
+        var friendEmail = emailArr[i].value
+        var emailArray = friendEmail.split('@')
+        var testAt = friendEmail.split('@').length
+        if(testAt > 1){
+          ///////// only if there's at least one '@'
+          emailArray.shift()
+          /////////email array should no start at 'google.com' or whatever comes after the at
+          /////now we split to check for a period
+          var periodTestArray = emailArray[0].split('.')
+          var periodTestLength = emailArray[0].split('.').length
+          if(periodTestLength > 1){
+            console.log(friendEmail+' looks pretty good to me!')
+            realEmails.push({email: friendEmail})
+            $http({
+              method: "POST"
+              ,url: "/api/emails"
+              ,data: {address: friendEmail}
+            })
+            .then(function(data){
+              console.log('email upoload worked')
+              console.log(data);
+            })
+          } else {
+            console.log('I dont see a period in there')
+          }
+        } else {
+          console.log('dude wheres your at, at?')
+        }
+      /////////end for-loop
+      }
+      ///////
+      ////////end email parsing to challenge Friends
+      //////////////////////////////////////////////
+      ////the below http send mail to all friends a user has challenged
+      var url = window.location.hash.split('/')
+      console.log(url);
+      $http.get('api/challenges/'+url[3])
+        .then(function(data){
+          var responseData = {responseCreator: window.localStorage.sessionUser, charityName: data.data.charity[0], challenge: url[3].split('-').join(' ')}
+          $http({
+            method: 'POST'
+            ,url: "/api/sendemail/challengefriends"
+            ,data: {emails: realEmails, responseData: responseData}
+          })
+          .then(function(data){
+            console.log(data);
+          })
+        })
+
+    })
+
     ///////////////end logic for forward and back button in the challenge path
     //////////////////////////////////////////////////////////////////////////
 

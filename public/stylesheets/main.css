@@ -256,6 +256,13 @@ body {
   color: gray
 }
 
+.challengeFriendsContainer button{
+  display: inline-block;
+  width: 30%;
+  font-size: 16px;
+  margin-top: 50px;
+}
+
 .challengeHolder {
   height: 320px;
   color: white;
@@ -574,6 +581,10 @@ body {
   font-size: 20px;
   position: relative;
   background-color: "#31007A";
+}
+
+.donateHome{
+  margin-left: 20%;
 }
 
 .donationButtons {

@@ -17,10 +17,6 @@ angular.module('responseController', [])
         var email = $('.formEmail').val();
         var subject = $('.formSubject').val();
         var message = $('.formMessage').val();
-
-        console.log(email);
-        console.log(subject);
-        console.log(message);
         /////////send contact email
         $http({
           method: "POST"
@@ -58,10 +54,8 @@ angular.module('responseController', [])
       ,url: "/api/challenges/"+thisChallenge
     })
     .then(function(data){
-      console.log(data);
       // self.thisPhoto = data.data.photo;
       self.thisCharity = data.data.charityLink;
-      console.log(self.thisCharity);
       self.thisCharityName = data.data.charity[0]
     })
     //////end get all challenges
@@ -77,7 +71,6 @@ angular.module('responseController', [])
         $('.forwardButton').addClass('forwardOn')
         $('.forwardOn').on('click', function(){
           var inputVal = $('.responseTitle').val()
-          console.log(inputVal);
           var checkUrl = getYoutubeEmbed(inputVal)///this returns either the embed code or a "false", and so checks for validity
           if(checkUrl){
             getClickForward()
@@ -119,10 +112,8 @@ angular.module('responseController', [])
     }
 
     $('.responseTitle').on('paste', function(){
-      console.log('the event fired');
       setTimeout(function(){
         var inputVal = $('.responseTitle').val()
-        console.log(inputVal);
         var checkUrl = getYoutubeEmbed(inputVal)///this returns either the embed code or a "false", and so checks for validity
         checkRealUrl(checkUrl)/////this places all teh DOM event stuff
       }, 100)
@@ -143,13 +134,6 @@ angular.module('responseController', [])
       var userName = window.localStorage.sessionUser
       // var videoUrl = $('.responseTitle').val();
       var cName = window.location.hash.split('/')[2].split("/").join(" ");
-      ///////collect all email and push into "emailList"
-      // var emailList = [];
-      // var rawList = $('.challengeFriends');
-      // // console.log(rawList);
-      // for (var i = 0; i < rawList.length; i++) {
-      //   emailList.push(rawList[i].value);
-      // }
       var responsePackage = {responseCreator: userName, video: embedCodeForDb, challenge: cName }
       ///////lets chain our https in order: search id, post challenge friends, post response
       $http({
@@ -192,14 +176,10 @@ angular.module('responseController', [])
             console.log(url);
             $http.get('api/challenges/'+url[2])
               .then(function(data){
-                console.log(data);
                 self.charityName = data.data.charity[0]
                 self.charityLink = data.data.charityLink
-                console.log(self.charityLink)
-                console.log(self.sendeeEmail)
                 //////send the email thanking them for making a challenge
                 //////now let's send an email to thank them for completing a challenge
-                console.log('sending our emaillllsllssllsls')
                 $http({
                   method: "POST"
                   ,url: "/api/sendemail/challengecomplete"
@@ -213,10 +193,8 @@ angular.module('responseController', [])
                   var realEmails = []
                   for (var i = 0; i < emailArr.length; i++) {
                     var friendEmail = emailArr[i].value;
-                    console.log(friendEmail)
                     var emailArray = friendEmail.split('@')
                     var testAt = friendEmail.split('@').length
-                    console.log(testAt)
                     if(testAt > 1){
                       ///////// only if there's at least one '@'
                       emailArray.shift()
@@ -224,10 +202,7 @@ angular.module('responseController', [])
                       /////now we split to check for a period
                       var periodTestArray = emailArray[0].split('.')
                       var periodTestLength = emailArray[0].split('.').length
-                      console.log(periodTestArray)
-                      console.log(periodTestLength)
                       if(periodTestLength > 1){
-                        console.log(friendEmail+' looks pretty good to me!')
                         realEmails.push({email: friendEmail})
                         $http({
                           method: "POST"
@@ -235,21 +210,15 @@ angular.module('responseController', [])
                           ,data: {address: friendEmail}
                         })
                         .then(function(data){
-                          console.log('email upoload worked')
-                          console.log(data);
                         })
                       } else {
-                        console.log('I dont see a period in there')
                       }
                     } else {
-                      console.log('dude wheres your at, at?')
                     }
                   /////////end for-loop
                   }
-                  console.log(realEmails)
                   responsePackage.charityLink = self.charityLink
                   responsePackage.charityName = self.charityName
-                  console.log(responsePackage)
                   ///////
                   ////////end email parsing to challenge Friends
                   //////////////////////////////////////////////
@@ -260,7 +229,6 @@ angular.module('responseController', [])
                     ,data: {emails: realEmails, responseData: responsePackage}
                   })
                   .then(function(data){
-                    console.log(data);
                   })
                 })
               })

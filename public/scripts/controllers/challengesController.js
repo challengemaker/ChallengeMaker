@@ -34,6 +34,11 @@ var app = angular.module('challengesController', [])
     ///////end blacklayer adjustment stuff
     /////////////////////////////////////
     ////begin dividing controller by page, this will be simplified by the use of factories
+
+    $('.donateNow').on('click', function(){
+      var challenge = window.location.hash.split('/')[2]
+      window.location.hash = "#/donate/"+challenge
+    })
     if(window.location.hash.split('/')[1] == "challenges"){
       ////////////////////////////////////////////////////////////////////
       ///////////set the blacklayer to adjust on the single challenge page
