@@ -182,7 +182,7 @@ var app = angular.module('cmsController', [])
             for (var i = 0; i < self.allMaster.length; i++) {
               $('.cmsList').append(
                 "<div class='cmsItemResponse' id='cmsItemResponse"+i+"'>"+
-                  "<h2 class='cmsResponseName'>"+self.allMaster[i].challenge+"</h2>"+
+                  "<h2 class='cmsResponseName'>"+self.allMaster[i].challenge.split('-').join(' ')+"</h2>"+
                   "<button class='repeatButton cmsShowResponse' id='cmsShowResponse"+i+"'>See Response Info</button>"+
                   "<button class='repeatButton cmsEditResponse' id='cmsEditResponse"+i+"'>Update Response Info</button>"+
                   "<button class='repeatButton cmsDeleteResponse' id='cmsDeleteResponse"+i+"'>Delete Response Info</button>"+
@@ -311,8 +311,16 @@ var app = angular.module('cmsController', [])
       $("#cmsShowChallenge"+x).on('click', function(){
         if(self.showChallengeCounter){
           $('.cmsItemForm'+x).append(
-            "<div id='showChallengeBox'"+x+">"+
-              "<h1>showing some challenge info we is</h1>"+
+            "<div id='showResponseBox'"+x+">"+
+              "<div id='showResponsePhoto'><img src='https://img.youtube.com/vi/"+self.allChallenges[x].videoUrl.split('/')[4]+"/0.jpg'>"+
+              "</div>"+
+              "<div id='showResponseInfo1'>"+
+                "<h4> Challenge Title: "+self.allChallenges[x].title+ "</h4>"+
+                "<h4> Challenge Id: "+self.allChallenges[x]._id+ "</h4>"+
+                "<h4> Charity: "+self.allChallenges[x].charity+ "</h4>"+
+              "</div>"+
+              // "<div id='showResponseInfo2'>"+
+              // "</div>"+
             "</div>"
           )
           self.showChallengeCounter = !self.showChallengeCounter
@@ -350,9 +358,11 @@ var app = angular.module('cmsController', [])
               "</div>"+
               "<div id='showResponseInfo1'>"+
                 "<h4> Creator: "+self.allResponses[x].creator+ "</h4>"+
+                "<h4> YouTube Link: "+self.allResponses[x].videoUrl+ "</h4>"+
+                "<h4> ResponseId: "+self.allResponses[x]._id+ "</h4>"+
               "</div>"+
-              "<div id='showResponseInfo2'>"+
-              "</div>"+
+              // "<div id='showResponseInfo2'>"+
+              // "</div>"+
             "</div>"
           )
           //"https://img.youtube.com/vi/"+self.challengerVideoId+"/0.jpg"
@@ -386,8 +396,12 @@ var app = angular.module('cmsController', [])
       $("#cmsShowUser"+x).on('click', function(){
         if(self.showUserCounter){
           $('.cmsItemForm'+x).append(
-            "<div id='showUserBox'"+x+">"+
-              "<h1>showing some User info we is</h1>"+
+            "<div id='showResponseBox'"+x+">"+
+              "<div id='showResponseInfo1'>"+
+                "<h3>User's Name: "+self.allUsers[x].name+"</h3>"+
+                "<h3>User's Email Address: "+self.allUsers[x].email+"</h3>"+
+              "</div>"+
+              "</div>"+
             "</div>"
           )
           self.showUserCounter = !self.showUserCounter
@@ -604,9 +618,10 @@ var app = angular.module('cmsController', [])
     function deleteResponse(x){
       $('#cmsDeleteResponse'+x).on('click', function(){
         var thisResponseId = self.allResponses[x]._id
+        console.log(thisResponseId)
         $http({
           method: "DELETE"
-          ,url: "/api/users/"+thisResponseId
+          ,url: "/api/responses/"+thisResponseId
         })
         .then(function(data){
           $('#cmsItemResponse'+x).animate({
@@ -650,58 +665,5 @@ var app = angular.module('cmsController', [])
         })
       })
     }
-
-
-    // $http({
-    //   method: "GET",
-    //   url: "/api/challengefriends"
-    // })
-    // .then(function(data){
-    //   console.log(data);
-    //   var allFriendsChallenges = data.data;
-    //   console.log(allFriendsChallenges);
-    //   for (var i = 0; i < allFriendsChallenges.length; i++) {
-    //     allFriendsChallenges[i].challengeUrlToSend = "https://challengemaker.herokuapp.com/#/youvebeenchallenged/"+allFriendsChallenges[i].challenge + "/" + allFriendsChallenges[i].friendVideoUrl.split('/')[4] + "/" + allFriendsChallenges[i].senderName.split(' ').join('-');
-    //     console.log(allFriendsChallenges[i]);
-    //   }
-    //   self.allFriendsChallenges = allFriendsChallenges
-    // })
-
-    /////check password
-    // $('.pwChecker').on('click', function(){
-    //   var attempt = $('.pwAttempt').val();
-    //   console.log(attempt);
-    //   $http({
-    //     method: "POST"
-    //     ,url: "/api/password"
-    //     ,data: {password: attempt}
-    //   })
-    //   .then(function(data){
-    //     console.log(data);
-    //     self.passwordCorrect = data.data.valid;
-    //     if(self.passwordCorrect){
-    //       $('.passwordBox').html('')
-    //     }
-    //   })
-    // })
-    // ///keypress event
-    // $('.pwAttempt').keypress(function(evt){
-    //   console.log(evt);
-    //   var attempt = $('.pwAttempt').val();
-    //   console.log(attempt);
-    //   $http({
-    //     method: "POST"
-    //     ,url: "/api/password"
-    //     ,data: {password: attempt}
-    //   })
-    //   .then(function(data){
-    //     console.log(data);
-    //     self.passwordCorrect = data.data.valid;
-    //     if(self.passwordCorrect){
-    //       $('.passwordBox').html('')
-    //     }
-    //   })
-    // })
-
     //////////end controller
   }
