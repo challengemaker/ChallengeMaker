@@ -80,7 +80,7 @@ angular.module('responseController', [])
           console.log(inputVal);
           var checkUrl = getYoutubeEmbed(inputVal)///this returns either the embed code or a "false", and so checks for validity
           if(checkUrl){
-            getClickForward()
+            getClickForward
           } else {
             $('.responseOuter').prepend(
               "<div class='responseLightbox'>" +
