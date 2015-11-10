@@ -1242,19 +1242,25 @@ body {
 }
 
 #showResponseBox {
-  height: 100px;
+  height: 130px;
   outline: 2px solid gray;
+  margin-top: 0px;
+}
+
+#showResponseInfo1 {
+  display: inline-block;
 }
 
 #showResponsePhoto {
-  height: 70px;
+  height: 100%;
   width: 120px;
+  display: inline-block;
 }
 
 #showResponsePhoto img{
-  height: 100%;
   width: 100%;
   position: relative;
+  margin: 15px 0 0 0;
 }
 
 .signIn {
