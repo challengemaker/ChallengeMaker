@@ -13,10 +13,10 @@ angular.module('donationController', [])
     ///////////begin button logic for the challenge path forward-back buttons
 
     $("#submitPayment").on('click', function(){
-      $('.paymentContainer').animate({
-        marginLeft: "-500px"
-        ,opacity: 0
-      })
+      // $('.paymentContainer').animate({
+      //   marginLeft: "-500px"
+      //   ,opacity: 0
+      // })
     })
 
     $('.donateChallengeFriends').on('click', function(){
