@@ -182,7 +182,7 @@ var app = angular.module('cmsController', [])
             for (var i = 0; i < self.allMaster.length; i++) {
               $('.cmsList').append(
                 "<div class='cmsItemResponse' id='cmsItemResponse"+i+"'>"+
-                  "<h2 class='cmsResponseName'>"+self.allMaster[i].challenge+"</h2>"+
+                  "<h2 class='cmsResponseName'>"+self.allMaster[i].challenge.split('-').join(' ')+"</h2>"+
                   "<button class='repeatButton cmsShowResponse' id='cmsShowResponse"+i+"'>See Response Info</button>"+
                   "<button class='repeatButton cmsEditResponse' id='cmsEditResponse"+i+"'>Update Response Info</button>"+
                   "<button class='repeatButton cmsDeleteResponse' id='cmsDeleteResponse"+i+"'>Delete Response Info</button>"+
@@ -350,8 +350,10 @@ var app = angular.module('cmsController', [])
               "</div>"+
               "<div id='showResponseInfo1'>"+
                 "<h4> Creator: "+self.allResponses[x].creator+ "</h4>"+
+                "<h4> YouTube Link: "+self.allResponses[x].videoUrl+ "</h4>"+
+                "<h4> ResponseId: "+self.allResponses[x]._id+ "</h4>"+
               "</div>"+
-              "<div id='showResponseInfo2'>"+
+              // "<div id='showResponseInfo2'>"+
               "</div>"+
             "</div>"
           )

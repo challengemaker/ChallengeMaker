@@ -1254,18 +1254,21 @@ body {
 
 #showResponseInfo1 {
   display: inline-block;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
 #showResponsePhoto {
   height: 100%;
   width: 120px;
   display: inline-block;
+  margin-left: 20px;
 }
 
 #showResponsePhoto img{
   width: 100%;
   position: relative;
-  margin: 15px 0 0 0;
+  margin: -40px 0 0 0;
 }
 
 .signIn {
