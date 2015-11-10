@@ -84,8 +84,8 @@ var app = angular.module('challengesController', [])
             // + " pppppppppppppppppp"
           }
         }
+        allChallenges.pop()
         self.allChallenges = allChallenges
-        self.allChallenges.pop()
         //////now it's all set and ready to go
         self.goTo = function goTo(index){
           var elem = self.allChallenges[index];
