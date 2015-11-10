@@ -346,9 +346,10 @@ var app = angular.module('cmsController', [])
         if(self.showResponseCounter){
           $('.cmsItemForm'+x).append(
             "<div id='showResponseBox'"+x+">"+
-              "<h1>showing some Response info we is</h1>"+
+              "<div id='showResponsePhoto'>https://img.youtube.com/vi/"+self.allResponses[x].videoUrl+"/0.jpg</div>"+
             "</div>"
           )
+          //"https://img.youtube.com/vi/"+self.challengerVideoId+"/0.jpg"
           self.showResponseCounter = !self.showResponseCounter
         } else if(!self.showResponseCounter){
             $('.cmsItemForm'+x).html('')

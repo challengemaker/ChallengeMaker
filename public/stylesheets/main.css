@@ -1241,6 +1241,11 @@ body {
   color: #999999;
 }
 
+#showResponseBox {
+  height: 100px;
+  outline: 2px solid gray;
+}
+
 .signIn {
   width: 90px;
   text-align: center;
