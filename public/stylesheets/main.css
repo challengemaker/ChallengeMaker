@@ -1246,6 +1246,17 @@ body {
   outline: 2px solid gray;
 }
 
+#showResponsePhoto {
+  height: 70px;
+  width: 120px;
+}
+
+#showResponsePhoto img{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
 .signIn {
   width: 90px;
   text-align: center;
