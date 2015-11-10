@@ -61,6 +61,7 @@ angular.module('donationController', [])
       console.log(url);
       $http.get('api/challenges/'+url[3])
         .then(function(data){
+          console.log(data)
           var responseData = {responseCreator: window.localStorage.sessionUser, charityName: data.data.charity[0], challenge: url[3].split('-').join(' ')}
           $http({
             method: 'POST'
@@ -71,9 +72,12 @@ angular.module('donationController', [])
             console.log(data);
           })
         })
-
+        window.location.hash = "#/"
     })
 
+    $('.donateHome').on('click', function(){
+      window.location.hash = "#/"
+    })
     ///////////////end logic for forward and back button in the challenge path
     //////////////////////////////////////////////////////////////////////////
 
