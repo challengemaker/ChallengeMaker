@@ -80,7 +80,7 @@ angular.module('responseController', [])
           console.log(inputVal);
           var checkUrl = getYoutubeEmbed(inputVal)///this returns either the embed code or a "false", and so checks for validity
           if(checkUrl){
-            getClickForward
+            getClickForward()
           } else {
             $('.responseOuter').prepend(
               "<div class='responseLightbox'>" +
@@ -89,11 +89,11 @@ angular.module('responseController', [])
             )
             $('.okButton').on('click', function(){
               $('.okButton').css({
-                backgroundColor: 'red'
+                backgroundColor: "#A400A4"
               })
               setTimeout(function(){
                 $('.responseLightbox').remove()
-              }, 200)
+              }, 100)
             })
           }
         })
@@ -103,16 +103,17 @@ angular.module('responseController', [])
         })
         $('.responseOuter').prepend(
           "<div class='responseLightbox'>" +
+            "<p>Please insert a proper youtube link</p>" +
             "<div class='okButton'> Ok </div>"+
           "</div>"
         )
         $('.okButton').on('click', function(){
           $('.okButton').css({
-            backgroundColor: 'red'
+            backgroundColor: '#A400A4'
           })
           setTimeout(function(){
             $('.responseLightbox').remove()
-          }, 200)
+          }, 100)
         })
       }
     }
@@ -268,27 +269,6 @@ angular.module('responseController', [])
       })
     }
 
-    //////tempoarry house for some bullshit
-    // .then(function(email){
-    //   var emailArr = $('.challengeFriends');
-    //   var realEmails = [];
-    //   for (var i = 0; i < emailArr.length; i++) {
-    //     var friendEmail = emailArr[i].value;
-    //     var checkEmail = [\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b]/;
-    //     var checkUrlEmail = friendEmail;
-    //     if(friendEmail != "email" && checkEmail.test(checkUrlEmail)){
-    //       realEmails.push({email: friendEmail});
-    //     }
-    //   }
-    //   $http({
-    //     method: 'POST'
-    //     ,url: "/api/sendemail/challenge"
-    //     ,data: realEmails
-    //   })
-    //   .then(function(data){
-    //     console.log(data);
-    //   })
-    ///////
     setInterval(function(){
       var contMargin = ((window.innerWidth/2) - 280)+"px"
       $('.questionHolder').css({marginLeft: contMargin})
@@ -466,7 +446,7 @@ angular.module('responseController', [])
               return embedCode
             } else {
               var embedCode = urlArray[0].split('=')[1].split('&')[0]
-              return embedCode
+              if(embedCode) {return embedCode}
             }
           } else if(checkWww[0] == "youtu"){
             ///////checks for the youtu.be/ new embed format
