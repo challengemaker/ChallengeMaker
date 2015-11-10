@@ -69,13 +69,34 @@ angular.module('responseController', [])
     /////function to make the input box light up depending on what kind of link is inside of it
     function checkRealUrl(urlToCheck){
       $('.responseLightbox').remove()
-      if(urlToCheck && $('.forwardButtonLightbox')){
+      $('.forwardButton').removeClass('forwardOn')
+      if(urlToCheck){
         $('.responseTitle').css({
           backgroundColor: "#EBFFF2"
         })
         $('.forwardButton').addClass('forwardOn')
-        $('.forwardOn').on('click', getClickForward)
-
+        $('.forwardOn').on('click', function(){
+          var inputVal = $('.responseTitle').val()
+          console.log(inputVal);
+          var checkUrl = getYoutubeEmbed(inputVal)///this returns either the embed code or a "false", and so checks for validity
+          if(checkUrl){
+            getClickForward()
+          } else {
+            $('.responseOuter').prepend(
+              "<div class='responseLightbox'>" +
+                "<div class='okButton'> Ok </div>"+
+              "</div>"
+            )
+            $('.okButton').on('click', function(){
+              $('.okButton').css({
+                backgroundColor: 'red'
+              })
+              setTimeout(function(){
+                $('.responseLightbox').remove()
+              }, 200)
+            })
+          }
+        })
       } else {
         $('.responseTitle').css({
           backgroundColor: "#FFCCE5"
