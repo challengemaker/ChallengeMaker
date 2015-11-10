@@ -7,7 +7,7 @@ angular.module('responseController', [])
     var self = this
 
     var thisChallenge = window.location.hash.split('/')[2];
-    console.log(thisChallenge);
+    console.log(thisChallenge)
 
     //////some quick contact form stuff, you can find at templates/_contact.html
     ///////////////////////////////////////////

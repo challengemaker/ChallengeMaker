@@ -604,6 +604,11 @@ body {
   height: 100%;
 }
 
+.donateChallengeFriends {
+  margin-left: 10px;
+  margin-top: 50px;
+}
+
 .dropdownContainer {
   width: 200px;
   margin-left: -135px;
