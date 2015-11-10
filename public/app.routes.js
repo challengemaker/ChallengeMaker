@@ -44,6 +44,12 @@ function appRoutes($routeProvider){
       ,controllerAs: 'donation'
     })
 
+    .when('/donate/challengefriends/:name', {
+      templateUrl: 'templates/_challengefriends.html'
+      ,controller: 'donationCtrl'
+      ,controllerAs: 'donation'
+    })
+
     .when('/checkout', {
       templateUrl: 'templates/_checkout.html'
       ,controller: 'paymentsCtrl'
