@@ -210,12 +210,14 @@ module.exports = function(app, passport){
 
 // update a charity
   app.post('/api/charities/update', function(req, res){
+    console.log(req.body);
     // var updateAttr = req.updateAttr;
     Charity.findOne(req.body.search, function(err, charity){
       if(err){console.log(err)};
-      if(req.body.name){
-        charity.name = req.body.name;
-      }
+      charity.name = req.body.name
+      charity.photo = req.body.photo
+      charity.url = req.body.url
+      charity.description = req.body.description
       charity.save(function(){
         res.json(charity);
       });
@@ -223,10 +225,10 @@ module.exports = function(app, passport){
   })
 
 // delete a charity
-  app.delete('/api/charities/:name', function(req, res){
-    var name = req.params.name.split('-').join(' ')
+  app.delete('/api/charities/:id', function(req, res){
+    console.log(req.params.id)
     Charity.remove({
-      name: name
+      _id: req.params.id
     }, function(err, charity){
       if(err){
         res.send(err)}
