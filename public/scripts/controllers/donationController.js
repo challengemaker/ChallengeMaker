@@ -76,7 +76,7 @@ angular.module('donationController', [])
     })
 
     $('.donateHome').on('click', function(){
-      window.location.hash = "#/"
+      window.location.hash = "#/donate/"+window.location.hash.split('/')[3]
     })
     ///////////////end logic for forward and back button in the challenge path
     //////////////////////////////////////////////////////////////////////////

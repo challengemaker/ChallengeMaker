@@ -223,21 +223,20 @@ body {
   width: 98%;
 }
 
+.challengeDescBox {
+  margin-top: 60px;
+}
+
+/*.challengeDescBox h2, h4 {
+  text-align: center;
+}*/
+
 .challengedDesc {
   width: 350px;
   font-size: 18px;
   font-style: bolder;
   margin: 0;
   margin-top: 30px;
-}
-
-.challengeFriendsContainer {
-  background-color: #E1E1E1;
-  z-index: 2;
-  height: 400px;
-}
-
-.challengeInfo {
 }
 
 .challengedTitle {
@@ -254,6 +253,16 @@ body {
   text-align: center;
   font-style: bold;
   color: gray
+}
+
+.challengeFriendsContainer {
+  background-color: #E1E1E1;
+  z-index: 2;
+  height: 480px;
+  width: 550px;
+  margin-top: 50px;
+  /*height: 400px;
+  width: 400px;*/
 }
 
 .challengeFriendsContainer button{
@@ -1046,7 +1055,9 @@ body {
 }
 
 .paymentBox h1{
+  text-align: center;
   font-size: 46px;
+  color: #999999;
 }
 
 .paymentCards img{
@@ -1173,17 +1184,17 @@ body {
   background-color: #E1E1E1;
 }
 
+.questions {
+  /*display: inline-block;
+  height: 250px;
+  position: relative;*/
+}
+
 .questionTunnel {
   height: 90%;
   margin-top: 5%;
   width: 2200px;
   position: absolute;
-}
-
-.questions {
-  /*display: inline-block;
-  height: 250px;
-  position: relative;*/
 }
 
 .repeatButton {
@@ -1282,7 +1293,6 @@ body {
   z-index: 2;
   position: absolute;
 }
-
 
 .signinBox {
   padding: 20px 20px 20px 20px;
@@ -1454,7 +1464,6 @@ body {
   background-color: blue;
   height: 200px;
 }
-
 
 .texttext {
   text-align: center;
