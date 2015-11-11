@@ -269,8 +269,16 @@ var app = angular.module('cmsController', [])
       $("#cmsShowCharity"+x).on('click', function(){
         if(self.showCharityCounter){
           $('.cmsItemForm'+x).append(
-            "<div id='showCharityBox'"+x+">"+
-              "<h1>showing some charity info we is</h1>"+
+            "<div id='showResponseBox'"+x+">"+
+              "<div id='showResponsePhoto'><img src='"+self.allCharities[x].photo+"'>"+
+              "</div>"+
+              "<div id='showResponseInfo1'>"+
+                "<h4> Charity Name: "+self.allCharities[x].name+ "</h4>"+
+                "<h4> Charity Id: "+self.allCharities[x]._id+ "</h4>"+
+                "<h4> Charity Link: "+self.allCharities[x].url+ "</h4>"+
+              "</div>"+
+              // "<div id='showResponseInfo2'>"+
+              // "</div>"+
             "</div>"
           )
           self.showCharityCounter = !self.showCharityCounter
@@ -288,7 +296,6 @@ var app = angular.module('cmsController', [])
         if(self.editCharityCounter){
           $('.cmsItemForm'+x).append(
             "<div class='cmsEditCharity'>"+
-              "<h2>Create a New Charity</h2>"+
               "<input class='editCharityName' type='text' value='"+thisCharity.name+"'>"+
               "<input class='editCharityDescription' type='text' value='"+thisCharity.description+"'>"+
               "<input class='editCharityPhoto' type='text' value='"+thisCharity.photo+"'>"+
@@ -335,8 +342,8 @@ var app = angular.module('cmsController', [])
       $("#cmsEditChallenge"+x).on('click', function(){
         if(self.editChallengeCounter){
           $('.cmsItemForm'+x).append(
-            "<div class='cmsEditChallenge'>"+
-              "<input class='editChallengeTitle' type='text' value='"+self.allChallenges[x].title+"'>"+
+            "<div class='cmsEditChallenge' id='cmsEditChallengeContainer"+x+"'>"+
+              "<input class='editChallengeName' type='text' value='"+self.allChallenges[x].title+"'>"+
               "<input class='editChallengeDescription' type='text' value='"+self.allChallenges[x].description+"'>"+
               "<input class='editChallengePhoto' type='text' value='"+self.allChallenges[x].photo+"'>"+
               "<input class='editChallengeCharity' type='text' value='"+self.allChallenges[x].charity+"'>"+
@@ -582,10 +589,11 @@ var app = angular.module('cmsController', [])
     ///////delete a Charity
     function deleteCharity(x){
       $('#cmsDeleteCharity'+x).on('click', function(){
-        var thisName = self.allCharities[x].name
+        var thisId = self.allCharities[x]._id
+        console.log(thisId)
         $http({
           method: "DELETE"
-          ,url: "/api/charities/"+thisName
+          ,url: "/api/charities/"+thisId
         })
         .then(function(data){
           $('#cmsItemCharity'+x).animate({
@@ -648,6 +656,7 @@ var app = angular.module('cmsController', [])
       var thisId = self.allCharities[x]._id
       $("#cmsSubmitEditCharity"+x).on('click', function(evt){
         var newName = $('.editCharityName').val()
+        console.log(newName)
         var newDescription = $('.editCharityDescription').val()
         var newPhoto = $('.editCharityPhoto').val()
         var newUrl = $('.editCharityUrl').val()
@@ -655,10 +664,10 @@ var app = angular.module('cmsController', [])
         $http({
           method: "POST"
           ,url: "/api/charities/update"
-          ,data: {search: {name: newName}, description: newDescription, photo: newPhoto, url: newUrl}
+          ,data: {search, name: newName, description: newDescription, photo: newPhoto, url: newUrl}
         })
         .then(function(data){
-          $('.cmsCharityName').text(data.data.name)
+          // $('.cmsCharityName').text(data.data.name)
         })
       })
     }
@@ -678,6 +687,15 @@ var app = angular.module('cmsController', [])
         })
         .then(function(data){
           $('.cmsChallengeTitle').text(data.data.title)
+          $('#cmsItemChallengeContainer'+x).remove()
+          $('.editChallengePhoto').remove()
+          $('.editChallengeDescription').remove()
+          $('.editChallengeCharity').remove()
+          $('.editChallengeTitle').remove()
+          $('#cmsSubmitEditChallenge'+x).remove()
+          $('#cmsItemForm'+x).animate({
+            height: "0px"
+          }, 150)
         })
       })
     }
