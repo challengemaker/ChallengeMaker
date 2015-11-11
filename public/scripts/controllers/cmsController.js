@@ -335,10 +335,15 @@ var app = angular.module('cmsController', [])
       $("#cmsEditChallenge"+x).on('click', function(){
         if(self.editChallengeCounter){
           $('.cmsItemForm'+x).append(
-            "<div id='editChallengeBox'"+x+">"+
-              "<h1>showing some challenge info we is</h1>"+
+            "<div class='cmsEditChallenge'>"+
+              "<input class='editChallengeTitle' type='text' value='"+self.allChallenges[x].title+"'>"+
+              "<input class='editChallengeDescription' type='text' value='"+self.allChallenges[x].description+"'>"+
+              "<input class='editChallengePhoto' type='text' value='"+self.allChallenges[x].photo+"'>"+
+              "<input class='editChallengeCharity' type='text' value='"+self.allChallenges[x].charity+"'>"+
+              "<input class='cmsSubmitEditChallenge' id='cmsSubmitEditChallenge"+x+"' type='submit' value='Update Challenge Info'>"+
             "</div>"
           )
+          editChallenge(x)
           self.editChallengeCounter = !self.editChallengeCounter
         } else if(!self.editChallengeCounter){
             $('.cmsItemForm'+x).html('')
@@ -642,16 +647,10 @@ var app = angular.module('cmsController', [])
     function editCharity(x){
       var thisId = self.allCharities[x]._id
       $("#cmsSubmitEditCharity"+x).on('click', function(evt){
-        console.log('hey there');
-        console.log(evt);
         var newName = $('.editCharityName').val()
         var newDescription = $('.editCharityDescription').val()
         var newPhoto = $('.editCharityPhoto').val()
         var newUrl = $('.editCharityUrl').val()
-        console.log(newName);
-        console.log(newDescription);
-        console.log(newPhoto);
-        console.log(newUrl);
         search = {_id: thisId}
         $http({
           method: "POST"
@@ -659,9 +658,26 @@ var app = angular.module('cmsController', [])
           ,data: {search: {name: newName}, description: newDescription, photo: newPhoto, url: newUrl}
         })
         .then(function(data){
-          console.log('yooyoyoyoyoy');
-          console.log(data);
           $('.cmsCharityName').text(data.data.name)
+        })
+      })
+    }
+
+    function editChallenge(x){
+      var thisId = self.allChallenges[x]._id
+      $("#cmsSubmitEditChallenge"+x).on('click', function(evt){
+        var newTitle = $('.editChallengeTitle').val()
+        var newDescription = $('.editChallengeDescription').val()
+        var newPhoto = $('.editChallengePhoto').val()
+        var newCharity = $('.editChallengeCharity').val()
+        search = {_id: thisId}
+        $http({
+          method: "POST"
+          ,url: "/api/challenges/update"
+          ,data: {search: {_id: thisId}, title: newTitle, description: newDescription, photo: newPhoto, charity: newCharity}
+        })
+        .then(function(data){
+          $('.cmsChallengeTitle').text(data.data.title)
         })
       })
     }

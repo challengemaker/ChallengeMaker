@@ -147,11 +147,14 @@ module.exports = function(app, passport){
   });
 
 // update a challenge - works
-  app.post('/api/challenges/:name', function(req, res){
+  app.post('/api/challenges/update', function(req, res){
     // var updateAttr = req.updateAttr;
     Challenge.findOne(req.body.search, function(err, challenge){
       if(err){console.log(err)};
-      challenge.title = req.body.title;
+      challenge.title = req.body.title
+      challenge.description = req.body.description
+      challenge.photo = req.body.photo
+      challenge.video = req.body.video
       challenge.save(function(){
         res.json(challenge);
       });
