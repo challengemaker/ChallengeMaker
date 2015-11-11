@@ -335,7 +335,7 @@ var app = angular.module('cmsController', [])
       $("#cmsEditChallenge"+x).on('click', function(){
         if(self.editChallengeCounter){
           $('.cmsItemForm'+x).append(
-            "<div class='cmsEditChallenge'>"+
+            "<div class='cmsEditChallenge' id='cmsEditChallengeContainer"+x+"'>"+
               "<input class='editChallengeTitle' type='text' value='"+self.allChallenges[x].title+"'>"+
               "<input class='editChallengeDescription' type='text' value='"+self.allChallenges[x].description+"'>"+
               "<input class='editChallengePhoto' type='text' value='"+self.allChallenges[x].photo+"'>"+
@@ -678,6 +678,15 @@ var app = angular.module('cmsController', [])
         })
         .then(function(data){
           $('.cmsChallengeTitle').text(data.data.title)
+          $('#cmsItemChallengeContainer'+x).remove()
+          $('.editChallengePhoto').remove()
+          $('.editChallengeDescription').remove()
+          $('.editChallengeCharity').remove()
+          $('.editChallengeTitle').remove()
+          $('#cmsSubmitEditChallenge'+x).remove()
+          $('#cmsItemForm'+x).animate({
+            height: "0px"
+          }, 150)
         })
       })
     }
