@@ -688,7 +688,8 @@ body {
 }
 
 .forwardButton {
-  margin-left: 10px;
+  margin-left: 115px;
+  width: 130px;
 }
 
 .forwardButton:hover {
