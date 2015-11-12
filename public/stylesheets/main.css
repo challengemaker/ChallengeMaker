@@ -1504,6 +1504,12 @@ body {
   color: #999999;
 }
 
+.titleDescBox h4{
+  width: 80%;
+  font-size: 12px;
+  text-align: center;
+}
+
 .topChallenges {
   background-color: #f1f1f1;
   min-height: 327px;
