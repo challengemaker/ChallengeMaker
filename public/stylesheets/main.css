@@ -1061,6 +1061,13 @@ body {
   color: #999999;
 }
 
+.paymentButtDiv {
+  display: table-cell;
+  vertical-align: bottom;
+  width: 552px;
+  height: 60px;
+}
+
 .paymentCards img{
   height: auto;
   width: 500px;

@@ -27,7 +27,7 @@ var app = angular.module('paymentsController', [])
           "<select class='amountDrop form-control' id='sell' name='amount'>"+
             "<option value='5.00'>$5.00</option>"+
             "<option value='10.00'>$10.00</option>"+
-            "<option value='20.00' selected>$20.00</option>"+
+            "<option value='25.00' selected>$25.00</option>"+
             "<option value='50.00'>$50.00</option>"+
             "<option value='100.00'>$100.00</option>"+
           "</select>"
