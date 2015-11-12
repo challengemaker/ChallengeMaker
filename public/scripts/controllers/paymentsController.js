@@ -68,8 +68,8 @@ var app = angular.module('paymentsController', [])
     //////additional x-functionality so that it resizes at smaller sizes
     /////////end click function
     ///////////////////////////
-
-
+    //////////////////////////////////////
+    ///////begin section to submit payment
     console.log('lol payments');
     $http({
       method: "GET"
@@ -84,6 +84,8 @@ var app = angular.module('paymentsController', [])
           container: "payment-form"
           ,onError: function(err){
             console.log(err)//////this sends the error message callback that we use to populate a callback, popup function comes next
+            ////////////////////////////////////////
+            ////////adding logic for error popup box
             $('.paymentContainer').prepend(
               "<div class='responseLightboxPaymentError'>" +
                 "<div class='responseLightboxText'>"+
@@ -123,6 +125,8 @@ var app = angular.module('paymentsController', [])
             $(window).resize(function(){
               responsiveError()
             })
+            ////////////////////////////////////////
+            ////////adding logic for error popup box
           }
           ,redirect_url: "#/"
           ,onPaymentMethodReceived: function(nonce){
@@ -155,7 +159,9 @@ var app = angular.module('paymentsController', [])
               });
           }
         })
-      });
+      })
+      //////////////////////////////////////
+      ///////end section to submit payment
 
 //////end controller
   }

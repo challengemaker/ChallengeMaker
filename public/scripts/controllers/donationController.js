@@ -123,6 +123,100 @@ angular.module('donationController', [])
     //////additional x-functionality so that it resizes at smaller sizes
     /////////end click function
     ///////////////////////////
+    //////////////////////////////////////
+    ///////begin section to submit payment
+    console.log('lol payments');
+    $http({
+      method: "GET"
+      ,url: "/client_token"
+    })
+    .then(function(data){
+      console.log(data);
+      self.token = data.data;
+      braintree.setup(
+        self.token,
+        'dropin', {
+          container: "payment-form"
+          ,onError: function(err){
+            console.log(err)//////this sends the error message callback that we use to populate a callback, popup function comes next
+            ////////////////////////////////////////
+            ////////adding logic for error popup box
+            $('.paymentContainer').prepend(
+              "<div class='responseLightboxPaymentError'>" +
+                "<div class='responseLightboxText'>"+
+                  "<p>Oops, there was an issue with your credit card, please try again</p>" +
+                "</div>"+
+                "<div class='okButton'> OK </div>"+
+              "</div>"
+            )
+            $('.okButton').on('click', function(){
+              $('.okButton').css({
+                backgroundColor: '#C31C85'
+                ,color: "white"
+              })
+              setTimeout(function(){
+                $('.responseLightboxPaymentError').remove()
+              }, 100)
+            })
+            $('.okButton').on('mouseenter', function(){
+              $('.okButton').css({
+                backgroundColor: '#D4D4D4'
+              })
+            })
+            $('.okButton').on('mouseleave', function(){
+              $('.okButton').css({
+                backgroundColor: '#F5F5F5'
+              })
+            })
+            function responsiveError(){
+              if($(window).width() < 525){
+                console.log('lol');
+                $('.responseLightboxText').css({
+                  fontSize: "16px"
+                })
+              }
+            }
+            responsiveError()
+            $(window).resize(function(){
+              responsiveError()
+            })
+            ////////////////////////////////////////
+            ////////adding logic for error popup box
+          }
+          ,redirect_url: "#/"
+          ,onPaymentMethodReceived: function(nonce){
+            console.log(nonce);
+            $('#checkout').append(
+              "<input type='hidden' name='payment_method_nonce' value='" + nonce.nonce + "'></input>"+
+              "<input type='hidden' name='challenge' value='" + self.paymentChallenge + "'></input>"
+            )
+              console.log('HOLLLLLLLLLLLLA');
+              var userName = window.localStorage.sessionUser;
+              console.log(userName);
+              $http({
+                method: "GET"
+                ,url: "/api/users/"+userName
+              })
+              .then(function(data){
+                console.log(data);
+                var sendeeEmail = data.data.user.email
+                console.log(sendeeEmail)
+                $http({
+                  method: "POST"
+                  ,url: "/api/sendemail/donation"
+                  ,data: {sendeeEmail: sendeeEmail}
+                })
+                .then(function(data){
+                  console.log(data)
+                  console.log('almost thereeeee')
+                  $('#checkout').submit()
+                })
+              });
+          }
+        })
+      })
+      //////////////////////////////////////
+      ///////end section to submit payment
 
   ///////end of the the Donation Controller
   /////////////////////////////////////////
