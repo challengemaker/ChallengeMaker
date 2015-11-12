@@ -696,10 +696,6 @@ body {
   width: 130px;
 }
 
-.forwardButton:hover {
-  background-color: #B8E6E6;
-}
-
 .glyphicon-check {
   font-size: 40px;
   color: #C31C85;

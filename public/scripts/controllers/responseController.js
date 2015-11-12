@@ -124,6 +124,16 @@ angular.module('responseController', [])
       checkRealUrl(checkUrl)/////this places all teh DOM event stuff
     })
 
+    $('.forwardButton').on('mouseenter', function(){
+      // $('.forwardButton')[0].src("/assets/NEXT_over.svg")
+      console.log($('.forwardButton')[0].src = "/assets/NEXT_over.svg");
+    })
+
+    $('.forwardButton').on('mouseleave', function(){
+      // $('.forwardButton')[0].src("/assets/NEXT_over.svg")
+      console.log($('.forwardButton')[0].src = "/assets/NEXT.svg");
+    })
+
     var submitChallenge = function(){
       /////collecting all data we'll need for
       var inputUrl = $('.responseTitle').val()
