@@ -85,10 +85,44 @@ var app = angular.module('paymentsController', [])
           ,onError: function(err){
             console.log(err)//////this sends the error message callback that we use to populate a callback, popup function comes next
             $('.paymentContainer').prepend(
-              "<div class='paymentErrorPopup'>" +
-                "<p>You had an error!</p>" +
+              "<div class='responseLightboxPaymentError'>" +
+                "<div class='responseLightboxText'>"+
+                  "<p>Oops, there was an issue with your credit card, please try again</p>" +
+                "</div>"+
+                "<div class='okButton'> OK </div>"+
               "</div>"
             )
+            $('.okButton').on('click', function(){
+              $('.okButton').css({
+                backgroundColor: '#C31C85'
+                ,color: "white"
+              })
+              setTimeout(function(){
+                $('.responseLightbox').remove()
+              }, 100)
+            })
+            $('.okButton').on('mouseenter', function(){
+              $('.okButton').css({
+                backgroundColor: '#D4D4D4'
+              })
+            })
+            $('.okButton').on('mouseleave', function(){
+              $('.okButton').css({
+                backgroundColor: '#F5F5F5'
+              })
+            })
+            function responsiveError(){
+              if($(window).width() < 525){
+                console.log('lol');
+                $('.responseLightboxText').css({
+                  fontSize: "16px"
+                })
+              }
+            }
+            responsiveError()
+            $(window).resize(function(){
+              responsiveError()
+            })
           }
           ,redirect_url: "#/"
           ,onPaymentMethodReceived: function(nonce){
