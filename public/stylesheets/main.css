@@ -1283,6 +1283,7 @@ body {
 }
 
 .responseLightbox p{
+  color: grey;
   font-size: 23px;
   font-weight: bold;
   width: 80%;
@@ -1290,6 +1291,28 @@ body {
   margin-top: 30px;
   text-align: center;
   /*padding: 50px 0 50px 0;*/
+}
+
+.responseLightboxPaymentError {
+  position: absolute;
+  height: 220px;
+  width: 50%;
+  margin-left: 32.5%;
+  margin-top: 170px;
+  z-index: 200;
+  border-radius: 15px 15px 0 0;
+  background-color: #F5F5F5;
+}
+
+.responseLightboxText{
+  color: grey;
+  font-size: 23px;
+  font-weight: bold;
+  width: 80%;
+  height: 150px;
+  margin-left: 10%;
+  margin-top: 30px;
+  text-align: center;
 
 }
 

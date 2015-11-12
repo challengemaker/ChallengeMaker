@@ -350,12 +350,10 @@ angular.module('responseController', [])
             $('.forwardButton').addClass("submitDon")
             ////////remake the event listeners for the rollover to reflect new design for "send" button
             $('.forwardButton').on('mouseenter', function(){
-              // $('.forwardButton')[0].src("/assets/NEXT_over.svg")
               $('.forwardButton')[0].src = "/assets/SEND_over.svg"
             })
 
             $('.forwardButton').on('mouseleave', function(){
-              // $('.forwardButton')[0].src("/assets/NEXT_over.svg")
               $('.forwardButton')[0].src = "/assets/SEND.svg"
             })
             /////end mouseover highlight event
