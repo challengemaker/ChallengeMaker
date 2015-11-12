@@ -436,22 +436,23 @@ module.exports = function(app, passport){
 
   app.post('/checkout', function(req, res){
     var nonce = req.body.payment_method_nonce
+    var challenge = req.body.challenge
     console.log(req.body)
-    // gateway.transaction.sale({
-    //   paymentMethodNonce: nonce
-    //   ,amount: req.body.amount
-    // },
-    // function(err, result){
-    //   var newTran = {
-    //     amount: result.transaction.amount
-    //     ,merchantAccountId: result.transaction.merchantAccountId
-    //     ,challenge: req.body.challenge
-    //     ,id: result.transaction.id
-    //     ,dateCreated: result.transaction.createdAt
-    //   }
-    //   Transaction.create(newTran);
-      res.redirect('/#/donationReceived')
-    // })
+    gateway.transaction.sale({
+      paymentMethodNonce: nonce
+      ,amount: req.body.amount
+    },
+    function(err, result){
+      var newTran = {
+        amount: result.transaction.amount
+        ,merchantAccountId: result.transaction.merchantAccountId
+        ,challenge: req.body.challenge
+        ,id: result.transaction.id
+        ,dateCreated: result.transaction.createdAt
+      }
+      Transaction.create(newTran);
+      res.redirect('/#/challenges/'+req.body.challenge+"/paymentreceived")
+    })
   })
 
 

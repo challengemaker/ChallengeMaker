@@ -20,6 +20,12 @@ function appRoutes($routeProvider){
       ,controllerAs: 'challenges'
     })
 
+    .when('/challenges/:name/paymentreceived', {
+      templateUrl: 'templates/_singleChallenge.html'
+      ,controller: 'challengesCtrl'
+      ,controllerAs: 'challenges'
+    })
+
     .when('/newchallenge', {
       templateUrl: 'templates/_new_challenge.html'
       ,controller: 'challengesCtrl'

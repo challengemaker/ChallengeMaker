@@ -161,7 +161,6 @@ var app = angular.module('paymentsController', [])
         })
       })
       //////////////////////////////////////
-      ///////end section to submit payment
-
+      ///////end section to submit payment/
 //////end controller
   }
