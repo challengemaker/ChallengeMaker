@@ -102,11 +102,22 @@ angular.module('responseController', [])
         )
         $('.okButton').on('click', function(){
           $('.okButton').css({
-            backgroundColor: '#A400A4'
+            backgroundColor: '#C31C85'
+            ,color: "white"
           })
           setTimeout(function(){
             $('.responseLightbox').remove()
           }, 100)
+        })
+        $('.okButton').on('mouseenter', function(){
+          $('.okButton').css({
+            backgroundColor: '#D4D4D4'
+          })
+        })
+        $('.okButton').on('mouseleave', function(){
+          $('.okButton').css({
+            backgroundColor: '#F5F5F5'
+          })
         })
       }
     }
