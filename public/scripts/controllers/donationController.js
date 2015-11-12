@@ -86,7 +86,7 @@ angular.module('donationController', [])
     $('.xBar').on('click', function(){
       var challengeName = window.location.hash.split("/")[3]
       $('.xBar').css({
-        backgroundColor: '#C31C85'
+        backgroundColor: '#D4D4D4'
         ,color: 'white'
       })
       setTimeout(function(){
