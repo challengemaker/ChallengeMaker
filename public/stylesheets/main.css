@@ -1060,6 +1060,11 @@ body {
   color: #999999;
 }
 
+.paymentButtDiv {
+  width: 100%;
+  display: inline-block;
+}
+
 .paymentCards img{
   height: auto;
   width: 500px;
@@ -1082,6 +1087,10 @@ body {
 
 .paymentOptions option{
 
+}
+
+.paymentSkipDon {
+  margin-top: 30px;
 }
 
 .paymentSubButt {
