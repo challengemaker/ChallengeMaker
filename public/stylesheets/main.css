@@ -258,7 +258,7 @@ body {
 .challengeFriendsContainer {
   background-color: #E1E1E1;
   z-index: 2;
-  height: 520px;
+  height: 480px;
   width: 550px;
   margin-top: 50px;
   /*height: 400px;
@@ -1213,7 +1213,7 @@ body {
   position: absolute;
   z-index: 10;
   overflow: hidden;
-  margin-top: 40px;
+  margin-top: 50px;
   margin-left: 50%;
   background-color: #E1E1E1;
 }
