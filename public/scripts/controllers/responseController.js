@@ -338,16 +338,16 @@ angular.module('responseController', [])
       })
       /////////begin logic for the forward button
       var getClickForward = function(){
-        self.title = $('.responseTitle').val();
-        self.description = $('.responseDesc').val();
-        self.video = $('.videoUrl').val();
-        self.name = $('.signup2').val();
+        self.title = $('.responseTitle').val()
+        self.description = $('.responseDesc').val()
+        self.video = $('.videoUrl').val()
+        self.name = $('.signup2').val()
         if(carouselCounter < 3){
           carouselCounter++;
           if (carouselCounter == 1) {
             /////////add a class and event listener so thta the forward button can now submit the emails and youtube link response
-            $('.forwardButton').text("SUBMIT!");
-            $('.forwardButton').addClass("submitDon");
+            $('.forwardButton').text("SUBMIT!")
+            $('.forwardButton').addClass("submitDon")
             $('.submitDon').on('click', function(){
               submitChallenge()
             })
@@ -357,11 +357,12 @@ angular.module('responseController', [])
               marginLeft: tunnelMargin+"px"
             })
           } else if (carouselCounter == 2) {
-            tunnelMargin = tunnelMargin-550;
-            $('.questionTunnel').animate({
-              marginLeft: tunnelMargin+"px"
-            })
-            $('.carouselButtonHolder').html('');
+            window.location.hash = "#/payments/"+window.location.hash.split("/")[2]
+            // tunnelMargin = tunnelMargin-550
+            // $('.questionTunnel').animate({
+            //   marginLeft: tunnelMargin+"px"
+            // })
+            // $('.carouselButtonHolder').html('')
           }
         }
       }
