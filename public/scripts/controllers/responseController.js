@@ -97,7 +97,7 @@ angular.module('responseController', [])
         $('.responseOuter').prepend(
           "<div class='responseLightbox'>" +
             "<p>Oops, your link didn't work, please try again</p>" +
-            "<div class='okButton'> Ok </div>"+
+            "<div class='okButton'> OK </div>"+
           "</div>"
         )
         $('.okButton').on('click', function(){
