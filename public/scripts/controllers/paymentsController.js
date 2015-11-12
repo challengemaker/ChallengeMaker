@@ -115,7 +115,6 @@ var app = angular.module('paymentsController', [])
             })
             function responsiveError(){
               if($(window).width() < 525){
-                console.log('lol');
                 $('.responseLightboxText').css({
                   fontSize: "16px"
                 })
@@ -130,30 +129,23 @@ var app = angular.module('paymentsController', [])
           }
           ,redirect_url: "#/"
           ,onPaymentMethodReceived: function(nonce){
-            console.log(nonce);
             $('#checkout').append(
               "<input type='hidden' name='payment_method_nonce' value='" + nonce.nonce + "'></input>"+
               "<input type='hidden' name='challenge' value='" + self.paymentChallenge + "'></input>"
             )
-              console.log('HOLLLLLLLLLLLLA');
               var userName = window.localStorage.sessionUser;
-              console.log(userName);
               $http({
                 method: "GET"
                 ,url: "/api/users/"+userName
               })
               .then(function(data){
-                console.log(data);
                 var sendeeEmail = data.data.user.email
-                console.log(sendeeEmail)
                 $http({
                   method: "POST"
                   ,url: "/api/sendemail/donation"
                   ,data: {sendeeEmail: sendeeEmail}
                 })
                 .then(function(data){
-                  console.log(data)
-                  console.log('almost thereeeee')
                   $('#checkout').submit()
                 })
               });

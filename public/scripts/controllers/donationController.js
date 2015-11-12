@@ -19,6 +19,32 @@ angular.module('donationController', [])
       // })
     })
 
+    $('.customAmount').on('click', function(){
+      self.paymentCounter = !self.paymentCounter;
+      if(!self.paymentCounter){
+        $('.amountDrop').remove();
+        $('.customAmount')[0].textContent = "select amount from list"
+        $('.paymentOptions').prepend(
+          "<input id='paymentAmount' type='text' name='amount' placeholder='Enter Donation Amount'>"
+        )
+      }
+      else if(self.paymentCounter){
+        $('#paymentAmount').remove();
+        $('.customAmount')[0].textContent = "or enter an amount"
+        $('.paymentOptions').prepend(
+          "<select class='amountDrop form-control' id='sell' name='amount'>"+
+            "<option value='5.00'>$5.00</option>"+
+            "<option value='10.00'>$10.00</option>"+
+            "<option value='25.00' selected>$25.00</option>"+
+            "<option value='50.00'>$50.00</option>"+
+            "<option value='100.00'>$100.00</option>"+
+          "</select>"
+        )
+      }
+
+    })
+
+
     $('.donateChallengeFriends').on('click', function(){
       var emailArr = $('.challengeFriends')
       var realEmails = []
