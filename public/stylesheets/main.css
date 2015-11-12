@@ -688,7 +688,8 @@ body {
 }
 
 .forwardButton {
-  margin-left: 10px;
+  margin-left: 115px;
+  width: 130px;
 }
 
 .forwardButton:hover {
@@ -1678,6 +1679,16 @@ body {
 .videoLink {
   margin-left: 400px;
   opacity: 0.5;
+}
+
+.xBar {
+  height: 30px;
+  /*outline: 2px solid gray;*/
+  /*background-color: red;*/
+  width: 25px;
+  padding: 0 0 3px 3px;
+  margin-left: 93%;
+  cursor: pointer;
 }
 
 /* Greg made these end three for
