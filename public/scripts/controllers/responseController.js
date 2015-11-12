@@ -448,7 +448,14 @@ angular.module('responseController', [])
     ////////////////////////////////////////////////////////////////////////////
     $('.xBar').on('click', function(){
       var challengeName = window.location.hash.split("/")[2]
-      window.location.hash = "#/challenges/"+challengeName
+      $('.xBar').css({
+        backgroundColor: '#C31C85'
+        ,color: 'white'
+      })
+      setTimeout(function(){
+        window.location.hash = "#/challenges/"+challengeName
+      }, 150)
+
     })
     function moveXButton(){
       var windowSize = $(window).width()
