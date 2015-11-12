@@ -206,6 +206,14 @@ body {
   height: 150px;
 }
 
+.challengeAccept {
+	  text-align: left;
+    margin-bottom: 0px;
+    background-color: darkgray;
+    width: 50px;
+    padding: .5px;
+}
+
 .challengeBy {
   margin-top: -68px;
   text-align: center;
@@ -219,6 +227,11 @@ body {
   width: 360px;
 }
 
+.challengeCharityText {
+	  text-align: left;
+    font-size: 20px;
+}
+
 .challengeContainer {
   width: 98%;
 }
@@ -226,10 +239,6 @@ body {
 .challengeDescBox {
   margin-top: 60px;
 }
-
-/*.challengeDescBox h2, h4 {
-  text-align: center;
-}*/
 
 .challengedDesc {
   width: 350px;
@@ -244,6 +253,16 @@ body {
   margin-top: -10px;
 }
 
+.challengeDonationext {
+	  text-align: left;
+    font-size: 15px;
+}
+
+.challengeDeats {
+	  text-align: left;
+    margin-bottom: 0px;
+}
+
 .challengeFriends {
   height: 40px;
   width: 70%;
@@ -252,7 +271,7 @@ body {
   font-size: 25px;
   text-align: center;
   font-style: bold;
-  color: gray
+  color: gray;
 }
 
 .challengeFriendsContainer {
@@ -271,11 +290,24 @@ body {
   font-size: 16px;
   /*margin-top: 50px;*/
 }
-/*
-.challengeFrs {
-  color: "#F25D1E"
-}*/
 
+.challengeFriendsDescBox {
+  position: relative;
+  text-align: center;
+}
+
+.challengeFriendsDescBox h1, h2, h3, h4 {
+  color: #999999;
+  margin: 0px;
+}
+
+.challengeFriendsDescBox h1 {
+  font-weight: 300;
+}
+
+.challengeFriendsDiv {
+  margin-top: 52px;
+}
 
 .challengeHolder {
   height: 320px;
@@ -289,7 +321,7 @@ body {
   display: inline-block;
   margin: 60px 0 0 5%;
   position: absolute;
-  z-index: 2
+  z-index: 2;
 }
 
 .challengePhoto {
@@ -364,7 +396,7 @@ body {
   text-align: center;
   font-size: 46px;
   font-weight: bold;
-  color: #999999
+  color: #999999;
 }
 
 .contactContainer {
@@ -446,7 +478,6 @@ body {
 }
 
 .currentChallengeContainer {
-
 }
 
 .currentChallengeHolder{
@@ -598,7 +629,6 @@ body {
 
 .donateHome{
   margin-left: 20%;
-
 }
 
 .donationButtons {
@@ -692,6 +722,13 @@ body {
   display: block;
 }
 
+.challengeFriendsForwardButton {
+  position: relative;
+  margin-left: 65%;
+  width: 110px;
+  background-color: none;
+}
+
 .forwardButton {
   position: relative;
   margin-left: 37%;
@@ -757,7 +794,6 @@ body {
 }
 
 .highlightContainer {
-
 }
 
 .highlightImage {
@@ -881,7 +917,6 @@ body {
 }
 
 .lImage {
-
 }
 
 .lImageImg {
@@ -994,8 +1029,8 @@ body {
 }
 
 .miniImageHolder {
-    height: 300px;
-    outline: 2px solid blue;
+  height: 300px;
+  outline: 2px solid blue;
 }
 
 .moneyBox {
@@ -1787,31 +1822,6 @@ body {
   margin-left: 95%;
   margin-top: 10px;
   cursor: pointer;
-}
-
-/* Greg made these end three for
-text on challenges page */
-.challengeCharityText {
-	  text-align: left;
-    font-size: 20px;
-}
-
-.challengeDonationext {
-	  text-align: left;
-    font-size: 15px;
-}
-
-.challengeAccept {
-	  text-align: left;
-    margin-bottom: 0px;
-    background-color: darkgray;
-    width: 50px;
-    padding: .5px;
-}
-
-.challengeDeats {
-	  text-align: left;
-    margin-bottom: 0px;
 }
 
 /*End classes*/
