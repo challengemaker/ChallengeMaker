@@ -41,7 +41,6 @@ angular.module('donationController', [])
           "</select>"
         )
       }
-
     })
 
 

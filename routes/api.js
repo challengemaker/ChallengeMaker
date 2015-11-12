@@ -443,6 +443,8 @@ module.exports = function(app, passport){
       ,amount: req.body.amount
     },
     function(err, result){
+      console.log("result coming next")
+      console.log(result)
       var newTran = {
         amount: result.transaction.amount
         ,merchantAccountId: result.transaction.merchantAccountId
@@ -451,6 +453,10 @@ module.exports = function(app, passport){
         ,dateCreated: result.transaction.createdAt
       }
       Transaction.create(newTran);
+      gateway.transaction.submitForSettlement(result.transaction.id, function (err, settleResult) {
+        if(result){console.log(result)}
+        console.log(settleResult)
+      })
       res.redirect('/#/challenges/'+req.body.challenge+"/paymentreceived")
     })
   })
