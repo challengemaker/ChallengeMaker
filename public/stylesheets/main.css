@@ -1248,6 +1248,15 @@ body {
   margin-top: 20px;
 }
 
+.responseFootnote {
+  margin-top: 30px;
+  font-size: 12px;
+  width: 60%;
+  margin-left: 15%;
+
+
+}
+
 .responseImage {
   max-height: 100%;
   max-width: 100%;
