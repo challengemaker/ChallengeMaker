@@ -72,7 +72,7 @@ angular.module('donationController', [])
             console.log(data);
           })
         })
-        window.location.hash = "#/donate/"+window.location.hash.split('/')[4]
+        window.location.hash = "#/donate/"+window.location.hash.split('/')[3]
     })
 
     $('.donateHome').on('click', function(){
@@ -84,7 +84,7 @@ angular.module('donationController', [])
     ///////must set the x-button, which resets back to the signle challenge page
     ////////////////////////////////////////////////////////////////////////////
     $('.xBar').on('click', function(){
-      var challengeName = window.location.hash.split("/")[3]
+      var challengeName = window.location.hash.split("/")[2]
       $('.xBar').css({
         backgroundColor: '#D4D4D4'
         ,color: 'white'
