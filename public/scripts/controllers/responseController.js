@@ -96,7 +96,7 @@ angular.module('responseController', [])
         // })
         $('.responseOuter').prepend(
           "<div class='responseLightbox'>" +
-            "<div>"+
+            "<div class='responseLightText'>"+
               "<p>Oops, your link didn't work, please try again</p>" +
             "</div>"+
 
