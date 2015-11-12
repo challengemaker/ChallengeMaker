@@ -125,7 +125,6 @@ module.exports = function(app, passport){
   app.post('/api/challenges', function(req, res){
 
       var challenge = new Challenge();
-
       challenge.sponsor = req.body.sponsor;
       challenge.sponsorIcon = req.body.sponsorIcon;
       challenge.title = req.body.title;
@@ -137,7 +136,6 @@ module.exports = function(app, passport){
       challenge.responses = req.body.responses;
       challenge.goal = req.body.goal;
       challenge.total_raised = req.body.total_raised;
-
       challenge.save(function(err, user) {
     if (err) {
       res.send(err);

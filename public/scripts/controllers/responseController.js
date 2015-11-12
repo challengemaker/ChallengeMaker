@@ -140,12 +140,12 @@ angular.module('responseController', [])
 
     $('.forwardButton').on('mouseenter', function(){
       // $('.forwardButton')[0].src("/assets/NEXT_over.svg")
-      console.log($('.forwardButton')[0].src = "/assets/NEXT_over.svg");
+      $('.forwardButton')[0].src = "/assets/NEXT_over.svg"
     })
 
     $('.forwardButton').on('mouseleave', function(){
       // $('.forwardButton')[0].src("/assets/NEXT_over.svg")
-      console.log($('.forwardButton')[0].src = "/assets/NEXT.svg");
+      $('.forwardButton')[0].src = "/assets/NEXT.svg"
     })
 
     var submitChallenge = function(){
@@ -309,33 +309,33 @@ angular.module('responseController', [])
       var carouselCounter = 0;
       var tunnelMargin = 0;
       ////////begin logic for the back button
-      $('.backButton').on('click', function(){
-        if(carouselCounter > 0){
-          carouselCounter--;
-          if(carouselCounter == 0){
-            $('.forwardButton').html(
-              "NEXT"+
-               "<span class=glyphicon"+ "glyphicon-chevron-right"+ "aria-hidden='true'></span>"
-            );
-            tunnelMargin += 550;
-            $('.questionTunnel').animate({
-              marginLeft: tunnelMargin+"px"
-            })
-          }
-          else if(carouselCounter == 1){
-            tunnelMargin += 550;
-            $('.questionTunnel').animate({
-              marginLeft: tunnelMargin+"px"
-            })
-          }
-          else if(carouselCounter == 2){
-            tunnelMargin += 550;
-            $('.questionTunnel').animate({
-              marginLeft: tunnelMargin+"px"
-            })
-          }
-        }
-      })
+      // $('.backButton').on('click', function(){
+      //   if(carouselCounter > 0){
+      //     carouselCounter--;
+      //     if(carouselCounter == 0){
+      //       // $('.forwardButton').html(
+      //       //   "NEXT"+
+      //       //    "<span class=glyphicon"+ "glyphicon-chevron-right"+ "aria-hidden='true'></span>"
+      //       // );
+      //       tunnelMargin += 550;
+      //       $('.questionTunnel').animate({
+      //         marginLeft: tunnelMargin+"px"
+      //       })
+      //     }
+      //     else if(carouselCounter == 1){
+      //       tunnelMargin += 550;
+      //       $('.questionTunnel').animate({
+      //         marginLeft: tunnelMargin+"px"
+      //       })
+      //     }
+      //     else if(carouselCounter == 2){
+      //       tunnelMargin += 550;
+      //       $('.questionTunnel').animate({
+      //         marginLeft: tunnelMargin+"px"
+      //       })
+      //     }
+      //   }
+      // })
       /////////begin logic for the forward button
       var getClickForward = function(){
         self.title = $('.responseTitle').val()
@@ -346,8 +346,19 @@ angular.module('responseController', [])
           carouselCounter++;
           if (carouselCounter == 1) {
             /////////add a class and event listener so thta the forward button can now submit the emails and youtube link response
-            $('.forwardButton').text("SUBMIT!")
+            $('.forwardButton').attr('src', '/assets/SEND.svg')
             $('.forwardButton').addClass("submitDon")
+            ////////remake the event listeners for the rollover to reflect new design for "send" button
+            $('.forwardButton').on('mouseenter', function(){
+              // $('.forwardButton')[0].src("/assets/NEXT_over.svg")
+              $('.forwardButton')[0].src = "/assets/SEND_over.svg"
+            })
+
+            $('.forwardButton').on('mouseleave', function(){
+              // $('.forwardButton')[0].src("/assets/NEXT_over.svg")
+              $('.forwardButton')[0].src = "/assets/SEND.svg"
+            })
+            /////end mouseover highlight event
             $('.submitDon').on('click', function(){
               submitChallenge()
             })

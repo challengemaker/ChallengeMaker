@@ -83,7 +83,12 @@ var app = angular.module('paymentsController', [])
         'dropin', {
           container: "payment-form"
           ,onError: function(err){
-            console.log(err);
+            console.log(err)//////this sends the error message callback that we use to populate a callback, popup function comes next
+            $('.paymentContainer').prepend(
+              "<div class='paymentErrorPopup'>" +
+                "<p>You had an error!</p>" +
+              "</div>"
+            )
           }
           ,redirect_url: "#/"
           ,onPaymentMethodReceived: function(nonce){
@@ -101,20 +106,19 @@ var app = angular.module('paymentsController', [])
               })
               .then(function(data){
                 console.log(data);
-                var sendeeEmail = data.data.user.email;
-                console.log(sendeeEmail);
+                var sendeeEmail = data.data.user.email
+                console.log(sendeeEmail)
                 $http({
                   method: "POST"
                   ,url: "/api/sendemail/donation"
                   ,data: {sendeeEmail: sendeeEmail}
                 })
                 .then(function(data){
-                  console.log(data);
-                  console.log('almost thereeeee');
-                  $('#checkout').submit();
+                  console.log(data)
+                  console.log('almost thereeeee')
+                  $('#checkout').submit()
                 })
               });
-
           }
         })
       });

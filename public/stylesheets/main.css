@@ -1087,6 +1087,14 @@ body {
   z-index: 10;
 }
 
+.paymentErrorPopup {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  z-index: 2;
+  background-color: blue;
+}
+
 .paymentOptions {
   font-size: 30px;
   line-height: 60px;
