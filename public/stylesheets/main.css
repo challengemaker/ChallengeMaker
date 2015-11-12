@@ -258,7 +258,7 @@ body {
 .challengeFriendsContainer {
   background-color: #E1E1E1;
   z-index: 2;
-  height: 480px;
+  height: 520px;
   width: 550px;
   margin-top: 50px;
   /*height: 400px;
@@ -269,7 +269,7 @@ body {
   display: inline-block;
   width: 30%;
   font-size: 16px;
-  margin-top: 50px;
+  /*margin-top: 50px;*/
 }
 /*
 .challengeFrs {
@@ -598,6 +598,7 @@ body {
 
 .donateHome{
   margin-left: 20%;
+
 }
 
 .donationButtons {
@@ -619,7 +620,7 @@ body {
 
 .donateChallengeFriends {
   margin-left: 10px;
-  margin-top: 50px;
+  /*margin-top: 50px;*/
 }
 
 .dropdownContainer {
@@ -1253,8 +1254,7 @@ body {
   font-size: 12px;
   width: 60%;
   margin-left: 15%;
-
-
+  padding-bottom: 20px;
 }
 
 .responseImage {
