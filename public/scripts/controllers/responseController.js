@@ -449,8 +449,7 @@ angular.module('responseController', [])
     $('.xBar').on('click', function(){
       var challengeName = window.location.hash.split("/")[2]
       $('.xBar').css({
-        backgroundColor: '#C31C85'
-        ,color: 'white'
+        backgroundColor: '#D4D4D4'
       })
       setTimeout(function(){
         window.location.hash = "#/challenges/"+challengeName
@@ -461,7 +460,7 @@ angular.module('responseController', [])
       var windowSize = $(window).width()
       if(windowSize > 515){
         $('.xBar').css({
-          marginLeft: '93%'
+          marginLeft: '95%'
         })
       } else if(windowSize > 0){
         $('.xBar').css({

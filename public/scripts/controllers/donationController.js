@@ -98,7 +98,7 @@ angular.module('donationController', [])
       var windowSize = $(window).width()
       if(windowSize > 515){
         $('.xBar').css({
-          marginLeft: '93%'
+          marginLeft: '95%'
         })
       } else if(windowSize > 0){
         $('.xBar').css({
