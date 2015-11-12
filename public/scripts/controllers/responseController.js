@@ -96,7 +96,7 @@ angular.module('responseController', [])
         // })
         $('.responseOuter').prepend(
           "<div class='responseLightbox'>" +
-            "<p>Please insert a proper youtube link</p>" +
+            "<p>Oops, your link didn't work, please try again</p>" +
             "<div class='okButton'> Ok </div>"+
           "</div>"
         )
