@@ -98,7 +98,7 @@ var app = angular.module('paymentsController', [])
                 ,color: "white"
               })
               setTimeout(function(){
-                $('.responseLightbox').remove()
+                $('.responseLightboxPaymentError').remove()
               }, 100)
             })
             $('.okButton').on('mouseenter', function(){
