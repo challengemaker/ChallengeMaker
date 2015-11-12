@@ -1096,6 +1096,20 @@ body {
 
 }
 
+.paymentxBar {
+  height: 25px;
+  width: 25px;
+  padding: 0 0 5px 5px;
+  margin-left: 98%;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
+.paymentquestionX {
+  height: 100%;
+  width: 100%;
+}
+
 .paymentSubButt {
   font-size: 20px;
   width: 90px;
