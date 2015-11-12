@@ -89,7 +89,7 @@ var app = angular.module('paymentsController', [])
             $('.paymentContainer').prepend(
               "<div class='responseLightboxPaymentError'>" +
                 "<div class='responseLightboxText'>"+
-                  "<p>Oops, there was an issue with your credit card, please try again</p>" +
+                  "<p>Oops, there was an issue with your credit card. Please try again.</p>" +
                 "</div>"+
                 "<div class='okButton'> OK </div>"+
               "</div>"
