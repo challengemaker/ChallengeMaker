@@ -65,9 +65,9 @@ angular.module('responseController', [])
       $('.responseLightbox').remove()
       $('.forwardButton').removeClass('forwardOn')
       if(urlToCheck){
-        $('.responseTitle').css({
-          backgroundColor: "#EBFFF2"
-        })
+        // $('.responseTitle').css({
+        //   backgroundColor: "#EBFFF2"
+        // })
         $('.forwardButton').addClass('forwardOn')
         $('.forwardOn').on('click', function(){
           var inputVal = $('.responseTitle').val()
@@ -91,9 +91,9 @@ angular.module('responseController', [])
           }
         })
       } else {
-        $('.responseTitle').css({
-          backgroundColor: "#FFCCE5"
-        })
+        // $('.responseTitle').css({
+        //   backgroundColor: "#FFCCE5"
+        // })
         $('.responseOuter').prepend(
           "<div class='responseLightbox'>" +
             "<p>Please insert a proper youtube link</p>" +
