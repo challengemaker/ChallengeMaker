@@ -518,45 +518,55 @@ var app = angular.module('challengesController', [])
       ///////////////////////////////////////////////////////////////
         if(window.location.hash.split('/')[3] && window.location.hash.split('/')[3] == "paymentreceived"){
           console.log('you just came from a payment yo, thats rad!')
-          // Thank you for making a donation to {{insert_charity_name}}. You will receive a follow up email with details for your records. Have a great one.
-          $('.challengeContainer').append(
-            "<div class='responseLightboxPaymentSuccess'>" +
-              "<div class='responseLightboxText'>"+
-                "<p>Thank you for your donation to XXX Charity. A Confirmation email will be sent to you shortly!</p>" +
-              "</div>"+
-              "<div class='okButton'> OK </div>"+
-            "</div>"
-          )
-          $('.okButton').on('click', function(){
-            $('.okButton').css({
-              backgroundColor: '#C31C85'
-              ,color: "white"
-            })
-            setTimeout(function(){
-              $('.responseLightboxPaymentSuccess').remove()
-            }, 100)
+
+          $http({
+            method: "GET"
+            ,url: "/api/challenges/"+window.location.hash.split("/")[2]
           })
-          $('.okButton').on('mouseenter', function(){
-            $('.okButton').css({
-              backgroundColor: '#D4D4D4'
-            })
-          })
-          $('.okButton').on('mouseleave', function(){
-            $('.okButton').css({
-              backgroundColor: '#F5F5F5'
-            })
-          })
-          function responsiveError(){
-            if($(window).width() < 525){
-              $('.responseLightboxText').css({
-                fontSize: "16px"
+          .then(function(data){
+            console.log(data)
+            var charity = data.data.charity[0]
+            $('.challengeContainer').append(
+              "<div class='responseLightboxPaymentSuccess'>" +
+                "<div class='responseLightboxText'>"+
+                  "<p>Thank you for your donation to "+charity+". A Confirmation email will be sent to you shortly!</p>" +
+                "</div>"+
+                "<div class='okButton'> OK </div>"+
+              "</div>"
+            )
+            $('.okButton').on('click', function(){
+              $('.okButton').css({
+                backgroundColor: '#C31C85'
+                ,color: "white"
               })
+              setTimeout(function(){
+                $('.responseLightboxPaymentSuccess').remove()
+              }, 100)
+            })
+            $('.okButton').on('mouseenter', function(){
+              $('.okButton').css({
+                backgroundColor: '#D4D4D4'
+              })
+            })
+            $('.okButton').on('mouseleave', function(){
+              $('.okButton').css({
+                backgroundColor: '#F5F5F5'
+              })
+            })
+            function responsiveError(){
+              if($(window).width() < 525){
+                $('.responseLightboxText').css({
+                  fontSize: "16px"
+                })
+              }
             }
-          }
-          responsiveError()
-          $(window).resize(function(){
             responsiveError()
+            $(window).resize(function(){
+              responsiveError()
+            })
           })
+          // Thank you for making a donation to {{insert_charity_name}}. You will receive a follow up email with details for your records. Have a great one.
+
         }
       ///////////////////////////////////////////////////////////////
       ///////end payment received module/////////////////////////////
