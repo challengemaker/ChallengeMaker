@@ -692,8 +692,10 @@ body {
 }
 
 .forwardButton {
-  margin-left: 115px;
-  width: 130px;
+  position: relative;
+  margin-left: 37%;
+  width: 110px;
+  background-color: none;
 }
 
 .glyphicon-check {
@@ -1514,12 +1516,18 @@ body {
 
 .titleDescBox h1, h2, h3, h4 {
   color: #999999;
+  margin: 0px;
+}
+
+.titleDescBox h1 {
+  font-weight: 300;
 }
 
 .titleDescBoxUrl{
   width: 80%;
   margin-left: 10%;
-  font-size: 14px;
+  margin-top: 10px;
+  font-size: 16px;
   text-align: center;
 }
 
