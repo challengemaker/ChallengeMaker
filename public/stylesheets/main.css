@@ -692,12 +692,10 @@ body {
 }
 
 .forwardButton {
-  margin-left: 115px;
-  width: 130px;
-}
-
-.forwardButton:hover {
-  background-color: #B8E6E6;
+  position: relative;
+  margin-left: 37%;
+  width: 110px;
+  background-color: none;
 }
 
 .glyphicon-check {
@@ -1029,7 +1027,7 @@ body {
   width: 100%;
   margin-top: 90px;
   background-color: #F5F5F5;
-  color: #4747FF;
+  color: #C31C85;
   line-height: 2.2;
   text-align: center;
   font-size: 28px;
@@ -1532,12 +1530,18 @@ body {
 
 .titleDescBox h1, h2, h3, h4 {
   color: #999999;
+  margin: 0px;
+}
+
+.titleDescBox h1 {
+  font-weight: 300;
 }
 
 .titleDescBoxUrl{
   width: 80%;
   margin-left: 10%;
-  font-size: 14px;
+  margin-top: 10px;
+  font-size: 16px;
   text-align: center;
 }
 

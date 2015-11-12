@@ -22,3 +22,38 @@ db.challenges.insert({"title" : "MILES OF MUSIC 5K CHALLENGE", "description" : "
 
 // LAAC
 db.challenges.insert({"title" : "135 STAIR CHALLENGE", "description" : "In the next 24 hours make a video of yourself climbing 135 stairs in 135 seconds (2 minutes 15 seconds) or give $35 to Downtown Women’s Center.", "sponsor":"LOS ANGELES ATHLETIC CLUB",  "videoUrl" : "https://www.youtube.com/embed/UuwF3XLT4ow", "photo" : "http://i63.tinypic.com/332c685.png", "createdBy" : [ { "name" : "Trevor", "userId" : 101010102 } ], "charity" : "DOWNTOWN WOMEN'S CENTER", "charityLink": "http://www.downtownwomenscenter.org/donate_info", "responses" : [ ], "goal" : 10000, "minimumDonation" : 50, "totalRaised" : 0 })
+
+
+
+
+///////must set the x-button, which resets back to the signle challenge page
+////////////////////////////////////////////////////////////////////////////
+$('.xBar').on('click', function(){
+  var challengeName = window.location.hash.split("/")[2]
+  $('.xBar').css({
+    backgroundColor: '#D4D4D4'
+  })
+  setTimeout(function(){
+    window.location.hash = "#/challenges/"+challengeName
+  }, 150)
+
+})
+function moveXButton(){
+  var windowSize = $(window).width()
+  if(windowSize > 515){
+    $('.xBar').css({
+      marginLeft: '95%'
+    })
+  } else if(windowSize > 0){
+    $('.xBar').css({
+      marginLeft: '82%'
+    })
+  }
+}
+moveXButton()
+$(window).resize(function(){
+  moveXButton()
+})
+//////additional x-functionality so that it resizes at smaller sizes
+/////////end click function
+///////////////////////////
