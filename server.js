@@ -87,6 +87,7 @@ console.log('5');
 
 app.post( '/login', function( req, res ) {
   var email = req.body.email;
+  console.log(req.body);
 	User.findOne( { email: req.body.email }, function( err, user) {
 		if ( err ) {
 			console.log(err)
@@ -96,6 +97,7 @@ app.post( '/login', function( req, res ) {
 		} else {
 			if( user.validPassword( req.body.password )){
         var gift = {user: user, token: token}
+        console.log(gift)
         res.json( gift )
       }
 			//AUTHENTICATE USER HERE

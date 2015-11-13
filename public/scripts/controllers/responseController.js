@@ -184,6 +184,7 @@ angular.module('responseController', [])
         })
         .then(function(data){
           /////this should be the data response from the post request, and we now post the challenge info to db
+          console.log('data about to post response');
           $http({
             method: "Post"
             ,url: "/api/responses"
@@ -253,6 +254,7 @@ angular.module('responseController', [])
                     ,data: {emails: realEmails, responseData: responsePackage}
                   })
                   .then(function(data){
+                    console.log(data);
                   })
                 })
               })

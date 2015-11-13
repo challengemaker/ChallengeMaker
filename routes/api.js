@@ -245,10 +245,10 @@ module.exports = function(app, passport){
 
 // create a new response
   app.post('/api/responses', function(req, res){
-    // Response.create(req.body, function(err, response){
-    //   if(err){console.log(err)}
-    //   res.json({'posted': response});
-    // })
+    Response.create(req.body, function(err, response){
+      if(err){console.log(err)}
+      res.json({'posted': response});
+    })
   })
 
   app.delete('/api/responses/:id', function(req, res){
@@ -359,6 +359,7 @@ module.exports = function(app, passport){
 
   ///////make the automatic email for anyone who responds to a challenge
   app.post('/api/sendemail/challengecomplete', function(req, res){
+    console.log(req.body);
     mandrill_client.messages.send({
       message: {
         from_email: "ChallengeCompleted@ChallengeMaker.com"
