@@ -380,14 +380,13 @@ module.exports = function(app, passport){
     mandrill_client.messages.send({
       message: {
         from_email: "Challenged@ChallengeMaker.com"
-        // ,text: "You've been challenged! Follow the link below, it will show you how you can accept this challenge for charity"
         ,html:
           "<div>"+
-            "<h2 style='color:#545454'>"+ req.body.responseData.responseCreator+
+            "<h2 style='color:#545454'>"+req.body.responseData.responseCreator+
             " has challenged you to the</h2>"+
             "<p style='font-size:32px; color:#545454; font-weight: bolder'>"+req.body.responseData.charityName+"</p>"+
             "<p style='font-size:32px; color:#545454; font-weight: bolder'>"+req.body.responseData.challenge.split('-').join(' ')+"</p>"+
-            "<a style='color:#e70090; font-size: 22px; font-weight: bold' href='https://challengemakerproduction.herokuapp.com/#/youvebeenchallenged/"+req.body.responseData.challenge+"/"+req.body.responseData.video+"/"+req.body.responseData.responseCreator+"'>Take the Challenge</a>"+
+            "<a style='color:#e70090; font-size: 22px; font-weight: bold' href='https://challengemakerproduction.herokuapp.com/#/youvebeenchallenged/"+req.body.responseData.challenge.split(' ').join('-')+"/"+req.body.responseData.video+"/"+req.body.responseData.responseCreator+"'>Take the Challenge</a>"+
             "<a style='color:#f57801; font-size: 22px; font-weight: bold; margin-left: 30px' href='https://challengemakerproduction.herokuapp.com/#/challenges/"+req.body.responseData.challenge+"'>DETAILS & VIDEO</a>"+
           "</div>"
         ,subject: "You've Been Challenged via ChallengeMaker"

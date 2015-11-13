@@ -71,6 +71,7 @@ angular.module('donationController', [])
         }
       /////////end for-loop
       }
+      console.log(realEmails)
       ///////
       ////////end email parsing to challenge Friends
       //////////////////////////////////////////////
@@ -80,7 +81,7 @@ angular.module('donationController', [])
       $http.get('api/challenges/'+url[3])
         .then(function(data){
           console.log(data)
-          var responseData = {responseCreator: window.localStorage.sessionUser, charityName: data.data.charity[0], challenge: url[3].split('-').join(' ')}
+          var responseData = {responseCreator: window.localStorage.sessionUser, charityName: data.data.charity[0], challenge: url[3].split('-').join(' '), video: data.data.videoUrl.split('/')[4]}
           $http({
             method: 'POST'
             ,url: "/api/sendemail/challengefriends"
