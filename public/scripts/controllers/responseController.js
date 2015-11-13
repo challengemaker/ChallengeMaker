@@ -149,6 +149,7 @@ angular.module('responseController', [])
     })
 
     var submitChallenge = function(){
+      self.emailArr = $('.challengeFriends')
       /////collecting all data we'll need for
       var inputUrl = $('.responseTitle').val()
       var embedCodeForDb = getYoutubeEmbed(inputUrl)
@@ -184,9 +185,8 @@ angular.module('responseController', [])
         })
         .then(function(data){
           /////this should be the data response from the post request, and we now post the challenge info to db
-          console.log('data about to post response');
           $http({
-            method: "Post"
+            method: "POST"
             ,url: "/api/responses"
             ,data: {
               creator: responsePackage.responseCreator,
@@ -211,16 +211,17 @@ angular.module('responseController', [])
                   ,data: {sendeeEmail: self.sendeeEmail}
                 })
                 ///now lets send the challenge email to the friends
-                .then(function(){
+                .then(function(data){
                   //////////////////////////////////////////////////////////
                   ////////the following will fo through all the email addresses, checking for legitimacy and filtering out all that aren't real
-                  var emailArr = $('.challengeFriends')
+                  console.log(self.emailArr);
                   var realEmails = []
-                  for (var i = 0; i < emailArr.length; i++) {
-                    var friendEmail = emailArr[i].value;
+                  for (var i = 0; i < self.emailArr.length; i++) {
+                    var friendEmail = self.emailArr[i].value;
                     var emailArray = friendEmail.split('@')
                     var testAt = friendEmail.split('@').length
                     if(testAt > 1){
+                      console.log('theres one at here, minimum');
                       ///////// only if there's at least one '@'
                       emailArray.shift()
                       /////////email array should no start at 'google.com' or whatever comes after the at
@@ -228,6 +229,8 @@ angular.module('responseController', [])
                       var periodTestArray = emailArray[0].split('.')
                       var periodTestLength = emailArray[0].split('.').length
                       if(periodTestLength > 1){
+                        console.log(friendEmail)
+                        console.log('passed period test')
                         realEmails.push({email: friendEmail})
                         $http({
                           method: "POST"
@@ -235,6 +238,8 @@ angular.module('responseController', [])
                           ,data: {address: friendEmail}
                         })
                         .then(function(data){
+                          console.log('we saved that email, lets post the challenge to your friends')
+                          console.log(data)
                         })
                       } else {
                       }
@@ -248,6 +253,7 @@ angular.module('responseController', [])
                   ////////end email parsing to challenge Friends
                   //////////////////////////////////////////////
                   ////the below http send mail to all friends a user has challenged
+                  console.log(realEmails);
                   $http({
                     method: 'POST'
                     ,url: "/api/sendemail/challengefriends"
