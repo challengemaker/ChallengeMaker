@@ -15,11 +15,15 @@ angular.module('userController', [])
     console.log(userFactory);
 
     $('.goToSignup').on("click", function(){
-      window.location.hash = "#/signup"
+      if(window.location.hash.split('/')[2]){
+        window.location.hash = "#/signup/"+window.location.hash.split("/")[2]
+      } else {
+        window.location.hash = "#/signup"
+      }
     })
 
     $('.goToSignupChallenge').on("click", function(){
-      window.location.hash = "#/signup/"+window.location.hash.split("/")[2];
+
     })
 
     $('.goToLogin').on("click", function(){
