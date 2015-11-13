@@ -7,6 +7,7 @@ angular.module('donationController', [])
   //////////////////////////////////
   /////////begin donation controller
     var self = this
+    self.paymentCounter = true
     self.jimmysMessage = "Boom!"//////our test messge in the upper right, for sanity-check purposes (you see the handlebars, the angular is out)
 
     /////////////////////////////////////////////////////////////////////////
@@ -218,7 +219,7 @@ angular.module('donationController', [])
                 $http({
                   method: "POST"
                   ,url: "/api/sendemail/donation"
-                  ,data: {sendeeEmail: sendeeEmail, data: data.data}
+                  ,data: {sendeeEmail: sendeeEmail}
                 })
                 .then(function(data){
                   $('#checkout').submit()
