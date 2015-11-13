@@ -279,7 +279,7 @@ angular.module('userController', [])
             }
             else{
               window.location.hash = "#/"
-              window.location.reload()
+              window.location.reload();
             }
           })
               // window.location.hash = "/profile";
@@ -320,14 +320,13 @@ angular.module('userController', [])
             console.log('user email is:',self.userSesh);
             var url = window.location.hash.split('/')[2];
             console.log(url);
-            if(url){
+            if(url && url !='donate'){
               window.location.hash = '#/newresponse/'+url;
               window.location.reload();
             }
-            else {
-              window.location.reload();
-              window.location.hash = "#/";
-
+            else if(url && url == 'donate'){
+              window.location.hash = "#/donate/challengefriends/"+window.location.hash.split('/')[3];
+              window.location.reload()
             }
 
           } else {
