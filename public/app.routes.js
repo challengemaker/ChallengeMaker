@@ -74,6 +74,12 @@ function appRoutes($routeProvider){
       ,controllerAs: 'user'
     })
 
+    .when('/signin/donate/:name', {
+      templateUrl: 'templates/_signin_challenge.html'
+      ,controller: 'userCtrl'
+      ,controllerAs: 'user'
+    })
+
     .when('/signin', {
       templateUrl: 'templates/_signin.html'
       ,controller: 'userCtrl'
@@ -141,6 +147,12 @@ function appRoutes($routeProvider){
     })
 
     .when('/signup/:name', {
+      templateUrl: 'templates/_signup_challenge.html'
+      ,controller: 'userCtrl'
+      ,controllerAs: 'user'
+    })
+
+    .when('/signup/donate/:name', {
       templateUrl: 'templates/_signup_challenge.html'
       ,controller: 'userCtrl'
       ,controllerAs: 'user'

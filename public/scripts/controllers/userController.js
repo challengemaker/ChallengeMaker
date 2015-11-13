@@ -15,8 +15,10 @@ angular.module('userController', [])
     console.log(userFactory);
 
     $('.goToSignup').on("click", function(){
-      if(window.location.hash.split('/')[2]){
+      if(window.location.hash.split('/')[2] && window.location.hash.split('/')[2] != 'donate'){
         window.location.hash = "#/signup/"+window.location.hash.split("/")[2]
+      } else  if(window.location.hash.split('/')[2] && window.location.hash.split('/')[2] == 'donate'){
+        window.location.hash = "#/signup/donate/"+challengeName
       } else {
         window.location.hash = "#/signup"
       }
