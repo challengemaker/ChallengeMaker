@@ -207,25 +207,20 @@ angular.module('donationController', [])
               "<input type='hidden' name='payment_method_nonce' value='" + nonce.nonce + "'></input>"+
               "<input type='hidden' name='challenge' value='" + self.paymentChallenge + "'></input>"
             )
-              console.log('HOLLLLLLLLLLLLA');
               var userName = window.localStorage.sessionUser;
-              console.log(userName);
               $http({
                 method: "GET"
                 ,url: "/api/users/"+userName
               })
               .then(function(data){
-                console.log(data);
+                console.log(data)
                 var sendeeEmail = data.data.user.email
-                console.log(sendeeEmail)
                 $http({
                   method: "POST"
                   ,url: "/api/sendemail/donation"
-                  ,data: {sendeeEmail: sendeeEmail}
+                  ,data: {sendeeEmail: sendeeEmail, data: data.data}
                 })
                 .then(function(data){
-                  console.log(data)
-                  console.log('almost thereeeee')
                   $('#checkout').submit()
                 })
               });

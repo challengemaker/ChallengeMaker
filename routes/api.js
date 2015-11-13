@@ -406,7 +406,7 @@ module.exports = function(app, passport){
         ,text: "Thank you for making such a gracious donaition to <Fill_in_Charity>!"
         ,subject: "ChallengeMaker Is Thrilled About Your Donation"
         ,to:[{
-          email: "contact@gmail.com"
+          email: req.body.sendeeEmail
         }]
       }
     }, function(data){
