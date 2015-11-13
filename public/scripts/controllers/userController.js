@@ -18,7 +18,7 @@ angular.module('userController', [])
       if(window.location.hash.split('/')[2] && window.location.hash.split('/')[2] != 'donate'){
         window.location.hash = "#/signup/"+window.location.hash.split("/")[2]
       } else  if(window.location.hash.split('/')[2] && window.location.hash.split('/')[2] == 'donate'){
-        window.location.hash = "#/signup/donate/"+challengeName
+        window.location.hash = "#/signup/donate/"+window.location.hash.split('/')[3]
       } else {
         window.location.hash = "#/signup"
       }
@@ -29,11 +29,17 @@ angular.module('userController', [])
     })
 
     $('.goToLogin').on("click", function(){
-      window.location.hash = "#/signin"
+      if(window.location.hash.split('/')[2] && window.location.hash.split('/')[2] != 'donate'){
+        window.location.hash = "#/signin/"+window.location.hash.split("/")[2]
+      } else  if(window.location.hash.split('/')[2] && window.location.hash.split('/')[2] == 'donate'){
+        window.location.hash = "#/signin/donate/"+window.location.hash.split('/')[3]
+      } else {
+        window.location.hash = "#/signin"
+      }
     })
 
     $('.goToLoginChallenge').on("click", function(){
-      window.location.hash = "#/signin/"+window.location.hash.split('/')[2]
+      // window.location.hash = "#/signin/"+window.location.hash.split('/')[2]
     })
     //////begin profile section
     ///////////////////////////
@@ -254,32 +260,26 @@ angular.module('userController', [])
           console.log(email);
           var newPassword = data.data.password;
           console.log(newPassword);
-          // var newUser =
-          // $http({
-          //   data: {name: name, email: email, password: password, local: {email: email}},
-          //   method: "POST",
-          //   url: "/api/users"
-          //   })
-            // .then(function(moreData){
           $http({
             data: {email: email, password: password},
             method: 'POST',
             url: '/login'
           })
           .then(function(data){
-            console.log(data);
-            window.localStorage.sessionToken = data.data.token;
-            window.localStorage.sessionUser = data.data.user.name;
-            self.userSesh = window.localStorage.sessionUser;
-            var responseUrl = window.location.hash.split('/')[2];
-            console.log(responseUrl);
-            if(responseUrl){
-              window.location.hash = "#/newresponse/"+responseUrl;
-              window.location.reload();
+            window.localStorage.sessionToken = data.data.token
+            window.localStorage.sessionUser = data.data.user.name
+            self.userSesh = window.localStorage.sessionUser
+            var responseUrl = window.location.hash.split('/')[2]
+            if(responseUrl && responseUrl != 'donate'){
+              window.location.hash = "#/newresponse/"+responseUrl
+              window.location.reload()
+            } else if(responseUrl && responseUrl == 'donate'){
+              window.location.hash = "#/donate/challengefriends/"+window.location.hash.split('/')[3]
+              window.location.reload()
             }
             else{
               window.location.hash = "#/"
-              window.location.reload();
+              window.location.reload()
             }
           })
               // window.location.hash = "/profile";
