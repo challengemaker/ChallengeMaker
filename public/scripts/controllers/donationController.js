@@ -11,7 +11,6 @@ angular.module('donationController', [])
 
     /////////////////////////////////////////////////////////////////////////
     ///////////begin button logic for the challenge path forward-back buttons
-
     $("#submitPayment").on('click', function(){
       // $('.paymentContainer').animate({
       //   marginLeft: "-500px"
@@ -44,7 +43,7 @@ angular.module('donationController', [])
     })
 
 
-    $('.donateChallengeFriends').on('click', function(){
+    $('.challengeFriendsForwardButton').on('click', function(){
       var emailArr = $('.challengeFriends')
       var realEmails = []
       for (var i = 0; i < emailArr.length; i++) {
@@ -242,13 +241,15 @@ angular.module('donationController', [])
       })
       //////////////////////////////////////
       ///////end section to submit payment
-
+      ///////create event listener for
       //////Send button rollover
-      $('.challengeFriendsForwardButton').on('mouseenter', function(){
+      $('.forwardButtonLightbox').on('mouseenter', function(){
+        console.log('mousing oooooover')
         $('.challengeFriendsForwardButton').attr('src', "/assets/SEND_over.svg")
       })
 
-      $('.challengeFriendsForwardButton').on('mouseleave', function(){
+      $('.forwardButtonLightbox').on('mouseleave', function(){
+        console.log('mousing oooooover')
         $('.challengeFriendsForwardButton').attr('src', "/assets/SEND.svg")
       })
       //////end button rollover

@@ -115,6 +115,10 @@ var app = angular.module('challengesController', [])
             "<iframe class='listVid"+index+"' width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
             "</iframe>"
           )
+          // console.log($('.listVid'+index)[0])
+          // $('.listVid'+index)[0].addEventListener('onStateChange', function(){
+          //   console.log('yo yoy oyoy o');
+          // })
           $('.lImage'+index).css('height', "0px")
           $('.lImageimg'+index).css('height', "0px")
           $('.listText'+index).css({

@@ -421,7 +421,7 @@ module.exports = function(app, passport){
   /////////////////begin braintree routing/////
   ////////////////////////////////////////////
   var gateway = braintree.connect({
-    environment: braintree.Environment.Sandbox,
+    environment: braintree.Environment.Production,
     merchantId: ignore.merchantId,
     publicKey: ignore.publicKey,
     privateKey: ignore.privateKey
