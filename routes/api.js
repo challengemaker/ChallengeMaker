@@ -437,6 +437,7 @@ module.exports = function(app, passport){
   app.post('/checkout', function(req, res){
     var nonce = req.body.payment_method_nonce
     var challenge = req.body.challenge
+    console.log(challenge);
     console.log(req.body)
     gateway.transaction.sale({
       paymentMethodNonce: nonce
