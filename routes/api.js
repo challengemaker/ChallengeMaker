@@ -437,6 +437,7 @@ module.exports = function(app, passport){
   app.post('/checkout', function(req, res){
     var nonce = req.body.payment_method_nonce
     var challenge = req.body.challenge
+    console.log(440);
     console.log(challenge);
     console.log(req.body)
     gateway.transaction.sale({
@@ -444,6 +445,8 @@ module.exports = function(app, passport){
       ,amount: req.body.amount
     },
     function(err, result){
+      console.log(448);
+      if(err){console.log(err)}
       console.log("result coming next")
       console.log(result)
       var newTran = {

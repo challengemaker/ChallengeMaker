@@ -202,7 +202,7 @@ angular.module('donationController', [])
           }
           ,redirect_url: "#/"
           ,onPaymentMethodReceived: function(nonce){
-            console.log(nonce);
+            self.paymentChallenge = window.location.hash.split('/')[2]
             $('#checkout').append(
               "<input type='hidden' name='payment_method_nonce' value='" + nonce.nonce + "'></input>"+
               "<input type='hidden' name='challenge' value='" + self.paymentChallenge + "'></input>"
