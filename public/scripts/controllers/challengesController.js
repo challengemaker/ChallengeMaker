@@ -584,6 +584,9 @@ var app = angular.module('challengesController', [])
       function makeFit(){
         var windowSize = parseInt($(window).width())
         if(windowSize >= 1422){
+          $('.playButtonH').css({
+            height: '100px'
+          })
           $('.titleCont').css({
               fontSize: "84px"
             })
@@ -594,13 +597,19 @@ var app = angular.module('challengesController', [])
             marginTop: "70px"
           })
         } else if(windowSize >= 1404){
+          $('.playButtonH').css({
+            height: '99px'
+          })
           $('.titleCont').css({
               fontSize: "83px"
             })
-            $('.listContent').css({
-                fontSize: "45px"
-            })
+          $('.listContent').css({
+              fontSize: "45px"
+          })
         } else if(windowSize >= 1387){
+          $('.playButtonH').css({
+            height: '98px'
+          })
           $('.titleCont').css({
               fontSize: "82px"
             })
@@ -608,6 +617,9 @@ var app = angular.module('challengesController', [])
             fontSize: '44px'
           })
         } else if(windowSize >= 1369){
+          $('.playButtonH').css({
+            height: '97px'
+          })
           $('.titleCont').css({
               fontSize: "81px"
             })
@@ -615,6 +627,9 @@ var app = angular.module('challengesController', [])
               fontSize: '44px'
             })
         } else if(windowSize >= 1351){
+          $('.playButtonH').css({
+            height: '96px'
+          })
           $('.titleCont').css({
               fontSize: "80px"
             })
@@ -622,6 +637,9 @@ var app = angular.module('challengesController', [])
             fontSize: '43px'
           })
         } else if(windowSize >= 1334){
+          $('.playButtonH').css({
+            height: '94px'
+          })
           $('.titleCont').css({
               fontSize: "79px"
             })
@@ -629,6 +647,9 @@ var app = angular.module('challengesController', [])
             fontSize: '42px'
           })
         } else if(windowSize >= 1317){
+          $('.playButtonH').css({
+            height: '93px'
+          })
           $('.titleCont').css({
               fontSize: "78px"
             })
@@ -636,6 +657,9 @@ var app = angular.module('challengesController', [])
               fontSize: '42px'
             })
         } else if(windowSize >= 1299){
+          $('.playButtonH').css({
+            height: '92px'
+          })
           $('.titleCont').css({
               fontSize: "77px"
             })
@@ -643,6 +667,9 @@ var app = angular.module('challengesController', [])
             fontSize: '41px'
           })
         } else if(windowSize >= 1281){
+          $('.playButtonH').css({
+            height: '91px'
+          })
           $('.titleCont').css({
               fontSize: "76px"
             })
@@ -653,6 +680,9 @@ var app = angular.module('challengesController', [])
             fontSize: '41px'
           })
         } else if(windowSize >= 1264){
+          $('.playButtonH').css({
+            height: '90px'
+          })
           $('.titleCont').css({
               fontSize: "75px"
             })
@@ -660,6 +690,9 @@ var app = angular.module('challengesController', [])
             fontSize: '40px'
           })
         } else if(windowSize >= 1246){
+          $('.playButtonH').css({
+            height: '89px'
+          })
           $('.titleCont').css({
               fontSize: "74px"
             })
@@ -667,6 +700,9 @@ var app = angular.module('challengesController', [])
             fontSize: '40px'
           })
         } else if(windowSize >= 1228){
+          $('.playButtonH').css({
+            height: '88px'
+          })
           $('.titleCont').css({
               fontSize: "73px"
             })
@@ -674,6 +710,9 @@ var app = angular.module('challengesController', [])
             fontSize: '39px'
           })
         } else if(windowSize >= 1211){
+          $('.playButtonH').css({
+            height: '87px'
+          })
           $('.titleCont').css({
               fontSize: "72px"
             })
@@ -681,6 +720,9 @@ var app = angular.module('challengesController', [])
             fontSize: '39px'
           })
         } else if(windowSize >= 1193){
+          $('.playButtonH').css({
+            height: '86px'
+          })
           $('.titleCont').css({
               fontSize: "71px"
             })
@@ -688,6 +730,9 @@ var app = angular.module('challengesController', [])
             fontSize: '38px'
           })
         } else if(windowSize >= 1175){
+          $('.playButtonH').css({
+            height: '85px'
+          })
           $('.titleCont').css({
               fontSize: "70px"
             })
@@ -695,6 +740,9 @@ var app = angular.module('challengesController', [])
             fontSize: '38px'
           })
         } else if(windowSize >= 1158){
+          $('.playButtonH').css({
+            height: '84px'
+          })
           $('.titleCont').css({
               fontSize: "69px"
             })
@@ -702,6 +750,9 @@ var app = angular.module('challengesController', [])
             fontSize: '37px'
           })
         } else if(windowSize >= 1140){
+          $('.playButtonH').css({
+            height: '83px'
+          })
           $('.titleCont').css({
               fontSize: "68px"
             })
@@ -712,6 +763,9 @@ var app = angular.module('challengesController', [])
             fontSize: '37px'
           })
         } else if(windowSize >= 1123){
+          $('.playButtonH').css({
+            height: '82px'
+          })
           $('.titleCont').css({
               fontSize: "67px"
             })
@@ -719,6 +773,9 @@ var app = angular.module('challengesController', [])
             fontSize: '36px'
           })
         } else if(windowSize >= 1105){
+          $('.playButtonH').css({
+            height: '81px'
+          })
           $('.titleCont').css({
               fontSize: "66px"
             })
@@ -726,6 +783,9 @@ var app = angular.module('challengesController', [])
               fontSize: '36px'
             })
         } else if(windowSize >= 1087){
+          $('.playButtonH').css({
+            height: '79px'
+          })
           $('.titleCont').css({
               fontSize: "65px"
             })
@@ -733,6 +793,9 @@ var app = angular.module('challengesController', [])
             fontSize: '35px'
           })
         } else if(windowSize >= 1069){
+          $('.playButtonH').css({
+            height: '78px'
+          })
           $('.titleCont').css({
               fontSize: "64px"
             })
@@ -740,6 +803,9 @@ var app = angular.module('challengesController', [])
               fontSize: '35px'
             })
         } else if(windowSize >= 1052){
+          $('.playButtonH').css({
+            height: '77px'
+          })
           $('.titleCont').css({
               fontSize: "63px"
             })
@@ -747,6 +813,9 @@ var app = angular.module('challengesController', [])
             fontSize: '34px'
           })
         } else if(windowSize >= 1035){
+          $('.playButtonH').css({
+            height: '76px'
+          })
           $('.titleCont').css({
               fontSize: "62px"
             })
@@ -754,6 +823,9 @@ var app = angular.module('challengesController', [])
             fontSize: '34px'
           })
         } else if(windowSize >= 1017){
+          $('.playButtonH').css({
+            height: '75px'
+          })
           $('.titleCont').css({
               fontSize: "61px"
             })
@@ -761,6 +833,9 @@ var app = angular.module('challengesController', [])
             fontSize: '33px'
           })
         } else if(windowSize >= 999){
+          $('.playButtonH').css({
+            height: '74px'
+          })
           $('.titleCont').css({
               fontSize: "60px"
             })
@@ -771,6 +846,9 @@ var app = angular.module('challengesController', [])
             fontSize: '33px'
           })
         } else if(windowSize >= 982){
+          $('.playButtonH').css({
+            height: '73px'
+          })
           $('.titleCont').css({
               fontSize: "59px"
             })
@@ -778,6 +856,9 @@ var app = angular.module('challengesController', [])
             fontSize: '32px'
           })
         } else if(windowSize >= 964){
+          $('.playButtonH').css({
+            height: '72px'
+          })
           $('.titleCont').css({
               fontSize: "58px"
             })
@@ -785,6 +866,9 @@ var app = angular.module('challengesController', [])
             fontSize: '32px'
           })
         } else if(windowSize >= 946){
+          $('.playButtonH').css({
+            height: '71px'
+          })
           $('.titleCont').css({
               fontSize: "57px"
             })
@@ -792,6 +876,9 @@ var app = angular.module('challengesController', [])
             fontSize: '31px'
           })
         } else if(windowSize >= 929){
+          $('.playButtonH').css({
+            height: '70px'
+          })
           $('.titleCont').css({
               fontSize: "56px"
             })
@@ -799,6 +886,9 @@ var app = angular.module('challengesController', [])
             fontSize: '31px'
           })
         } else if(windowSize >= 911){
+          $('.playButtonH').css({
+            height: '69px'
+          })
           $('.titleCont').css({
               fontSize: "55px"
             })
@@ -806,6 +896,9 @@ var app = angular.module('challengesController', [])
             fontSize: '30px'
           })
         } else if(windowSize >= 894){
+          $('.playButtonH').css({
+            height: '68px'
+          })
           $('.titleCont').css({
               fontSize: "54px"
             })
@@ -813,6 +906,9 @@ var app = angular.module('challengesController', [])
             fontSize: '30px'
           })
         } else if(windowSize >= 876){
+          $('.playButtonH').css({
+            height: '67px'
+          })
           $('.titleCont').css({
               fontSize: "53px"
             })
@@ -820,6 +916,9 @@ var app = angular.module('challengesController', [])
             fontSize: '29px'
           })
         } else if(windowSize >= 858){
+          $('.playButtonH').css({
+            height: '66px'
+          })
           $('.titleCont').css({
               fontSize: "52px"
             })
@@ -830,6 +929,9 @@ var app = angular.module('challengesController', [])
             fontSize: '28px'
           })
         } else if(windowSize >= 841){
+          $('.playButtonH').css({
+            height: '65px'
+          })
           $('.titleCont').css({
               fontSize: "51px"
             })
@@ -837,6 +939,9 @@ var app = angular.module('challengesController', [])
             fontSize: '28px'
           })
         } else if(windowSize >= 823){
+          $('.playButtonH').css({
+            height: '64px'
+          })
           $('.titleCont').css({
               fontSize: "50px"
             })
@@ -844,6 +949,9 @@ var app = angular.module('challengesController', [])
             fontSize: '27px'
           })
         } else if(windowSize >= 805){
+          $('.playButtonH').css({
+            height: '63px'
+          })
           $('.titleCont').css({
               fontSize: "49px"
             })
@@ -851,6 +959,9 @@ var app = angular.module('challengesController', [])
             fontSize: '27px'
           })
         } else if(windowSize >= 788){
+          $('.playButtonH').css({
+            height: '62px'
+          })
           $('.titleCont').css({
               fontSize: "48px"
             })
@@ -858,6 +969,9 @@ var app = angular.module('challengesController', [])
             fontSize: '26px'
           })
         } else if(windowSize >= 770){
+          $('.playButtonH').css({
+            height: '61px'
+          })
           $('.titleCont').css({
               fontSize: "47px"
             })
@@ -865,6 +979,9 @@ var app = angular.module('challengesController', [])
               fontSize: "76px"
             })
         } else if(windowSize >= 753){
+          $('.playButtonH').css({
+            height: '60px'
+          })
           $('.titleCont').css({
               fontSize: "46px"
             })
@@ -872,6 +989,9 @@ var app = angular.module('challengesController', [])
               fontSize: "75px"
             })
         } else if(windowSize >= 735){
+          $('.playButtonH').css({
+            height: '59px'
+          })
           $('.titleCont').css({
               fontSize: "45px"
             })
@@ -879,6 +999,9 @@ var app = angular.module('challengesController', [])
               fontSize: "74px"
             })
         } else if(windowSize >= 717){
+          $('.playButtonH').css({
+            height: '58px'
+          })
           $('.titleCont').css({
               fontSize: "44px"
             })
@@ -889,6 +1012,9 @@ var app = angular.module('challengesController', [])
             marginTop: "35px"
           })
         } else if(windowSize >= 700){
+          $('.playButtonH').css({
+            height: '57px'
+          })
           $('.titleCont').css({
               fontSize: "43px"
             })
@@ -896,6 +1022,9 @@ var app = angular.module('challengesController', [])
               fontSize: "72px"
             })
         } else if(windowSize >= 682){
+          $('.playButtonH').css({
+            height: '56px'
+          })
           $('.titleCont').css({
               fontSize: "42px"
             })
@@ -903,6 +1032,9 @@ var app = angular.module('challengesController', [])
               fontSize: "71px"
             })
         } else if(windowSize >= 664){
+          $('.playButtonH').css({
+            height: '55px'
+          })
           $('.titleCont').css({
               fontSize: "41px"
             })
@@ -910,6 +1042,9 @@ var app = angular.module('challengesController', [])
               fontSize: "70px"
             })
         } else if(windowSize >= 647){
+          $('.playButtonH').css({
+            height: '54px'
+          })
           $('.titleCont').css({
               fontSize: "40px"
             })
@@ -917,6 +1052,9 @@ var app = angular.module('challengesController', [])
               fontSize: "69px"
             })
         } else if(windowSize >= 629){
+          $('.playButtonH').css({
+            height: '53px'
+          })
           $('.titleCont').css({
               fontSize: "39px"
             })
@@ -924,6 +1062,9 @@ var app = angular.module('challengesController', [])
               fontSize: "68px"
             })
         } else if(windowSize >= 611){
+          $('.playButtonH').css({
+            height: '52px'
+          })
           $('.titleCont').css({
               fontSize: "38px"
             })
@@ -931,6 +1072,9 @@ var app = angular.module('challengesController', [])
               fontSize: "67px"
             })
         } else if(windowSize >= 594){
+          $('.playButtonH').css({
+            height: '51px'
+          })
           $('.titleCont').css({
               fontSize: "37px"
             })
@@ -938,6 +1082,9 @@ var app = angular.module('challengesController', [])
               fontSize: "66px"
             })
         } else if(windowSize >= 576){
+          $('.playButtonH').css({
+            height: '50px'
+          })
           $('.titleCont').css({
               fontSize: "35px"
             })
@@ -948,6 +1095,9 @@ var app = angular.module('challengesController', [])
             marginTop: "28px"
           })
         } else if(windowSize >= 559){
+          $('.playButtonH').css({
+            height: '49px'
+          })
           $('.titleCont').css({
               fontSize: "34px"
             })
@@ -955,6 +1105,9 @@ var app = angular.module('challengesController', [])
               fontSize: "64px"
             })
         } else if(windowSize >= 541){
+          $('.playButtonH').css({
+            height: '48px'
+          })
           $('.titleCont').css({
               fontSize: "33px"
             })
@@ -962,6 +1115,9 @@ var app = angular.module('challengesController', [])
               fontSize: "63px"
             })
         } else if(windowSize >= 523){
+          $('.playButtonH').css({
+            height: '47px'
+          })
           $('.titleCont').css({
               fontSize: "32px"
             })
@@ -969,6 +1125,9 @@ var app = angular.module('challengesController', [])
               fontSize: "62px"
             })
         } else if(windowSize >= 506){
+          $('.playButtonH').css({
+            height: '46px'
+          })
           $('.titleCont').css({
               fontSize: "31px"
             })
@@ -976,6 +1135,9 @@ var app = angular.module('challengesController', [])
               fontSize: "61px"
             })
         } else if(windowSize >= 448){
+          $('.playButtonH').css({
+            height: '45px'
+          })
           $('.titleCont').css({
               fontSize: "30px"
             })
@@ -983,6 +1145,9 @@ var app = angular.module('challengesController', [])
               fontSize: "60px"
             })
         } else if(windowSize >= 471){
+          $('.playButtonH').css({
+            height: '44px'
+          })
           $('.titleCont').css({
               fontSize: "29px"
             })
@@ -990,6 +1155,9 @@ var app = angular.module('challengesController', [])
               fontSize: "59px"
             })
         } else if(windowSize >= 452){
+          $('.playButtonH').css({
+            height: '43px'
+          })
           $('.titleCont').css({
               fontSize: "28px"
             })
@@ -997,6 +1165,9 @@ var app = angular.module('challengesController', [])
               fontSize: "58px"
             })
         } else if(windowSize >= 435){
+          $('.playButtonH').css({
+            height: '42px'
+          })
           $('.titleCont').css({
               fontSize: "27px"
             })
@@ -1007,6 +1178,9 @@ var app = angular.module('challengesController', [])
             marginTop: "21px"
           })
         } else if(windowSize >= 418){
+          $('.playButtonH').css({
+            height: '41px'
+          })
           $('.titleCont').css({
               fontSize: "26px"
             })
@@ -1014,200 +1188,15 @@ var app = angular.module('challengesController', [])
               fontSize: "56px"
             })
         } else if(windowSize >= 400){
+          $('.playButtonH').css({
+            height: '40px'
+          })
           $('.titleCont').css({
               fontSize: "25px"
             })
           $('.listContent').css({
               fontSize: "55px"
             })
-        } else if(windowSize >= 701){
-          $('.titleCont').css({
-              fontSize: "54px"
-            })
-          $('.listContent').css({
-              fontSize: "54px"
-            })
-        } else if(windowSize >= 688){
-          $('.titleCont').css({
-              fontSize: "53px"
-            })
-          $('.listContent').css({
-              fontSize: "53px"
-            })
-        } else if(windowSize >= 676){
-          $('.titleCont').css({
-              fontSize: "52px"
-            })
-          $('.listContent').css({
-              fontSize: "52px"
-            })
-        } else if(windowSize >= 663){
-          $('.titleCont').css({
-              fontSize: "51px"
-            })
-          $('.listContent').css({
-              fontSize: "51px"
-            })
-        } else if(windowSize >= 651){
-          $('.titleCont').css({
-              fontSize: "50px"
-            })
-          $('.listContent').css({
-              fontSize: "50px"
-            })
-        } else if(windowSize >= 638){
-          $('.titleCont').css({
-              fontSize: "49px"
-            })
-          $('.listContent').css({
-              fontSize: "49px"
-            })
-          $('.hRemoveDescription').css({
-            marginTop: "14px"
-          })
-        } else if(windowSize >= 626){
-          $('.titleCont').css({
-              fontSize: "48px"
-            })
-          $('.listContent').css({
-              fontSize: "48px"
-            })
-        } else if(windowSize >= 613){
-          $('.titleCont').css({
-              fontSize: "47px"
-            })
-          $('.listContent').css({
-              fontSize: "47px"
-            })
-        } else if(windowSize >= 600){
-          $('.titleCont').css({
-              fontSize: "46px"
-            })
-          $('.listContent').css({
-              fontSize: "46px"
-            })
-        } else if(windowSize >= 588){
-          $('.titleCont').css({
-              fontSize: "45px"
-            })
-          $('.listContent').css({
-              fontSize: "45px"
-            })
-        } else if(windowSize >= 575){
-          $('.titleCont').css({
-              fontSize: "44px"
-            })
-          $('.listContent').css({
-              fontSize: "44px"
-            })
-        } else if(windowSize >= 563){
-          $('.titleCont').css({
-              fontSize: "43px"
-            })
-          $('.listContent').css({
-              fontSize: "43px"
-            })
-        } else if(windowSize >= 550){
-          $('.titleCont').css({
-              fontSize: "42px"
-            })
-          $('.listContent').css({
-              fontSize: "42px"
-            })
-        } else if(windowSize >= 538){
-          $('.titleCont').css({
-              fontSize: "41px"
-            })
-          $('.listContent').css({
-              fontSize: "41px"
-            })
-          $('.hRemoveDescription').css({
-            marginTop: "7px"
-          })
-        } else if(windowSize >= 525){
-          $('.titleCont').css({
-              fontSize: "40px"
-            })
-          $('.listContent').css({
-              fontSize: "40px"
-            })
-        } else if(windowSize >= 513){
-          $('.titleCont').css({
-              fontSize: "39px"
-            })
-          $('.listContent').css({
-              fontSize: "39px"
-            })
-        } else if(windowSize >= 500){
-          $('.titleCont').css({
-              fontSize: "38px"
-            })
-          $('.listContent').css({
-              fontSize: "38px"
-            })
-        } else if(windowSize >= 488){
-          $('.titleCont').css({
-              fontSize: "37px"
-            })
-        } else if(windowSize >= 475){
-          $('.listContent').css({
-              fontSize: "37px"
-            })
-        } else if(windowSize >= 475){
-          $('.titleCont').css({
-              fontSize: "36px"
-            })
-          $('.listContent').css({
-              fontSize: "36px"
-            })
-        } else if(windowSize >= 463){
-          $('.titleCont').css({
-              fontSize: "35px"
-            })
-          $('.listContent').css({
-              fontSize: "35px"
-            })
-        } else if(windowSize >= 450){
-          $('.titleCont').css({
-              fontSize: "34px"
-            })
-          $('.listContent').css({
-              fontSize: "34px"
-            })
-        } else if(windowSize >= 438){
-          $('.titleCont').css({
-              fontSize: "33px"
-            })
-          $('.listContent').css({
-              fontSize: "33px"
-            })
-          $('.hRemoveDescription').css({
-            marginTop: "7px"
-          })
-        } else if(windowSize >= 425){
-          $('.titleCont').css({
-              fontSize: "32px"
-            })
-          $('.listContent').css({
-              fontSize: "32px"
-            })
-        } else if(windowSize >= 413){
-          $('.titleCont').css({
-              fontSize: "31px"
-            })
-          $('.listContent').css({
-              fontSize: "31px"
-            })
-        } else if(windowSize >= 400){
-          $('.titleCont').css({
-              fontSize: "30px"
-            })
-          $('.listContent').css({
-              fontSize: "19px"
-            })
-          $('.hRemoveDescription').css({
-            marginTop: "0px"
-          })
         }
       }
       $(window).resize(function(){
