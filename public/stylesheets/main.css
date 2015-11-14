@@ -1458,12 +1458,21 @@ body {
 }
 
 .signinForm input{
-  width: 80%;
-  margin-left: 10%;
+  width: 60%;
+  margin-left: 20%;
   margin-top: 30px;
   height: 40px;
   font-size: 25px;
   text-align: center;
+}
+
+.signinForwardButton {
+  position: relative;
+  margin-top: 125px;
+  margin-left: 73%;
+  margin-bottom: 5px;
+  width: 110px;
+  background-color: none;
 }
 
 .signinHolder {
@@ -1479,7 +1488,7 @@ body {
 }
 
 .signupBox {
-  padding: 20px 20px 50px 20px;
+  padding: 20px 20px 20px 20px;
   background-color: #E1E1E1;
   position: absolute;
 }
@@ -1505,6 +1514,11 @@ body {
   z-index: 10;
 }
 
+.signupForm {
+  margin: 30px 0px 30px 0px;
+  height: 100%;
+}
+
 .signupForm p {
   text-align: center;
   font-size: 15px;
@@ -1512,12 +1526,21 @@ body {
 }
 
 .signupForm input{
-  width: 80%;
-  margin-left: 10%;
+  width: 60%;
+  margin-left: 20%;
   margin-top: 30px;
   height: 40px;
   font-size: 25px;
   text-align: center;
+}
+
+.signupForwardButton {
+  position: relative;
+  margin-top: 60px;
+  margin-left: 73%;
+  margin-bottom: 5px;
+  width: 110px;
+  background-color: none;
 }
 
 .singleuserContainer {
