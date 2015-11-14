@@ -583,7 +583,7 @@ var app = angular.module('challengesController', [])
       ////////////////Create a function to auto-adjust home page big window font-size
       function makeFit(){
         var windowSize = parseInt($(window).width())
-        if(windowSize >= 1427){
+        if(windowSize >= 1422){
           $('.titleCont').css({
               fontSize: "84px"
             })
@@ -593,58 +593,58 @@ var app = angular.module('challengesController', [])
           $(".hRemoveDescription").css({
             marginTop: "70px"
           })
-        } else if(windowSize >= 1415){
+        } else if(windowSize >= 1404){
           $('.titleCont').css({
-              fontSize: "93px"
+              fontSize: "83px"
             })
             $('.listContent').css({
                 fontSize: "45px"
             })
-        } else if(windowSize >= 1402){
+        } else if(windowSize >= 1387){
           $('.titleCont').css({
-              fontSize: "112px"
+              fontSize: "82px"
             })
           $('.listContent').css({
             fontSize: '44px'
           })
-        } else if(windowSize >= 1390){
+        } else if(windowSize >= 1369){
           $('.titleCont').css({
-              fontSize: "111px"
+              fontSize: "81px"
             })
             $('.listContent').css({
               fontSize: '44px'
             })
-        } else if(windowSize >= 1377){
+        } else if(windowSize >= 1351){
           $('.titleCont').css({
-              fontSize: "110px"
+              fontSize: "80px"
             })
           $('.listContent').css({
             fontSize: '43px'
           })
-        } else if(windowSize >= 1364){
+        } else if(windowSize >= 1334){
           $('.titleCont').css({
-              fontSize: "109px"
+              fontSize: "79px"
             })
           $('.listContent').css({
             fontSize: '42px'
           })
-        } else if(windowSize >= 1352){
+        } else if(windowSize >= 1317){
           $('.titleCont').css({
-              fontSize: "108px"
+              fontSize: "78px"
             })
             $('.listContent').css({
               fontSize: '42px'
             })
-        } else if(windowSize >= 1340){
+        } else if(windowSize >= 1299){
           $('.titleCont').css({
-              fontSize: "107px"
+              fontSize: "77px"
             })
           $('.listContent').css({
             fontSize: '41px'
           })
-        } else if(windowSize >= 1327){
+        } else if(windowSize >= 1281){
           $('.titleCont').css({
-              fontSize: "106px"
+              fontSize: "76px"
             })
           $('.hRemoveDescription').css({
             marginTop: "63px"
@@ -652,58 +652,58 @@ var app = angular.module('challengesController', [])
           $('.listContent').css({
             fontSize: '41px'
           })
-        } else if(windowSize >= 1314){
+        } else if(windowSize >= 1264){
           $('.titleCont').css({
-              fontSize: "105px"
+              fontSize: "75px"
             })
           $('.listContent').css({
             fontSize: '40px'
           })
-        } else if(windowSize >= 1302){
+        } else if(windowSize >= 1246){
           $('.titleCont').css({
-              fontSize: "104px"
+              fontSize: "74px"
             })
           $('.listContent').css({
             fontSize: '40px'
           })
-        } else if(windowSize >= 1290){
+        } else if(windowSize >= 1228){
           $('.titleCont').css({
-              fontSize: "103px"
+              fontSize: "73px"
             })
           $('.listContent').css({
             fontSize: '39px'
           })
-        } else if(windowSize >= 1277){
+        } else if(windowSize >= 1211){
           $('.titleCont').css({
-              fontSize: "102px"
+              fontSize: "72px"
             })
           $('.listContent').css({
             fontSize: '39px'
           })
-        } else if(windowSize >= 1265){
+        } else if(windowSize >= 1193){
           $('.titleCont').css({
-              fontSize: "101px"
+              fontSize: "71px"
             })
           $('.listContent').css({
             fontSize: '38px'
           })
-        } else if(windowSize >= 1252){
+        } else if(windowSize >= 1175){
           $('.titleCont').css({
-              fontSize: "100px"
+              fontSize: "70px"
             })
           $('.listContent').css({
             fontSize: '38px'
           })
-        } else if(windowSize >= 1240){
+        } else if(windowSize >= 1158){
           $('.titleCont').css({
-              fontSize: "99px"
+              fontSize: "69px"
             })
           $('.listContent').css({
             fontSize: '37px'
           })
-        } else if(windowSize >= 1227){
+        } else if(windowSize >= 1140){
           $('.titleCont').css({
-              fontSize: "98px"
+              fontSize: "68px"
             })
           $('.hRemoveDescription').css({
             marginTop: "56px"
@@ -711,58 +711,58 @@ var app = angular.module('challengesController', [])
           $('.listContent').css({
             fontSize: '37px'
           })
-        } else if(windowSize >= 1214){
+        } else if(windowSize >= 1123){
           $('.titleCont').css({
-              fontSize: "97px"
+              fontSize: "67px"
             })
           $('.listContent').css({
             fontSize: '36px'
           })
-        } else if(windowSize >= 1202){
+        } else if(windowSize >= 1105){
           $('.titleCont').css({
-              fontSize: "96px"
+              fontSize: "66px"
             })
             $('.listContent').css({
               fontSize: '36px'
             })
-        } else if(windowSize >= 1189){
+        } else if(windowSize >= 1087){
           $('.titleCont').css({
-              fontSize: "95px"
+              fontSize: "65px"
             })
           $('.listContent').css({
             fontSize: '35px'
           })
-        } else if(windowSize >= 1177){
+        } else if(windowSize >= 1069){
           $('.titleCont').css({
-              fontSize: "93px"
+              fontSize: "64px"
             })
             $('.listContent').css({
               fontSize: '35px'
             })
-        } else if(windowSize >= 1164){
+        } else if(windowSize >= 1052){
           $('.titleCont').css({
-              fontSize: "92px"
+              fontSize: "63px"
             })
           $('.listContent').css({
             fontSize: '34px'
           })
-        } else if(windowSize >= 1152){
+        } else if(windowSize >= 1035){
           $('.titleCont').css({
-              fontSize: "91px"
+              fontSize: "62px"
             })
           $('.listContent').css({
             fontSize: '34px'
           })
-        } else if(windowSize >= 1139){
+        } else if(windowSize >= 1017){
           $('.titleCont').css({
-              fontSize: "90px"
+              fontSize: "61px"
             })
           $('.listContent').css({
             fontSize: '33px'
           })
-        } else if(windowSize >= 1126){
+        } else if(windowSize >= 999){
           $('.titleCont').css({
-              fontSize: "89px"
+              fontSize: "60px"
             })
           $('.hRemoveDescription').css({
             marginTop: "49px"
@@ -770,58 +770,58 @@ var app = angular.module('challengesController', [])
           $('.listContent').css({
             fontSize: '33px'
           })
-        } else if(windowSize >= 1114){
+        } else if(windowSize >= 982){
           $('.titleCont').css({
-              fontSize: "88px"
+              fontSize: "59px"
             })
           $('.listContent').css({
             fontSize: '32px'
           })
-        } else if(windowSize >= 1102){
+        } else if(windowSize >= 964){
           $('.titleCont').css({
-              fontSize: "87px"
+              fontSize: "58px"
             })
           $('.listContent').css({
             fontSize: '32px'
           })
-        } else if(windowSize >= 1089){
+        } else if(windowSize >= 946){
           $('.titleCont').css({
-              fontSize: "86px"
+              fontSize: "57px"
             })
           $('.listContent').css({
             fontSize: '31px'
           })
-        } else if(windowSize >= 1077){
+        } else if(windowSize >= 929){
           $('.titleCont').css({
-              fontSize: "85px"
+              fontSize: "56px"
             })
           $('.listContent').css({
             fontSize: '31px'
           })
-        } else if(windowSize >= 1064){
+        } else if(windowSize >= 911){
           $('.titleCont').css({
-              fontSize: "84px"
+              fontSize: "55px"
             })
           $('.listContent').css({
             fontSize: '30px'
           })
-        } else if(windowSize >= 1051){
+        } else if(windowSize >= 894){
           $('.titleCont').css({
-              fontSize: "83px"
+              fontSize: "54px"
             })
           $('.listContent').css({
             fontSize: '30px'
           })
-        } else if(windowSize >= 1039){
+        } else if(windowSize >= 876){
           $('.titleCont').css({
-              fontSize: "82px"
+              fontSize: "53px"
             })
           $('.listContent').css({
             fontSize: '29px'
           })
-        } else if(windowSize >= 1027){
+        } else if(windowSize >= 858){
           $('.titleCont').css({
-              fontSize: "81px"
+              fontSize: "52px"
             })
           $('.hRemoveDescription').css({
             marginTop: "42px"
@@ -829,58 +829,58 @@ var app = angular.module('challengesController', [])
           $('.listContent').css({
             fontSize: '28px'
           })
-        } else if(windowSize >= 1014){
+        } else if(windowSize >= 841){
           $('.titleCont').css({
-              fontSize: "80px"
+              fontSize: "51px"
             })
           $('.listContent').css({
             fontSize: '28px'
           })
-        } else if(windowSize >= 1060){
+        } else if(windowSize >= 823){
           $('.titleCont').css({
-              fontSize: "79px"
+              fontSize: "50px"
             })
           $('.listContent').css({
             fontSize: '27px'
           })
-        } else if(windowSize >= 1001){
+        } else if(windowSize >= 805){
           $('.titleCont').css({
-              fontSize: "78px"
+              fontSize: "49px"
             })
           $('.listContent').css({
             fontSize: '27px'
           })
-        } else if(windowSize >= 993){
+        } else if(windowSize >= 788){
           $('.titleCont').css({
-              fontSize: "77px"
+              fontSize: "48px"
             })
           $('.listContent').css({
             fontSize: '26px'
           })
-        } else if(windowSize >= 976){
+        } else if(windowSize >= 770){
           $('.titleCont').css({
-              fontSize: "76px"
+              fontSize: "47px"
             })
           $('.listContent').css({
               fontSize: "76px"
             })
-        } else if(windowSize >= 964){
+        } else if(windowSize >= 753){
           $('.titleCont').css({
-              fontSize: "75px"
+              fontSize: "46px"
             })
           $('.listContent').css({
               fontSize: "75px"
             })
-        } else if(windowSize >= 951){
+        } else if(windowSize >= 735){
           $('.titleCont').css({
-              fontSize: "74px"
+              fontSize: "45px"
             })
           $('.listContent').css({
               fontSize: "74px"
             })
-        } else if(windowSize >= 939){
+        } else if(windowSize >= 717){
           $('.titleCont').css({
-              fontSize: "73px"
+              fontSize: "44px"
             })
           $('.listContent').css({
               fontSize: "73px"
@@ -888,58 +888,58 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             marginTop: "35px"
           })
-        } else if(windowSize >= 926){
+        } else if(windowSize >= 700){
           $('.titleCont').css({
-              fontSize: "72px"
+              fontSize: "43px"
             })
           $('.listContent').css({
               fontSize: "72px"
             })
-        } else if(windowSize >= 914){
+        } else if(windowSize >= 682){
           $('.titleCont').css({
-              fontSize: "71px"
+              fontSize: "42px"
             })
           $('.listContent').css({
               fontSize: "71px"
             })
-        } else if(windowSize >= 901){
+        } else if(windowSize >= 664){
           $('.titleCont').css({
-              fontSize: "70px"
+              fontSize: "41px"
             })
           $('.listContent').css({
               fontSize: "70px"
             })
-        } else if(windowSize >= 889){
+        } else if(windowSize >= 647){
           $('.titleCont').css({
-              fontSize: "69px"
+              fontSize: "40px"
             })
           $('.listContent').css({
               fontSize: "69px"
             })
-        } else if(windowSize >= 876){
+        } else if(windowSize >= 629){
           $('.titleCont').css({
-              fontSize: "68px"
+              fontSize: "39px"
             })
           $('.listContent').css({
               fontSize: "68px"
             })
-        } else if(windowSize >= 864){
+        } else if(windowSize >= 611){
           $('.titleCont').css({
-              fontSize: "67px"
+              fontSize: "38px"
             })
           $('.listContent').css({
               fontSize: "67px"
             })
-        } else if(windowSize >= 851){
+        } else if(windowSize >= 594){
           $('.titleCont').css({
-              fontSize: "66px"
+              fontSize: "37px"
             })
           $('.listContent').css({
               fontSize: "66px"
             })
-        } else if(windowSize >= 839){
+        } else if(windowSize >= 576){
           $('.titleCont').css({
-              fontSize: "65px"
+              fontSize: "35px"
             })
           $('.listContent').css({
               fontSize: "65px"
@@ -947,58 +947,58 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             marginTop: "28px"
           })
-        } else if(windowSize >= 826){
+        } else if(windowSize >= 559){
           $('.titleCont').css({
-              fontSize: "64px"
+              fontSize: "34px"
             })
           $('.listContent').css({
               fontSize: "64px"
             })
-        } else if(windowSize >= 814){
+        } else if(windowSize >= 541){
           $('.titleCont').css({
-              fontSize: "63px"
+              fontSize: "33px"
             })
           $('.listContent').css({
               fontSize: "63px"
             })
-        } else if(windowSize >= 801){
+        } else if(windowSize >= 523){
           $('.titleCont').css({
-              fontSize: "62px"
+              fontSize: "32px"
             })
           $('.listContent').css({
               fontSize: "62px"
             })
-        } else if(windowSize >= 788){
+        } else if(windowSize >= 506){
           $('.titleCont').css({
-              fontSize: "61px"
+              fontSize: "31px"
             })
           $('.listContent').css({
               fontSize: "61px"
             })
-        } else if(windowSize >= 776){
+        } else if(windowSize >= 448){
           $('.titleCont').css({
-              fontSize: "60px"
+              fontSize: "30px"
             })
           $('.listContent').css({
               fontSize: "60px"
             })
-        } else if(windowSize >= 763){
+        } else if(windowSize >= 471){
           $('.titleCont').css({
-              fontSize: "59px"
+              fontSize: "29px"
             })
           $('.listContent').css({
               fontSize: "59px"
             })
-        } else if(windowSize >= 751){
+        } else if(windowSize >= 452){
           $('.titleCont').css({
-              fontSize: "58px"
+              fontSize: "28px"
             })
           $('.listContent').css({
               fontSize: "58px"
             })
-        } else if(windowSize >= 738){
+        } else if(windowSize >= 435){
           $('.titleCont').css({
-              fontSize: "57px"
+              fontSize: "27px"
             })
           $('.listContent').css({
               fontSize: "57px"
@@ -1006,16 +1006,16 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             marginTop: "21px"
           })
-        } else if(windowSize >= 726){
+        } else if(windowSize >= 418){
           $('.titleCont').css({
-              fontSize: "56px"
+              fontSize: "26px"
             })
           $('.listContent').css({
               fontSize: "56px"
             })
-        } else if(windowSize >= 713){
+        } else if(windowSize >= 400){
           $('.titleCont').css({
-              fontSize: "55px"
+              fontSize: "25px"
             })
           $('.listContent').css({
               fontSize: "55px"
