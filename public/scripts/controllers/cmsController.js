@@ -660,11 +660,11 @@ var app = angular.module('cmsController', [])
         var newDescription = $('.editCharityDescription').val()
         var newPhoto = $('.editCharityPhoto').val()
         var newUrl = $('.editCharityUrl').val()
-        search = {_id: thisId}
+        search =
         $http({
           method: "POST"
           ,url: "/api/charities/update"
-          ,data: {search, name: newName, description: newDescription, photo: newPhoto, url: newUrl}
+          ,data: {_id: thisId, name: newName, description: newDescription, photo: newPhoto, url: newUrl}
         })
         .then(function(data){
           // $('.cmsCharityName').text(data.data.name)
