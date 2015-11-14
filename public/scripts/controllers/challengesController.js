@@ -32,6 +32,14 @@ var app = angular.module('challengesController', [])
     setInterval(adjustBlackListAll, 50);
     ///////end quick black layer adjustment for the listview on the homepage
     ///////end blacklayer adjustment stuff
+
+    $('.acceptButton').on('mouseenter', function(){
+      $('.acceptButton').attr('src', "../assets/pink_accept_rollover.svg")
+    })
+    $('.acceptButton').on('mouseleave', function(){
+      $('.acceptButton').attr('src', "../assets/pink_accept_button.svg")
+    })
+
     /////////////////////////////////////
     ////begin dividing controller by page, this will be simplified by the use of factories
 
@@ -584,6 +592,12 @@ var app = angular.module('challengesController', [])
       function makeFit(){
         var windowSize = parseInt($(window).width())
         if(windowSize >= 1422){
+          $('.acceptButton').css({
+            width: '178px'
+          })
+          $('.acceptButton').css({
+            height: '45px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '30px'
           })
@@ -597,6 +611,12 @@ var app = angular.module('challengesController', [])
               fontSize: "45px"
           })
         } else if(windowSize >= 1404){
+          $('.acceptButton').css({
+            width: '177px'
+          })
+          $('.acceptButton').css({
+            height: '45px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '30px'
           })
@@ -610,6 +630,12 @@ var app = angular.module('challengesController', [])
               fontSize: "45px"
           })
         } else if(windowSize >= 1387){
+          $('.acceptButton').css({
+            width: '177px'
+          })
+          $('.acceptButton').css({
+            height: '45px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '30px'
           })
@@ -623,6 +649,12 @@ var app = angular.module('challengesController', [])
             fontSize: '44px'
           })
         } else if(windowSize >= 1369){
+          $('.acceptButton').css({
+            width: '176px'
+          })
+          $('.acceptButton').css({
+            height: '44px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '30px'
           })
@@ -636,6 +668,12 @@ var app = angular.module('challengesController', [])
               fontSize: '44px'
             })
         } else if(windowSize >= 1351){
+          $('.acceptButton').css({
+            width: '175px'
+          })
+          $('.acceptButton').css({
+            height: '44px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '29px'
           })
@@ -649,6 +687,12 @@ var app = angular.module('challengesController', [])
             fontSize: '43px'
           })
         } else if(windowSize >= 1334){
+          $('.acceptButton').css({
+            width: '175px'
+          })
+          $('.acceptButton').css({
+            height: '44px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '29px'
           })
@@ -662,6 +706,12 @@ var app = angular.module('challengesController', [])
             fontSize: '42px'
           })
         } else if(windowSize >= 1317){
+          $('.acceptButton').css({
+            width: '174px'
+          })
+          $('.acceptButton').css({
+            height: '44px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '29px'
           })
@@ -675,6 +725,12 @@ var app = angular.module('challengesController', [])
               fontSize: '42px'
             })
         } else if(windowSize >= 1299){
+          $('.acceptButton').css({
+            width: '174px'
+          })
+          $('.acceptButton').css({
+            height: '43px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '29px'
           })
@@ -688,6 +744,12 @@ var app = angular.module('challengesController', [])
             fontSize: '41px'
           })
         } else if(windowSize >= 1281){
+          $('.acceptButton').css({
+            width: '173px'
+          })
+          $('.acceptButton').css({
+            height: '43px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '28px'
           })
@@ -701,6 +763,12 @@ var app = angular.module('challengesController', [])
             fontSize: '41px'
           })
         } else if(windowSize >= 1264){
+          $('.acceptButton').css({
+            width: '172px'
+          })
+          $('.acceptButton').css({
+            height: '43px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '28px'
           })
@@ -714,6 +782,12 @@ var app = angular.module('challengesController', [])
             fontSize: '40px'
           })
         } else if(windowSize >= 1246){
+          $('.acceptButton').css({
+            width: '172px'
+          })
+          $('.acceptButton').css({
+            height: '42px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '28px'
           })
@@ -727,6 +801,12 @@ var app = angular.module('challengesController', [])
             fontSize: '40px'
           })
         } else if(windowSize >= 1228){
+          $('.acceptButton').css({
+            width: '171px'
+          })
+          $('.acceptButton').css({
+            height: '42px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '27px'
           })
@@ -740,6 +820,12 @@ var app = angular.module('challengesController', [])
             fontSize: '39px'
           })
         } else if(windowSize >= 1211){
+          $('.acceptButton').css({
+            width: '170px'
+          })
+          $('.acceptButton').css({
+            height: '42px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '27px'
           })
@@ -753,6 +839,12 @@ var app = angular.module('challengesController', [])
             fontSize: '39px'
           })
         } else if(windowSize >= 1193){
+          $('.acceptButton').css({
+            width: '170px'
+          })
+          $('.acceptButton').css({
+            height: '42px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '27px'
           })
@@ -766,6 +858,12 @@ var app = angular.module('challengesController', [])
             fontSize: '38px'
           })
         } else if(windowSize >= 1175){
+          $('.acceptButton').css({
+            width: '169px'
+          })
+          $('.acceptButton').css({
+            height: '42px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '27px'
           })
@@ -779,6 +877,12 @@ var app = angular.module('challengesController', [])
             fontSize: '38px'
           })
         } else if(windowSize >= 1158){
+          $('.acceptButton').css({
+            width: '168px'
+          })
+          $('.acceptButton').css({
+            height: '41px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '26px'
           })
@@ -792,6 +896,12 @@ var app = angular.module('challengesController', [])
             fontSize: '37px'
           })
         } else if(windowSize >= 1140){
+          $('.acceptButton').css({
+            width: '168px'
+          })
+          $('.acceptButton').css({
+            height: '41px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '26px'
           })
@@ -805,6 +915,12 @@ var app = angular.module('challengesController', [])
             fontSize: '37px'
           })
         } else if(windowSize >= 1123){
+          $('.acceptButton').css({
+            width: '167px'
+          })
+          $('.acceptButton').css({
+            height: '40px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '26px'
           })
@@ -818,6 +934,12 @@ var app = angular.module('challengesController', [])
             fontSize: '36px'
           })
         } else if(windowSize >= 1105){
+          $('.acceptButton').css({
+            width: '166px'
+          })
+          $('.acceptButton').css({
+            height: '40px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '26px'
           })
@@ -831,6 +953,12 @@ var app = angular.module('challengesController', [])
               fontSize: '36px'
             })
         } else if(windowSize >= 1087){
+          $('.acceptButton').css({
+            width: '166px'
+          })
+          $('.acceptButton').css({
+            height: '40px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '26px'
           })
@@ -844,6 +972,12 @@ var app = angular.module('challengesController', [])
             fontSize: '35px'
           })
         } else if(windowSize >= 1069){
+          $('.acceptButton').css({
+            width: '165px'
+          })
+          $('.acceptButton').css({
+            height: '40px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '25px'
           })
@@ -857,6 +991,12 @@ var app = angular.module('challengesController', [])
               fontSize: '35px'
             })
         } else if(windowSize >= 1052){
+          $('.acceptButton').css({
+            width: '164px'
+          })
+          $('.acceptButton').css({
+            height: '39px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '25px'
           })
@@ -870,6 +1010,12 @@ var app = angular.module('challengesController', [])
             fontSize: '34px'
           })
         } else if(windowSize >= 1035){
+          $('.acceptButton').css({
+            width: '164px'
+          })
+          $('.acceptButton').css({
+            height: '39px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '25px'
           })
@@ -883,6 +1029,12 @@ var app = angular.module('challengesController', [])
             fontSize: '34px'
           })
         } else if(windowSize >= 1017){
+          $('.acceptButton').css({
+            width: '163px'
+          })
+          $('.acceptButton').css({
+            height: '39px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '24px'
           })
@@ -896,6 +1048,12 @@ var app = angular.module('challengesController', [])
             fontSize: '33px'
           })
         } else if(windowSize >= 999){
+          $('.acceptButton').css({
+            width: '162px'
+          })
+          $('.acceptButton').css({
+            height: '38px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '24px'
           })
@@ -909,6 +1067,12 @@ var app = angular.module('challengesController', [])
             fontSize: '33px'
           })
         } else if(windowSize >= 982){
+          $('.acceptButton').css({
+            width: '162px'
+          })
+          $('.acceptButton').css({
+            height: '38px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '24px'
           })
@@ -922,6 +1086,12 @@ var app = angular.module('challengesController', [])
             fontSize: '32px'
           })
         } else if(windowSize >= 964){
+          $('.acceptButton').css({
+            width: '161px'
+          })
+          $('.acceptButton').css({
+            height: '38px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '24px'
           })
@@ -935,6 +1105,12 @@ var app = angular.module('challengesController', [])
             fontSize: '32px'
           })
         } else if(windowSize >= 946){
+          $('.acceptButton').css({
+            width: '161px'
+          })
+          $('.acceptButton').css({
+            height: '38px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '23px'
           })
@@ -948,6 +1124,12 @@ var app = angular.module('challengesController', [])
             fontSize: '31px'
           })
         } else if(windowSize >= 929){
+          $('.acceptButton').css({
+            width: '160px'
+          })
+          $('.acceptButton').css({
+            height: '37px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '23px'
           })
@@ -961,6 +1143,12 @@ var app = angular.module('challengesController', [])
             fontSize: '31px'
           })
         } else if(windowSize >= 911){
+          $('.acceptButton').css({
+            width: '159px'
+          })
+          $('.acceptButton').css({
+            height: '37px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '23px'
           })
@@ -974,6 +1162,12 @@ var app = angular.module('challengesController', [])
             fontSize: '30px'
           })
         } else if(windowSize >= 894){
+          $('.acceptButton').css({
+            width: '159px'
+          })
+          $('.acceptButton').css({
+            height: '37px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '23px'
           })
@@ -987,6 +1181,12 @@ var app = angular.module('challengesController', [])
             fontSize: '30px'
           })
         } else if(windowSize >= 876){
+          $('.acceptButton').css({
+            width: '158px'
+          })
+          $('.acceptButton').css({
+            height: '36px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '22px'
           })
@@ -1000,6 +1200,12 @@ var app = angular.module('challengesController', [])
             fontSize: '29px'
           })
         } else if(windowSize >= 858){
+          $('.acceptButton').css({
+            width: '157px'
+          })
+          $('.acceptButton').css({
+            height: '36px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '22px'
           })
@@ -1013,6 +1219,12 @@ var app = angular.module('challengesController', [])
             fontSize: '28px'
           })
         } else if(windowSize >= 841){
+          $('.acceptButton').css({
+            width: '157px'
+          })
+          $('.acceptButton').css({
+            height: '36px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '22px'
           })
@@ -1026,6 +1238,12 @@ var app = angular.module('challengesController', [])
             fontSize: '28px'
           })
         } else if(windowSize >= 823){
+          $('.acceptButton').css({
+            width: '156px'
+          })
+          $('.acceptButton').css({
+            height: '35px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '22px'
           })
@@ -1039,6 +1257,12 @@ var app = angular.module('challengesController', [])
             fontSize: '27px'
           })
         } else if(windowSize >= 805){
+          $('.acceptButton').css({
+            width: '155px'
+          })
+          $('.acceptButton').css({
+            height: '35px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '21px'
           })
@@ -1052,6 +1276,12 @@ var app = angular.module('challengesController', [])
             fontSize: '27px'
           })
         } else if(windowSize >= 788){
+          $('.acceptButton').css({
+            width: '155px'
+          })
+          $('.acceptButton').css({
+            height: '35px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '21px'
           })
@@ -1065,6 +1295,12 @@ var app = angular.module('challengesController', [])
             fontSize: '26px'
           })
         } else if(windowSize >= 770){
+          $('.acceptButton').css({
+            width: '154px'
+          })
+          $('.acceptButton').css({
+            height: '35px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '21px'
           })
@@ -1078,6 +1314,12 @@ var app = angular.module('challengesController', [])
               fontSize: "76px"
             })
         } else if(windowSize >= 753){
+          $('.acceptButton').css({
+            width: '154px'
+          })
+          $('.acceptButton').css({
+            height: '34px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '21px'
           })
@@ -1091,6 +1333,12 @@ var app = angular.module('challengesController', [])
               fontSize: "75px"
             })
         } else if(windowSize >= 735){
+          $('.acceptButton').css({
+            width: '153px'
+          })
+          $('.acceptButton').css({
+            height: '34px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '20px'
           })
@@ -1104,6 +1352,12 @@ var app = angular.module('challengesController', [])
               fontSize: "74px"
             })
         } else if(windowSize >= 717){
+          $('.acceptButton').css({
+            width: '152px'
+          })
+          $('.acceptButton').css({
+            height: '34px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '20px'
           })
@@ -1117,6 +1371,12 @@ var app = angular.module('challengesController', [])
               fontSize: "73px"
             })
         } else if(windowSize >= 700){
+          $('.acceptButton').css({
+            width: '152px'
+          })
+          $('.acceptButton').css({
+            height: '34px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '20px'
           })
@@ -1130,6 +1390,12 @@ var app = angular.module('challengesController', [])
               fontSize: "72px"
             })
         } else if(windowSize >= 682){
+          $('.acceptButton').css({
+            width: '151px'
+          })
+          $('.acceptButton').css({
+            height: '33px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '20px'
           })
@@ -1143,6 +1409,12 @@ var app = angular.module('challengesController', [])
               fontSize: "71px"
             })
         } else if(windowSize >= 664){
+          $('.acceptButton').css({
+            width: '150px'
+          })
+          $('.acceptButton').css({
+            height: '33px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '19px'
           })
@@ -1156,6 +1428,12 @@ var app = angular.module('challengesController', [])
               fontSize: "70px"
             })
         } else if(windowSize >= 647){
+          $('.acceptButton').css({
+            width: '150px'
+          })
+          $('.acceptButton').css({
+            height: '33px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '19px'
           })
@@ -1169,6 +1447,12 @@ var app = angular.module('challengesController', [])
               fontSize: "69px"
             })
         } else if(windowSize >= 629){
+          $('.acceptButton').css({
+            width: '149px'
+          })
+          $('.acceptButton').css({
+            height: '32px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '19px'
           })
@@ -1182,6 +1466,12 @@ var app = angular.module('challengesController', [])
               fontSize: "68px"
             })
         } else if(windowSize >= 611){
+          $('.acceptButton').css({
+            width: '148px'
+          })
+          $('.acceptButton').css({
+            height: '32px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '19px'
           })
@@ -1195,6 +1485,12 @@ var app = angular.module('challengesController', [])
               fontSize: "67px"
             })
         } else if(windowSize >= 594){
+          $('.acceptButton').css({
+            width: '148px'
+          })
+          $('.acceptButton').css({
+            height: '32px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '18px'
           })
@@ -1208,6 +1504,12 @@ var app = angular.module('challengesController', [])
               fontSize: "66px"
             })
         } else if(windowSize >= 576){
+          $('.acceptButton').css({
+            width: '147px'
+          })
+          $('.acceptButton').css({
+            height: '31px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '18px'
           })
@@ -1221,6 +1523,12 @@ var app = angular.module('challengesController', [])
               fontSize: "65px"
             })
         } else if(windowSize >= 559){
+          $('.acceptButton').css({
+            width: '147px'
+          })
+          $('.acceptButton').css({
+            height: '31px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '18px'
           })
@@ -1234,6 +1542,12 @@ var app = angular.module('challengesController', [])
               fontSize: "64px"
             })
         } else if(windowSize >= 541){
+          $('.acceptButton').css({
+            width: '146px'
+          })
+          $('.acceptButton').css({
+            height: '31px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '18px'
           })
@@ -1247,6 +1561,12 @@ var app = angular.module('challengesController', [])
               fontSize: "63px"
             })
         } else if(windowSize >= 523){
+          $('.acceptButton').css({
+            width: '145px'
+          })
+          $('.acceptButton').css({
+            height: '31px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '17px'
           })
@@ -1260,6 +1580,12 @@ var app = angular.module('challengesController', [])
               fontSize: "62px"
             })
         } else if(windowSize >= 506){
+          $('.acceptButton').css({
+            width: '145px'
+          })
+          $('.acceptButton').css({
+            height: '30px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '17px'
           })
@@ -1273,6 +1599,12 @@ var app = angular.module('challengesController', [])
               fontSize: "61px"
             })
         } else if(windowSize >= 488){
+          $('.acceptButton').css({
+            width: '144px'
+          })
+          $('.acceptButton').css({
+            height: '30px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '17px'
           })
@@ -1286,6 +1618,12 @@ var app = angular.module('challengesController', [])
               fontSize: "60px"
             })
         } else if(windowSize >= 471){
+          $('.acceptButton').css({
+            width: '143px'
+          })
+          $('.acceptButton').css({
+            height: '30px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '17px'
           })
@@ -1299,6 +1637,12 @@ var app = angular.module('challengesController', [])
               fontSize: "59px"
             })
         } else if(windowSize >= 452){
+          $('.acceptButton').css({
+            width: '143px'
+          })
+          $('.acceptButton').css({
+            height: '29px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '16px'
           })
@@ -1312,6 +1656,12 @@ var app = angular.module('challengesController', [])
               fontSize: "58px"
             })
         } else if(windowSize >= 435){
+          $('.acceptButton').css({
+            width: '142px'
+          })
+          $('.acceptButton').css({
+            height: '29px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '16px'
           })
@@ -1325,6 +1675,12 @@ var app = angular.module('challengesController', [])
               fontSize: "57px"
             })
         } else if(windowSize >= 418){
+          $('.acceptButton').css({
+            width: '141px'
+          })
+          $('.acceptButton').css({
+            height: '29px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '16px'
           })
@@ -1338,6 +1694,12 @@ var app = angular.module('challengesController', [])
               fontSize: "56px"
             })
         } else if(windowSize >= 400){
+          $('.acceptButton').css({
+            width: '140px'
+          })
+          $('.acceptButton').css({
+            height: '29px'
+          })
           $('.playButtonH').css({
             height: '40px'
           })

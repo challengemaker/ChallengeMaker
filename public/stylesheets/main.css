@@ -63,10 +63,13 @@
 }
 
 .acceptButton {
-  background: url("../assets/pink_accept_button.svg");
+  /*background: url("../assets/pink_accept_button.svg");*/
+  background-size: contain;
+  background-repeat: no-repeat;
   /*background-color: white;*/
   color: gray;
   width: 190px;
+  min-height: 100%;
   text-align: center;
   display: block;
   font-size: 20px;
@@ -74,11 +77,11 @@
   font-weight: bolder;
 }
 
-.acceptButton:hover {
+/*.acceptButton:hover {
   background: url("../assets/pink_accept_rollover.svg");
   /*background-color: purple;*/
   /*opacity: .90;*/
-}
+}*/
 
 .acceptedVideos {
   font-size: 18px;
