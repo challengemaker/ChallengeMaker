@@ -40,6 +40,20 @@ var app = angular.module('challengesController', [])
       $('.acceptButton').attr('src', "../assets/pink_accept_button.svg")
     })
 
+    setTimeout(function(){
+      var list = $('.acceptButtonList')
+      console.log(list);
+      for (var i = 0; i < list.length; i++) {
+        $('.acceptButton'+i).on('mouseenter', function(evt){
+          evt.target.src =  "../assets/pink_accept_rollover.svg"
+        })
+        $('.acceptButton'+i).on('mouseleave', function(evt){
+          evt.target.src = "../assets/pink_accept_button.svg"
+        })
+      }
+    }, 500)
+
+
     /////////////////////////////////////
     ////begin dividing controller by page, this will be simplified by the use of factories
 

@@ -53,7 +53,7 @@
                   <img class="playButtonL{{$index}}" ng-click="challenges.swap($index)" src="/assets/play_button.svg" alt=""/>
                 </div>
                 <p class="listSectionRemove listRemove{{$index}} listTextContent{{$index}}">$0 if completed<br> or donate ${{challenge.minimumDonation}}<br> to {{challenge.charity[0]}}</p>
-                <button type="button" class="acceptButton acceptButton{{$index}}" ng-click="challenges.goTo($index)" id="{{$index}}btn"></button>
+                <img src="../assets/pink_accept_button.svg" class="acceptButtonList acceptButton{{$index}}" ng-click="challenges.goTo($index)" id="{{$index}}btn"></button>
                <!-- <div class="detailsButton" id="{{}}" ng-mouseEnter="" ng-mouseLeave="">details</div> -->
               </div>
             </div>

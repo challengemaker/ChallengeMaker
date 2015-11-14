@@ -77,6 +77,21 @@
   font-weight: bolder;
 }
 
+.acceptButtonList {
+  /*background: url("../assets/pink_accept_button.svg");*/
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*background-color: white;*/
+  color: gray;
+  width: 190px;
+  min-height: 100%;
+  text-align: center;
+  display: block;
+  font-size: 20px;
+  margin: 10px 2px 0 2px;
+  font-weight: bolder;
+}
+
 /*.acceptButton:hover {
   background: url("../assets/pink_accept_rollover.svg");
   /*background-color: purple;*/
