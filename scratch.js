@@ -17,7 +17,7 @@ db.challenges.insert({"title" : "CHAMPAGNE CHALLENGE", "description" : "In the n
 //////////////////////////////////////////////////
 
 // KissFm MIles of Music 5K - Works
-db.challenges.insert({"title" : "MILES OF MUSIC 5K CHALLENGE", "description" : "Make a video of yourself completing the Miles of Music 5K Run on November 15, 2015 at Paramount Studios or give $25 to Youth Mentoring", "videoUrl" : "https://www.youtube.com/embed/dA3haOTQq44", "photo" : "http://i68.tinypic.com/24mrtpw.png", "createdBy" : [ { "name" : "Jack", "userId" : 101010101 } ], "charity" : "YOUTH MENTORING", "charityLink": "http://youthmentoring.org/get-involved/donate/", "responses" : [ ], "goal" : 10000, "minimumDonation" : 25, "totalRaised" : 0 })
+db.challenges.insert({"title" : "MILES OF MUSIC 5K", "description" : "Make a video of yourself completing the Miles of Music 5K Run on November 15, 2015 at Paramount Studios or give $25 to Youth Mentoring", "videoUrl" : "https://www.youtube.com/embed/dA3haOTQq44", "photo" : "http://i68.tinypic.com/24mrtpw.png", "createdBy" : [ { "name" : "Jack", "userId" : 101010101 } ], "charity" : "YOUTH MENTORING", "charityLink": "http://youthmentoring.org/get-involved/donate/", "responses" : [ ], "goal" : 10000, "minimumDonation" : 25, "totalRaised" : 0 })
 
 
 // LAAC

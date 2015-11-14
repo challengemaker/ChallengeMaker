@@ -585,7 +585,7 @@ var app = angular.module('challengesController', [])
         var windowSize = parseInt($(window).width())
         if(windowSize >= 1427){
           $('.titleCont').css({
-              fontSize: "114px"
+              fontSize: "84px"
             })
           $('.listContent').css({
               fontSize: "45px"
@@ -595,7 +595,7 @@ var app = angular.module('challengesController', [])
           })
         } else if(windowSize >= 1415){
           $('.titleCont').css({
-              fontSize: "113px"
+              fontSize: "93px"
             })
             $('.listContent').css({
                 fontSize: "45px"
