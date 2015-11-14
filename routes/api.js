@@ -403,7 +403,7 @@ module.exports = function(app, passport){
     mandrill_client.messages.send({
       message: {
         from_email: "challenge@challengemaker.com"
-        ,text: "Thank you for making such a gracious donaition to <Fill_in_Charity>!"
+        ,text: "Thank you for making such a gracious donation!"
         ,subject: "ChallengeMaker Is Thrilled About Your Donation"
         ,to:[{
           email: req.body.sendeeEmail
