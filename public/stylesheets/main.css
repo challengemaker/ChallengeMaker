@@ -1469,7 +1469,8 @@ body {
 .signinForwardButton {
   position: relative;
   margin-top: 125px;
-  margin-left: 73%;
+  margin-left: 70%;
+  margin-right: 20%;
   margin-bottom: 5px;
   width: 110px;
   background-color: none;
@@ -1536,8 +1537,9 @@ body {
 
 .signupForwardButton {
   position: relative;
-  margin-top: 60px;
-  margin-left: 73%;
+  margin-top: 57px;
+  margin-left: 70%;
+  margin-right: 20%;
   margin-bottom: 5px;
   width: 110px;
   background-color: none;
