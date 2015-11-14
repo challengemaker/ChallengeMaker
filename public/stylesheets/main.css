@@ -1443,7 +1443,7 @@ body {
 
 .signinContainer {
   margin-top: 50px;
-  max-width: 550px;
+  max-width: 575px;
   z-index: 10;
 }
 
@@ -1517,7 +1517,7 @@ body {
 
 .signupContainer {
   margin-top: 50px;
-  max-width: 550px;
+  max-width: 575px;
   z-index: 10;
 }
 
