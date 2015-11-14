@@ -590,6 +590,7 @@ var app = angular.module('challengesController', [])
       ///////////////////////////////////////////////////////////////////////////////
       ////////////////Create a function to auto-adjust home page big window font-size
       function makeFit(){
+        console.log('making fit');
         var windowSize = parseInt($(window).width())
         if(windowSize >= 1422){
           $('.acceptButton').css({
@@ -1877,6 +1878,9 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '29px'
           })
+          $('.hRemoveDescription').css({
+            fontSize: '16px'
+          })
           $('.playButtonH').css({
             height: '40px'
           })
@@ -1893,13 +1897,8 @@ var app = angular.module('challengesController', [])
       })
       setTimeout(function(){
         makeFit()
-      }, 200)
-      setTimeout(function(){
-        makeFit()
       }, 800)
-      setTimeout(function(){
-        makeFit()
-      }, 1500)
+
       ///////////////////end creating font-adjusting function
       ///////////////////////////////////////////////////////
 
