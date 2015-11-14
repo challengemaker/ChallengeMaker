@@ -1188,6 +1188,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '38px'
           })
+          $('.acceptButtonList').css({
+            width: '162px'
+          })
+          $('.acceptButtonList').css({
+            height: '38px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '24px'
           })
@@ -1208,6 +1214,12 @@ var app = angular.module('challengesController', [])
             width: '161px'
           })
           $('.acceptButton').css({
+            height: '38px'
+          })
+          $('.acceptButtonList').css({
+            width: '161px'
+          })
+          $('.acceptButtonList').css({
             height: '38px'
           })
           $('.hRemoveDescription').css({
@@ -1232,6 +1244,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '38px'
           })
+          $('.acceptButtonList').css({
+            width: '161px'
+          })
+          $('.acceptButtonList').css({
+            height: '38px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '23px'
           })
@@ -1252,6 +1270,12 @@ var app = angular.module('challengesController', [])
             width: '160px'
           })
           $('.acceptButton').css({
+            height: '37px'
+          })
+          $('.acceptButtonList').css({
+            width: '160px'
+          })
+          $('.acceptButtonList').css({
             height: '37px'
           })
           $('.hRemoveDescription').css({
@@ -1276,6 +1300,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '37px'
           })
+          $('.acceptButtonList').css({
+            width: '159px'
+          })
+          $('.acceptButtonList').css({
+            height: '37px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '23px'
           })
@@ -1296,6 +1326,12 @@ var app = angular.module('challengesController', [])
             width: '159px'
           })
           $('.acceptButton').css({
+            height: '37px'
+          })
+          $('.acceptButtonList').css({
+            width: '159px'
+          })
+          $('.acceptButtonList').css({
             height: '37px'
           })
           $('.hRemoveDescription').css({
@@ -1320,6 +1356,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '36px'
           })
+          $('.acceptButtonList').css({
+            width: '158px'
+          })
+          $('.acceptButtonList').css({
+            height: '36px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '22px'
           })
@@ -1340,6 +1382,12 @@ var app = angular.module('challengesController', [])
             width: '157px'
           })
           $('.acceptButton').css({
+            height: '36px'
+          })
+          $('.acceptButtonList').css({
+            width: '157px'
+          })
+          $('.acceptButtonList').css({
             height: '36px'
           })
           $('.hRemoveDescription').css({
@@ -1364,6 +1412,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '36px'
           })
+          $('.acceptButtonList').css({
+            width: '157px'
+          })
+          $('.acceptButtonList').css({
+            height: '36px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '22px'
           })
@@ -1384,6 +1438,12 @@ var app = angular.module('challengesController', [])
             width: '156px'
           })
           $('.acceptButton').css({
+            height: '35px'
+          })
+          $('.acceptButtonList').css({
+            width: '156px'
+          })
+          $('.acceptButtonList').css({
             height: '35px'
           })
           $('.hRemoveDescription').css({
@@ -1408,6 +1468,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '35px'
           })
+          $('.acceptButtonList').css({
+            width: '155px'
+          })
+          $('.acceptButtonList').css({
+            height: '35px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '21px'
           })
@@ -1428,6 +1494,12 @@ var app = angular.module('challengesController', [])
             width: '155px'
           })
           $('.acceptButton').css({
+            height: '35px'
+          })
+          $('.acceptButtonList').css({
+            width: '155px'
+          })
+          $('.acceptButtonList').css({
             height: '35px'
           })
           $('.hRemoveDescription').css({
@@ -1452,6 +1524,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '35px'
           })
+          $('.acceptButtonList').css({
+            width: '154px'
+          })
+          $('.acceptButtonList').css({
+            height: '35px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '21px'
           })
@@ -1472,6 +1550,12 @@ var app = angular.module('challengesController', [])
             width: '154px'
           })
           $('.acceptButton').css({
+            height: '34px'
+          })
+          $('.acceptButtonList').css({
+            width: '154px'
+          })
+          $('.acceptButtonList').css({
             height: '34px'
           })
           $('.hRemoveDescription').css({
@@ -1496,6 +1580,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '34px'
           })
+          $('.acceptButtonList').css({
+            width: '153px'
+          })
+          $('.acceptButtonList').css({
+            height: '34px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '20px'
           })
@@ -1516,6 +1606,12 @@ var app = angular.module('challengesController', [])
             width: '152px'
           })
           $('.acceptButton').css({
+            height: '34px'
+          })
+          $('.acceptButtonList').css({
+            width: '152px'
+          })
+          $('.acceptButtonList').css({
             height: '34px'
           })
           $('.hRemoveDescription').css({
@@ -1540,6 +1636,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '34px'
           })
+          $('.acceptButtonList').css({
+            width: '152px'
+          })
+          $('.acceptButtonList').css({
+            height: '34px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '20px'
           })
@@ -1560,6 +1662,12 @@ var app = angular.module('challengesController', [])
             width: '151px'
           })
           $('.acceptButton').css({
+            height: '33px'
+          })
+          $('.acceptButtonList').css({
+            width: '151px'
+          })
+          $('.acceptButtonList').css({
             height: '33px'
           })
           $('.hRemoveDescription').css({
@@ -1584,6 +1692,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '33px'
           })
+          $('.acceptButtonList').css({
+            width: '150px'
+          })
+          $('.acceptButtonList').css({
+            height: '33px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '19px'
           })
@@ -1604,6 +1718,12 @@ var app = angular.module('challengesController', [])
             width: '150px'
           })
           $('.acceptButton').css({
+            height: '33px'
+          })
+          $('.acceptButtonList').css({
+            width: '150px'
+          })
+          $('.acceptButtonList').css({
             height: '33px'
           })
           $('.hRemoveDescription').css({
@@ -1628,6 +1748,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '32px'
           })
+          $('.acceptButtonList').css({
+            width: '149px'
+          })
+          $('.acceptButtonList').css({
+            height: '32px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '19px'
           })
@@ -1648,6 +1774,12 @@ var app = angular.module('challengesController', [])
             width: '148px'
           })
           $('.acceptButton').css({
+            height: '32px'
+          })
+          $('.acceptButtonList').css({
+            width: '148px'
+          })
+          $('.acceptButtonList').css({
             height: '32px'
           })
           $('.hRemoveDescription').css({
@@ -1672,6 +1804,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '32px'
           })
+          $('.acceptButtonList').css({
+            width: '148px'
+          })
+          $('.acceptButtonList').css({
+            height: '32px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '18px'
           })
@@ -1692,6 +1830,12 @@ var app = angular.module('challengesController', [])
             width: '147px'
           })
           $('.acceptButton').css({
+            height: '31px'
+          })
+          $('.acceptButtonList').css({
+            width: '147px'
+          })
+          $('.acceptButtonList').css({
             height: '31px'
           })
           $('.hRemoveDescription').css({
@@ -1716,6 +1860,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '31px'
           })
+          $('.acceptButtonList').css({
+            width: '147px'
+          })
+          $('.acceptButtonList').css({
+            height: '31px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '18px'
           })
@@ -1736,6 +1886,12 @@ var app = angular.module('challengesController', [])
             width: '146px'
           })
           $('.acceptButton').css({
+            height: '31px'
+          })
+          $('.acceptButtonList').css({
+            width: '146px'
+          })
+          $('.acceptButtonList').css({
             height: '31px'
           })
           $('.hRemoveDescription').css({
@@ -1760,6 +1916,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '31px'
           })
+          $('.acceptButtonList').css({
+            width: '145px'
+          })
+          $('.acceptButtonList').css({
+            height: '31px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '17px'
           })
@@ -1780,6 +1942,12 @@ var app = angular.module('challengesController', [])
             width: '145px'
           })
           $('.acceptButton').css({
+            height: '30px'
+          })
+          $('.acceptButtonList').css({
+            width: '145px'
+          })
+          $('.acceptButtonList').css({
             height: '30px'
           })
           $('.hRemoveDescription').css({
@@ -1804,6 +1972,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '30px'
           })
+          $('.acceptButtonList').css({
+            width: '144px'
+          })
+          $('.acceptButtonList').css({
+            height: '30px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '17px'
           })
@@ -1824,6 +1998,12 @@ var app = angular.module('challengesController', [])
             width: '143px'
           })
           $('.acceptButton').css({
+            height: '30px'
+          })
+          $('.acceptButtonList').css({
+            width: '143px'
+          })
+          $('.acceptButtonList').css({
             height: '30px'
           })
           $('.hRemoveDescription').css({
@@ -1848,6 +2028,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '29px'
           })
+          $('.acceptButtonList').css({
+            width: '143px'
+          })
+          $('.acceptButtonList').css({
+            height: '29px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '16px'
           })
@@ -1868,6 +2054,12 @@ var app = angular.module('challengesController', [])
             width: '142px'
           })
           $('.acceptButton').css({
+            height: '29px'
+          })
+          $('.acceptButtonList').css({
+            width: '142px'
+          })
+          $('.acceptButtonList').css({
             height: '29px'
           })
           $('.hRemoveDescription').css({
@@ -1892,6 +2084,12 @@ var app = angular.module('challengesController', [])
           $('.acceptButton').css({
             height: '29px'
           })
+          $('.acceptButtonList').css({
+            width: '141px'
+          })
+          $('.acceptButtonList').css({
+            height: '29px'
+          })
           $('.hRemoveDescription').css({
             fontSize: '16px'
           })
@@ -1912,6 +2110,12 @@ var app = angular.module('challengesController', [])
             width: '140px'
           })
           $('.acceptButton').css({
+            height: '29px'
+          })
+          $('.acceptButtonList').css({
+            width: '140px'
+          })
+          $('.acceptButtonList').css({
             height: '29px'
           })
           $('.hRemoveDescription').css({

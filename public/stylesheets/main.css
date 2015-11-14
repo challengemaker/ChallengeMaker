@@ -88,7 +88,7 @@
   text-align: center;
   display: block;
   font-size: 20px;
-  margin: 10px 2px 0 2px;
+  margin: 0px 2px 0 2px;
   font-weight: bolder;
 }
 
@@ -869,7 +869,7 @@ body {
 
 .hRemoveDescription {
   /*margin-top: 70px;*/
-  width: 60%;
+  width: 100%;
 }
 
 .hVideo {
@@ -958,6 +958,11 @@ body {
   /*outline: 2px solid black;*/
   position: relative;
   padding: 0px;
+}
+
+.listSectionRemove {
+  margin: 0;
+  width: 100%;
 }
 
 .listText {
