@@ -41,6 +41,37 @@ angular.module('userController', [])
     $('.goToLoginChallenge').on("click", function(){
       // window.location.hash = "#/signin/"+window.location.hash.split('/')[2]
     })
+    ///////must set the x-button, which resets back to the signle challenge page
+    ////////////////////////////////////////////////////////////////////////////
+    $('.xBar').on('click', function(){
+      var challengeName = window.location.hash.split("/")[2]
+      $('.xBar').css({
+        backgroundColor: '#D4D4D4'
+        ,color: 'white'
+      })
+      setTimeout(function(){
+        window.location.hash = "#/challenges/"+challengeName
+      }, 150)
+
+    })
+    function moveXButton(){
+      var windowSize = $(window).width()
+      if(windowSize > 515){
+        $('.xBar').css({
+          marginLeft: '95%'
+        })
+      } else if(windowSize > 0){
+        $('.xBar').css({
+          marginLeft: '82%'
+        })
+      }
+    }
+    moveXButton()
+    $(window).resize(function(){
+      moveXButton()
+    })
+    //////additional x-functionality so that it resizes at smaller sizes
+    /////////end click function
     //////begin profile section
     ///////////////////////////
     ///////////////////////////
