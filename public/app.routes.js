@@ -20,6 +20,12 @@ function appRoutes($routeProvider){
       ,controllerAs: 'challenges'
     })
 
+    .when('/challenges/:name/paymentreceived', {
+      templateUrl: 'templates/_singleChallenge.html'
+      ,controller: 'challengesCtrl'
+      ,controllerAs: 'challenges'
+    })
+
     .when('/newchallenge', {
       templateUrl: 'templates/_new_challenge.html'
       ,controller: 'challengesCtrl'
@@ -44,6 +50,12 @@ function appRoutes($routeProvider){
       ,controllerAs: 'donation'
     })
 
+    .when('/donate/challengefriends/:name', {
+      templateUrl: 'templates/_challengefriends.html'
+      ,controller: 'donationCtrl'
+      ,controllerAs: 'donation'
+    })
+
     .when('/checkout', {
       templateUrl: 'templates/_checkout.html'
       ,controller: 'paymentsCtrl'
@@ -57,6 +69,12 @@ function appRoutes($routeProvider){
     })
 
     .when('/signin/:name', {
+      templateUrl: 'templates/_signin_challenge.html'
+      ,controller: 'userCtrl'
+      ,controllerAs: 'user'
+    })
+
+    .when('/signin/donate/:name', {
       templateUrl: 'templates/_signin_challenge.html'
       ,controller: 'userCtrl'
       ,controllerAs: 'user'
@@ -129,6 +147,12 @@ function appRoutes($routeProvider){
     })
 
     .when('/signup/:name', {
+      templateUrl: 'templates/_signup_challenge.html'
+      ,controller: 'userCtrl'
+      ,controllerAs: 'user'
+    })
+
+    .when('/signup/donate/:name', {
       templateUrl: 'templates/_signup_challenge.html'
       ,controller: 'userCtrl'
       ,controllerAs: 'user'

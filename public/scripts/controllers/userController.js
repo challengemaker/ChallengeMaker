@@ -15,20 +15,82 @@ angular.module('userController', [])
     console.log(userFactory);
 
     $('.goToSignup').on("click", function(){
-      window.location.hash = "#/signup"
+      if(window.location.hash.split('/')[2] && window.location.hash.split('/')[2] != 'donate'){
+        window.location.hash = "#/signup/"+window.location.hash.split("/")[2]
+      } else  if(window.location.hash.split('/')[2] && window.location.hash.split('/')[2] == 'donate'){
+        window.location.hash = "#/signup/donate/"+window.location.hash.split('/')[3]
+      } else {
+        window.location.hash = "#/signup"
+      }
     })
 
     $('.goToSignupChallenge').on("click", function(){
-      window.location.hash = "#/signup/"+window.location.hash.split("/")[2];
+
     })
 
     $('.goToLogin').on("click", function(){
-      window.location.hash = "#/signin"
+      if(window.location.hash.split('/')[2] && window.location.hash.split('/')[2] != 'donate'){
+        window.location.hash = "#/signin/"+window.location.hash.split("/")[2]
+      } else  if(window.location.hash.split('/')[2] && window.location.hash.split('/')[2] == 'donate'){
+        window.location.hash = "#/signin/donate/"+window.location.hash.split('/')[3]
+      } else {
+        window.location.hash = "#/signin"
+      }
     })
 
     $('.goToLoginChallenge').on("click", function(){
-      window.location.hash = "#/signin/"+window.location.hash.split('/')[2]
+      // window.location.hash = "#/signin/"+window.location.hash.split('/')[2]
     })
+    ///////must set the x-button, which resets back to the signle challenge page
+    ////////////////////////////////////////////////////////////////////////////
+    $('.xBar').on('click', function(){
+      var challengeName = window.location.hash.split("/")[2]
+      $('.xBar').css({
+        backgroundColor: '#D4D4D4'
+        ,color: 'white'
+      })
+      setTimeout(function(){
+        if(challengeName && challengeName != 'donate'){
+          window.location.hash = "#/challenges/"+challengeName
+        } else if(challengeName && challengeName == 'donate'){
+          window.location.hash = "#/challenges/" + window.location.hash.split('/')[3]
+        } else {
+          window.location.hash = "#/"
+        }
+
+      }, 150)
+
+    })
+    function moveXButton(){
+      var windowSize = $(window).width()
+      if(windowSize > 515){
+        $('.xBar').css({
+          marginLeft: '95%'
+        })
+      } else if(windowSize > 0){
+        $('.xBar').css({
+          marginLeft: '82%'
+        })
+      }
+    }
+    moveXButton()
+    $(window).resize(function(){
+      moveXButton()
+    })
+    //////additional x-functionality so that it resizes at smaller sizes
+    /////////end click function
+    ///////create event listener for
+    //////Send button rollover
+    $('.forwardButtonLightbox').on('mouseenter', function(){
+      console.log('mousing oooooover')
+      $('.forwardButtonLightbox').attr('src', "/assets/NEXT_over.svg")
+    })
+
+    $('.forwardButtonLightbox').on('mouseleave', function(){
+      console.log('mousing oooooover')
+      $('.forwardButtonLightbox').attr('src', "/assets/NEXT.svg")
+    })
+    //////end button rollover
     //////begin profile section
     ///////////////////////////
     ///////////////////////////
@@ -226,7 +288,6 @@ angular.module('userController', [])
       console.log('yo');
       $(".submitNew").on('click', submitNew);
       function submitNew(){
-        console.log('hi');
         var name = $('.signupName').val();
         console.log(name);
         var email = $('.signupEmail').val();
@@ -248,28 +309,22 @@ angular.module('userController', [])
           console.log(email);
           var newPassword = data.data.password;
           console.log(newPassword);
-          // var newUser =
-          // $http({
-          //   data: {name: name, email: email, password: password, local: {email: email}},
-          //   method: "POST",
-          //   url: "/api/users"
-          //   })
-            // .then(function(moreData){
           $http({
             data: {email: email, password: password},
             method: 'POST',
             url: '/login'
           })
           .then(function(data){
-            console.log(data);
-            window.localStorage.sessionToken = data.data.token;
-            window.localStorage.sessionUser = data.data.user.name;
-            self.userSesh = window.localStorage.sessionUser;
-            var responseUrl = window.location.hash.split('/')[2];
-            console.log(responseUrl);
-            if(responseUrl){
-              window.location.hash = "#/newresponse/"+responseUrl;
-              window.location.reload();
+            window.localStorage.sessionToken = data.data.token
+            window.localStorage.sessionUser = data.data.user.name
+            self.userSesh = window.localStorage.sessionUser
+            var responseUrl = window.location.hash.split('/')[2]
+            if(responseUrl && responseUrl != 'donate'){
+              window.location.hash = "#/newresponse/"+responseUrl
+              window.location.reload()
+            } else if(responseUrl && responseUrl == 'donate'){
+              window.location.hash = "#/donate/challengefriends/"+window.location.hash.split('/')[3]
+              window.location.reload()
             }
             else{
               window.location.hash = "#/"
@@ -293,11 +348,12 @@ angular.module('userController', [])
     } else if(window.location.hash.split('/')[1] == "signin"){
 
       $('.signinSubmit').on('click', function(){
-        var email = $(".signInput1").val();
-        console.log(email);
-        var password = $(".signInput2").val();
-        console.log(password);
+        var email = $(".signInput1").val()
+        console.log(email)
+        var password = $(".signInput2").val()
+        console.log(password)
         var data = {email: email, password: password}
+        console.log(data)
         $http({
           method: "POST",
           data: data,
@@ -306,43 +362,29 @@ angular.module('userController', [])
         .then(function(data){
           console.log(data);
           if (data.data != "No user found") {
-            console.log('in here');
-            console.log(data);
-            window.localStorage.sessionToken = data.data.token;
-            window.localStorage.sessionUser = data.data.user.name;
-            self.userSesh = email;
-            console.log('user email is:',self.userSesh);
-            var url = window.location.hash.split('/')[2];
-            console.log(url);
-            if(url){
-              window.location.hash = '#/newresponse/'+url;
-              window.location.reload();
+            /////user found in db and ready to be logged in
+            window.localStorage.sessionToken = data.data.token
+            window.localStorage.sessionUser = data.data.user.name
+            // self.userSesh = email
+            var url = window.location.hash.split('/')
+            if(url[2] && url[2] !='donate'){
+              window.location.hash = '#/newresponse/'+url
+              window.location.reload()
             }
-            else {
-              window.location.reload();
-              window.location.hash = "#/";
-
+            else if(url[2] && url[2] == 'donate'){
+              window.location.hash = "#/donate/challengefriends/"+window.location.hash.split('/')[3]
+              window.location.reload()
+            } else {
+              window.location.hash = '#/'
+              window.location.reload()
             }
 
           } else {
-            window.location.hash = "#/signup";
-            window.location.reload();
+            window.location.hash = "#/signup"
+            window.location.reload()
           }
         })
       })
     } else {
-      // find single User
-      // var hashArray = window.location.hash.split("/");
-      // var userId =hashArray[hashArray.length-1];
-      // console.log(userId);
-      // $http({
-      //   url: '/api/users/'+userId,
-      //   method: "GET"
-      // })
-      //   .then(function(data){
-      //     console.log(data);
-      //     self.singleUser = data.data.user.local.email;
-      //     console.log(self.singleUser);
-      //   })
     }
   }

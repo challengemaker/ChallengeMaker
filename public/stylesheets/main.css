@@ -63,22 +63,40 @@
 }
 
 .acceptButton {
-  background: url("../assets/pink_accept_button.svg");
+  /*background: url("../assets/pink_accept_button.svg");*/
+  background-size: contain;
+  background-repeat: no-repeat;
   /*background-color: white;*/
   color: gray;
   width: 190px;
+  min-height: 100%;
   text-align: center;
   display: block;
   font-size: 20px;
-  margin: 0 2px;
+  margin: 10px 2px 0 2px;
   font-weight: bolder;
 }
 
-.acceptButton:hover {
+.acceptButtonList {
+  /*background: url("../assets/pink_accept_button.svg");*/
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*background-color: white;*/
+  color: gray;
+  width: 190px;
+  min-height: 100%;
+  text-align: center;
+  display: block;
+  font-size: 20px;
+  margin: 0px 2px 0 2px;
+  font-weight: bolder;
+}
+
+/*.acceptButton:hover {
   background: url("../assets/pink_accept_rollover.svg");
   /*background-color: purple;*/
   /*opacity: .90;*/
-}
+}*/
 
 .acceptedVideos {
   font-size: 18px;
@@ -206,6 +224,14 @@ body {
   height: 150px;
 }
 
+.challengeAccept {
+	  text-align: left;
+    margin-bottom: 0px;
+    background-color: darkgray;
+    width: 50px;
+    padding: .5px;
+}
+
 .challengeBy {
   margin-top: -68px;
   text-align: center;
@@ -219,8 +245,17 @@ body {
   width: 360px;
 }
 
+.challengeCharityText {
+	  text-align: left;
+    font-size: 20px;
+}
+
 .challengeContainer {
   width: 98%;
+}
+
+.challengeDescBox {
+  margin-top: 60px;
 }
 
 .challengedDesc {
@@ -231,12 +266,19 @@ body {
   margin-top: 30px;
 }
 
-.challengeInfo {
-}
-
 .challengedTitle {
   font-size: 35px;
   margin-top: -10px;
+}
+
+.challengeDonationext {
+	  text-align: left;
+    font-size: 15px;
+}
+
+.challengeDeats {
+	  text-align: left;
+    margin-bottom: 0px;
 }
 
 .challengeFriends {
@@ -247,7 +289,42 @@ body {
   font-size: 25px;
   text-align: center;
   font-style: bold;
-  color: gray
+  color: gray;
+}
+
+.challengeFriendsContainer {
+  background-color: #E1E1E1;
+  z-index: 2;
+  height: 480px;
+  width: 550px;
+  margin-top: 50px;
+  /*height: 400px;
+  width: 400px;*/
+}
+
+.challengeFriendsContainer button{
+  display: inline-block;
+  width: 30%;
+  font-size: 16px;
+  /*margin-top: 50px;*/
+}
+
+.challengeFriendsDescBox {
+  position: relative;
+  text-align: center;
+}
+
+.challengeFriendsDescBox h1, h2, h3, h4 {
+  color: #999999;
+  margin: 0px;
+}
+
+.challengeFriendsDescBox h1 {
+  font-weight: 300;
+}
+
+.challengeFriendsDiv {
+  margin-top: 52px;
 }
 
 .challengeHolder {
@@ -262,7 +339,7 @@ body {
   display: inline-block;
   margin: 60px 0 0 5%;
   position: absolute;
-  z-index: 2
+  z-index: 2;
 }
 
 .challengePhoto {
@@ -285,7 +362,6 @@ body {
   vertical-align: middle;
   padding: 15px 10px 10px 15px;
 }
-
 
 #checkout {
   /*position: absolute;*/
@@ -338,7 +414,7 @@ body {
   text-align: center;
   font-size: 46px;
   font-weight: bold;
-  color: #999999
+  color: #999999;
 }
 
 .contactContainer {
@@ -420,7 +496,6 @@ body {
 }
 
 .currentChallengeContainer {
-
 }
 
 .currentChallengeHolder{
@@ -570,6 +645,10 @@ body {
   background-color: "#31007A";
 }
 
+.donateHome{
+  margin-left: 20%;
+}
+
 .donationButtons {
   display: block;
 }
@@ -585,6 +664,11 @@ body {
 
 .dropdownBarContainer {
   height: 100%;
+}
+
+.donateChallengeFriends {
+  margin-left: 10px;
+  /*margin-top: 50px;*/
 }
 
 .dropdownContainer {
@@ -656,12 +740,18 @@ body {
   display: block;
 }
 
-.forwardButton {
-  margin-left: 10px;
+.challengeFriendsForwardButton {
+  position: relative;
+  margin-left: 65%;
+  width: 110px;
+  background-color: none;
 }
 
-.forwardButton:hover {
-  background-color: #B8E6E6;
+.forwardButton {
+  position: relative;
+  margin-left: 37%;
+  width: 110px;
+  background-color: none;
 }
 
 .glyphicon-check {
@@ -722,7 +812,6 @@ body {
 }
 
 .highlightContainer {
-
 }
 
 .highlightImage {
@@ -730,7 +819,7 @@ body {
 }
 
 .highlightText {
-  width: 68.38%;
+  width: 80%;
   height: 0%;
   position: absolute;
   z-index: 10;
@@ -780,7 +869,7 @@ body {
 
 .hRemoveDescription {
   /*margin-top: 70px;*/
-  width: 60%;
+  width: 100%;
 }
 
 .hVideo {
@@ -846,7 +935,6 @@ body {
 }
 
 .lImage {
-
 }
 
 .lImageImg {
@@ -862,14 +950,19 @@ body {
 
 .listContent {
   line-height: 0.8;
-  margin-top: -10px;
-  font-weight: bolder;
+  margin: 0px;
+  /*font-weight: bolder;*/
 }
 
 .listContainer {
   /*outline: 2px solid black;*/
   position: relative;
   padding: 0px;
+}
+
+.listSectionRemove {
+  margin: 0;
+  width: 120%;
 }
 
 .listText {
@@ -892,7 +985,6 @@ body {
 
 .listTitle {
   line-height: 0.8;
-  margin-top: -10px;
   font-weight: bolder;
 }
 
@@ -959,8 +1051,8 @@ body {
 }
 
 .miniImageHolder {
-    height: 300px;
-    outline: 2px solid blue;
+  height: 300px;
+  outline: 2px solid blue;
 }
 
 .moneyBox {
@@ -988,6 +1080,19 @@ body {
   margin-top: 7px;
 }
 
+.okButton {
+  height: 80px;
+  width: 100%;
+  bottom: 0;
+  background-color: #F5F5F5;
+  color: #C31C85;
+  line-height: 2.8;
+  text-align: center;
+  font-size: 28px;
+  border-radius: 0 0 15px 15px;
+  border-top: 2px solid gray;
+}
+
 #paymentAmount {
   line-height: normal;
   height: 45px;
@@ -1011,7 +1116,16 @@ body {
 }
 
 .paymentBox h1{
-  font-size: 46px;
+  text-align: center;
+  font-size: 40px;
+  color: #999999;
+}
+
+.paymentButtDiv {
+  display: table-cell;
+  vertical-align: bottom;
+  width: 552px;
+  height: 60px;
 }
 
 .paymentCards img{
@@ -1029,6 +1143,14 @@ body {
   z-index: 10;
 }
 
+.paymentErrorPopup {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  z-index: 2;
+  background-color: blue;
+}
+
 .paymentOptions {
   font-size: 30px;
   line-height: 60px;
@@ -1036,6 +1158,20 @@ body {
 
 .paymentOptions option{
 
+}
+
+.paymentxBar {
+  height: 25px;
+  width: 25px;
+  padding: 0 0 5px 5px;
+  margin-left: 98%;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
+.paymentquestionX {
+  height: 100%;
+  width: 100%;
 }
 
 .paymentSubButt {
@@ -1046,11 +1182,11 @@ body {
 }
 
 .playButtonH {
-  margin: 10px 0px 0px 63%;
+  margin: 10px 0px 0px 55%;
 }
 
 .playButtonH img {
-  height: 100px;
+  height: 100%;
   opacity: .66;
 }
 
@@ -1133,9 +1269,15 @@ body {
   position: absolute;
   z-index: 10;
   overflow: hidden;
-  margin-top: 40px;
+  margin-top: 50px;
   margin-left: 50%;
   background-color: #E1E1E1;
+}
+
+.questions {
+  /*display: inline-block;
+  height: 250px;
+  position: relative;*/
 }
 
 .questionTunnel {
@@ -1146,9 +1288,12 @@ body {
 }
 
 .questions {
-  /*display: inline-block;
-  height: 250px;
-  position: relative;*/
+
+}
+
+.questionX {
+  width: 100%;
+  height: 100%;
 }
 
 .repeatButton {
@@ -1168,9 +1313,84 @@ body {
   margin-top: 20px;
 }
 
+.responseFootnote {
+  width: 100%;
+  margin-top: 30px;
+  font-size: 12px;
+  width: 60%;
+  margin-left: 16%;
+  padding-bottom: 20px;
+}
+
 .responseImage {
   max-height: 100%;
   max-width: 100%;
+}
+
+.responseLightbox {
+  position: absolute;
+  height: 170px;
+  width: 35%;
+  margin-left: 32.5%;
+  margin-top: 170px;
+  z-index: 200;
+  border-radius: 15px 15px 0 0;
+  background-color: #F5F5F5;
+}
+
+.responseLightbox p{
+  color: grey;
+  font-size: 23px;
+  font-weight: bold;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 30px;
+  text-align: center;
+  /*padding: 50px 0 50px 0;*/
+}
+
+.responseLightboxPaymentError {
+  position: absolute;
+  height: 220px;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 170px;
+  z-index: 200;
+  border-radius: 15px 15px 0 0;
+  background-color: #F5F5F5;
+}
+
+.responseLightboxPaymentSuccess {
+  position: absolute;
+  height: 220px;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: -270px;
+  z-index: 200;
+  border-radius: 15px 15px 0 0;
+  background-color: #F5F5F5;
+}
+
+.responseLightboxText{
+  color: grey;
+  font-size: 23px;
+  font-weight: bold;
+  width: 80%;
+  height: 150px;
+  margin-left: 10%;
+  margin-top: 30px;
+  text-align: center;
+
+}
+
+.responseLightText {
+  padding-bottom: 30px;
+}
+
+@media only screen and (max-width: 650px) {
+    .responseLightbox p{
+      font-size: 16px;
+    }
 }
 
 .responseName {
@@ -1191,6 +1411,31 @@ body {
   color: #999999;
 }
 
+#showResponseBox {
+  height: 130px;
+  outline: 2px solid gray;
+  margin-top: 0px;
+}
+
+#showResponseInfo1 {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+#showResponsePhoto {
+  height: 100%;
+  width: 120px;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+#showResponsePhoto img{
+  width: 100%;
+  position: relative;
+  margin: -40px 0 0 0;
+}
+
 .signIn {
   width: 90px;
   text-align: center;
@@ -1206,9 +1451,8 @@ body {
   position: absolute;
 }
 
-
 .signinBox {
-  padding: 20px 20px 20px 20px;
+  padding: 0px 5px 0px 0px;
   background-color: #E1E1E1;
   position: absolute;
 }
@@ -1221,7 +1465,12 @@ body {
 
 .signinContainer {
   margin-top: 50px;
+  max-width: 575px;
   z-index: 10;
+}
+
+.signinFooter p, a {
+  color: gray;
 }
 
 .signinForm {
@@ -1236,12 +1485,22 @@ body {
 }
 
 .signinForm input{
-  width: 80%;
-  margin-left: 10%;
+  width: 60%;
+  margin-left: 20%;
   margin-top: 30px;
   height: 40px;
   font-size: 25px;
   text-align: center;
+}
+
+.signinForwardButton {
+  position: relative;
+  margin-top: 105px;
+  margin-left: 70%;
+  margin-right: 20%;
+  margin-bottom: 25px;
+  width: 110px;
+  background-color: none;
 }
 
 .signinHolder {
@@ -1257,7 +1516,7 @@ body {
 }
 
 .signupBox {
-  padding: 20px 20px 50px 20px;
+  padding: 0px 5px 0px 0px;
   background-color: #E1E1E1;
   position: absolute;
 }
@@ -1280,7 +1539,17 @@ body {
 
 .signupContainer {
   margin-top: 50px;
+  max-width: 575px;
   z-index: 10;
+}
+
+.signupFooter p, a {
+  color: gray;
+}
+
+.signupForm {
+  margin: 30px 0px 30px 0px;
+  height: 100%;
 }
 
 .signupForm p {
@@ -1290,12 +1559,22 @@ body {
 }
 
 .signupForm input{
-  width: 80%;
-  margin-left: 10%;
+  width: 60%;
+  margin-left: 20%;
   margin-top: 30px;
   height: 40px;
   font-size: 25px;
   text-align: center;
+}
+
+.signupForwardButton {
+  position: relative;
+  margin-top: 35px;
+  margin-left: 70%;
+  margin-right: 20%;
+  margin-bottom: 25px;
+  width: 110px;
+  background-color: none;
 }
 
 .singleuserContainer {
@@ -1342,6 +1621,13 @@ body {
   display: block;
 }
 
+.successPopup {
+  height: 170px;
+  background-color: blue;
+  z-index: 2;
+  position: absolute;
+}
+
  table tr td{
    padding:3px !important;
    border-top: none !important;
@@ -1378,7 +1664,6 @@ body {
   height: 200px;
 }
 
-
 .texttext {
   text-align: center;
   /*outline: 4px solid white;*/
@@ -1408,6 +1693,23 @@ body {
 
 .titleDescBox h1, h2, h3, h4 {
   color: #999999;
+  margin: 0px;
+}
+
+.titleDescBox h1 {
+  font-weight: 300;
+}
+
+.titleDescBoxUrl{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.titleFrs {
+  color: #F25D1E
 }
 
 .topChallenges {
@@ -1587,29 +1889,13 @@ body {
   opacity: 0.5;
 }
 
-/* Greg made these end three for
-text on challenges page */
-.challengeCharityText {
-	  text-align: left;
-    font-size: 20px;
-}
-
-.challengeDonationext {
-	  text-align: left;
-    font-size: 15px;
-}
-
-.challengeAccept {
-	  text-align: left;
-    margin-bottom: 0px;
-    background-color: darkgray;
-    width: 50px;
-    padding: .5px;
-}
-
-.challengeDeats {
-	  text-align: left;
-    margin-bottom: 0px;
+.xBar {
+  height: 25px;
+  width: 25px;
+  padding: 0 0 3px 3px;
+  margin-left: 95%;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 /*End classes*/

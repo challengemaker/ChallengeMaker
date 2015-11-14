@@ -125,7 +125,6 @@ module.exports = function(app, passport){
   app.post('/api/challenges', function(req, res){
 
       var challenge = new Challenge();
-
       challenge.sponsor = req.body.sponsor;
       challenge.sponsorIcon = req.body.sponsorIcon;
       challenge.title = req.body.title;
@@ -137,7 +136,6 @@ module.exports = function(app, passport){
       challenge.responses = req.body.responses;
       challenge.goal = req.body.goal;
       challenge.total_raised = req.body.total_raised;
-
       challenge.save(function(err, user) {
     if (err) {
       res.send(err);
@@ -147,11 +145,14 @@ module.exports = function(app, passport){
   });
 
 // update a challenge - works
-  app.post('/api/challenges/:name', function(req, res){
+  app.post('/api/challenges/update', function(req, res){
     // var updateAttr = req.updateAttr;
     Challenge.findOne(req.body.search, function(err, challenge){
       if(err){console.log(err)};
-      challenge.title = req.body.title;
+      challenge.title = req.body.title
+      challenge.description = req.body.description
+      challenge.photo = req.body.photo
+      challenge.video = req.body.video
       challenge.save(function(){
         res.json(challenge);
       });
@@ -185,8 +186,8 @@ module.exports = function(app, passport){
     Charity.findOne({name: name}, function(err, charity){
       if(err){console.log(err)};
       res.json(charity);
-    });
-  });
+    })
+  })
 
 // create a new charity
   app.post('/api/charities', function(req, res){
@@ -197,7 +198,6 @@ module.exports = function(app, passport){
       charity.url = req.body.url;
       charity.photo = req.body.photo;
       charity.challenges = req.body.challenges;
-
       charity.save(function(err, user) {
     if (err) {
       res.send(err);
@@ -208,12 +208,14 @@ module.exports = function(app, passport){
 
 // update a charity
   app.post('/api/charities/update', function(req, res){
+    console.log(req.body);
     // var updateAttr = req.updateAttr;
     Charity.findOne(req.body.search, function(err, charity){
       if(err){console.log(err)};
-      if(req.body.name){
-        charity.name = req.body.name;
-      }
+      charity.name = req.body.name
+      charity.photo = req.body.photo
+      charity.url = req.body.url
+      charity.description = req.body.description
       charity.save(function(){
         res.json(charity);
       });
@@ -221,10 +223,10 @@ module.exports = function(app, passport){
   })
 
 // delete a charity
-  app.delete('/api/charities/:name', function(req, res){
-    var name = req.params.name.split('-').join(' ')
+  app.delete('/api/charities/:id', function(req, res){
+    console.log(req.params.id)
     Charity.remove({
-      name: name
+      _id: req.params.id
     }, function(err, charity){
       if(err){
         res.send(err)}
@@ -243,10 +245,10 @@ module.exports = function(app, passport){
 
 // create a new response
   app.post('/api/responses', function(req, res){
-    // Response.create(req.body, function(err, response){
-    //   if(err){console.log(err)}
-    //   res.json({'posted': response});
-    // })
+    Response.create(req.body, function(err, response){
+      if(err){console.log(err)}
+      res.json({'posted': response});
+    })
   })
 
   app.delete('/api/responses/:id', function(req, res){
@@ -357,6 +359,7 @@ module.exports = function(app, passport){
 
   ///////make the automatic email for anyone who responds to a challenge
   app.post('/api/sendemail/challengecomplete', function(req, res){
+    console.log(req.body);
     mandrill_client.messages.send({
       message: {
         from_email: "ChallengeCompleted@ChallengeMaker.com"
@@ -373,17 +376,17 @@ module.exports = function(app, passport){
   })
   //////email that will automatically challenge the people who friends challenge in their response videos
   app.post('/api/sendemail/challengefriends', function(req, res){
+    console.log(req.body);
     mandrill_client.messages.send({
       message: {
         from_email: "Challenged@ChallengeMaker.com"
-        // ,text: "You've been challenged! Follow the link below, it will show you how you can accept this challenge for charity"
         ,html:
           "<div>"+
-            "<h2 style='color:#545454'>"+ req.body.responseData.responseCreator+
+            "<h2 style='color:#545454'>"+req.body.responseData.responseCreator+
             " has challenged you to the</h2>"+
             "<p style='font-size:32px; color:#545454; font-weight: bolder'>"+req.body.responseData.charityName+"</p>"+
             "<p style='font-size:32px; color:#545454; font-weight: bolder'>"+req.body.responseData.challenge.split('-').join(' ')+"</p>"+
-            "<a style='color:#e70090; font-size: 22px; font-weight: bold' href='https://challengemakerproduction.herokuapp.com/#/youvebeenchallenged/"+req.body.responseData.challenge+"/"+req.body.responseData.video+"/"+req.body.responseData.responseCreator+"'></a>"+
+            "<a style='color:#e70090; font-size: 22px; font-weight: bold' href='https://challengemakerproduction.herokuapp.com/#/youvebeenchallenged/"+req.body.responseData.challenge.split(' ').join('-')+"/"+req.body.responseData.video+"/"+req.body.responseData.responseCreator+"'>Take the Challenge</a>"+
             "<a style='color:#f57801; font-size: 22px; font-weight: bold; margin-left: 30px' href='https://challengemakerproduction.herokuapp.com/#/challenges/"+req.body.responseData.challenge+"'>DETAILS & VIDEO</a>"+
           "</div>"
         ,subject: "You've Been Challenged via ChallengeMaker"
@@ -400,10 +403,10 @@ module.exports = function(app, passport){
     mandrill_client.messages.send({
       message: {
         from_email: "challenge@challengemaker.com"
-        ,text: "Thank you for making such a gracious donaition to <Fill_in_Charity>!"
+        ,text: "Thank you for making such a gracious donation!"
         ,subject: "ChallengeMaker Is Thrilled About Your Donation"
         ,to:[{
-          email: "contact@gmail.com"
+          email: req.body.sendeeEmail
         }]
       }
     }, function(data){
@@ -418,7 +421,7 @@ module.exports = function(app, passport){
   /////////////////begin braintree routing/////
   ////////////////////////////////////////////
   var gateway = braintree.connect({
-    environment: braintree.Environment.Sandbox,
+    environment: braintree.Environment.Production,
     merchantId: ignore.merchantId,
     publicKey: ignore.publicKey,
     privateKey: ignore.privateKey
@@ -432,12 +435,20 @@ module.exports = function(app, passport){
   });
 
   app.post('/checkout', function(req, res){
-    var nonce = req.body.payment_method_nonce;
+    var nonce = req.body.payment_method_nonce
+    var challenge = req.body.challenge
+    console.log(440);
+    console.log(challenge);
+    console.log(req.body)
     gateway.transaction.sale({
       paymentMethodNonce: nonce
       ,amount: req.body.amount
     },
     function(err, result){
+      console.log(448);
+      if(err){console.log(err)}
+      console.log("result coming next")
+      console.log(result)
       var newTran = {
         amount: result.transaction.amount
         ,merchantAccountId: result.transaction.merchantAccountId
@@ -446,8 +457,11 @@ module.exports = function(app, passport){
         ,dateCreated: result.transaction.createdAt
       }
       Transaction.create(newTran);
-      // res.json(result.transaction);
-      res.redirect('/#/challenges/'+req.body.challenge)
+      gateway.transaction.submitForSettlement(result.transaction.id, function (err, settleResult) {
+        if(result){console.log(result)}
+        console.log(settleResult)
+      })
+      res.redirect('/#/challenges/'+req.body.challenge+"/paymentreceived")
     })
   })
 

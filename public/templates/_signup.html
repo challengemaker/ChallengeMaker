@@ -6,7 +6,10 @@
   <div class="container">
     <div class="signupContainer col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
       <div class="signupBox">
-        <h1>SIGN UP</h1>
+        <div class="xBar">
+          <img class="questionX" src="/assets/X_light.svg" alt="" />
+        </div>
+        <h1>Sign Up</h1>
 
         <div class="signupForm">
           <input class='signupName' type="text" placeholder="name">
@@ -14,13 +17,18 @@
           <input class='signupPw' type="password" placeholder="password">
           <br>
           <br>
-          <input class="submitNew" type="button" name="name" value="Sign Up">
-          <p>or Already a Member?</p>
-          <input class="goToLogin" type="button" name="name" value="Go To Sign In">
+          <div class="signupFooter">
+          <p>
+            Already joined? <u><a class="goToLogin" style='cursor:pointer'>Sign In</a></u>
+          </p>
+          </div>
+          <div class="row">
+            <img src="/assets/NEXT.svg" class="btn-block submitNew signupForwardButton forwardButtonLightbox signinSubmit" />
+          </div>
+          <!-- <input class="goToLogin" type="button" name="name" value="Go To Sign In"> -->
+          <!-- <input class="submitNew" type="button" name="name" value="Sign Up"> -->
         </div>
-
       </div>
     </div>
   </div>
-
 </div>

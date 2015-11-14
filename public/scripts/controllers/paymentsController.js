@@ -27,7 +27,7 @@ var app = angular.module('paymentsController', [])
           "<select class='amountDrop form-control' id='sell' name='amount'>"+
             "<option value='5.00'>$5.00</option>"+
             "<option value='10.00'>$10.00</option>"+
-            "<option value='20.00' selected>$20.00</option>"+
+            "<option value='25.00' selected>$25.00</option>"+
             "<option value='50.00'>$50.00</option>"+
             "<option value='100.00'>$100.00</option>"+
           "</select>"
@@ -36,6 +36,40 @@ var app = angular.module('paymentsController', [])
 
     })
 
+    ///////must set the x-button, which resets back to the signle challenge page
+    ////////////////////////////////////////////////////////////////////////////
+    $('.xBar').on('click', function(){
+      var challengeName = window.location.hash.split("/")[2]
+      $('.xBar').css({
+        backgroundColor: '#D4D4D4'
+        ,color: 'white'
+      })
+      setTimeout(function(){
+        window.location.hash = "#/challenges/"+challengeName
+      }, 150)
+
+    })
+    function moveXButton(){
+      var windowSize = $(window).width()
+      if(windowSize > 515){
+        $('.xBar').css({
+          marginLeft: '95%'
+        })
+      } else if(windowSize > 0){
+        $('.xBar').css({
+          marginLeft: '82%'
+        })
+      }
+    }
+    moveXButton()
+    $(window).resize(function(){
+      moveXButton()
+    })
+    //////additional x-functionality so that it resizes at smaller sizes
+    /////////end click function
+    ///////////////////////////
+    //////////////////////////////////////
+    ///////begin section to submit payment
     console.log('lol payments');
     $http({
       method: "GET"
@@ -49,40 +83,76 @@ var app = angular.module('paymentsController', [])
         'dropin', {
           container: "payment-form"
           ,onError: function(err){
-            console.log(err);
+            console.log(err)//////this sends the error message callback that we use to populate a callback, popup function comes next
+            ////////////////////////////////////////
+            ////////adding logic for error popup box
+            $('.paymentContainer').prepend(
+              "<div class='responseLightboxPaymentError'>" +
+                "<div class='responseLightboxText'>"+
+                  "<p>Oops, there was an issue with your credit card. Please try again.</p>" +
+                "</div>"+
+                "<div class='okButton'> OK </div>"+
+              "</div>"
+            )
+            $('.okButton').on('click', function(){
+              $('.okButton').css({
+                backgroundColor: '#C31C85'
+                ,color: "white"
+              })
+              setTimeout(function(){
+                $('.responseLightboxPaymentError').remove()
+              }, 100)
+            })
+            $('.okButton').on('mouseenter', function(){
+              $('.okButton').css({
+                backgroundColor: '#D4D4D4'
+              })
+            })
+            $('.okButton').on('mouseleave', function(){
+              $('.okButton').css({
+                backgroundColor: '#F5F5F5'
+              })
+            })
+            function responsiveError(){
+              if($(window).width() < 525){
+                $('.responseLightboxText').css({
+                  fontSize: "16px"
+                })
+              }
+            }
+            responsiveError()
+            $(window).resize(function(){
+              responsiveError()
+            })
+            ////////////////////////////////////////
+            ////////adding logic for error popup box
           }
           ,redirect_url: "#/"
           ,onPaymentMethodReceived: function(nonce){
-            console.log(nonce);
             $('#checkout').append(
               "<input type='hidden' name='payment_method_nonce' value='" + nonce.nonce + "'></input>"+
               "<input type='hidden' name='challenge' value='" + self.paymentChallenge + "'></input>"
             )
-              console.log('HOLLLLLLLLLLLLA');
               var userName = window.localStorage.sessionUser;
-              console.log(userName);
               $http({
                 method: "GET"
                 ,url: "/api/users/"+userName
               })
               .then(function(data){
-                console.log(data);
-                var sendeeEmail = data.data.user.email;
-                console.log(sendeeEmail);
+                var sendeeEmail = data.data.user.email
                 $http({
                   method: "POST"
                   ,url: "/api/sendemail/donation"
                   ,data: {sendeeEmail: sendeeEmail}
                 })
                 .then(function(data){
-                  console.log(data);
-                  console.log('almost thereeeee');
-                  $('#checkout').submit();
+                  $('#checkout').submit()
                 })
               });
-
           }
         })
-      });
+      })
+      //////////////////////////////////////
+      ///////end section to submit payment/
 //////end controller
   }

@@ -1,8 +1,8 @@
 module.exports = {
   dbUrl: "mongodb://jackconnor:Skateboard1@ds049171.mongolab.com:49171/challenge_maker_production",
   tokenSecret: "stephanJanoski",
-  environment: "Sandbox",
-  merchantId: "7tvtrv3pdkqxzwjs",
-  publicKey: "qd2kjs84p3dvfp5v",
-  privateKey: "02af5de1f66584b9610633ec44a1aa0d"
+  environment: "Development",
+  merchantId: "3bszkt43kfvyrq78",
+  publicKey: "2cvn9rkvrym4qy7q",
+  privateKey: "9589733d9840ce2b557b760f737b6283"
 }

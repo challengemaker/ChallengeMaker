@@ -6,23 +6,26 @@
   <div class="container">
     <div class="paymentContainer col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
       <div class="paymentBox">
-
+        <div class="xBar">
+          <img class="paymentquestionX" src="/assets/X_light.svg" alt="" />
+        </div>
       <!-- <p>
         sandbox credit card: 4111111111111111
       </p>
       <p>
         sandbox expiration date: 10/20
       </p> -->
-        <h1>Complete Donation</h1>
 
-      <h3>How Much Would You Like To Donate?</h3><br>
+      <h1>CHALLENGE COMPLETE!</h1>
+
+      <h3>Would You Also Like To Make A Donation?</h3><br>
 
       <form id="checkout" http-equiv="refresh" content="0" URL="/" action="/checkout" method="post">
         <div class="paymentOptions form-group">
           <select class="amountDrop form-control" id="sell" name="amount">
             <option value='5.00'>$5.00</option>
             <option value='10.00'>$10.00</option>
-            <option value='20.00' selected>$20.00</option>
+            <option value='25.00' selected>$25.00</option>
             <option value='50.00'>$50.00</option>
             <option value='100.00'>$100.00</option>
           </select>
@@ -36,13 +39,11 @@
 
         </div>
         <div id="payment-form"></div>
-        <!-- <p>By clicking GIVE you are agreeing to the challengemaker terms and privacy policy.</p> -->
-        <p>By clicking GIVE you are agreeing to the <strong>challengemaker</strong> <a href='/#/terms' target="_blank" >terms</a> and<a href='/#/privacy' target="_blank"> privacy policy</a>.</p>
-        <input id="submitPayment" class="paymentSubButt btn btn-default pull-right" value="GIVE" type="submit">
+        <p>By clicking GIVE you are agreeing to the <strong>ChallengeMaker</strong> <a href='/#/terms' target="_blank" >terms</a> and<a href='/#/privacy' target="_blank"> privacy policy</a>.</p>
+          <!-- <a class="paymentSkipDon" href="#">Skip Donation</a> -->
+          <input id="submitPayment" class="paymentSubButt btn btn-default pull-right" value="GIVE" type="submit">
       </form>
-
       </div>
     </div>
   </div>
-
 </div>
