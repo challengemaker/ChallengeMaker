@@ -50,8 +50,10 @@ angular.module('userController', [])
         ,color: 'white'
       })
       setTimeout(function(){
-        if(window.location.hash.split('/')[2]){
+        if(challengeName && challengeName != 'donate'){
           window.location.hash = "#/challenges/"+challengeName
+        } else if(challengeName && challengeName == 'donate'){
+          window.location.hash = "#/challenges/" + window.location.hash.split('/')[3]
         } else {
           window.location.hash = "#/"
         }
