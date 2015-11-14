@@ -72,6 +72,18 @@ angular.module('userController', [])
     })
     //////additional x-functionality so that it resizes at smaller sizes
     /////////end click function
+    ///////create event listener for
+    //////Send button rollover
+    $('.forwardButtonLightbox').on('mouseenter', function(){
+      console.log('mousing oooooover')
+      $('.forwardButtonLightbox').attr('src', "/assets/NEXT_over.svg")
+    })
+
+    $('.forwardButtonLightbox').on('mouseleave', function(){
+      console.log('mousing oooooover')
+      $('.forwardButtonLightbox').attr('src', "/assets/NEXT.svg")
+    })
+    //////end button rollover
     //////begin profile section
     ///////////////////////////
     ///////////////////////////
