@@ -20,7 +20,7 @@
               <img ng-click="challenges.swapSpecial()" src="/assets/play_button.svg" alt=""/>
             </div>
           <h4 style="color: white" class="hRemoveDescription">$0 if completed<br> or donate ${{challenges.specialChallenge.minimumDonation}}<br> to {{challenges.specialChallenge.charity[0]}}</h4>
-          <button type="button" class="acceptButton acceptButtonHome" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}"></button>
+          <img src="../assets/pink_accept_button.svg" class="acceptButton acceptButtonHome" ng-click="challenges.seeChallenge(challenges.specialChallenge.title)" id="{{challenges.specialChallenge.title.split(' ').join('-')}}">
           <!-- <div class="detailsButton" id="{{challenges.specialChallenge._id}}" ng-mouseEnter="challenges.showDetails(challenges.specialChallenge._id)" ng-mouseLeave="challenges.removeDetails(challenges.specialChallenge._id)
           ">details</div> -->
         </div>

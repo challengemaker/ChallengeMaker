@@ -32,6 +32,14 @@ var app = angular.module('challengesController', [])
     setInterval(adjustBlackListAll, 50);
     ///////end quick black layer adjustment for the listview on the homepage
     ///////end blacklayer adjustment stuff
+
+    $('.acceptButton').on('mouseenter', function(){
+      $('.acceptButton').attr('src', "../assets/pink_accept_rollover.svg")
+    })
+    $('.acceptButton').on('mouseleave', function(){
+      $('.acceptButton').attr('src', "../assets/pink_accept_button.svg")
+    })
+
     /////////////////////////////////////
     ////begin dividing controller by page, this will be simplified by the use of factories
 
@@ -583,631 +591,1124 @@ var app = angular.module('challengesController', [])
       ////////////////Create a function to auto-adjust home page big window font-size
       function makeFit(){
         var windowSize = parseInt($(window).width())
-        if(windowSize >= 1427){
+        if(windowSize >= 1422){
+          $('.acceptButton').css({
+            width: '178px'
+          })
+          $('.acceptButton').css({
+            height: '45px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '30px'
+          })
+          $('.playButtonH').css({
+            height: '100px'
+          })
           $('.titleCont').css({
               fontSize: "84px"
             })
           $('.listContent').css({
               fontSize: "45px"
           })
-          $(".hRemoveDescription").css({
-            marginTop: "70px"
+        } else if(windowSize >= 1404){
+          $('.acceptButton').css({
+            width: '177px'
           })
-        } else if(windowSize >= 1415){
-          $('.titleCont').css({
-              fontSize: "93px"
-            })
-            $('.listContent').css({
-                fontSize: "45px"
-            })
-        } else if(windowSize >= 1402){
-          $('.titleCont').css({
-              fontSize: "112px"
-            })
-          $('.listContent').css({
-            fontSize: '44px'
+          $('.acceptButton').css({
+            height: '45px'
           })
-        } else if(windowSize >= 1390){
-          $('.titleCont').css({
-              fontSize: "111px"
-            })
-            $('.listContent').css({
-              fontSize: '44px'
-            })
-        } else if(windowSize >= 1377){
-          $('.titleCont').css({
-              fontSize: "110px"
-            })
-          $('.listContent').css({
-            fontSize: '43px'
-          })
-        } else if(windowSize >= 1364){
-          $('.titleCont').css({
-              fontSize: "109px"
-            })
-          $('.listContent').css({
-            fontSize: '42px'
-          })
-        } else if(windowSize >= 1352){
-          $('.titleCont').css({
-              fontSize: "108px"
-            })
-            $('.listContent').css({
-              fontSize: '42px'
-            })
-        } else if(windowSize >= 1340){
-          $('.titleCont').css({
-              fontSize: "107px"
-            })
-          $('.listContent').css({
-            fontSize: '41px'
-          })
-        } else if(windowSize >= 1327){
-          $('.titleCont').css({
-              fontSize: "106px"
-            })
           $('.hRemoveDescription').css({
-            marginTop: "63px"
-          })
-          $('.listContent').css({
-            fontSize: '41px'
-          })
-        } else if(windowSize >= 1314){
-          $('.titleCont').css({
-              fontSize: "105px"
-            })
-          $('.listContent').css({
-            fontSize: '40px'
-          })
-        } else if(windowSize >= 1302){
-          $('.titleCont').css({
-              fontSize: "104px"
-            })
-          $('.listContent').css({
-            fontSize: '40px'
-          })
-        } else if(windowSize >= 1290){
-          $('.titleCont').css({
-              fontSize: "103px"
-            })
-          $('.listContent').css({
-            fontSize: '39px'
-          })
-        } else if(windowSize >= 1277){
-          $('.titleCont').css({
-              fontSize: "102px"
-            })
-          $('.listContent').css({
-            fontSize: '39px'
-          })
-        } else if(windowSize >= 1265){
-          $('.titleCont').css({
-              fontSize: "101px"
-            })
-          $('.listContent').css({
-            fontSize: '38px'
-          })
-        } else if(windowSize >= 1252){
-          $('.titleCont').css({
-              fontSize: "100px"
-            })
-          $('.listContent').css({
-            fontSize: '38px'
-          })
-        } else if(windowSize >= 1240){
-          $('.titleCont').css({
-              fontSize: "99px"
-            })
-          $('.listContent').css({
-            fontSize: '37px'
-          })
-        } else if(windowSize >= 1227){
-          $('.titleCont').css({
-              fontSize: "98px"
-            })
-          $('.hRemoveDescription').css({
-            marginTop: "56px"
-          })
-          $('.listContent').css({
-            fontSize: '37px'
-          })
-        } else if(windowSize >= 1214){
-          $('.titleCont').css({
-              fontSize: "97px"
-            })
-          $('.listContent').css({
-            fontSize: '36px'
-          })
-        } else if(windowSize >= 1202){
-          $('.titleCont').css({
-              fontSize: "96px"
-            })
-            $('.listContent').css({
-              fontSize: '36px'
-            })
-        } else if(windowSize >= 1189){
-          $('.titleCont').css({
-              fontSize: "95px"
-            })
-          $('.listContent').css({
-            fontSize: '35px'
-          })
-        } else if(windowSize >= 1177){
-          $('.titleCont').css({
-              fontSize: "93px"
-            })
-            $('.listContent').css({
-              fontSize: '35px'
-            })
-        } else if(windowSize >= 1164){
-          $('.titleCont').css({
-              fontSize: "92px"
-            })
-          $('.listContent').css({
-            fontSize: '34px'
-          })
-        } else if(windowSize >= 1152){
-          $('.titleCont').css({
-              fontSize: "91px"
-            })
-          $('.listContent').css({
-            fontSize: '34px'
-          })
-        } else if(windowSize >= 1139){
-          $('.titleCont').css({
-              fontSize: "90px"
-            })
-          $('.listContent').css({
-            fontSize: '33px'
-          })
-        } else if(windowSize >= 1126){
-          $('.titleCont').css({
-              fontSize: "89px"
-            })
-          $('.hRemoveDescription').css({
-            marginTop: "49px"
-          })
-          $('.listContent').css({
-            fontSize: '33px'
-          })
-        } else if(windowSize >= 1114){
-          $('.titleCont').css({
-              fontSize: "88px"
-            })
-          $('.listContent').css({
-            fontSize: '32px'
-          })
-        } else if(windowSize >= 1102){
-          $('.titleCont').css({
-              fontSize: "87px"
-            })
-          $('.listContent').css({
-            fontSize: '32px'
-          })
-        } else if(windowSize >= 1089){
-          $('.titleCont').css({
-              fontSize: "86px"
-            })
-          $('.listContent').css({
-            fontSize: '31px'
-          })
-        } else if(windowSize >= 1077){
-          $('.titleCont').css({
-              fontSize: "85px"
-            })
-          $('.listContent').css({
-            fontSize: '31px'
-          })
-        } else if(windowSize >= 1064){
-          $('.titleCont').css({
-              fontSize: "84px"
-            })
-          $('.listContent').css({
             fontSize: '30px'
           })
-        } else if(windowSize >= 1051){
+          $('.playButtonH').css({
+            height: '99px'
+          })
           $('.titleCont').css({
               fontSize: "83px"
             })
           $('.listContent').css({
+              fontSize: "45px"
+          })
+        } else if(windowSize >= 1387){
+          $('.acceptButton').css({
+            width: '177px'
+          })
+          $('.acceptButton').css({
+            height: '45px'
+          })
+          $('.hRemoveDescription').css({
             fontSize: '30px'
           })
-        } else if(windowSize >= 1039){
+          $('.playButtonH').css({
+            height: '98px'
+          })
           $('.titleCont').css({
               fontSize: "82px"
             })
           $('.listContent').css({
-            fontSize: '29px'
+            fontSize: '44px'
           })
-        } else if(windowSize >= 1027){
+        } else if(windowSize >= 1369){
+          $('.acceptButton').css({
+            width: '176px'
+          })
+          $('.acceptButton').css({
+            height: '44px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '30px'
+          })
+          $('.playButtonH').css({
+            height: '97px'
+          })
           $('.titleCont').css({
               fontSize: "81px"
             })
+            $('.listContent').css({
+              fontSize: '44px'
+            })
+        } else if(windowSize >= 1351){
+          $('.acceptButton').css({
+            width: '175px'
+          })
+          $('.acceptButton').css({
+            height: '44px'
+          })
           $('.hRemoveDescription').css({
-            marginTop: "42px"
+            fontSize: '29px'
           })
-          $('.listContent').css({
-            fontSize: '28px'
+          $('.playButtonH').css({
+            height: '96px'
           })
-        } else if(windowSize >= 1014){
           $('.titleCont').css({
               fontSize: "80px"
             })
           $('.listContent').css({
-            fontSize: '28px'
+            fontSize: '43px'
           })
-        } else if(windowSize >= 1060){
+        } else if(windowSize >= 1334){
+          $('.acceptButton').css({
+            width: '175px'
+          })
+          $('.acceptButton').css({
+            height: '44px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '29px'
+          })
+          $('.playButtonH').css({
+            height: '94px'
+          })
           $('.titleCont').css({
               fontSize: "79px"
             })
           $('.listContent').css({
-            fontSize: '27px'
+            fontSize: '42px'
           })
-        } else if(windowSize >= 1001){
+        } else if(windowSize >= 1317){
+          $('.acceptButton').css({
+            width: '174px'
+          })
+          $('.acceptButton').css({
+            height: '44px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '29px'
+          })
+          $('.playButtonH').css({
+            height: '93px'
+          })
           $('.titleCont').css({
               fontSize: "78px"
             })
-          $('.listContent').css({
-            fontSize: '27px'
+            $('.listContent').css({
+              fontSize: '42px'
+            })
+        } else if(windowSize >= 1299){
+          $('.acceptButton').css({
+            width: '174px'
           })
-        } else if(windowSize >= 993){
+          $('.acceptButton').css({
+            height: '43px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '29px'
+          })
+          $('.playButtonH').css({
+            height: '92px'
+          })
           $('.titleCont').css({
               fontSize: "77px"
             })
           $('.listContent').css({
+            fontSize: '41px'
+          })
+        } else if(windowSize >= 1281){
+          $('.acceptButton').css({
+            width: '173px'
+          })
+          $('.acceptButton').css({
+            height: '43px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '28px'
+          })
+          $('.playButtonH').css({
+            height: '91px'
+          })
+          $('.titleCont').css({
+              fontSize: "76px"
+            })
+          $('.listContent').css({
+            fontSize: '41px'
+          })
+        } else if(windowSize >= 1264){
+          $('.acceptButton').css({
+            width: '172px'
+          })
+          $('.acceptButton').css({
+            height: '43px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '28px'
+          })
+          $('.playButtonH').css({
+            height: '90px'
+          })
+          $('.titleCont').css({
+              fontSize: "75px"
+            })
+          $('.listContent').css({
+            fontSize: '40px'
+          })
+        } else if(windowSize >= 1246){
+          $('.acceptButton').css({
+            width: '172px'
+          })
+          $('.acceptButton').css({
+            height: '42px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '28px'
+          })
+          $('.playButtonH').css({
+            height: '89px'
+          })
+          $('.titleCont').css({
+              fontSize: "74px"
+            })
+          $('.listContent').css({
+            fontSize: '40px'
+          })
+        } else if(windowSize >= 1228){
+          $('.acceptButton').css({
+            width: '171px'
+          })
+          $('.acceptButton').css({
+            height: '42px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '27px'
+          })
+          $('.playButtonH').css({
+            height: '88px'
+          })
+          $('.titleCont').css({
+              fontSize: "73px"
+            })
+          $('.listContent').css({
+            fontSize: '39px'
+          })
+        } else if(windowSize >= 1211){
+          $('.acceptButton').css({
+            width: '170px'
+          })
+          $('.acceptButton').css({
+            height: '42px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '27px'
+          })
+          $('.playButtonH').css({
+            height: '87px'
+          })
+          $('.titleCont').css({
+              fontSize: "72px"
+            })
+          $('.listContent').css({
+            fontSize: '39px'
+          })
+        } else if(windowSize >= 1193){
+          $('.acceptButton').css({
+            width: '170px'
+          })
+          $('.acceptButton').css({
+            height: '42px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '27px'
+          })
+          $('.playButtonH').css({
+            height: '86px'
+          })
+          $('.titleCont').css({
+              fontSize: "71px"
+            })
+          $('.listContent').css({
+            fontSize: '38px'
+          })
+        } else if(windowSize >= 1175){
+          $('.acceptButton').css({
+            width: '169px'
+          })
+          $('.acceptButton').css({
+            height: '42px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '27px'
+          })
+          $('.playButtonH').css({
+            height: '85px'
+          })
+          $('.titleCont').css({
+              fontSize: "70px"
+            })
+          $('.listContent').css({
+            fontSize: '38px'
+          })
+        } else if(windowSize >= 1158){
+          $('.acceptButton').css({
+            width: '168px'
+          })
+          $('.acceptButton').css({
+            height: '41px'
+          })
+          $('.hRemoveDescription').css({
             fontSize: '26px'
           })
-        } else if(windowSize >= 976){
+          $('.playButtonH').css({
+            height: '84px'
+          })
           $('.titleCont').css({
-              fontSize: "76px"
+              fontSize: "69px"
             })
           $('.listContent').css({
-              fontSize: "76px"
+            fontSize: '37px'
+          })
+        } else if(windowSize >= 1140){
+          $('.acceptButton').css({
+            width: '168px'
+          })
+          $('.acceptButton').css({
+            height: '41px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '26px'
+          })
+          $('.playButtonH').css({
+            height: '83px'
+          })
+          $('.titleCont').css({
+              fontSize: "68px"
             })
+          $('.listContent').css({
+            fontSize: '37px'
+          })
+        } else if(windowSize >= 1123){
+          $('.acceptButton').css({
+            width: '167px'
+          })
+          $('.acceptButton').css({
+            height: '40px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '26px'
+          })
+          $('.playButtonH').css({
+            height: '82px'
+          })
+          $('.titleCont').css({
+              fontSize: "67px"
+            })
+          $('.listContent').css({
+            fontSize: '36px'
+          })
+        } else if(windowSize >= 1105){
+          $('.acceptButton').css({
+            width: '166px'
+          })
+          $('.acceptButton').css({
+            height: '40px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '26px'
+          })
+          $('.playButtonH').css({
+            height: '81px'
+          })
+          $('.titleCont').css({
+              fontSize: "66px"
+            })
+            $('.listContent').css({
+              fontSize: '36px'
+            })
+        } else if(windowSize >= 1087){
+          $('.acceptButton').css({
+            width: '166px'
+          })
+          $('.acceptButton').css({
+            height: '40px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '26px'
+          })
+          $('.playButtonH').css({
+            height: '79px'
+          })
+          $('.titleCont').css({
+              fontSize: "65px"
+            })
+          $('.listContent').css({
+            fontSize: '35px'
+          })
+        } else if(windowSize >= 1069){
+          $('.acceptButton').css({
+            width: '165px'
+          })
+          $('.acceptButton').css({
+            height: '40px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '25px'
+          })
+          $('.playButtonH').css({
+            height: '78px'
+          })
+          $('.titleCont').css({
+              fontSize: "64px"
+            })
+            $('.listContent').css({
+              fontSize: '35px'
+            })
+        } else if(windowSize >= 1052){
+          $('.acceptButton').css({
+            width: '164px'
+          })
+          $('.acceptButton').css({
+            height: '39px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '25px'
+          })
+          $('.playButtonH').css({
+            height: '77px'
+          })
+          $('.titleCont').css({
+              fontSize: "63px"
+            })
+          $('.listContent').css({
+            fontSize: '34px'
+          })
+        } else if(windowSize >= 1035){
+          $('.acceptButton').css({
+            width: '164px'
+          })
+          $('.acceptButton').css({
+            height: '39px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '25px'
+          })
+          $('.playButtonH').css({
+            height: '76px'
+          })
+          $('.titleCont').css({
+              fontSize: "62px"
+            })
+          $('.listContent').css({
+            fontSize: '34px'
+          })
+        } else if(windowSize >= 1017){
+          $('.acceptButton').css({
+            width: '163px'
+          })
+          $('.acceptButton').css({
+            height: '39px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '24px'
+          })
+          $('.playButtonH').css({
+            height: '75px'
+          })
+          $('.titleCont').css({
+              fontSize: "61px"
+            })
+          $('.listContent').css({
+            fontSize: '33px'
+          })
+        } else if(windowSize >= 999){
+          $('.acceptButton').css({
+            width: '162px'
+          })
+          $('.acceptButton').css({
+            height: '38px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '24px'
+          })
+          $('.playButtonH').css({
+            height: '74px'
+          })
+          $('.titleCont').css({
+              fontSize: "60px"
+            })
+          $('.listContent').css({
+            fontSize: '33px'
+          })
+        } else if(windowSize >= 982){
+          $('.acceptButton').css({
+            width: '162px'
+          })
+          $('.acceptButton').css({
+            height: '38px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '24px'
+          })
+          $('.playButtonH').css({
+            height: '73px'
+          })
+          $('.titleCont').css({
+              fontSize: "59px"
+            })
+          $('.listContent').css({
+            fontSize: '32px'
+          })
         } else if(windowSize >= 964){
-          $('.titleCont').css({
-              fontSize: "75px"
-            })
-          $('.listContent').css({
-              fontSize: "75px"
-            })
-        } else if(windowSize >= 951){
-          $('.titleCont').css({
-              fontSize: "74px"
-            })
-          $('.listContent').css({
-              fontSize: "74px"
-            })
-        } else if(windowSize >= 939){
-          $('.titleCont').css({
-              fontSize: "73px"
-            })
-          $('.listContent').css({
-              fontSize: "73px"
-            })
-          $('.hRemoveDescription').css({
-            marginTop: "35px"
+          $('.acceptButton').css({
+            width: '161px'
           })
-        } else if(windowSize >= 926){
+          $('.acceptButton').css({
+            height: '38px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '24px'
+          })
+          $('.playButtonH').css({
+            height: '72px'
+          })
           $('.titleCont').css({
-              fontSize: "72px"
+              fontSize: "58px"
             })
           $('.listContent').css({
-              fontSize: "72px"
-            })
-        } else if(windowSize >= 914){
+            fontSize: '32px'
+          })
+        } else if(windowSize >= 946){
+          $('.acceptButton').css({
+            width: '161px'
+          })
+          $('.acceptButton').css({
+            height: '38px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '23px'
+          })
+          $('.playButtonH').css({
+            height: '71px'
+          })
           $('.titleCont').css({
-              fontSize: "71px"
+              fontSize: "57px"
             })
           $('.listContent').css({
-              fontSize: "71px"
-            })
-        } else if(windowSize >= 901){
+            fontSize: '31px'
+          })
+        } else if(windowSize >= 929){
+          $('.acceptButton').css({
+            width: '160px'
+          })
+          $('.acceptButton').css({
+            height: '37px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '23px'
+          })
+          $('.playButtonH').css({
+            height: '70px'
+          })
           $('.titleCont').css({
-              fontSize: "70px"
+              fontSize: "56px"
             })
           $('.listContent').css({
-              fontSize: "70px"
-            })
-        } else if(windowSize >= 889){
+            fontSize: '31px'
+          })
+        } else if(windowSize >= 911){
+          $('.acceptButton').css({
+            width: '159px'
+          })
+          $('.acceptButton').css({
+            height: '37px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '23px'
+          })
+          $('.playButtonH').css({
+            height: '69px'
+          })
           $('.titleCont').css({
-              fontSize: "69px"
+              fontSize: "55px"
             })
           $('.listContent').css({
-              fontSize: "69px"
+            fontSize: '30px'
+          })
+        } else if(windowSize >= 894){
+          $('.acceptButton').css({
+            width: '159px'
+          })
+          $('.acceptButton').css({
+            height: '37px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '23px'
+          })
+          $('.playButtonH').css({
+            height: '68px'
+          })
+          $('.titleCont').css({
+              fontSize: "54px"
             })
+          $('.listContent').css({
+            fontSize: '30px'
+          })
         } else if(windowSize >= 876){
-          $('.titleCont').css({
-              fontSize: "68px"
-            })
-          $('.listContent').css({
-              fontSize: "68px"
-            })
-        } else if(windowSize >= 864){
-          $('.titleCont').css({
-              fontSize: "67px"
-            })
-          $('.listContent').css({
-              fontSize: "67px"
-            })
-        } else if(windowSize >= 851){
-          $('.titleCont').css({
-              fontSize: "66px"
-            })
-          $('.listContent').css({
-              fontSize: "66px"
-            })
-        } else if(windowSize >= 839){
-          $('.titleCont').css({
-              fontSize: "65px"
-            })
-          $('.listContent').css({
-              fontSize: "65px"
-            })
-          $('.hRemoveDescription').css({
-            marginTop: "28px"
+          $('.acceptButton').css({
+            width: '158px'
           })
-        } else if(windowSize >= 826){
+          $('.acceptButton').css({
+            height: '36px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '22px'
+          })
+          $('.playButtonH').css({
+            height: '67px'
+          })
           $('.titleCont').css({
-              fontSize: "64px"
+              fontSize: "53px"
             })
           $('.listContent').css({
-              fontSize: "64px"
-            })
-        } else if(windowSize >= 814){
+            fontSize: '29px'
+          })
+        } else if(windowSize >= 858){
+          $('.acceptButton').css({
+            width: '157px'
+          })
+          $('.acceptButton').css({
+            height: '36px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '22px'
+          })
+          $('.playButtonH').css({
+            height: '66px'
+          })
           $('.titleCont').css({
-              fontSize: "63px"
+              fontSize: "52px"
             })
           $('.listContent').css({
-              fontSize: "63px"
-            })
-        } else if(windowSize >= 801){
+            fontSize: '28px'
+          })
+        } else if(windowSize >= 841){
+          $('.acceptButton').css({
+            width: '157px'
+          })
+          $('.acceptButton').css({
+            height: '36px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '22px'
+          })
+          $('.playButtonH').css({
+            height: '65px'
+          })
           $('.titleCont').css({
-              fontSize: "62px"
+              fontSize: "51px"
             })
           $('.listContent').css({
-              fontSize: "62px"
+            fontSize: '28px'
+          })
+        } else if(windowSize >= 823){
+          $('.acceptButton').css({
+            width: '156px'
+          })
+          $('.acceptButton').css({
+            height: '35px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '22px'
+          })
+          $('.playButtonH').css({
+            height: '64px'
+          })
+          $('.titleCont').css({
+              fontSize: "50px"
             })
+          $('.listContent').css({
+            fontSize: '27px'
+          })
+        } else if(windowSize >= 805){
+          $('.acceptButton').css({
+            width: '155px'
+          })
+          $('.acceptButton').css({
+            height: '35px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '21px'
+          })
+          $('.playButtonH').css({
+            height: '63px'
+          })
+          $('.titleCont').css({
+              fontSize: "49px"
+            })
+          $('.listContent').css({
+            fontSize: '27px'
+          })
         } else if(windowSize >= 788){
-          $('.titleCont').css({
-              fontSize: "61px"
-            })
-          $('.listContent').css({
-              fontSize: "61px"
-            })
-        } else if(windowSize >= 776){
-          $('.titleCont').css({
-              fontSize: "60px"
-            })
-          $('.listContent').css({
-              fontSize: "60px"
-            })
-        } else if(windowSize >= 763){
-          $('.titleCont').css({
-              fontSize: "59px"
-            })
-          $('.listContent').css({
-              fontSize: "59px"
-            })
-        } else if(windowSize >= 751){
-          $('.titleCont').css({
-              fontSize: "58px"
-            })
-          $('.listContent').css({
-              fontSize: "58px"
-            })
-        } else if(windowSize >= 738){
-          $('.titleCont').css({
-              fontSize: "57px"
-            })
-          $('.listContent').css({
-              fontSize: "57px"
-            })
-          $('.hRemoveDescription').css({
-            marginTop: "21px"
+          $('.acceptButton').css({
+            width: '155px'
           })
-        } else if(windowSize >= 726){
-          $('.titleCont').css({
-              fontSize: "56px"
-            })
-          $('.listContent').css({
-              fontSize: "56px"
-            })
-        } else if(windowSize >= 713){
-          $('.titleCont').css({
-              fontSize: "55px"
-            })
-          $('.listContent').css({
-              fontSize: "55px"
-            })
-        } else if(windowSize >= 701){
-          $('.titleCont').css({
-              fontSize: "54px"
-            })
-          $('.listContent').css({
-              fontSize: "54px"
-            })
-        } else if(windowSize >= 688){
-          $('.titleCont').css({
-              fontSize: "53px"
-            })
-          $('.listContent').css({
-              fontSize: "53px"
-            })
-        } else if(windowSize >= 676){
-          $('.titleCont').css({
-              fontSize: "52px"
-            })
-          $('.listContent').css({
-              fontSize: "52px"
-            })
-        } else if(windowSize >= 663){
-          $('.titleCont').css({
-              fontSize: "51px"
-            })
-          $('.listContent').css({
-              fontSize: "51px"
-            })
-        } else if(windowSize >= 651){
-          $('.titleCont').css({
-              fontSize: "50px"
-            })
-          $('.listContent').css({
-              fontSize: "50px"
-            })
-        } else if(windowSize >= 638){
-          $('.titleCont').css({
-              fontSize: "49px"
-            })
-          $('.listContent').css({
-              fontSize: "49px"
-            })
-          $('.hRemoveDescription').css({
-            marginTop: "14px"
+          $('.acceptButton').css({
+            height: '35px'
           })
-        } else if(windowSize >= 626){
+          $('.hRemoveDescription').css({
+            fontSize: '21px'
+          })
+          $('.playButtonH').css({
+            height: '62px'
+          })
           $('.titleCont').css({
               fontSize: "48px"
             })
           $('.listContent').css({
-              fontSize: "48px"
-            })
-        } else if(windowSize >= 613){
-          $('.titleCont').css({
-              fontSize: "47px"
-            })
-          $('.listContent').css({
-              fontSize: "47px"
-            })
-        } else if(windowSize >= 600){
-          $('.titleCont').css({
-              fontSize: "46px"
-            })
-          $('.listContent').css({
-              fontSize: "46px"
-            })
-        } else if(windowSize >= 588){
-          $('.titleCont').css({
-              fontSize: "45px"
-            })
-          $('.listContent').css({
-              fontSize: "45px"
-            })
-        } else if(windowSize >= 575){
-          $('.titleCont').css({
-              fontSize: "44px"
-            })
-          $('.listContent').css({
-              fontSize: "44px"
-            })
-        } else if(windowSize >= 563){
-          $('.titleCont').css({
-              fontSize: "43px"
-            })
-          $('.listContent').css({
-              fontSize: "43px"
-            })
-        } else if(windowSize >= 550){
-          $('.titleCont').css({
-              fontSize: "42px"
-            })
-          $('.listContent').css({
-              fontSize: "42px"
-            })
-        } else if(windowSize >= 538){
-          $('.titleCont').css({
-              fontSize: "41px"
-            })
-          $('.listContent').css({
-              fontSize: "41px"
-            })
-          $('.hRemoveDescription').css({
-            marginTop: "7px"
+            fontSize: '26px'
           })
-        } else if(windowSize >= 525){
+        } else if(windowSize >= 770){
+          $('.acceptButton').css({
+            width: '154px'
+          })
+          $('.acceptButton').css({
+            height: '35px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '21px'
+          })
+          $('.playButtonH').css({
+            height: '61px'
+          })
+          $('.titleCont').css({
+              fontSize: "47px"
+            })
+          $('.listContent').css({
+              fontSize: "76px"
+            })
+        } else if(windowSize >= 753){
+          $('.acceptButton').css({
+            width: '154px'
+          })
+          $('.acceptButton').css({
+            height: '34px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '21px'
+          })
+          $('.playButtonH').css({
+            height: '60px'
+          })
+          $('.titleCont').css({
+              fontSize: "46px"
+            })
+          $('.listContent').css({
+              fontSize: "75px"
+            })
+        } else if(windowSize >= 735){
+          $('.acceptButton').css({
+            width: '153px'
+          })
+          $('.acceptButton').css({
+            height: '34px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '20px'
+          })
+          $('.playButtonH').css({
+            height: '59px'
+          })
+          $('.titleCont').css({
+              fontSize: "45px"
+            })
+          $('.listContent').css({
+              fontSize: "74px"
+            })
+        } else if(windowSize >= 717){
+          $('.acceptButton').css({
+            width: '152px'
+          })
+          $('.acceptButton').css({
+            height: '34px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '20px'
+          })
+          $('.playButtonH').css({
+            height: '58px'
+          })
+          $('.titleCont').css({
+              fontSize: "44px"
+            })
+          $('.listContent').css({
+              fontSize: "73px"
+            })
+        } else if(windowSize >= 700){
+          $('.acceptButton').css({
+            width: '152px'
+          })
+          $('.acceptButton').css({
+            height: '34px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '20px'
+          })
+          $('.playButtonH').css({
+            height: '57px'
+          })
+          $('.titleCont').css({
+              fontSize: "43px"
+            })
+          $('.listContent').css({
+              fontSize: "72px"
+            })
+        } else if(windowSize >= 682){
+          $('.acceptButton').css({
+            width: '151px'
+          })
+          $('.acceptButton').css({
+            height: '33px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '20px'
+          })
+          $('.playButtonH').css({
+            height: '56px'
+          })
+          $('.titleCont').css({
+              fontSize: "42px"
+            })
+          $('.listContent').css({
+              fontSize: "71px"
+            })
+        } else if(windowSize >= 664){
+          $('.acceptButton').css({
+            width: '150px'
+          })
+          $('.acceptButton').css({
+            height: '33px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '19px'
+          })
+          $('.playButtonH').css({
+            height: '55px'
+          })
+          $('.titleCont').css({
+              fontSize: "41px"
+            })
+          $('.listContent').css({
+              fontSize: "70px"
+            })
+        } else if(windowSize >= 647){
+          $('.acceptButton').css({
+            width: '150px'
+          })
+          $('.acceptButton').css({
+            height: '33px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '19px'
+          })
+          $('.playButtonH').css({
+            height: '54px'
+          })
           $('.titleCont').css({
               fontSize: "40px"
             })
           $('.listContent').css({
-              fontSize: "40px"
+              fontSize: "69px"
             })
-        } else if(windowSize >= 513){
+        } else if(windowSize >= 629){
+          $('.acceptButton').css({
+            width: '149px'
+          })
+          $('.acceptButton').css({
+            height: '32px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '19px'
+          })
+          $('.playButtonH').css({
+            height: '53px'
+          })
           $('.titleCont').css({
               fontSize: "39px"
             })
           $('.listContent').css({
-              fontSize: "39px"
+              fontSize: "68px"
             })
-        } else if(windowSize >= 500){
+        } else if(windowSize >= 611){
+          $('.acceptButton').css({
+            width: '148px'
+          })
+          $('.acceptButton').css({
+            height: '32px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '19px'
+          })
+          $('.playButtonH').css({
+            height: '52px'
+          })
           $('.titleCont').css({
               fontSize: "38px"
             })
           $('.listContent').css({
-              fontSize: "38px"
+              fontSize: "67px"
+            })
+        } else if(windowSize >= 594){
+          $('.acceptButton').css({
+            width: '148px'
+          })
+          $('.acceptButton').css({
+            height: '32px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '18px'
+          })
+          $('.playButtonH').css({
+            height: '51px'
+          })
+          $('.titleCont').css({
+              fontSize: "37px"
+            })
+          $('.listContent').css({
+              fontSize: "66px"
+            })
+        } else if(windowSize >= 576){
+          $('.acceptButton').css({
+            width: '147px'
+          })
+          $('.acceptButton').css({
+            height: '31px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '18px'
+          })
+          $('.playButtonH').css({
+            height: '50px'
+          })
+          $('.titleCont').css({
+              fontSize: "35px"
+            })
+          $('.listContent').css({
+              fontSize: "65px"
+            })
+        } else if(windowSize >= 559){
+          $('.acceptButton').css({
+            width: '147px'
+          })
+          $('.acceptButton').css({
+            height: '31px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '18px'
+          })
+          $('.playButtonH').css({
+            height: '49px'
+          })
+          $('.titleCont').css({
+              fontSize: "34px"
+            })
+          $('.listContent').css({
+              fontSize: "64px"
+            })
+        } else if(windowSize >= 541){
+          $('.acceptButton').css({
+            width: '146px'
+          })
+          $('.acceptButton').css({
+            height: '31px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '18px'
+          })
+          $('.playButtonH').css({
+            height: '48px'
+          })
+          $('.titleCont').css({
+              fontSize: "33px"
+            })
+          $('.listContent').css({
+              fontSize: "63px"
+            })
+        } else if(windowSize >= 523){
+          $('.acceptButton').css({
+            width: '145px'
+          })
+          $('.acceptButton').css({
+            height: '31px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '17px'
+          })
+          $('.playButtonH').css({
+            height: '47px'
+          })
+          $('.titleCont').css({
+              fontSize: "32px"
+            })
+          $('.listContent').css({
+              fontSize: "62px"
+            })
+        } else if(windowSize >= 506){
+          $('.acceptButton').css({
+            width: '145px'
+          })
+          $('.acceptButton').css({
+            height: '30px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '17px'
+          })
+          $('.playButtonH').css({
+            height: '46px'
+          })
+          $('.titleCont').css({
+              fontSize: "31px"
+            })
+          $('.listContent').css({
+              fontSize: "61px"
             })
         } else if(windowSize >= 488){
-          $('.titleCont').css({
-              fontSize: "37px"
-            })
-        } else if(windowSize >= 475){
-          $('.listContent').css({
-              fontSize: "37px"
-            })
-        } else if(windowSize >= 475){
-          $('.titleCont').css({
-              fontSize: "36px"
-            })
-          $('.listContent').css({
-              fontSize: "36px"
-            })
-        } else if(windowSize >= 463){
-          $('.titleCont').css({
-              fontSize: "35px"
-            })
-          $('.listContent').css({
-              fontSize: "35px"
-            })
-        } else if(windowSize >= 450){
-          $('.titleCont').css({
-              fontSize: "34px"
-            })
-          $('.listContent').css({
-              fontSize: "34px"
-            })
-        } else if(windowSize >= 438){
-          $('.titleCont').css({
-              fontSize: "33px"
-            })
-          $('.listContent').css({
-              fontSize: "33px"
-            })
-          $('.hRemoveDescription').css({
-            marginTop: "7px"
+          $('.acceptButton').css({
+            width: '144px'
           })
-        } else if(windowSize >= 425){
-          $('.titleCont').css({
-              fontSize: "32px"
-            })
-          $('.listContent').css({
-              fontSize: "32px"
-            })
-        } else if(windowSize >= 413){
-          $('.titleCont').css({
-              fontSize: "31px"
-            })
-          $('.listContent').css({
-              fontSize: "31px"
-            })
-        } else if(windowSize >= 400){
+          $('.acceptButton').css({
+            height: '30px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '17px'
+          })
+          $('.playButtonH').css({
+            height: '45px'
+          })
           $('.titleCont').css({
               fontSize: "30px"
             })
           $('.listContent').css({
-              fontSize: "19px"
+              fontSize: "60px"
             })
-          $('.hRemoveDescription').css({
-            marginTop: "0px"
+        } else if(windowSize >= 471){
+          $('.acceptButton').css({
+            width: '143px'
           })
+          $('.acceptButton').css({
+            height: '30px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '17px'
+          })
+          $('.playButtonH').css({
+            height: '44px'
+          })
+          $('.titleCont').css({
+              fontSize: "29px"
+            })
+          $('.listContent').css({
+              fontSize: "59px"
+            })
+        } else if(windowSize >= 452){
+          $('.acceptButton').css({
+            width: '143px'
+          })
+          $('.acceptButton').css({
+            height: '29px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '16px'
+          })
+          $('.playButtonH').css({
+            height: '43px'
+          })
+          $('.titleCont').css({
+              fontSize: "28px"
+            })
+          $('.listContent').css({
+              fontSize: "58px"
+            })
+        } else if(windowSize >= 435){
+          $('.acceptButton').css({
+            width: '142px'
+          })
+          $('.acceptButton').css({
+            height: '29px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '16px'
+          })
+          $('.playButtonH').css({
+            height: '42px'
+          })
+          $('.titleCont').css({
+              fontSize: "27px"
+            })
+          $('.listContent').css({
+              fontSize: "57px"
+            })
+        } else if(windowSize >= 418){
+          $('.acceptButton').css({
+            width: '141px'
+          })
+          $('.acceptButton').css({
+            height: '29px'
+          })
+          $('.hRemoveDescription').css({
+            fontSize: '16px'
+          })
+          $('.playButtonH').css({
+            height: '41px'
+          })
+          $('.titleCont').css({
+              fontSize: "26px"
+            })
+          $('.listContent').css({
+              fontSize: "56px"
+            })
+        } else if(windowSize >= 400){
+          $('.acceptButton').css({
+            width: '140px'
+          })
+          $('.acceptButton').css({
+            height: '29px'
+          })
+          $('.playButtonH').css({
+            height: '40px'
+          })
+          $('.titleCont').css({
+              fontSize: "25px"
+            })
+          $('.listContent').css({
+              fontSize: "55px"
+            })
         }
       }
       $(window).resize(function(){
