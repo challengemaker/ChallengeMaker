@@ -1,8 +1,16 @@
 module.exports = {
-  dbUrl: "mongodb://jackconnor:Skateboard1@ds031581.mongolab.com:31581/challenge_maker",
+  dbUrl: "mongodb://jackconnor:Skateboard1@ds049171.mongolab.com:49171/challenge_maker_production",
   tokenSecret: "stephanJanoski",
   environment: "Development",
   merchantId: "3bszkt43kfvyrq78",
   publicKey: "2cvn9rkvrym4qy7q",
-  privateKey: "9589733d9840ce2b557b760f737b6283"
+  privateKey: "9589733d9840ce2b557b760f737b6283",
+  AWS_ACCESS_KEY: 'AKIAJT3F27OKG3CEV6AA',
+  AWS_SECRET_KEY: '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'
+
 }
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
