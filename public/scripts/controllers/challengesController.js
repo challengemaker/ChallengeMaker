@@ -846,7 +846,7 @@ var app = angular.module('challengesController', [])
               fontSize: "74px"
             })
           $('.listContent').css({
-            fontSize: '45px'
+            fontSize: '36px'
           })
         } else if(windowSize >= 1228){
           $('.acceptButton').css({
@@ -1197,6 +1197,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '24px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '24px'
+          })
           $('.playButtonH').css({
             height: '73px'
           })
@@ -1223,6 +1226,9 @@ var app = angular.module('challengesController', [])
             height: '38px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '24px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '24px'
           })
           $('.playButtonH').css({
@@ -1253,6 +1259,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '23px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '23px'
+          })
           $('.playButtonH').css({
             height: '71px'
           })
@@ -1279,6 +1288,9 @@ var app = angular.module('challengesController', [])
             height: '37px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '23px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '23px'
           })
           $('.playButtonH').css({
@@ -1309,6 +1321,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '23px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '23px'
+          })
           $('.playButtonH').css({
             height: '69px'
           })
@@ -1335,6 +1350,9 @@ var app = angular.module('challengesController', [])
             height: '37px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '23px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '23px'
           })
           $('.playButtonH').css({
@@ -1365,6 +1383,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '22px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '22px'
+          })
           $('.playButtonH').css({
             height: '67px'
           })
@@ -1391,6 +1412,9 @@ var app = angular.module('challengesController', [])
             height: '36px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '22px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '22px'
           })
           $('.playButtonH').css({
@@ -1421,6 +1445,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '22px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '22px'
+          })
           $('.playButtonH').css({
             height: '65px'
           })
@@ -1447,6 +1474,9 @@ var app = angular.module('challengesController', [])
             height: '35px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '22px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '22px'
           })
           $('.playButtonH').css({
@@ -1477,6 +1507,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '21px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '21px'
+          })
           $('.playButtonH').css({
             height: '63px'
           })
@@ -1503,6 +1536,9 @@ var app = angular.module('challengesController', [])
             height: '35px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '21px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '21px'
           })
           $('.playButtonH').css({
@@ -1533,6 +1569,12 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '21px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '21px'
+          })
+          $('.listSectionRemove').css({
+            fontSize: '22px'
+          })
           $('.playButtonH').css({
             height: '61px'
           })
@@ -1559,6 +1601,9 @@ var app = angular.module('challengesController', [])
             height: '34px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '21px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '21px'
           })
           $('.playButtonH').css({
@@ -1589,6 +1634,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '20px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '20px'
+          })
           $('.playButtonH').css({
             height: '59px'
           })
@@ -1615,6 +1663,9 @@ var app = angular.module('challengesController', [])
             height: '34px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '20px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '20px'
           })
           $('.playButtonH').css({
@@ -1645,6 +1696,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '20px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '20px'
+          })
           $('.playButtonH').css({
             height: '57px'
           })
@@ -1671,6 +1725,9 @@ var app = angular.module('challengesController', [])
             height: '33px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '20px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '20px'
           })
           $('.playButtonH').css({
@@ -1701,6 +1758,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '19px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '19px'
+          })
           $('.playButtonH').css({
             height: '55px'
           })
@@ -1727,6 +1787,9 @@ var app = angular.module('challengesController', [])
             height: '33px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '19px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '19px'
           })
           $('.playButtonH').css({
@@ -1757,6 +1820,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '19px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '19px'
+          })
           $('.playButtonH').css({
             height: '53px'
           })
@@ -1783,6 +1849,9 @@ var app = angular.module('challengesController', [])
             height: '32px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '19px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '19px'
           })
           $('.playButtonH').css({
@@ -1813,6 +1882,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '18px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '18px'
+          })
           $('.playButtonH').css({
             height: '51px'
           })
@@ -1839,6 +1911,9 @@ var app = angular.module('challengesController', [])
             height: '31px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '18px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '18px'
           })
           $('.playButtonH').css({
@@ -1869,6 +1944,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '18px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '18px'
+          })
           $('.playButtonH').css({
             height: '49px'
           })
@@ -1895,6 +1973,9 @@ var app = angular.module('challengesController', [])
             height: '31px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '18px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '18px'
           })
           $('.playButtonH').css({
@@ -1925,6 +2006,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '17px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '17px'
+          })
           $('.playButtonH').css({
             height: '47px'
           })
@@ -1951,6 +2035,9 @@ var app = angular.module('challengesController', [])
             height: '30px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '17px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '17px'
           })
           $('.playButtonH').css({
@@ -1981,6 +2068,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '17px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '17px'
+          })
           $('.playButtonH').css({
             height: '45px'
           })
@@ -2007,6 +2097,9 @@ var app = angular.module('challengesController', [])
             height: '30px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '17px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '17px'
           })
           $('.playButtonH').css({
@@ -2037,6 +2130,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '16px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '16px'
+          })
           $('.playButtonH').css({
             height: '43px'
           })
@@ -2063,6 +2159,9 @@ var app = angular.module('challengesController', [])
             height: '29px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '16px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '16px'
           })
           $('.playButtonH').css({
@@ -2093,6 +2192,9 @@ var app = angular.module('challengesController', [])
           $('.hRemoveDescription').css({
             fontSize: '16px'
           })
+          $('.listSectionRemove').css({
+            fontSize: '16px'
+          })
           $('.playButtonH').css({
             height: '41px'
           })
@@ -2119,6 +2221,9 @@ var app = angular.module('challengesController', [])
             height: '29px'
           })
           $('.hRemoveDescription').css({
+            fontSize: '16px'
+          })
+          $('.listSectionRemove').css({
             fontSize: '16px'
           })
           $('.playButtonH').css({
