@@ -1452,7 +1452,7 @@ body {
 }
 
 .signinBox {
-  padding: 20px 20px 20px 20px;
+  padding: 0px 5px 0px 0px;
   background-color: #E1E1E1;
   position: absolute;
 }
@@ -1465,7 +1465,12 @@ body {
 
 .signinContainer {
   margin-top: 50px;
+  max-width: 575px;
   z-index: 10;
+}
+
+.signinFooter p, a {
+  color: gray;
 }
 
 .signinForm {
@@ -1480,12 +1485,22 @@ body {
 }
 
 .signinForm input{
-  width: 80%;
-  margin-left: 10%;
+  width: 60%;
+  margin-left: 20%;
   margin-top: 30px;
   height: 40px;
   font-size: 25px;
   text-align: center;
+}
+
+.signinForwardButton {
+  position: relative;
+  margin-top: 105px;
+  margin-left: 70%;
+  margin-right: 20%;
+  margin-bottom: 25px;
+  width: 110px;
+  background-color: none;
 }
 
 .signinHolder {
@@ -1501,7 +1516,7 @@ body {
 }
 
 .signupBox {
-  padding: 20px 20px 50px 20px;
+  padding: 0px 5px 0px 0px;
   background-color: #E1E1E1;
   position: absolute;
 }
@@ -1524,7 +1539,17 @@ body {
 
 .signupContainer {
   margin-top: 50px;
+  max-width: 575px;
   z-index: 10;
+}
+
+.signupFooter p, a {
+  color: gray;
+}
+
+.signupForm {
+  margin: 30px 0px 30px 0px;
+  height: 100%;
 }
 
 .signupForm p {
@@ -1534,12 +1559,22 @@ body {
 }
 
 .signupForm input{
-  width: 80%;
-  margin-left: 10%;
+  width: 60%;
+  margin-left: 20%;
   margin-top: 30px;
   height: 40px;
   font-size: 25px;
   text-align: center;
+}
+
+.signupForwardButton {
+  position: relative;
+  margin-top: 35px;
+  margin-left: 70%;
+  margin-right: 20%;
+  margin-bottom: 25px;
+  width: 110px;
+  background-color: none;
 }
 
 .singleuserContainer {

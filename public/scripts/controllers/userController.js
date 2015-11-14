@@ -41,6 +41,54 @@ angular.module('userController', [])
     $('.goToLoginChallenge').on("click", function(){
       // window.location.hash = "#/signin/"+window.location.hash.split('/')[2]
     })
+    ///////must set the x-button, which resets back to the signle challenge page
+    ////////////////////////////////////////////////////////////////////////////
+    $('.xBar').on('click', function(){
+      var challengeName = window.location.hash.split("/")[2]
+      $('.xBar').css({
+        backgroundColor: '#D4D4D4'
+        ,color: 'white'
+      })
+      setTimeout(function(){
+        if(window.location.hash.split('/')[2]){
+          window.location.hash = "#/challenges/"+challengeName
+        } else {
+          window.location.hash = "#/"
+        }
+
+      }, 150)
+
+    })
+    function moveXButton(){
+      var windowSize = $(window).width()
+      if(windowSize > 515){
+        $('.xBar').css({
+          marginLeft: '95%'
+        })
+      } else if(windowSize > 0){
+        $('.xBar').css({
+          marginLeft: '82%'
+        })
+      }
+    }
+    moveXButton()
+    $(window).resize(function(){
+      moveXButton()
+    })
+    //////additional x-functionality so that it resizes at smaller sizes
+    /////////end click function
+    ///////create event listener for
+    //////Send button rollover
+    $('.forwardButtonLightbox').on('mouseenter', function(){
+      console.log('mousing oooooover')
+      $('.forwardButtonLightbox').attr('src', "/assets/NEXT_over.svg")
+    })
+
+    $('.forwardButtonLightbox').on('mouseleave', function(){
+      console.log('mousing oooooover')
+      $('.forwardButtonLightbox').attr('src', "/assets/NEXT.svg")
+    })
+    //////end button rollover
     //////begin profile section
     ///////////////////////////
     ///////////////////////////
