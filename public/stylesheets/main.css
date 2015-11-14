@@ -950,8 +950,8 @@ body {
 
 .listContent {
   line-height: 0.8;
-  margin-top: -10px;
-  font-weight: bolder;
+  margin: 0px;
+  /*font-weight: bolder;*/
 }
 
 .listContainer {
@@ -980,7 +980,6 @@ body {
 
 .listTitle {
   line-height: 0.8;
-  margin-top: -10px;
   font-weight: bolder;
 }
 
