@@ -626,7 +626,7 @@ var app = angular.module('challengesController', [])
               fontSize: "84px"
             })
           $('.listContent').css({
-              fontSize: "45px"
+              fontSize: "41px"
           })
         } else if(windowSize >= 1404){
           $('.acceptButton').css({
@@ -648,7 +648,7 @@ var app = angular.module('challengesController', [])
               fontSize: "83px"
             })
           $('.listContent').css({
-              fontSize: "45px"
+              fontSize: "40px"
           })
         } else if(windowSize >= 1387){
           $('.acceptButton').css({
@@ -670,7 +670,7 @@ var app = angular.module('challengesController', [])
               fontSize: "82px"
             })
           $('.listContent').css({
-            fontSize: '44px'
+            fontSize: '40px'
           })
         } else if(windowSize >= 1369){
           $('.acceptButton').css({
@@ -692,7 +692,7 @@ var app = angular.module('challengesController', [])
               fontSize: "81px"
             })
             $('.listContent').css({
-              fontSize: '44px'
+              fontSize: '39px'
             })
         } else if(windowSize >= 1351){
           $('.acceptButton').css({
@@ -714,7 +714,7 @@ var app = angular.module('challengesController', [])
               fontSize: "80px"
             })
           $('.listContent').css({
-            fontSize: '43px'
+            fontSize: '39px'
           })
         } else if(windowSize >= 1334){
           $('.acceptButton').css({
@@ -736,7 +736,7 @@ var app = angular.module('challengesController', [])
               fontSize: "79px"
             })
           $('.listContent').css({
-            fontSize: '42px'
+            fontSize: '38px'
           })
         } else if(windowSize >= 1317){
           $('.acceptButton').css({
@@ -758,7 +758,7 @@ var app = angular.module('challengesController', [])
               fontSize: "78px"
             })
             $('.listContent').css({
-              fontSize: '42px'
+              fontSize: '38px'
             })
         } else if(windowSize >= 1299){
           $('.acceptButton').css({
@@ -780,7 +780,7 @@ var app = angular.module('challengesController', [])
               fontSize: "77px"
             })
           $('.listContent').css({
-            fontSize: '41px'
+            fontSize: '37px'
           })
         } else if(windowSize >= 1281){
           $('.acceptButton').css({
@@ -802,7 +802,7 @@ var app = angular.module('challengesController', [])
               fontSize: "76px"
             })
           $('.listContent').css({
-            fontSize: '41px'
+            fontSize: '37px'
           })
         } else if(windowSize >= 1264){
           $('.acceptButton').css({
@@ -824,7 +824,7 @@ var app = angular.module('challengesController', [])
               fontSize: "75px"
             })
           $('.listContent').css({
-            fontSize: '40px'
+            fontSize: '36px'
           })
         } else if(windowSize >= 1246){
           $('.acceptButton').css({
@@ -846,7 +846,7 @@ var app = angular.module('challengesController', [])
               fontSize: "74px"
             })
           $('.listContent').css({
-            fontSize: '40px'
+            fontSize: '45px'
           })
         } else if(windowSize >= 1228){
           $('.acceptButton').css({
@@ -868,7 +868,7 @@ var app = angular.module('challengesController', [])
               fontSize: "73px"
             })
           $('.listContent').css({
-            fontSize: '39px'
+            fontSize: '35px'
           })
         } else if(windowSize >= 1211){
           $('.acceptButton').css({
@@ -890,7 +890,7 @@ var app = angular.module('challengesController', [])
               fontSize: "72px"
             })
           $('.listContent').css({
-            fontSize: '39px'
+            fontSize: '34px'
           })
         } else if(windowSize >= 1193){
           $('.acceptButton').css({
@@ -912,7 +912,7 @@ var app = angular.module('challengesController', [])
               fontSize: "71px"
             })
           $('.listContent').css({
-            fontSize: '38px'
+            fontSize: '34px'
           })
         } else if(windowSize >= 1175){
           $('.acceptButton').css({
@@ -934,7 +934,7 @@ var app = angular.module('challengesController', [])
               fontSize: "70px"
             })
           $('.listContent').css({
-            fontSize: '38px'
+            fontSize: '33px'
           })
         } else if(windowSize >= 1158){
           $('.acceptButton').css({
@@ -956,7 +956,7 @@ var app = angular.module('challengesController', [])
               fontSize: "69px"
             })
           $('.listContent').css({
-            fontSize: '37px'
+            fontSize: '33px'
           })
         } else if(windowSize >= 1140){
           $('.acceptButton').css({
@@ -978,7 +978,7 @@ var app = angular.module('challengesController', [])
               fontSize: "68px"
             })
           $('.listContent').css({
-            fontSize: '37px'
+            fontSize: '32px'
           })
         } else if(windowSize >= 1123){
           $('.acceptButton').css({
@@ -1000,7 +1000,7 @@ var app = angular.module('challengesController', [])
               fontSize: "67px"
             })
           $('.listContent').css({
-            fontSize: '36px'
+            fontSize: '32px'
           })
         } else if(windowSize >= 1105){
           $('.acceptButton').css({
@@ -1022,7 +1022,7 @@ var app = angular.module('challengesController', [])
               fontSize: "66px"
             })
             $('.listContent').css({
-              fontSize: '36px'
+              fontSize: '31px'
             })
         } else if(windowSize >= 1087){
           $('.acceptButton').css({
@@ -1044,7 +1044,7 @@ var app = angular.module('challengesController', [])
               fontSize: "65px"
             })
           $('.listContent').css({
-            fontSize: '35px'
+            fontSize: '31px'
           })
         } else if(windowSize >= 1069){
           $('.acceptButton').css({
@@ -1066,7 +1066,7 @@ var app = angular.module('challengesController', [])
               fontSize: "64px"
             })
             $('.listContent').css({
-              fontSize: '35px'
+              fontSize: '30px'
             })
         } else if(windowSize >= 1052){
           $('.acceptButton').css({
@@ -1088,7 +1088,7 @@ var app = angular.module('challengesController', [])
               fontSize: "63px"
             })
           $('.listContent').css({
-            fontSize: '34px'
+            fontSize: '30px'
           })
         } else if(windowSize >= 1035){
           $('.acceptButton').css({
@@ -1110,7 +1110,7 @@ var app = angular.module('challengesController', [])
               fontSize: "62px"
             })
           $('.listContent').css({
-            fontSize: '34px'
+            fontSize: '29px'
           })
         } else if(windowSize >= 1017){
           $('.acceptButton').css({
@@ -1132,7 +1132,7 @@ var app = angular.module('challengesController', [])
               fontSize: "61px"
             })
           $('.listContent').css({
-            fontSize: '33px'
+            fontSize: '29px'
           })
         } else if(windowSize >= 999){
           $('.acceptButton').css({
@@ -1154,7 +1154,7 @@ var app = angular.module('challengesController', [])
               fontSize: "60px"
             })
           $('.listContent').css({
-            fontSize: '33px'
+            fontSize: '28px'
           })
         } else if(windowSize >= 992){
           $('.acceptButton').css({
@@ -1175,9 +1175,9 @@ var app = angular.module('challengesController', [])
           $('.titleCont').css({
               fontSize: "59px"
             })
-          $('.listContent').css({
-            fontSize: '59px'
-          })
+          $('.listCont').css({
+              fontSize: "28px"
+            })
         } else if(windowSize >= 982){
           $('.acceptButton').css({
             marginTop: '10px'
