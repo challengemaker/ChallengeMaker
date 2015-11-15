@@ -44,7 +44,6 @@ var app = angular.module('challengesController', [])
     if(window.location.hash == "#/"){
       setTimeout(function(){
         var list = $('.acceptButtonList')
-        console.log(list);
         for (var i = 0; i < list.length; i++) {
           $('.acceptButton'+i).on('mouseenter', function(evt){
             evt.target.src =  "../assets/pink_accept_rollover.svg"
@@ -55,9 +54,7 @@ var app = angular.module('challengesController', [])
           /////////adjust list description if a charity is two lines
           //////////////////////////////////////////////////////////
           var charLength = $('.listCharity'+i)[0].innerText.length;
-          console.log(charLength);
           if (charLength > 18) {
-            console.log('yo shortie');
             $('.playButtonLL'+i).css({
               marginTop: '-15px'
             })
@@ -65,7 +62,6 @@ var app = angular.module('challengesController', [])
         }
       }, 500)
       var charLength = $('.titleContCharity')[0].innerText.length;
-      console.log(charLength);
       if (charLength > 18) {
         $('.playButtonH').css({
           marginTop: '-15px'
