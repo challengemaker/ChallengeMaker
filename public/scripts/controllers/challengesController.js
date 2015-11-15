@@ -492,7 +492,7 @@ var app = angular.module('challengesController', [])
           var arrResponses = [];
           for (var i = 0; i < rawResponses.length; i++) {
             var thisRespChall = rawResponses[i].challenge;
-            if(thisRespChall == thisChall+"-CHALLENGE"){
+            if(thisRespChall == thisChall+"-CHALLENGE" || thisRespChall == thisChall){
               arrResponses.push(rawResponses[i])
             }
           }
