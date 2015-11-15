@@ -62,7 +62,12 @@ var app = angular.module('challengesController', [])
         }
       }
     }, 500)
-
+    var charLength = $('.titleContCharity')[0].innerText.length;
+    if (charLength > 18) {
+      $('.playButtonH').css({
+        marginTop: '-15px'
+      })
+    }
     /////////////////////////////////////
     ////begin dividing controller by page, this will be simplified by the use of factories
 
