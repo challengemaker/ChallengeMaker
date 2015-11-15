@@ -1,5 +1,5 @@
 module.exports = {
-  dbUrl: "mongodb://jackconnor:Skateboard1@ds049171.mongolab.com:49171/challenge_maker_production",
+  dbUrl: "mongodb://jackconnor:Skateboard1@ds031581.mongolab.com:31581/challenge_maker",
   tokenSecret: "stephanJanoski",
   environment: "Development",
   merchantId: "3bszkt43kfvyrq78",
