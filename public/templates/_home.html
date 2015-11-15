@@ -50,7 +50,7 @@
                 <h2 style="color: white" style="cursor: pointer" class="listContent listRemove{{$index}} listCharity{{$index}} listTextContent{{$index}}">{{challenge.charity[0]}}</h2>
                 <h2 style="color: white" style="cursor: pointer" class="listContent listTitle listTextContent{{$index}}">{{challenge.title}}</h2>
                 <h2 style="color: white" style="cursor: pointer" class="listContent listTitle listTextContent{{$index}}">CHALLENGE</h2>
-                <div class="playButtonL playButtonL{{$index}}">
+                <div class="playButtonL playButtonL{{$index}} playButtonLL{{$index}}">
                   <img class="playButtonL{{$index}}" ng-click="challenges.swap($index)" src="/assets/play_button.svg" alt=""/>
                 </div>
                 <p class="listSectionRemove listRemove{{$index}} listTextContent{{$index}} listDescription{{$index}}">$0 if completed<br> or donate ${{challenge.minimumDonation}}<br> to {{challenge.charity[0]}}</p>

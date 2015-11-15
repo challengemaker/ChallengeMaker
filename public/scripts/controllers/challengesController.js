@@ -56,8 +56,8 @@ var app = angular.module('challengesController', [])
         console.log(charLength);
         if (charLength > 18) {
           console.log('yo shortie');
-          $('.listDescription'+i).css({
-            marginTop: '-28px'
+          $('.playButtonLL'+i).css({
+            marginTop: '-15px'
           })
         }
       }
