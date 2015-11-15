@@ -50,9 +50,18 @@ var app = angular.module('challengesController', [])
         $('.acceptButton'+i).on('mouseleave', function(evt){
           evt.target.src = "../assets/pink_accept_button.svg"
         })
+        /////////adjust list description if a charity is two lines
+        //////////////////////////////////////////////////////////
+        var charLength = $('.listCharity'+i)[0].innerText.length;
+        console.log(charLength);
+        if (charLength > 18) {
+          console.log('yo shortie');
+          $('.listDescription'+i).css({
+            marginTop: '-28px'
+          })
+        }
       }
     }, 500)
-
 
     /////////////////////////////////////
     ////begin dividing controller by page, this will be simplified by the use of factories
