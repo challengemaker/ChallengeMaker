@@ -1206,6 +1206,11 @@ body {
   margin: 0px 0px 0px 55%;
 }
 
+.playButtonLL {
+  width: 100%;
+  margin-top: 50%; 
+}
+
 .playButtonL img {
   height: 50px;
   opacity: .66;

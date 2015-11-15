@@ -214,6 +214,7 @@ var app = angular.module('challengesController', [])
       //////////////begin the video=photo toggle on the listview, single challenge
       self.swapResponse = function swap(index){
         var height = ($(".lImageimg" +index).height()-5);
+        console.log(height);
         var width = $(".lImageimg"+index).width();
         var videoHeight = $(".lVideo"+index).height();
         var url = self.allResponses[index].videoUrl;

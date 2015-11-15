@@ -56,7 +56,7 @@
       <h4>See Other Videos From Users Who Took The Challenge</h4>
     </div>
     <div ng-repeat="response in challenges.allResponses" class="listContainer col-md-6 col-12-xs">
-      <div class="lMediaHolder" ng-click="challenges.swapResponse($index)">
+      <div class="lMediaHolder">
         <div class="listText">
            <div class="texttext col-xs-8">
             <div class="listTextHolder">
@@ -64,12 +64,15 @@
                 <h2>Created by: {{response.creator}}</h2>
               </div>
             </div>
+            <div class="playButtonL playButtonL{{$index}} playButtonLL playButtonLL{{$index}}">
+              <img class="playButtonL{{$index}}" ng-click="challenges.swapResponse($index)" src="/assets/play_button.svg" alt=""/>
+            </div>
           </div>
           <div class="texttext col-xs-4">
           </div>
         </div>
         <div class="lImage lImage{{$index}}">
-          <img class="lImageImg lImageimg{{$index}}" height="350px" src="https://img.youtube.com/vi/{{response.videoUrl}}/0.jpg" alt="" />
+          <img class="lImageImg lImageimg{{$index}}" src="https://img.youtube.com/vi/{{response.videoUrl}}/0.jpg" alt="" />
         </div>
         <div class="lVideo lVideo{{$index}}"></div>
       </div>
