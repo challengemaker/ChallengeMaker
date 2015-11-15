@@ -973,6 +973,7 @@ body {
 .listSectionRemove {
   margin: 0;
   width: 120%;
+  line-height: 0.9;
 }
 
 .listText {
