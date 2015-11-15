@@ -40,33 +40,37 @@ var app = angular.module('challengesController', [])
       $('.acceptButton').attr('src', "../assets/pink_accept_button.svg")
     })
 
-    setTimeout(function(){
-      var list = $('.acceptButtonList')
-      console.log(list);
-      for (var i = 0; i < list.length; i++) {
-        $('.acceptButton'+i).on('mouseenter', function(evt){
-          evt.target.src =  "../assets/pink_accept_rollover.svg"
-        })
-        $('.acceptButton'+i).on('mouseleave', function(evt){
-          evt.target.src = "../assets/pink_accept_button.svg"
-        })
-        /////////adjust list description if a charity is two lines
-        //////////////////////////////////////////////////////////
-        var charLength = $('.listCharity'+i)[0].innerText.length;
-        console.log(charLength);
-        if (charLength > 18) {
-          console.log('yo shortie');
-          $('.playButtonLL'+i).css({
-            marginTop: '-15px'
+    ///////////////////do all individaul adjustments for listview css
+    if(window.location.hash == "#/"){
+      setTimeout(function(){
+        var list = $('.acceptButtonList')
+        console.log(list);
+        for (var i = 0; i < list.length; i++) {
+          $('.acceptButton'+i).on('mouseenter', function(evt){
+            evt.target.src =  "../assets/pink_accept_rollover.svg"
           })
+          $('.acceptButton'+i).on('mouseleave', function(evt){
+            evt.target.src = "../assets/pink_accept_button.svg"
+          })
+          /////////adjust list description if a charity is two lines
+          //////////////////////////////////////////////////////////
+          var charLength = $('.listCharity'+i)[0].innerText.length;
+          console.log(charLength);
+          if (charLength > 18) {
+            console.log('yo shortie');
+            $('.playButtonLL'+i).css({
+              marginTop: '-15px'
+            })
+          }
         }
+      }, 500)
+      var charLength = $('.titleContCharity')[0].innerText.length;
+      console.log(charLength);
+      if (charLength > 18) {
+        $('.playButtonH').css({
+          marginTop: '-15px'
+        })
       }
-    }, 500)
-    var charLength = $('.titleContCharity')[0].innerText.length;
-    if (charLength > 18) {
-      $('.playButtonH').css({
-        marginTop: '-15px'
-      })
     }
     /////////////////////////////////////
     ////begin dividing controller by page, this will be simplified by the use of factories
