@@ -1,24 +1,29 @@
 <div class="challengeContainer">
   <div class="row topRowChallenge">
     <div class="currentChallengeHolder style='' col-md-7 col-xs-12">
-      <div class="blackLayerSingleHighlight" ng-click="challenges.swapHighlightSingle()"></div>
-      <div class="currentChallengeContainer" ng-click="challenges.swapHighlightSingle()">
-        <div class="currentChallengeImage">
-          <img ng-src="{{challenges.singleChallenge.photo}}" class="currImg" />
-        </div>
-        <div class="shVideo" ng-click="challenges.swapHighlightSingle()"></div>
-        <div class="row currentChallengeInfo">
-          <div class="currentInfoColumn col-md-8 col-sm-10 col-xs-11">
-            <p class="currentCharity">
-              {{challenges.singleChallenge.charity[0]}}
-            </p>
-            <p class='currentTitle'>
-              {{challenges.singleChallenge.title}}
-            </p>
-            <!-- <p class="currentDescription">
-              $0 if challenge completed, or donate ${{challenges.singleChallenge.minimumDonation}} to Special Olympics
-            </p> -->
+      <div class="blackLayer" >
+        <!-- <span class="glyphicon glyphicon-play-circle playButtonH"></span> -->
+      </div>
+      <div class="hMediaHolder" >
+        <div class="highlightText" >
+          <div class="texttext">
+            <div class="highlightTextHolder"  style="cursor: pointer">
+              <p class="titleContSingle titleSingle">{{challenges.specialChallenge.charity[0]}}</p>
+              <p class="titleContTitleSingle titleSingle">{{challenges.specialChallenge.title}}</p>
+              <p class="titleContTitleSingle titleSingle">CHALLENGE</p>
+                <div class="playButtonH">
+                  <img ng-click="challenges.swapSpecial()" src="/assets/play_button.svg" alt=""/>
+                </div>
+              <!-- <h4 style="color: white" class="singleDescription">$0 if completed<br> or donate ${{challenges.specialChallenge.minimumDonation}}<br> to {{challenges.specialChallenge.charity[0]}}</h4> -->
+            </div>
           </div>
+          <div class="texttext col-xs-4" >
+          </div>
+        </div>
+        <div class="hImage">
+          <img class = "hImageImg" src="{{challenges.specialChallenge.photo}}" alt="" />
+        </div>
+        <div class="hVideo" >
         </div>
       </div>
     </div>

@@ -1605,6 +1605,10 @@ body {
   display: inline-block;
 }
 
+.singleDescription{
+  width: 100%;
+}
+
 .specialGoal {
   font-size: 30px;
 }
@@ -1699,7 +1703,19 @@ body {
   line-height: 0.8;
 }
 
+.titleContSingle{
+  margin: 0px;
+  padding: 0px;
+  line-height: 0.8;
+}
+
 .titleContTitle {
+  line-height: 0.8;
+}
+
+.titleContTitleSingle {
+  margin: 0px;
+  padding: 0px;
   line-height: 0.8;
 }
 
