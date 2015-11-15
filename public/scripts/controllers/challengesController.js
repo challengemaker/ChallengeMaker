@@ -214,7 +214,8 @@ var app = angular.module('challengesController', [])
       //////////////begin the video=photo toggle on the listview, single challenge
       self.swapResponse = function swap(index){
         var height = ($(".lImageimg" +index).height()-5);
-        console.log(height);
+        console.log(heightswapRe
+        );
         var width = $(".lImageimg"+index).width();
         var videoHeight = $(".lVideo"+index).height();
         var url = self.allResponses[index].videoUrl;
@@ -255,11 +256,23 @@ var app = angular.module('challengesController', [])
         var url = self.specialChallenge.videoUrl+"?autoplay=1";
 
         if(height > 0) {
-          $('.hVideo').append(
-            "<iframe class='specialVid"+
-            "'width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
-            "</iframe>"
-          )
+          if(window.location.hash == "#/"){
+            /////////begin if statement to deal with using this on single challenge, as well, and needing a different video
+            //////////////////////////////
+            $('.hVideo').append(
+              "<iframe class='specialVid"+
+              "'width='100%'"+ "height='"+height+"' src='"+url+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+              "</iframe>"
+            )
+          } else {
+            var singleUrl = self.singleChallenge.videoUrl+"?autoplay=1";
+            $('.hVideo').append(
+              "<iframe class='specialVid"+
+              "'width='100%'"+ "height='"+height+"' src='"+singleUrl+"' frameborder='0'"+ "webkitallowfullscreen mozallowfullscreen"+ "allowfullscreen>"+
+              "</iframe>"
+            )
+          }
+
           $('.hImage').css('height', "0px")
           $('.hImageImg').css('height', "0px")
           $('.titleCont').css({
@@ -347,6 +360,7 @@ var app = angular.module('challengesController', [])
       }
       //////singlehighlight swap
       self.swapHighlightSingle = function(){
+        console.log('swapping');
         var height = ($(".currentChallengeImage").height()-5);
         var videoHeight = $(".shVideo").height();
         var url = self.singleChallenge.videoUrl+"?autoplay=1";
