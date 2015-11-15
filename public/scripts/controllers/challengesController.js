@@ -129,7 +129,7 @@ var app = angular.module('challengesController', [])
             // + " pppppppppppppppppp"
           }
         }
-        allChallenges.pop()
+        // allChallenges.pop()//////you can toggle the last challenge in and out using this function
         self.allChallenges = allChallenges
         //////now it's all set and ready to go
         self.goTo = function goTo(index){
