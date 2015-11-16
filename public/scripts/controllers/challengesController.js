@@ -115,7 +115,8 @@ var app = angular.module('challengesController', [])
     /////simple call to bring in all challenges
 		$http.get('/api/challenges')
       .then(function(err, data){
-        if(err) {console.log(err)};
+        if(err) {console.log(err)}
+        console.log(data);
         var allChallenges = data.data.reverse()
         self.specialChallenge = allChallenges[allChallenges.length-1]
         /////we'er adding an new attr to the object
