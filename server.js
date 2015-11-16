@@ -16,6 +16,8 @@ var jwt            = require('jsonwebtoken');
 // var User           = mongoose.model('User')
 var User           = require('./models/user');
 var ignore         = require('./.gitignore')
+console.log(ignore);
+console.log('lkjhdfklsjdflksjdflksdjflksdj');
 console.log('1');
 var message = {message: "jack is cool"}
 var secret = "punkrock"

@@ -107,8 +107,8 @@ module.exports = function(app, passport){
     Challenge.find({}, function(err, challenges){
       if(err){res.send(err)}
       res.json(challenges)
-    });
-  });
+    })
+  })
 
 // show one challenge
   app.get('/api/challenges/:name', function(req, res){
@@ -385,7 +385,7 @@ module.exports = function(app, passport){
             "<h2 style='color:#545454'>"+req.body.responseData.responseCreator+
             " has challenged you to the</h2>"+
             "<p style='font-size:32px; color:#545454; font-weight: bolder'>"+req.body.responseData.charityName+"</p>"+
-            "<p style='font-size:32px; color:#545454; font-weight: bolder'>"+req.body.responseData.challenge.split('-').join(' ')+"</p>"+
+            "<p style='font-size:32px; color:#545454; font-weight: bolder'>"+req.body.responseData.challenge.split('-').join(' ')+" Challenge</p>"+
             "<a style='color:#e70090; font-size: 22px; font-weight: bold' href='https://challengemakerproduction.herokuapp.com/#/youvebeenchallenged/"+req.body.responseData.challenge.split(' ').join('-')+"/"+req.body.responseData.video+"/"+req.body.responseData.responseCreator+"'>Take the Challenge</a>"+
             "<a style='color:#f57801; font-size: 22px; font-weight: bold; margin-left: 30px' href='https://challengemakerproduction.herokuapp.com/#/challenges/"+req.body.responseData.challenge.split(' ').join('-')+"'>DETAILS & VIDEO</a>"+
           "</div>"
