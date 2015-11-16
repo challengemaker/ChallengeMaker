@@ -5,7 +5,7 @@ var app = angular.module('challengesController', [])
 
   challengesCtrl.$inject = ['$http', '$sce'];
   function challengesCtrl($http, $sce){
-    var self = this;
+    var self = this
     //////////////////////////////
     ///some quick blacklayer stuff
     function adjustHighlightBlack(){
@@ -114,7 +114,9 @@ var app = angular.module('challengesController', [])
 
     /////simple call to bring in all challenges
 		$http.get('/api/challenges')
-      .then(function(data){
+      .then(function(err, data){
+        if(err) {console.log(err)}
+        console.log(data);
         var allChallenges = data.data.reverse()
         self.specialChallenge = allChallenges[allChallenges.length-1]
         /////we'er adding an new attr to the object
@@ -122,11 +124,9 @@ var app = angular.module('challengesController', [])
           allChallenges[i].isPhoto = true;
           if(allChallenges[i].title.length < 20){
             allChallenges[i].title = allChallenges[i].title
-            // + " pppppppppppppppppp"
           }
           if(allChallenges[i].charity[0].length < 19){
             allChallenges[i].charity[0] = allChallenges[i].charity[0]
-            // + " pppppppppppppppppp"
           }
         }
         // allChallenges.pop()//////you can toggle the last challenge in and out using this function
