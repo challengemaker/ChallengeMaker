@@ -5,7 +5,7 @@ var app = angular.module('challengesController', [])
 
   challengesCtrl.$inject = ['$http', '$sce'];
   function challengesCtrl($http, $sce){
-    var self = this;
+    var self = this
     //////////////////////////////
     ///some quick blacklayer stuff
     function adjustHighlightBlack(){
@@ -124,11 +124,9 @@ var app = angular.module('challengesController', [])
           allChallenges[i].isPhoto = true;
           if(allChallenges[i].title.length < 20){
             allChallenges[i].title = allChallenges[i].title
-            // + " pppppppppppppppppp"
           }
           if(allChallenges[i].charity[0].length < 19){
             allChallenges[i].charity[0] = allChallenges[i].charity[0]
-            // + " pppppppppppppppppp"
           }
         }
         // allChallenges.pop()//////you can toggle the last challenge in and out using this function
