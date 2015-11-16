@@ -14,7 +14,7 @@ var app = angular.module('challengesController', [])
         height: imgHeight
       })
     }
-    setInterval(adjustHighlightBlack, 30);
+    // setInterval(adjustHighlightBlack, 30);
     ///////let's do a quick black layer adjustment for the listview on the homepage
     function adjustBlackListAll(){
       var listImgHeight = $(".lMediaHolder").height()
@@ -29,7 +29,7 @@ var app = angular.module('challengesController', [])
         height: newHeight
       })
     }
-    setInterval(adjustBlackListAll, 50);
+    // setInterval(adjustBlackListAll, 50);
     ///////end quick black layer adjustment for the listview on the homepage
     ///////end blacklayer adjustment stuff
 
@@ -114,8 +114,7 @@ var app = angular.module('challengesController', [])
 
     /////simple call to bring in all challenges
 		$http.get('/api/challenges')
-      .then(function(err, data){
-        if(err) {console.log(err)}
+      .then(function(data){
         console.log(data);
         var allChallenges = data.data.reverse()
         self.specialChallenge = allChallenges[allChallenges.length-1]
