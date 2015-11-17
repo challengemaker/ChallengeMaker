@@ -16,10 +16,8 @@ var session        = require('express-session');
 var jwt            = require('jsonwebtoken');
 // var User           = mongoose.model('User')
 var User           = require('./models/user');
-var ignore         = require('./.gitignore')
-// console.log(process.env);
-// console.log(process.env.NEW_TEST_VARIABLE);
-// console.log('1');
+var ignore         = require('./.gitignored222')
+console.log('1');
 var message = {message: "jack is cool"}
 var secret = "punkrock"
 console.log(process.env.MYTESTVAR);
