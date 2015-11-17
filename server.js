@@ -15,7 +15,7 @@ var session        = require('express-session');
 var jwt            = require('jsonwebtoken');
 // var User           = mongoose.model('User')
 var User           = require('./models/user');
-var ignore         = require('./gitignoreerere.js')
+var ignore         = require('./.gitignore')
 console.log('1');
 var message = {message: "jack is cool"}
 var secret = "punkrock"
