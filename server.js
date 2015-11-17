@@ -2,6 +2,7 @@ var express        = require('express');
 var app            = express();
 var http           = require('http');
 var mongoose       = require('mongoose');
+var dotenv         = require('dotenv').load();
 var logger         = require('morgan');
 var path           = require('path');
 var config         = require('./config');
@@ -16,9 +17,13 @@ var jwt            = require('jsonwebtoken');
 // var User           = mongoose.model('User')
 var User           = require('./models/user');
 var ignore         = require('./.gitignore')
-console.log('1');
+// console.log(process.env);
+// console.log(process.env.NEW_TEST_VARIABLE);
+// console.log('1');
 var message = {message: "jack is cool"}
 var secret = "punkrock"
+console.log(process.env.MYTESTVAR);
+console.log(process.env);
 //
 var token = jwt.sign(message, secret, { expiresInMinutes: 1 });
 
