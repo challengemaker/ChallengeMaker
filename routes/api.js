@@ -11,6 +11,7 @@ var mandrill = require('mandrill-api/mandrill')
 console.log(process.env);
 var mandrill_client = new mandrill.Mandrill('peYat9DNVGXpYcy2o6bypw');
 
+
 ////////   ----- Models ------- //////////
 /////// This is a "Model" Home  //////////
 var User            = require('../models/user.js');//
@@ -385,7 +386,7 @@ module.exports = function(app, passport){
             "<h2 style='color:#545454'>"+req.body.responseData.responseCreator+
             " has challenged you to the</h2>"+
             "<p style='font-size:32px; color:#545454; font-weight: bolder'>"+req.body.responseData.charityName+"</p>"+
-            "<p style='font-size:32px; color:#545454; font-weight: bolder'>"+req.body.responseData.challenge.split('-').join(' ')+" Challenge</p>"+
+            "<p style='font-size:32px; color:#545454; font-weight: bolder'>"+req.body.responseData.challenge.split('-').join(' ')+" CHALLENGE</p>"+
             "<a style='color:#e70090; font-size: 22px; font-weight: bold' href='https://challengemakerproduction.herokuapp.com/#/youvebeenchallenged/"+req.body.responseData.challenge.split(' ').join('-')+"/"+req.body.responseData.video+"/"+req.body.responseData.responseCreator+"'>Take the Challenge</a>"+
             "<a style='color:#f57801; font-size: 22px; font-weight: bold; margin-left: 30px' href='https://challengemakerproduction.herokuapp.com/#/challenges/"+req.body.responseData.challenge.split(' ').join('-')+"'>DETAILS & VIDEO</a>"+
           "</div>"
@@ -420,11 +421,12 @@ module.exports = function(app, passport){
 
   /////////////////begin braintree routing/////
   ////////////////////////////////////////////
+  console.log(process.env.PRIVATE_KEY);
   var gateway = braintree.connect({
     environment: braintree.Environment.Production,
-    merchantId: ignore.merchantId,
-    publicKey: ignore.publicKey,
-    privateKey: ignore.privateKey
+    merchantId: process.env.MERCHANT_ID,
+    publicKey: process.env.PUBLIC_KEY,
+    privateKey: process.env.PRIVATE_KEY
   })
 
   app.get("/client_token", function(req, res){

@@ -2,7 +2,7 @@ var express        = require('express');
 var app            = express();
 var http           = require('http');
 var mongoose       = require('mongoose');
-var dotenv         = require('dotenv').load();
+// var dotenv         = require('dotenv').load();
 var logger         = require('morgan');
 var path           = require('path');
 var config         = require('./config');
@@ -16,12 +16,10 @@ var session        = require('express-session');
 var jwt            = require('jsonwebtoken');
 // var User           = mongoose.model('User')
 var User           = require('./models/user');
-var ignore         = require('./.gitignored222')
+// var ignore         = require('./.gitignored222')
 console.log('1');
 var message = {message: "jack is cool"}
 var secret = "punkrock"
-console.log(process.env.MYTESTVAR);
-console.log(process.env);
 //
 var token = jwt.sign(message, secret, { expiresInMinutes: 1 });
 
@@ -90,7 +88,6 @@ console.log('5');
 
 app.post( '/login', function( req, res ) {
   var email = req.body.email;
-  console.log(req.body);
 	User.findOne( { email: req.body.email }, function( err, user) {
 		if ( err ) {
 			console.log(err)
