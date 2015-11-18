@@ -2,6 +2,7 @@ var express        = require('express');
 var app            = express();
 var http           = require('http');
 var mongoose       = require('mongoose');
+// var dotenv         = require('dotenv').load();
 var logger         = require('morgan');
 var path           = require('path');
 var config         = require('./config');
@@ -16,8 +17,6 @@ var jwt            = require('jsonwebtoken');
 // var User           = mongoose.model('User')
 var User           = require('./models/user');
 var ignore         = require('./.gitignore')
-console.log(ignore);
-console.log('lkjhdfklsjdflksjdflksdjflksdj');
 console.log('1');
 var message = {message: "jack is cool"}
 var secret = "punkrock"
@@ -89,7 +88,6 @@ console.log('5');
 
 app.post( '/login', function( req, res ) {
   var email = req.body.email;
-  console.log(req.body);
 	User.findOne( { email: req.body.email }, function( err, user) {
 		if ( err ) {
 			console.log(err)

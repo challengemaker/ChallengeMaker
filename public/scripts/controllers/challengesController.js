@@ -117,6 +117,7 @@ var app = angular.module('challengesController', [])
       .then(function(data){
         console.log(data);
         var allChallenges = data.data.reverse()
+        console.log(allChallenges);
         self.specialChallenge = allChallenges[allChallenges.length-1]
         /////we'er adding an new attr to the object
         for (var i = 0; i < allChallenges.length; i++) {
