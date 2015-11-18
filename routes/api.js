@@ -532,5 +532,5 @@ app.post('/api/submerchantverified', function(req, res){
 var db = require('../db.js');
 var url = db.url;
 
-// mongoose.connect(ignore.dbUrl);
-mongoose.connect(process.env.DB_URL)
+mongoose.connect(ignore.dbUrl);
+// mongoose.connect(process.env.DB_URL)
