@@ -422,11 +422,17 @@ module.exports = function(app, passport){
   /////////////////begin braintree routing/////
   ////////////////////////////////////////////
   console.log(process.env.PRIVATE_KEY);
+  // var gateway = braintree.connect({
+  //   environment: braintree.Environment.Production,
+  //   merchantId: process.env.MERCHANT_ID,
+  //   publicKey: process.env.PUBLIC_KEY,
+  //   privateKey: process.env.PRIVATE_KEY
+  // })
   var gateway = braintree.connect({
     environment: braintree.Environment.Production,
-    merchantId: process.env.MERCHANT_ID,
-    publicKey: process.env.PUBLIC_KEY,
-    privateKey: process.env.PRIVATE_KEY
+    merchantId: ignore.merchantId,
+    publicKey: ignore.publicKey,
+    privateKey: ignore.privateKey
   })
 
   app.get("/client_token", function(req, res){
