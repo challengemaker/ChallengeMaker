@@ -14,7 +14,7 @@ var app = angular.module('challengesController', [])
         height: imgHeight
       })
     }
-    setInterval(adjustHighlightBlack, 30);
+    // setInterval(adjustHighlightBlack, 30);
     ///////let's do a quick black layer adjustment for the listview on the homepage
     function adjustBlackListAll(){
       var listImgHeight = $(".lMediaHolder").height()
@@ -29,7 +29,7 @@ var app = angular.module('challengesController', [])
         height: newHeight
       })
     }
-    setInterval(adjustBlackListAll, 50);
+    // setInterval(adjustBlackListAll, 50);
     ///////end quick black layer adjustment for the listview on the homepage
     ///////end blacklayer adjustment stuff
 
@@ -213,8 +213,6 @@ var app = angular.module('challengesController', [])
       //////////////begin the video=photo toggle on the listview, single challenge
       self.swapResponse = function swap(index){
         var height = ($(".lImageimg" +index).height()-5);
-        console.log(heightswapRe
-        );
         var width = $(".lImageimg"+index).width();
         var videoHeight = $(".lVideo"+index).height();
         var url = self.allResponses[index].videoUrl;
