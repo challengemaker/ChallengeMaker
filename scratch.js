@@ -25,4 +25,4 @@ db.challenges.insert({"title" : "135 STAIR", "description" : "In the next 24 hou
 
 
 // Yout Mentoring Chllenge
-db.challenges.insert({"title" : "YOUTH MENTORING", "description" : "Mentor a young person in your community or donate just $25 to youth mentoring.", "sponsor":"YOUTH MENTORING",  "videoUrl" : "https://www.youtube.com/embed/_ca7AspnyqI", "photo" : "http://i66.tinypic.com/262oaye.png", "createdBy" : [ { "name" : "Jack", "userId" : 101010102 } ], "charity" : "YOUTH MENTORING", "charityLink": "http://youthmentoring.org/get-involved/donate/", "responses" : [ ], "goal" : 10000, "minimumDonation" : 25, "totalRaised" : 0 })
+db.challenges.insert({"title" : "MENTOR A YOUTH", "description" : "Mentor a young person in your community or donate just $25 to youth mentoring.", "sponsor":"YOUTH MENTORING",  "videoUrl" : "https://www.youtube.com/embed/_ca7AspnyqI", "photo" : "http://i66.tinypic.com/262oaye.png", "createdBy" : [ { "name" : "Jack", "userId" : 101010102 } ], "charity" : "YOUTH MENTORING", "charityLink": "http://youthmentoring.org/get-involved/donate/", "responses" : [ ], "goal" : 10000, "minimumDonation" : 25, "totalRaised" : 0 })

@@ -108,8 +108,8 @@ module.exports = function(app, passport){
     Challenge.find({}, function(err, challenges){
       if(err){res.send(err)}
       res.json(challenges)
-    });
-  });
+    })
+  })
 
 // show one challenge
   app.get('/api/challenges/:name', function(req, res){
