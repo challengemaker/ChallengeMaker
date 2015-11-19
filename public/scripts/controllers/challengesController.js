@@ -213,10 +213,10 @@ var app = angular.module('challengesController', [])
       ////////start all the video-photo toggle actions
       //////////////begin the video=photo toggle on the listview, single challenge
       self.swapResponse = function swap(index){
-        var height = ($(".lImageimg" +index).height()-5);
-        var width = $(".lImageimg"+index).width();
-        var videoHeight = $(".lVideo"+index).height();
-        var url = self.allResponses[index].videoUrl;
+        var height = ($(".lImageimg" +index).height()-5)
+        var width = $(".lImageimg"+index).width()
+        var videoHeight = $(".lVideo"+index).height()
+        var url = self.allResponses[index].videoUrl
         if(height > 0) {
           $('.lVideo'+index).append(
             "<iframe class='listVid"+index+
