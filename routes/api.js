@@ -421,19 +421,21 @@ module.exports = function(app, passport){
 
   /////////////////begin braintree routing/////
   ////////////////////////////////////////////
+  console.log(process.env.TEST_VARIABLE);
+  console.log(process.env);
   console.log(process.env.PRIVATE_KEY);
-  // var gateway = braintree.connect({
-  //   environment: braintree.Environment.Production,
-  //   merchantId: process.env.MERCHANT_ID,
-  //   publicKey: process.env.PUBLIC_KEY,
-  //   privateKey: process.env.PRIVATE_KEY
-  // })
   var gateway = braintree.connect({
     environment: braintree.Environment.Production,
-    merchantId: ignore.merchantId,
-    publicKey: ignore.publicKey,
-    privateKey: ignore.privateKey
+    merchantId: process.env.MERCHANT_ID,
+    publicKey: process.env.PUBLIC_KEY,
+    privateKey: process.env.PRIVATE_KEY
   })
+  // var gateway = braintree.connect({
+  //   environment: braintree.Environment.Production,
+  //   merchantId: ignore.merchantId,
+  //   publicKey: ignore.publicKey,
+  //   privateKey: ignore.privateKey
+  // })
 
   app.get("/client_token", function(req, res){
     gateway.clientToken.generate({}, function(err, response){
@@ -532,5 +534,5 @@ app.post('/api/submerchantverified', function(req, res){
 var db = require('../db.js');
 var url = db.url;
 
-mongoose.connect(ignore.dbUrl);
-// mongoose.connect(process.env.DB_URL)
+// mongoose.connect(ignore.dbUrl);
+mongoose.connect(process.env.DB_URL)
