@@ -680,7 +680,7 @@ body {
   width: 200px;
   margin-left: -135px;
   height: 100%;
-  margin-top: 46px;
+  margin-top: 52px;
   position: fixed;
   z-index: 200;
   background-color: #585858;
@@ -693,7 +693,7 @@ body {
       width: 400px;
       margin-left: -335px;
       height: 100%;
-      margin-top: 47px;
+      margin-top: 52px;
       position: fixed;
       z-index: 200;
       background-color: #585858;
@@ -962,7 +962,7 @@ body {
 .listContainer {
   /*outline: 2px solid black;*/
   position: relative;
-  padding: 0px;
+  padding: 0px 2px 0px 2px;
 }
 
 .listSectionRemove {
